@@ -1,0 +1,673 @@
+/* ============================================== */
+/* SECTION 10 — coupon tickets                     */
+/* ============================================== */
+.tickets{ background:var(--navy); color:#FAFAFA; padding:120px 56px }
+.tickets-head{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom:60px }
+.tickets-head h2{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:64px; color:#FAFAFA; margin:0; line-height:1 }
+.tickets-head h2 i{ font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-weight:500 }
+.tickets-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:36px }
+.ticket{
+  background:#FAFAFA; color:var(--navy);
+  position:relative; padding:34px 28px 30px;
+  min-height:420px; display:flex; flex-direction:column;
+  --notch: radial-gradient(circle 12px at 0 50%, transparent 98%, transparent 100%);
+}
+.ticket::before, .ticket::after{
+  content:""; position:absolute; left:0; right:0; height:14px;
+  background:
+    radial-gradient(circle 8px at 8px 0, var(--navy) 98%, transparent 100%) repeat-x;
+  background-size:18px 14px;
+}
+.ticket::before{ top:-7px }
+.ticket::after{ bottom:-7px; transform:scaleY(-1) }
+.ticket .step{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:14px; letter-spacing:.05em;
+}
+.ticket .step b{ font-size:42px; font-weight:500; vertical-align:-6px; margin-right:6px }
+.ticket h3{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:24px; margin:14px 0 8px; color:var(--navy); line-height:1.4 }
+.ticket .desc{ font-size:12.5px; line-height:1.95; color:var(--body); margin:0 0 18px }
+.ticket .perforation{
+  border-top:2px dashed rgba(26,42,58,.25); margin:20px -28px;
+  position:relative;
+}
+.ticket .price{
+  display:flex; align-items:baseline; gap:14px; margin-top:auto;
+}
+.ticket .price .was{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--sub);
+  font-size:22px; position:relative;
+}
+.ticket .price .was::after{
+  content:""; position:absolute; left:-4%; right:-4%; top:55%; height:2px; background:var(--amber);
+  transform:rotate(-6deg) scaleX(0); transform-origin:left;
+  animation:strikePop 1.4s ease forwards;
+  animation-delay:1s;
+}
+.ticket.in-view .price .was::after{ animation-play-state:running }
+@keyframes strikePop{ to{ transform:rotate(-6deg) scaleX(1) } }
+.ticket .price .now{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--navy);
+  font-size:54px; font-weight:500; line-height:.9;
+}
+.ticket .price .now sup{ font-size:.4em; vertical-align:.7em; font-family:"Noto Serif JP", serif; font-style:normal; font-weight:900 }
+.ticket .badge{
+  position:absolute; top:18px; right:18px;
+  font-family:"Noto Serif JP", serif; font-weight:900; font-size:10px; letter-spacing:.2em;
+  background:var(--gold); color:var(--navy); padding:5px 10px; transform:rotate(4deg);
+}
+.ticket .scis{ position:absolute; left:50%; top:-20px; transform:translateX(-50%); font-size:18px }
+
+@media (max-width:900px){
+  .tickets-grid{ grid-template-columns:1fr; gap:50px }
+}
+
+/* ========================================================
+   セクション10:料金プラン(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示 */
+  .tickets,
+  .section.tickets {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .pricing-mobile {
+    background: #FBF9F4;
+    padding: 70px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== ヘッダー ===== */
+  .pr-header {
+    text-align: center;
+    padding: 0 24px 50px;
+  }
+
+  .pr-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+  }
+
+  .pr-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.55;
+    color: #1A2A3A;
+    margin: 0 0 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .pr-title-accent {
+    color: #C5A059;
+    position: relative;
+    display: inline-block;
+  }
+
+  .pr-title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #C5A059;
+  }
+
+  .pr-subtitle {
+    margin: 0 0 36px;
+  }
+
+  .pr-subtitle em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #555;
+  }
+
+  /* ステップ進行ナビ */
+  .pr-stepnav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(26, 42, 58, 0.05);
+  }
+
+  .pr-stepnav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pr-stepnav-num {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pr-stepnav-item--1 .pr-stepnav-num { color: #7FB7A3; }
+  .pr-stepnav-item--2 .pr-stepnav-num { color: #C5A059; }
+  .pr-stepnav-item--3 .pr-stepnav-num { color: #1A2A3A; }
+
+  .pr-stepnav-label {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: #777;
+  }
+
+  .pr-stepnav-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, #7FB7A3 0%, #C5A059 50%, #1A2A3A 100%);
+    max-width: 40px;
+  }
+
+  /* ===== STEPブロック共通 ===== */
+  .pr-step {
+    margin: 0 16px 50px;
+    padding: 32px 0 28px;
+    border-radius: 8px;
+    box-shadow: 0 8px 28px rgba(26, 42, 58, 0.08);
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .pr-step.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* STEPごとの背景色 */
+  .pr-step--1 {
+    background: linear-gradient(180deg, #F0F8F4 0%, #FFFFFF 100%);
+    border-top: 4px solid #7FB7A3;
+  }
+
+  .pr-step--2 {
+    background: linear-gradient(180deg, #FFF8E7 0%, #FFFFFF 100%);
+    border-top: 4px solid #C5A059;
+  }
+
+  .pr-step--3 {
+    background: linear-gradient(180deg, #1A2A3A 0%, #243349 100%);
+    border-top: 4px solid #C5A059;
+    color: #FAFAFA;
+  }
+
+  /* ===== STEPヘロー部分 ===== */
+  .pr-step-hero {
+    padding: 0 24px 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .pr-step-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    background: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(26, 42, 58, 0.08);
+  }
+
+  .pr-step--1 .pr-step-badge { color: #7FB7A3; }
+  .pr-step--2 .pr-step-badge { color: #8A6A2E; }
+  .pr-step--3 .pr-step-badge {
+    color: #C5A059;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+  }
+
+  .pr-step-badge-en {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+
+  .pr-step-badge-num {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pr-step-emoji {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 16px;
+    animation: prFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes prFloat {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50%      { transform: translateY(-6px) rotate(5deg); }
+  }
+
+  .pr-step-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .pr-step--1 .pr-step-title,
+  .pr-step--2 .pr-step-title { color: #1A2A3A; }
+  .pr-step--3 .pr-step-title { color: #FAFAFA; }
+
+  .pr-step-title-sub {
+    display: block;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+
+  .pr-step--1 .pr-step-title-sub { color: #5A8A78; }
+  .pr-step--2 .pr-step-title-sub { color: #8A6A2E; }
+  .pr-step--3 .pr-step-title-sub { color: #C5A059; }
+
+  /* 人物画像 */
+  .pr-step-image {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 8px 24px rgba(26, 42, 58, 0.15);
+  }
+
+  .pr-step--3 .pr-step-image {
+    border-color: #C5A059;
+  }
+
+  .pr-step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .pr-step-desc {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.95;
+    margin: 0;
+  }
+
+  .pr-step--1 .pr-step-desc,
+  .pr-step--2 .pr-step-desc { color: #555; }
+  .pr-step--3 .pr-step-desc { color: rgba(250, 250, 250, 0.85); }
+
+  .pr-step-desc strong {
+    font-weight: 900;
+  }
+
+  .pr-step--1 .pr-step-desc strong { color: #1A2A3A; }
+  .pr-step--2 .pr-step-desc strong { color: #1A2A3A; }
+  .pr-step--3 .pr-step-desc strong { color: #FAFAFA; }
+
+  /* ===== 会員バッジ ===== */
+  .pr-member-badge {
+    margin: 0 24px 24px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #FFE8B0 0%, #C5A059 100%);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+  }
+
+  .pr-member-badge--premium {
+    background: linear-gradient(135deg, #C5A059 0%, #8A6A2E 100%);
+  }
+
+  .pr-member-badge-icon {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 1;
+    animation: prPulseStar 1.5s ease-in-out infinite;
+  }
+
+  @keyframes prPulseStar {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.2); }
+  }
+
+  .pr-member-badge-text {
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .pr-member-badge-text strong {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 15px;
+    color: #1A2A3A;
+  }
+
+  .pr-member-badge--premium .pr-member-badge-text strong {
+    color: #FAFAFA;
+  }
+
+  .pr-member-badge-text em {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(26, 42, 58, 0.7);
+    margin-top: 2px;
+  }
+
+  .pr-member-badge--premium .pr-member-badge-text em {
+    color: rgba(250, 250, 250, 0.7);
+  }
+
+  /* ===== 料金リスト共通 ===== */
+  .pr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 24px;
+  }
+
+  .pr-item {
+    background: #FFFFFF;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #C5A059;
+    box-shadow: 0 2px 6px rgba(26, 42, 58, 0.04);
+  }
+
+  .pr-step--1 .pr-item { border-left-color: #7FB7A3; }
+  .pr-step--2 .pr-item { border-left-color: #C5A059; }
+
+  .pr-item-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1A2A3A;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+
+  .pr-item-price {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A2A3A;
+    margin: 0;
+    line-height: 1;
+    text-align: right;
+  }
+
+  .pr-step--1 .pr-item-price { color: #5A8A78; }
+
+  .pr-item-price span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #777;
+    margin-left: 2px;
+  }
+
+  .pr-item-price em {
+    font-style: normal;
+    font-size: 18px;
+    margin-right: 2px;
+  }
+
+  .pr-item-unit {
+    font-family: 'Noto Serif JP', serif;
+    font-style: normal;
+    font-size: 11px !important;
+    color: #777 !important;
+    background: rgba(197, 160, 89, 0.1);
+    padding: 2px 6px;
+    margin-right: 6px;
+    border-radius: 2px;
+  }
+
+  /* ===== 会員価格(2列) ===== */
+  .pr-item--dual {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pr-item-prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(197, 160, 89, 0.3);
+  }
+
+  .pr-item-price-old {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #999;
+    margin: 0;
+    text-decoration: line-through;
+  }
+
+  .pr-item-price-old span {
+    font-size: 11px;
+  }
+
+  .pr-item-price-member {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 700;
+    color: #C44536;
+    margin: 0;
+  }
+
+  .pr-item-price-member span {
+    font-size: 12px;
+    margin-left: 1px;
+  }
+
+  .pr-item-price-member--dash {
+    color: #BBB !important;
+  }
+
+  /* ===== STEP3 プレミアムカード ===== */
+  .pr-list--premium {
+    margin: 0 16px;
+  }
+
+  .pr-item--card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-left: 4px solid #C5A059;
+    padding: 22px 20px 20px;
+    margin-bottom: 14px;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+
+  .pr-item--card-top {
+    background: linear-gradient(135deg, rgba(197, 160, 89, 0.25) 0%, rgba(197, 160, 89, 0.1) 100%);
+    border: 1px solid #C5A059;
+    border-left-width: 4px;
+    padding-top: 32px;
+  }
+
+  .pr-item-card-ribbon {
+    position: absolute;
+    top: -1px;
+    right: 12px;
+    background: #C44536;
+    color: #FFFFFF;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 4px 12px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 6px rgba(196, 69, 54, 0.4);
+  }
+
+  .pr-item-card-name {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 17px;
+    line-height: 1.4;
+    color: #FAFAFA;
+    margin: 0 0 14px;
+  }
+
+  .pr-item-card-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pr-item-card-old {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(250, 250, 250, 0.5);
+    margin: 0;
+    text-decoration: line-through;
+  }
+
+  .pr-item-card-member {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    font-weight: 700;
+    color: #C5A059;
+    margin: 0;
+    line-height: 1.1;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pr-item-card-member em {
+    font-size: 18px;
+    margin-left: 0;
+  }
+
+  .pr-tag {
+    font-family: 'Noto Serif JP', serif;
+    font-style: normal;
+    font-size: 10px;
+    font-weight: 700;
+    color: #1A2A3A;
+    background: #C5A059;
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+  }
+
+  /* ===== ステップ間ブリッジ ===== */
+  .pr-bridge {
+    text-align: center;
+    margin: 0 24px 50px;
+  }
+
+  .pr-bridge-line {
+    width: 1px;
+    height: 30px;
+    background: #C5A059;
+    margin: 0 auto;
+  }
+
+  .pr-bridge-arrow {
+    font-size: 28px;
+    color: #C5A059;
+    line-height: 1;
+    margin: 8px 0;
+    animation: prBounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes prBounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+  }
+
+  .pr-bridge-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: #777;
+    margin: 0 0 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== 締めメッセージ ===== */
+  .pr-closing {
+    text-align: center;
+    margin: 30px 24px 0;
+    padding: 28px 20px;
+    background: #FFFFFF;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 4px;
+  }
+
+  .pr-closing-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #1A2A3A;
+    margin: 0 0 12px;
+  }
+
+  .pr-closing-text strong {
+    color: #C44536;
+    font-weight: 900;
+    font-size: 18px;
+    border-bottom: 2px solid #C44536;
+    padding-bottom: 2px;
+  }
+
+  .pr-closing-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    line-height: 1.85;
+    color: #555;
+    margin: 0;
+  }
+
+  /* ===== JS未動作フォールバック ===== */
+  .pr-step {
+    opacity: 1;
+    transform: none;
+  }
+
+}

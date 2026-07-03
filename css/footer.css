@@ -1,0 +1,23 @@
+/* ============================================== */
+/* Footer                                          */
+/* ============================================== */
+footer.foot{
+  background:var(--navy); color:rgba(250,250,250,.6);
+  padding:50px 56px 30px; border-top:1px solid rgba(250,250,250,.1);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
+  font-size:11px; letter-spacing:.2em;
+}
+footer.foot a:hover{ color:var(--gold) }
+footer.foot .brand{ font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-size:18px; letter-spacing:.02em }
+
+/* helpers */
+.glitch{ display:inline-block; position:relative }
+.glitch.glitching{ animation: glitch .15s linear infinite }
+@keyframes glitch{
+  0%{ transform:translate(0,0); filter:none}
+  20%{ transform:translate(-2px,1px); filter:hue-rotate(8deg)}
+  40%{ transform:translate(2px,-1px) }
+  60%{ transform:translate(-1px,2px); filter:hue-rotate(-5deg)}
+  80%{ transform:translate(1px,-2px)}
+  100%{ transform:translate(0,0)}
+}

@@ -1,0 +1,388 @@
+/* ============================================== */
+/* SECTION 6 — strip pricing teaser                */
+/* ============================================== */
+.price-strip{
+  background:var(--gold); color:var(--navy);
+  padding:50px 56px; display:flex; gap:40px; align-items:center; justify-content:space-between;
+  overflow:hidden; position:relative; flex-wrap:wrap;
+}
+.price-strip .big{
+  font-family:"EB Garamond", serif; font-style:italic;
+  font-size:clamp(80px, 14vw, 220px); line-height:.85;
+  letter-spacing:-.02em;
+}
+.price-strip .big sup{ font-size:.3em; vertical-align:.6em; font-family:"Noto Serif JP", serif; font-style:normal; font-weight:900 }
+.price-strip .lbl{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:18px; max-width:24ch; line-height:1.5 }
+.price-strip .ribbon{ font-family:"EB Garamond", serif; font-style:italic; font-size:14px; opacity:.7 }
+
+/* ========================================================
+   セクション6:選ばれる4つの理由(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示(クラス名が違う場合は調整) */
+  .price-strip,
+  .section.price-strip {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .reasons-mobile {
+    position: relative;
+    background: #1A2A3A;
+    padding: 0 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== 上部スライドバナー ===== */
+  .rs-marquee {
+    background: #C5A059;
+    color: #1A2A3A;
+    padding: 12px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(26, 42, 58, 0.2);
+    border-bottom: 1px solid rgba(26, 42, 58, 0.2);
+  }
+
+  .rs-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: rsMarquee 25s linear infinite;
+  }
+
+  .rs-marquee-track span {
+    flex-shrink: 0;
+    padding-right: 40px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  @keyframes rsMarquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ===== ヘッダー ===== */
+  .rs-header {
+    padding: 60px 24px 50px;
+    text-align: center;
+  }
+
+  .rs-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .rs-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1.4;
+    color: #FAFAFA;
+    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .rs-title-accent {
+    display: inline-block;
+    color: #C5A059;
+    position: relative;
+  }
+
+  .rs-title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #C5A059 0%, #F39C12 100%);
+  }
+
+  .rs-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.95;
+    color: rgba(250, 250, 250, 0.7);
+    margin: 0;
+  }
+
+  .rs-sub em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #C5A059;
+    font-size: 16px;
+  }
+
+  /* ===== カード一覧 ===== */
+  .rs-cards {
+    padding: 0 16px;
+  }
+
+  .rs-card {
+    position: relative;
+    margin-bottom: 32px;
+    opacity: 0;
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .rs-card--left {
+    margin-right: 24px;
+    transform: translateX(-20px);
+  }
+
+  .rs-card--right {
+    margin-left: 24px;
+    transform: translateX(20px);
+  }
+
+  .rs-card.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* 巨大数字 */
+  .rs-card-num {
+    position: absolute;
+    top: -20px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 88px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(197, 160, 89, 0.18);
+    letter-spacing: -0.03em;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .rs-card--left .rs-card-num {
+    right: 12px;
+  }
+
+  .rs-card--right .rs-card-num {
+    left: 12px;
+  }
+
+  /* チケット本体 */
+  .rs-card-body {
+    position: relative;
+    background: #FAFAFA;
+    padding: 32px 22px 32px;
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+
+  /* チケット風の丸い切り欠き(左側) */
+  .rs-card-body::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: #1A2A3A;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* チケット風の丸い切り欠き(右側) */
+  .rs-card-body::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: #1A2A3A;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* チケット内部の点線(中央のミシン目) */
+  .rs-card-body-inner {
+    position: relative;
+  }
+
+  .rs-card-body-inner::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    right: -22px;
+    top: 50%;
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(26, 42, 58, 0.15) 0,
+      rgba(26, 42, 58, 0.15) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* チケット上部のラベル */
+  .rs-card-tag {
+    display: inline-block;
+    background: #1A2A3A;
+    color: #C5A059;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    padding: 4px 10px;
+    margin: 0 0 14px;
+  }
+
+  /* アイコン */
+  .rs-card-icon {
+    position: absolute;
+    top: 24px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1A2A3A 0%, #2a3f55 100%);
+    color: #C5A059;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-360deg) scale(0);
+    transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s;
+  }
+
+  .rs-card.is-visible .rs-card-icon {
+    transform: rotate(0) scale(1);
+  }
+
+  /* 見出し */
+  .rs-card-head {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 19px;
+    line-height: 1.55;
+    color: #1A2A3A;
+    margin: 0 0 14px;
+    letter-spacing: 0.01em;
+    padding-right: 56px; /* アイコンと被らないよう */
+  }
+
+  .rs-card-head em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #C5A059;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 2px;
+  }
+
+  /* 見出しのアクセントライン */
+  .rs-card-head-line {
+    position: relative;
+    display: inline-block;
+  }
+
+  .rs-card-head-line::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 0;
+    height: 6px;
+    background: rgba(197, 160, 89, 0.35);
+    z-index: -1;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1) 0.7s;
+  }
+
+  .rs-card.is-visible .rs-card-head-line::after {
+    width: 100%;
+  }
+
+  /* 本文 */
+  .rs-card-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.95;
+    color: #555;
+    margin: 0;
+  }
+
+  .rs-card-text mark {
+    background: linear-gradient(transparent 60%, rgba(243, 156, 18, 0.35) 60%);
+    color: #1A2A3A;
+    font-weight: 700;
+    padding: 0 2px;
+  }
+
+  /* チケットの「点線」装飾(下端) */
+  .rs-card-body::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(26, 42, 58, 0.2) 0,
+      rgba(26, 42, 58, 0.2) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  /* ===== 締めメッセージ ===== */
+  .rs-closing {
+    margin-top: 40px;
+    padding: 0 24px;
+    text-align: center;
+  }
+
+  .rs-closing-mark {
+    font-family: 'EB Garamond', serif;
+    color: #C5A059;
+    font-size: 16px;
+    letter-spacing: 0.5em;
+    margin-bottom: 20px;
+  }
+
+  .rs-closing-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #FAFAFA;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .rs-closing-text strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 22px;
+    border-bottom: 2px solid #F39C12;
+    padding-bottom: 4px;
+  }
+/* JS未動作でも表示されるフォールバック */
+  .rs-card {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,497 @@
+/* ============================================== */
+/* SECTION 14 — FAQ                                */
+/* ============================================== */
+.faq{ background:var(--off); padding:120px 56px; border-top:1px solid var(--line) }
+.faq-grid{ display:grid; grid-template-columns: 1fr 2fr; gap:60px }
+.faq-grid .lead h2{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:64px; color:var(--navy); margin:0 0 14px; line-height:1 }
+.faq-grid .lead h2 i{ font-style:italic; font-family:"EB Garamond", serif; color:var(--gold) }
+.faq-grid .lead p{ font-size:13px; line-height:2; color:var(--body) }
+.faq-grid .lead .vert{
+  margin-top:50px; writing-mode:vertical-rl;
+  font-size:11px; letter-spacing:.4em; color:var(--sub);
+}
+.faq-list{ border-top:1px solid var(--line) }
+.faq-item{ border-bottom:1px solid var(--line); padding:22px 0; cursor:none }
+@media (max-width:900px){ .faq-item{cursor:pointer} .faq-grid{ grid-template-columns:1fr; gap:30px } }
+.faq-item summary{ list-style:none; display:flex; gap:18px; align-items:flex-start }
+.faq-item summary::-webkit-details-marker{ display:none }
+.faq-item .qmark{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:32px; line-height:.9; transition: transform .4s ease;
+  width:30px; text-align:center; flex-shrink:0;
+}
+.faq-item[open] .qmark{ transform:rotate(180deg); color:var(--amber) }
+.faq-item[open] .qmark::before{ content:"!" }
+.faq-item:not([open]) .qmark::before{ content:"?" }
+.faq-item .qmark::before{ display:inline-block }
+.faq-item .qtext{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:18px; color:var(--navy); flex:1; line-height:1.5 }
+.faq-item .answer{
+  margin:14px 0 0 48px; font-size:13px; line-height:2; color:var(--body);
+}
+.faq-item[open] .answer .typ{
+  display:inline-block; overflow:hidden; white-space:normal;
+}
+
+/* ========================================================
+   セクション14:FAQ(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示 */
+  .faq,
+  .section.faq {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .faq-mobile {
+    position: relative;
+    background: #FBF8FA;
+    padding: 70px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== ぐにゃぐにゃブロブ背景 ===== */
+  .fq-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .fq-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+
+  .fq-blob--1 {
+    width: 280px;
+    height: 280px;
+    top: -50px;
+    left: -80px;
+    background: radial-gradient(circle, #C896C2 0%, transparent 70%);
+    animation: fqBlob1 12s ease-in-out infinite;
+  }
+
+  .fq-blob--2 {
+    width: 250px;
+    height: 250px;
+    top: 25%;
+    right: -100px;
+    background: radial-gradient(circle, #7A5AA8 0%, transparent 70%);
+    animation: fqBlob2 14s ease-in-out infinite;
+    opacity: 0.35;
+  }
+
+  .fq-blob--3 {
+    width: 320px;
+    height: 320px;
+    bottom: 20%;
+    left: -120px;
+    background: radial-gradient(circle, #E8B73E 0%, transparent 70%);
+    animation: fqBlob3 16s ease-in-out infinite;
+    opacity: 0.3;
+  }
+
+  .fq-blob--4 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
+    background: radial-gradient(circle, #C896C2 0%, transparent 70%);
+    animation: fqBlob4 11s ease-in-out infinite;
+    opacity: 0.4;
+  }
+
+  @keyframes fqBlob1 {
+    0%, 100% { border-radius: 50% 60% 70% 40% / 60% 40% 50% 70%; transform: translate(0, 0) rotate(0deg); }
+    33%      { border-radius: 60% 40% 50% 70% / 50% 60% 70% 40%; transform: translate(30px, 20px) rotate(60deg); }
+    66%      { border-radius: 40% 70% 60% 50% / 70% 50% 40% 60%; transform: translate(-20px, 40px) rotate(120deg); }
+  }
+
+  @keyframes fqBlob2 {
+    0%, 100% { border-radius: 50% 60% 30% 70% / 60% 40% 70% 30%; transform: translate(0, 0) rotate(0deg); }
+    33%      { border-radius: 70% 30% 60% 40% / 40% 70% 30% 60%; transform: translate(-25px, 30px) rotate(-60deg); }
+    66%      { border-radius: 60% 50% 40% 70% / 30% 60% 50% 70%; transform: translate(15px, -20px) rotate(-120deg); }
+  }
+
+  @keyframes fqBlob3 {
+    0%, 100% { border-radius: 60% 40% 50% 70% / 50% 60% 40% 70%; transform: translate(0, 0) scale(1); }
+    50%      { border-radius: 40% 60% 70% 30% / 70% 40% 60% 50%; transform: translate(40px, -30px) scale(1.1); }
+  }
+
+  @keyframes fqBlob4 {
+    0%, 100% { border-radius: 70% 30% 50% 50% / 40% 60% 70% 30%; transform: translate(0, 0) rotate(0deg); }
+    50%      { border-radius: 30% 70% 60% 40% / 60% 30% 50% 70%; transform: translate(-30px, -20px) rotate(180deg); }
+  }
+
+  /* ===== ヘッダー ===== */
+  .fq-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px 40px;
+  }
+
+  .fq-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #7A5AA8;
+    letter-spacing: 0.2em;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+
+  /* 巨大なQバブル */
+  .fq-bubble-q {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #7A5AA8 0%, #C896C2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 56px;
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow:
+      0 8px 24px rgba(122, 90, 168, 0.4),
+      inset 0 -4px 12px rgba(0, 0, 0, 0.1);
+    animation: fqBubbleFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes fqBubbleFloat {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50%      { transform: translateY(-8px) rotate(5deg); }
+  }
+
+  .fq-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.4;
+    color: #1A2A3A;
+    margin: 0 0 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .fq-title-accent {
+    color: #7A5AA8;
+    position: relative;
+    display: inline-block;
+  }
+
+  .fq-title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -2%;
+    right: -2%;
+    height: 8px;
+    background: rgba(200, 150, 194, 0.4);
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .fq-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    line-height: 1.85;
+    color: #555;
+    margin: 0;
+  }
+
+  .fq-subtitle em {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #7A5AA8;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  /* ===== メイン画像 ===== */
+  .fq-hero-img {
+    position: relative;
+    z-index: 2;
+    margin: 0 24px 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(122, 90, 168, 0.2);
+  }
+
+  .fq-hero-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .fq-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(122, 90, 168, 0.25) 0%,
+      rgba(26, 42, 58, 0.3) 100%
+    );
+  }
+
+  .fq-hero-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .fq-hero-tag-en {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #7A5AA8;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+
+  /* ===== FAQリスト ===== */
+  .fq-list {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+  }
+
+  .fq-item {
+    background: #FFFFFF;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(122, 90, 168, 0.08);
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .fq-item[open] {
+    border-color: #7A5AA8;
+    box-shadow: 0 8px 24px rgba(122, 90, 168, 0.18);
+  }
+
+  /* 重要FAQの装飾 */
+  .fq-item--featured {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F0F8 100%);
+    border-color: rgba(122, 90, 168, 0.3);
+  }
+
+  /* ===== サマリー(質問部分) ===== */
+  .fq-item-summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 18px 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+  }
+
+  .fq-item-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* 重要マーク★ */
+  .fq-item-star {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #E8B73E 0%, #F39C12 100%);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(232, 183, 62, 0.4);
+    z-index: 2;
+    animation: fqStarBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes fqStarBounce {
+    0%, 100% { transform: scale(1) rotate(0); }
+    50%      { transform: scale(1.15) rotate(20deg); }
+  }
+
+  /* Qバッジ(円形) */
+  .fq-item-q {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7A5AA8 0%, #C896C2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(122, 90, 168, 0.3);
+  }
+
+  .fq-item-q-mark {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .fq-item-q-num {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    line-height: 1;
+    margin-top: 1px;
+    opacity: 0.9;
+  }
+
+  /* 質問テキスト */
+  .fq-item-question {
+    flex: 1;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #1A2A3A;
+    margin: 0;
+  }
+
+  /* +/- トグルアイコン */
+  .fq-item-toggle {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(122, 90, 168, 0.1);
+    color: #7A5AA8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 300;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .fq-item[open] .fq-item-toggle {
+    transform: rotate(135deg);
+    background: #7A5AA8;
+    color: #FFFFFF;
+  }
+
+  /* ===== 回答部分 ===== */
+  .fq-item-answer {
+    padding: 0 18px 22px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: linear-gradient(180deg, transparent 0%, rgba(122, 90, 168, 0.04) 100%);
+  }
+
+  .fq-item-a-mark {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #E8B73E 0%, #F39C12 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(232, 183, 62, 0.3);
+  }
+
+  .fq-item-answer p {
+    flex: 1;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    line-height: 1.95;
+    color: #444;
+    margin: 0;
+    padding-top: 6px;
+  }
+
+  .fq-item-answer strong {
+    color: #1A2A3A;
+    font-weight: 900;
+  }
+
+  .fq-item-answer mark {
+    background: linear-gradient(transparent 60%, rgba(200, 150, 194, 0.5) 60%);
+    color: #1A2A3A;
+    font-weight: 900;
+    padding: 0 2px;
+  }
+
+  /* ===== 締めメッセージ ===== */
+  .fq-closing {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 50px 24px 0;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, #7A5AA8 0%, #5C3F8A 100%);
+    border-radius: 30px;
+    color: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .fq-closing-bubble {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(232, 183, 62, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: fqClosingBubble 4s ease-in-out infinite;
+  }
+
+  @keyframes fqClosingBubble {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.2); }
+  }
+
+  .fq-closing-text {
+    position: relative;
+    z-index: 1;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    line-height: 1.95;
+    color: #FFFFFF;
+    margin: 0;
+  }
+
+  .fq-closing-text strong {
+    color: #FFE8B0;
+    font-weight: 900;
+    font-size: 17px;
+    border-bottom: 2px solid #E8B73E;
+    padding-bottom: 2px;
+  }
+
+}

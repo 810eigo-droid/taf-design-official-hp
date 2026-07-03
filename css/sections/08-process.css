@@ -1,0 +1,785 @@
+/* ============================================== */
+/* SECTION 8 — process timeline                    */
+/* ============================================== */
+.proc{ background:var(--off); padding:120px 56px; border-top:1px solid var(--line) }
+.proc-head{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; margin-bottom:60px; gap:20px }
+.proc-head h2{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:64px; color:var(--navy); margin:0 }
+.proc-head h2 i{ font-style:italic; font-family:"EB Garamond", serif; color:var(--gold); font-weight:500 }
+.proc-rail{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:20px; position:relative;
+}
+.proc-rail::before{
+  content:""; position:absolute; left:5%; right:5%; top:50px; height:1px;
+  background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px);
+}
+.proc-step{ position:relative }
+.proc-step .dot{
+  width:18px; height:18px; border-radius:50%; background:var(--off); border:2px solid var(--gold);
+  position:absolute; left:0; top:42px;
+}
+.proc-step .num{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:13px; padding-left:32px; padding-top:36px;
+}
+.proc-step h3{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:18px; margin:18px 0 8px; color:var(--navy); padding-left:0 }
+.proc-step p{ font-size:12px; line-height:1.85; margin:0 }
+.proc-step:nth-child(2){ transform:translateY(20px) }
+.proc-step:nth-child(4){ transform:translateY(20px) }
+
+@media (max-width:900px){
+  .proc-rail{ grid-template-columns:1fr 1fr }
+  .proc-step:nth-child(2),.proc-step:nth-child(4){ transform:none }
+  .proc-rail::before{ display:none }
+}
+
+/* ========================================================
+   セクション8:幻想と低価格の秘密(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示(クラス名は調整) */
+  .process,
+  .section.process {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .truth-mobile {
+    position: relative;
+    background: #FBF7F2;
+    padding: 70px 0 80px;
+    overflow: hidden;
+  }
+
+  /* テラコッタの斜めライン背景 */
+  .truth-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: repeating-linear-gradient(
+      45deg,
+      #C44536 0,
+      #C44536 12px,
+      #FBF7F2 12px,
+      #FBF7F2 24px
+    );
+    z-index: 1;
+  }
+
+  /* ===== 警告スタンプ ===== */
+  .th-alert {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    position: relative;
+
+    opacity: 0;
+    transform: rotate(-30deg) scale(0.5);
+    transition:
+      opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .th-alert.is-visible {
+    opacity: 1;
+    transform: rotate(-8deg) scale(1);
+    animation: thAlertShake 3s ease-in-out 1s infinite;
+  }
+
+  @keyframes thAlertShake {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50%      { transform: rotate(-12deg) scale(1.05); }
+  }
+
+  .th-alert-stamp {
+    width: 100%;
+    height: 100%;
+    border: 3px double #C44536;
+    border-radius: 50%;
+    background: #FBF7F2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #C44536;
+    box-shadow:
+      0 0 0 4px #FBF7F2,
+      0 0 0 5px rgba(196, 69, 54, 0.3);
+  }
+
+  .th-alert-line {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .th-alert-text {
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .th-alert-text span {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    line-height: 1;
+  }
+
+  .th-alert-text strong {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-top: 2px;
+  }
+
+  /* ===== ヘッダー ===== */
+  .th-header {
+    text-align: center;
+    padding: 0 24px 40px;
+  }
+
+  .th-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #C44536;
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .th-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 1.55;
+    color: #1A2A3A;
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+  }
+
+  .th-title-accent {
+    position: relative;
+    display: inline-block;
+    color: #C44536;
+  }
+
+  .th-title-accent::before {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: -4px;
+    right: -4px;
+    height: 8px;
+    background: rgba(196, 69, 54, 0.2);
+    z-index: -1;
+  }
+
+  .th-question {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #1A2A3A;
+    margin: 0;
+    padding: 18px 16px;
+    background: #FFFFFF;
+    border: 1px solid rgba(196, 69, 54, 0.2);
+    border-radius: 4px;
+  }
+
+  .th-question em {
+    display: inline-block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #C44536;
+    font-size: 22px;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+
+  .th-question strong {
+    color: #C44536;
+    font-weight: 900;
+    font-size: 18px;
+  }
+
+  /* ===== 幻想 vs 現実 ===== */
+  .th-vs {
+    padding: 0 24px;
+    margin-bottom: 60px;
+  }
+
+  .th-vs-card {
+    position: relative;
+    padding: 28px 20px;
+    border-radius: 4px;
+    margin-bottom: 0;
+
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .th-vs-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 幻想カード(打ち消し) */
+  .th-vs-card--myth {
+    background: rgba(119, 119, 119, 0.08);
+    border: 2px dashed #999;
+  }
+
+  .th-vs-card--myth::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: #C44536;
+    transform: rotate(-3deg);
+    opacity: 0;
+    transition: opacity 0.6s ease 0.5s;
+  }
+
+  .th-vs-card--myth.is-visible::after {
+    opacity: 0.6;
+  }
+
+  /* 現実カード */
+  .th-vs-card--truth {
+    background: #1A2A3A;
+    color: #FAFAFA;
+    border: 2px solid #C5A059;
+    box-shadow: 0 8px 24px rgba(26, 42, 58, 0.2);
+  }
+
+  .th-vs-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .th-vs-label-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .th-vs-card--myth .th-vs-label-num {
+    background: #999;
+    color: #FAFAFA;
+  }
+
+  .th-vs-card--truth .th-vs-label-num {
+    background: #C5A059;
+    color: #1A2A3A;
+  }
+
+  .th-vs-label-text {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+  }
+
+  .th-vs-card--myth .th-vs-label-text {
+    color: #777;
+  }
+
+  .th-vs-card--truth .th-vs-label-text {
+    color: #C5A059;
+  }
+
+  .th-vs-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    line-height: 1.95;
+    margin: 0;
+  }
+
+  .th-vs-card--myth .th-vs-text {
+    color: #555;
+  }
+
+  .th-vs-card--truth .th-vs-text {
+    color: #FAFAFA;
+  }
+
+  .th-vs-text strong {
+    font-weight: 900;
+    font-size: 17px;
+  }
+
+  .th-vs-card--truth .th-vs-text strong {
+    color: #C5A059;
+  }
+
+  /* 矢印エリア */
+  .th-vs-arrow {
+    text-align: center;
+    padding: 16px 0;
+    color: #C44536;
+  }
+
+  .th-vs-arrow span {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+  }
+
+  .th-vs-arrow-icon {
+    font-size: 24px;
+    line-height: 1;
+    color: #C44536;
+    animation: thArrowBounce 1.8s ease-in-out infinite;
+  }
+
+  @keyframes thArrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(4px); }
+  }
+
+  /* ===== 数式インフォグラフィック ===== */
+  .th-formula {
+    margin: 0 24px 60px;
+    padding: 32px 20px 28px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(26, 42, 58, 0.06);
+    position: relative;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+  }
+
+  .th-formula::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, #C5A059 0%, #C44536 100%);
+  }
+
+  .th-formula-title {
+    text-align: center;
+    margin-bottom: 28px;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #1A2A3A;
+    line-height: 1.4;
+  }
+
+  .th-formula-title-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .th-formula-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .th-formula-row {
+    width: 100%;
+    background: #FBF7F2;
+    padding: 14px 16px;
+    border-left: 3px solid #C5A059;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .th-formula-row.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .th-formula-tag {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #C5A059;
+    color: #FBF7F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .th-formula-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    color: #1A2A3A;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .th-formula-op {
+    font-family: 'EB Garamond', serif;
+    font-size: 32px;
+    color: #C5A059;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .th-formula-op--equal {
+    color: #C44536;
+  }
+
+  .th-formula-result {
+    width: 100%;
+    background: linear-gradient(135deg, #1A2A3A 0%, #2a3f55 100%);
+    color: #FAFAFA;
+    padding: 20px 18px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(26, 42, 58, 0.25);
+
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+      opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .th-formula-result.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .th-formula-result-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #C5A059;
+    letter-spacing: 0.3em;
+    margin-bottom: 8px;
+  }
+
+  .th-formula-result-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #FAFAFA;
+  }
+
+  .th-formula-result-text strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 17px;
+  }
+
+  /* ===== 役割分担 ===== */
+  .th-roles {
+    position: relative;
+    padding: 60px 24px 40px;
+    margin: 0 -24px;
+    overflow: hidden;
+  }
+
+  /* タイプライター背景画像(うっすら) */
+  .th-roles::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../../images/truth-typewriter.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* オフホワイトのオーバーレイ(可読性確保) */
+  .th-roles::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../../images/truth-typewriter.webp');
+    background-size: 320px auto;
+    background-position: center 80px;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* 中身は最前面に */
+  .th-roles > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .th-roles-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #1A2A3A;
+    text-align: center;
+    margin: 0 0 20px;
+    line-height: 1.55;
+  }
+
+  .th-roles-title-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: #C44536;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .th-roles-title-mark {
+    color: #C44536;
+    position: relative;
+    display: inline-block;
+  }
+
+  .th-roles-title-mark::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #C44536;
+  }
+
+  .th-roles-intro {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.95;
+    color: #555;
+    text-align: center;
+    margin: 0 0 36px;
+  }
+
+  .th-roles-intro strong {
+    color: #C44536;
+    font-weight: 900;
+  }
+
+  .th-role-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .th-role-card {
+    position: relative;
+    background: #FFFFFF;
+    padding: 24px 22px;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(26, 42, 58, 0.06);
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .th-role-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 左側のカラーバー */
+  .th-role-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 5px;
+  }
+
+  .th-role-card--01::before { background: #C5A059; }
+  .th-role-card--02::before { background: #8A6A2E; }
+  .th-role-card--03::before { background: #C44536; }
+
+  .th-role-num {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .th-role-card--01 .th-role-num { color: rgba(197, 160, 89, 0.2); }
+  .th-role-card--02 .th-role-num { color: rgba(138, 106, 46, 0.2); }
+  .th-role-card--03 .th-role-num { color: rgba(196, 69, 54, 0.2); }
+
+  .th-role-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .th-role-card--01 .th-role-tag {
+    background: rgba(197, 160, 89, 0.15);
+    color: #8A6A2E;
+  }
+  .th-role-card--02 .th-role-tag {
+    background: rgba(138, 106, 46, 0.15);
+    color: #8A6A2E;
+  }
+  .th-role-card--03 .th-role-tag {
+    background: rgba(196, 69, 54, 0.15);
+    color: #C44536;
+  }
+
+  .th-role-head {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #1A2A3A;
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .th-role-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0 0 14px;
+  }
+
+  .th-role-text strong {
+    font-weight: 900;
+    color: #1A2A3A;
+  }
+
+  .th-role-by {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(26, 42, 58, 0.15);
+  }
+
+  .th-role-card--01 .th-role-by,
+  .th-role-card--02 .th-role-by {
+    color: #8A6A2E;
+  }
+
+  .th-role-by--you {
+    color: #C44536;
+    font-weight: 700;
+  }
+
+  /* ===== 締めの引用 ===== */
+  .th-quote {
+    margin: 60px 24px 0;
+    padding: 30px 24px;
+    background: #1A2A3A;
+    color: #FAFAFA;
+    text-align: center;
+    position: relative;
+    border-radius: 4px;
+  }
+
+  .th-quote-marks {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 60px;
+    color: #C44536;
+    line-height: 0.5;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .th-quote-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 1.95;
+    color: #FAFAFA;
+    margin: 0;
+  }
+
+  .th-quote-text strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 18px;
+    border-bottom: 2px solid #C44536;
+    padding-bottom: 2px;
+  }
+
+  .th-quote-line {
+    width: 40px;
+    height: 2px;
+    background: #C5A059;
+    margin: 18px auto 0;
+  }
+
+  /* ===== JS未動作フォールバック ===== */
+  .th-alert,
+  .th-vs-card,
+  .th-formula-row,
+  .th-formula-result,
+  .th-role-card {
+    opacity: 1;
+    transform: none;
+  }
+
+}

@@ -1,0 +1,679 @@
+/* ============================================== */
+/* SECTION 15 — Closing                            */
+/* ============================================== */
+.closing{
+  background:var(--navy); color:#FAFAFA;
+  min-height:100vh; padding:140px 56px 120px;
+  position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.closing::before{
+  content:"&"; position:absolute; right:-4vw; top:-10vh;
+  font-family:"EB Garamond", serif; font-style:italic; font-weight:500;
+  font-size:min(86vh, 80vw); color:rgba(197,160,89,.08); line-height:.7;
+}
+.closing .lbl{ font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-size:14px; letter-spacing:.05em }
+.closing h2{
+  font-family:"Noto Serif JP", serif; font-weight:900;
+  font-size:clamp(54px, 8vw, 130px); color:#FAFAFA; line-height:1.05;
+  margin:30px 0 50px; max-width:14ch; letter-spacing:.02em;
+}
+.closing h2 .ch{ display:inline-block; opacity:0; transform:translateY(-40px); animation:dropIn .8s cubic-bezier(.7,0,.2,1) forwards }
+.closing.in-view h2 .ch{ animation-play-state:running }
+@keyframes dropIn{ to{opacity:1; transform:translateY(0)} }
+
+.closing .row{ display:flex; gap:30px; align-items:center; flex-wrap:wrap }
+.closing .cta{
+  font-family:"Noto Serif JP", serif; font-weight:900; font-size:16px; letter-spacing:.2em;
+  background:var(--gold); color:var(--navy);
+  padding:24px 44px;
+  clip-path: polygon(4% 8%, 100% 0, 96% 92%, 0 100%);
+  transition: transform .35s cubic-bezier(.7,0,.2,1.4);
+  position:relative;
+  display:inline-flex; align-items:center; gap:14px;
+}
+.closing .cta:hover{ animation: wobble .6s ease }
+@keyframes wobble{
+  0%,100%{transform:rotate(0)}
+  20%{transform:rotate(-2deg) translateX(-2px)}
+  40%{transform:rotate(2deg) translateX(3px)}
+  60%{transform:rotate(-1.5deg) translateX(-2px)}
+  80%{transform:rotate(1deg) translateX(2px)}
+}
+.closing .cta b{ font-family:"EB Garamond", serif; font-style:italic; font-weight:500; font-size:22px }
+.closing .meta{
+  font-size:12px; color:rgba(250,250,250,.55); line-height:2;
+}
+.closing .meta b{ color:var(--gold); font-weight:400 }
+
+.closing-foot{
+  position:absolute; bottom:34px; left:0; right:0;
+  display:flex; justify-content:space-between; padding:0 56px;
+  font-size:11px; color:rgba(250,250,250,.4);
+}
+.closing-foot .vert{ writing-mode:vertical-rl; letter-spacing:.4em }
+.closing-foot .heart{ color:var(--gold) }
+
+/* ========================================================
+   セクション15:クロージング・最終CTA(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示 */
+  .closing,
+  .section.closing {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .closing-mobile {
+    position: relative;
+    background: linear-gradient(180deg, #1A2A3A 0%, #0E1825 100%);
+    color: #FAFAFA;
+    padding: 70px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== 背景の星粒子 ===== */
+  .cl-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cl-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #C5A059;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(197, 160, 89, 0.8);
+    animation: clTwinkle 3s ease-in-out infinite;
+  }
+
+  .cl-star--1 { top: 8%;  left: 12%; animation-delay: 0s; }
+  .cl-star--2 { top: 14%; left: 80%; animation-delay: 0.6s; }
+  .cl-star--3 { top: 28%; left: 18%; animation-delay: 1.2s; width: 4px; height: 4px; }
+  .cl-star--4 { top: 42%; left: 90%; animation-delay: 0.3s; }
+  .cl-star--5 { top: 58%; left: 8%;  animation-delay: 1.8s; }
+  .cl-star--6 { top: 66%; left: 70%; animation-delay: 0.9s; width: 4px; height: 4px; }
+  .cl-star--7 { top: 82%; left: 22%; animation-delay: 1.5s; }
+  .cl-star--8 { top: 90%; left: 85%; animation-delay: 2.1s; }
+
+  @keyframes clTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* ===== 重なる写真コラージュ ===== */
+  .cl-collage {
+    position: relative;
+    z-index: 2;
+    height: 360px;
+    margin: 0 24px 50px;
+  }
+
+  .cl-photo {
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border: 4px solid #FAFAFA;
+  }
+
+  .cl-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* 写真1:左下 */
+  .cl-photo--1 {
+    width: 60%;
+    height: 240px;
+    bottom: 20px;
+    left: 0;
+    transform: rotate(-6deg);
+    z-index: 1;
+    animation: clFloat1 6s ease-in-out infinite;
+  }
+
+  /* 写真2:中央上 */
+  .cl-photo--2 {
+    width: 55%;
+    height: 220px;
+    top: 0;
+    left: 25%;
+    transform: rotate(3deg);
+    z-index: 2;
+    animation: clFloat2 7s ease-in-out infinite;
+  }
+
+  /* 写真3:右下 */
+  .cl-photo--3 {
+    width: 58%;
+    height: 230px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(8deg);
+    z-index: 3;
+    animation: clFloat3 8s ease-in-out infinite;
+  }
+
+  @keyframes clFloat1 {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50%      { transform: rotate(-4deg) translateY(-8px); }
+  }
+
+  @keyframes clFloat2 {
+    0%, 100% { transform: rotate(3deg) translateY(0); }
+    50%      { transform: rotate(5deg) translateY(-12px); }
+  }
+
+  @keyframes clFloat3 {
+    0%, 100% { transform: rotate(8deg) translateY(0); }
+    50%      { transform: rotate(6deg) translateY(-6px); }
+  }
+
+  /* コラージュ上のラベル */
+  .cl-collage-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-3deg);
+    z-index: 4;
+    background: rgba(26, 42, 58, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 22px;
+    border: 1px solid rgba(197, 160, 89, 0.5);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cl-collage-label span {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #C5A059;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* ===== メインメッセージ ===== */
+  .cl-message {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px 40px;
+  }
+
+  .cl-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #C5A059;
+    letter-spacing: 0.25em;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .cl-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.55;
+    color: #FAFAFA;
+    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .cl-title-mark {
+    position: relative;
+    display: inline-block;
+    color: #FFFFFF;
+  }
+
+  .cl-title-mark::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -2px;
+    right: -2px;
+    height: 10px;
+    background: rgba(197, 160, 89, 0.4);
+    z-index: -1;
+  }
+
+  .cl-title-accent {
+    color: #C5A059;
+    position: relative;
+    display: inline-block;
+  }
+
+  .cl-title-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C5A059 0%, #F39C12 100%);
+  }
+
+  .cl-lead {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 2;
+    color: rgba(250, 250, 250, 0.85);
+    margin: 0;
+  }
+
+  .cl-lead strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 16px;
+  }
+
+  /* ===== CTA ラップ ===== */
+  .cl-cta-wrap {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    margin-bottom: 60px;
+  }
+
+  /* ===== クーポンバッジ ===== */
+  .cl-coupon {
+    position: relative;
+    margin: 0 auto 16px;
+    max-width: 280px;
+    background: linear-gradient(135deg, #C44536 0%, #E8765E 100%);
+    color: #FFFFFF;
+    padding: 16px 32px;
+    text-align: center;
+    transform: rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(196, 69, 54, 0.4);
+  }
+
+  /* チケット切り欠き */
+  .cl-coupon-deco-l,
+  .cl-coupon-deco-r {
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: #1A2A3A;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .cl-coupon-deco-l { left: -8px; }
+  .cl-coupon-deco-r { right: -8px; }
+
+  .cl-coupon-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .cl-coupon-label {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    opacity: 0.9;
+  }
+
+  .cl-coupon-value {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .cl-coupon-num {
+    display: inline-block;
+  }
+
+  .cl-coupon-off {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-top: 2px;
+  }
+
+  /* ===== メインボタン ===== */
+  .cl-btn-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, #C5A059 0%, #F39C12 100%);
+    color: #1A2A3A;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow:
+      0 12px 32px rgba(197, 160, 89, 0.4),
+      inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 32px;
+    animation: clBtnPulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes clBtnPulse {
+    0%, 100% {
+      box-shadow:
+        0 12px 32px rgba(197, 160, 89, 0.4),
+        0 0 0 0 rgba(197, 160, 89, 0.7),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+    }
+    50% {
+      box-shadow:
+        0 12px 32px rgba(197, 160, 89, 0.5),
+        0 0 0 12px rgba(197, 160, 89, 0),
+        inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  /* シマー光 */
+  .cl-btn-main::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 100%
+    );
+    animation: clBtnShimmer 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes clBtnShimmer {
+    0%   { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  .cl-btn-main-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(26, 42, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A2A3A;
+  }
+
+  .cl-btn-main-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cl-btn-main-main {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #1A2A3A;
+    letter-spacing: 0.02em;
+  }
+
+  .cl-btn-main-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: rgba(26, 42, 58, 0.7);
+    letter-spacing: 0.1em;
+  }
+
+  .cl-btn-main-arrow {
+    flex-shrink: 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    color: #1A2A3A;
+    line-height: 1;
+    font-weight: 700;
+    animation: clArrow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes clArrow {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(4px); }
+  }
+
+  /* ===== CTA注釈 ===== */
+  .cl-cta-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    color: rgba(250, 250, 250, 0.6);
+    margin: 0 0 18px;
+    letter-spacing: 0.05em;
+  }
+
+  .cl-cta-note-line {
+    flex-shrink: 0;
+    width: 24px;
+    height: 1px;
+    background: rgba(197, 160, 89, 0.4);
+  }
+
+  /* ===== サブCTA ===== */
+  .cl-cta-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .cl-btn-sub {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    color: #FAFAFA;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .cl-btn-sub:hover,
+  .cl-btn-sub:active {
+    background: rgba(197, 160, 89, 0.15);
+    border-color: #C5A059;
+  }
+
+  .cl-btn-sub-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(197, 160, 89, 0.15);
+    color: #C5A059;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cl-btn-sub-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .cl-btn-sub-en {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+
+  .cl-btn-sub-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #FAFAFA;
+  }
+
+  /* ===== 締めの引用 ===== */
+  .cl-finale {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 60px 24px 0;
+    padding: 30px 16px;
+  }
+
+  .cl-finale-line {
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(180deg, transparent 0%, #C5A059 50%, transparent 100%);
+    margin: 0 auto;
+  }
+
+  .cl-finale-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #FAFAFA;
+    margin: 24px 0;
+    letter-spacing: 0.04em;
+  }
+
+  .cl-finale-text em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: #C5A059;
+    font-size: 36px;
+    line-height: 0;
+    margin: 0 4px;
+    vertical-align: -8px;
+    font-weight: 700;
+  }
+
+  .cl-finale-text strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 18px;
+    border-bottom: 2px solid #C5A059;
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+}
+
+/* ========================================================
+   フッター(全画面共通)
+   ======================================================== */
+.footer-mobile {
+  background: #0A1219;
+  color: rgba(250, 250, 250, 0.7);
+  padding: 40px 24px 32px;
+  text-align: center;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.ft-brand {
+  margin-bottom: 28px;
+}
+
+.ft-brand-logo {
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.ft-brand-logo-en {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: #C5A059;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.ft-brand-logo-jp {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  color: #FAFAFA;
+  letter-spacing: 0.4em;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.ft-brand-corp {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 12px;
+  color: rgba(250, 250, 250, 0.6);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.ft-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ft-links a {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: rgba(250, 250, 250, 0.75);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.ft-links a:hover,
+.ft-links a:active {
+  color: #C5A059;
+}
+
+.ft-copy {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(250, 250, 250, 0.5);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+}

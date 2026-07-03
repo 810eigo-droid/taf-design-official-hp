@@ -1,0 +1,507 @@
+/* ============================================== */
+/* SECTION 7 — 10+                                  */
+/* ============================================== */
+.ten{
+  background:var(--off); padding:120px 0; position:relative; overflow:hidden;
+  min-height:80vh; display:flex; flex-direction:column; justify-content:center;
+}
+.ten-mega{
+  position:relative;
+  font-family:"EB Garamond", serif; font-style:italic; font-weight:500;
+  color:var(--navy);
+  font-size:clamp(280px, 60vw, 880px);
+  line-height:.78; letter-spacing:-.03em;
+  text-align:center; margin:0;
+  user-select:none;
+}
+.ten-mega .plus{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:.3em; vertical-align:.45em; margin-left:.02em;
+}
+.ten-cap{
+  text-align:center; margin-top:30px;
+  font-family:"Noto Serif JP", serif; font-weight:900; font-size:28px; color:var(--navy); line-height:1.3;
+}
+.ten-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  margin:60px 56px 0; border-top:1px solid var(--line);
+}
+.ten-grid .cell{ border-right:1px solid var(--line); padding:24px 18px }
+.ten-grid .cell:last-child{ border-right:0 }
+.ten-grid .cell .k{ font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-size:36px; line-height:1 }
+.ten-grid .cell .lbl{ font-size:11px; letter-spacing:.3em; color:var(--sub); margin-top:8px }
+.ten-vert{
+  position:absolute; left:24px; top:120px;
+  writing-mode:vertical-rl; font-size:11px; letter-spacing:.4em; color:var(--sub);
+}
+
+/* ========================================================
+   セクション7:信頼の証(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示(クラス名は調整) */
+  .ten,
+  .section.ten {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .trust-mobile {
+    position: relative;
+    background: #FAF6EC;
+    padding: 60px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== 上部・下部装飾ライン ===== */
+  .tr-deco-top,
+  .tr-deco-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 24px;
+    margin-bottom: 40px;
+  }
+
+  .tr-deco-bottom {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  .tr-deco-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #C5A059 50%,
+      transparent 100%
+    );
+  }
+
+  .tr-deco-diamond {
+    color: #C5A059;
+    font-size: 12px;
+  }
+
+  /* ===== ヘッダー ===== */
+  .tr-header {
+    text-align: center;
+    padding: 0 24px 40px;
+  }
+
+  .tr-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #8A6A2E;
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .tr-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.55;
+    color: #1A2A3A;
+    margin: 0 0 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .tr-title-mark {
+    position: relative;
+    display: inline-block;
+    color: #1A2A3A;
+  }
+
+  .tr-title-mark::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px;
+    right: -4px;
+    height: 10px;
+    background: rgba(197, 160, 89, 0.4);
+    z-index: -1;
+  }
+
+  .tr-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.9;
+    color: #555;
+    margin: 0;
+  }
+
+  .tr-subtitle em {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #C5A059;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  /* ===== スタンプ風バッジ ===== */
+  .tr-stamp {
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 50px;
+    position: relative;
+
+    /* 初期状態:回転しながら登場 */
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+    transition:
+      opacity 1s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .tr-stamp.is-visible {
+    opacity: 1;
+    transform: rotate(-12deg) scale(1);
+  }
+
+  .tr-stamp-inner {
+    width: 100%;
+    height: 100%;
+    border: 3px double #8A6A2E;
+    border-radius: 50%;
+    background: #FAF6EC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8A6A2E;
+    box-shadow:
+      0 0 0 6px #FAF6EC,
+      0 0 0 7px rgba(138, 106, 46, 0.2);
+  }
+
+  .tr-stamp-num {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    color: #8A6A2E;
+  }
+
+  .tr-stamp-num span {
+    font-size: 32px;
+    vertical-align: top;
+  }
+
+  .tr-stamp-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    margin-top: 4px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  /* ===== メインビジュアル ===== */
+  .tr-hero-img-wrap {
+    position: relative;
+    margin: 0 24px 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(26, 42, 58, 0.2);
+  }
+
+  .tr-hero-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tr-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(26, 42, 58, 0.1) 0%,
+      rgba(26, 42, 58, 0.3) 100%
+    );
+  }
+
+  .tr-hero-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #FAF6EC;
+    padding: 8px 12px;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .tr-hero-badge-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 9px;
+    color: #8A6A2E;
+    letter-spacing: 0.2em;
+    margin-bottom: 2px;
+  }
+
+  .tr-hero-badge-year {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #1A2A3A;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* ===== 会社紹介 ===== */
+  .tr-company {
+    margin: 0 24px 50px;
+    padding: 28px 22px;
+    background: #FFFFFF;
+    border-left: 3px solid #C5A059;
+    box-shadow: 0 4px 16px rgba(26, 42, 58, 0.05);
+  }
+
+  .tr-company-name {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed rgba(197, 160, 89, 0.4);
+  }
+
+  .tr-company-brand {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: #1A2A3A;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .tr-company-corp {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px;
+    color: #777;
+    letter-spacing: 0.05em;
+  }
+
+  .tr-company-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 2;
+    color: #1A2A3A;
+    margin: 0;
+  }
+
+  .tr-company-text mark {
+    background: linear-gradient(transparent 65%, rgba(197, 160, 89, 0.4) 65%);
+    color: #1A2A3A;
+    font-weight: 700;
+    padding: 0 2px;
+  }
+
+  /* ===== 取り組みリスト ===== */
+  .tr-services {
+    padding: 0 24px;
+  }
+
+  .tr-services-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #1A2A3A;
+    text-align: center;
+    margin: 0 0 32px;
+    line-height: 1.6;
+  }
+
+  .tr-services-title-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .tr-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tr-list-item {
+    position: relative;
+    display: flex;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tr-list-item:last-child {
+    border-bottom: none;
+  }
+
+  .tr-list-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* チェックマーク */
+  .tr-list-check {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #C5A059;
+    color: #FAF6EC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+  }
+
+  .tr-list-item.is-visible .tr-list-check {
+    transform: scale(1);
+  }
+
+  .tr-list-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tr-list-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    background: rgba(197, 160, 89, 0.12);
+    color: #8A6A2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tr-list-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tr-list-tag {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    margin: 0 0 4px;
+    font-weight: 600;
+  }
+
+  .tr-list-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1A2A3A;
+    margin: 0;
+  }
+
+  .tr-list-text strong {
+    font-weight: 900;
+    color: #1A2A3A;
+  }
+
+  /* ===== 締めメッセージ ===== */
+  .tr-closing {
+    margin: 50px 24px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .tr-closing-ribbon {
+    display: inline-block;
+    background: #1A2A3A;
+    color: #C5A059;
+    padding: 8px 24px;
+    margin-bottom: 20px;
+    position: relative;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+  }
+
+  .tr-closing-ribbon::before,
+  .tr-closing-ribbon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  .tr-closing-ribbon::before {
+    left: -12px;
+    border-width: 0 12px 18px 0;
+    border-color: transparent #1A2A3A transparent transparent;
+  }
+
+  .tr-closing-ribbon::after {
+    right: -12px;
+    border-width: 0 0 18px 12px;
+    border-color: transparent transparent #1A2A3A transparent;
+  }
+
+  .tr-closing-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    line-height: 1.95;
+    color: #1A2A3A;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .tr-closing-text strong {
+    color: #1A2A3A;
+    font-weight: 900;
+    font-size: 19px;
+    border-bottom: 2px solid #C5A059;
+    padding-bottom: 2px;
+  }
+
+  /* ===== JS未動作フォールバック ===== */
+  .tr-stamp,
+  .tr-list-item {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tr-list-check {
+    transform: scale(1);
+  }
+
+}

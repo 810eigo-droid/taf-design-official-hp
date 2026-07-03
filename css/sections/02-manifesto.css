@@ -1,0 +1,184 @@
+/* ============================================== */
+/* SECTION 2 — manifesto strip                     */
+/* ============================================== */
+.mani{ background:var(--off); padding:80px 56px 80px; position:relative }
+.mani-grid{
+  display:grid; grid-template-columns: 1fr 1.2fr 1fr; gap:48px; align-items:end;
+}
+.mani-grid .lbl{ font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-size:14px }
+.mani h2{ font-family:"Noto Serif JP", serif; font-weight:900; font-size:34px; color:var(--navy); line-height:1.4; margin:14px 0 0 }
+.mani .num{ font-family:"EB Garamond", serif; font-style:italic; color:var(--navy); font-size:140px; line-height:.8; transform:translateY(20px) }
+.mani p{ max-width:38ch; font-size:13px; line-height:2 }
+.mani .vert{
+  position:absolute; right:18px; top:80px;
+  writing-mode:vertical-rl; font-size:11px; letter-spacing:.4em; color:var(--sub);
+}
+
+/* ============================================== */
+/* セクション2 スマホ版：3 STRENGTHS              */
+/* ============================================== */
+
+/* PC: スマホ版は非表示 */
+.strengths-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  
+  /* PC版を非表示（必要に応じてクラス名を調整） */
+  .section.manifesto {
+    display: none !important;
+  }
+
+  /* スマホ版を表示 */
+  .strengths-mobile {
+    display: block;
+    padding: 80px 24px 60px;
+    background: var(--base, #FAFAFA);
+    position: relative;
+  }
+
+  /* ヘッダー */
+  .sm-header {
+    margin-bottom: 56px;
+  }
+
+  .sm-eyebrow {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold, #C5A059);
+    letter-spacing: 0.2em;
+    margin: 0 0 24px;
+  }
+
+  .sm-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.5;
+    color: var(--navy, #1A2A3A);
+    margin: 0 0 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .sm-hl {
+    background: linear-gradient(transparent 65%, rgba(243, 156, 18, 0.45) 65%);
+    padding: 0 4px;
+  }
+
+  .sm-rule {
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--gold, #C5A059);
+  }
+
+  /* バッジ共通 */
+  .sm-badge {
+    background: #FFFFFF;
+    border: 1px solid rgba(26, 42, 58, 0.08);
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .sm-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(26, 42, 58, 0.08);
+  }
+
+  /* 左端のゴールドライン装飾 */
+  .sm-badge::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gold, #C5A059);
+  }
+
+  /* アイコン画像エリア */
+  .sm-badge-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(197, 160, 89, 0.06);
+    border-radius: 50%;
+  }
+
+  .sm-badge-icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  /* メタ情報（番号 + カテゴリ） */
+  .sm-badge-meta {
+    margin: 0 0 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sm-badge-num {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--gold, #C5A059);
+    line-height: 1;
+  }
+
+  .sm-badge-cat {
+    font-family: "EB Garamond", serif;
+    font-size: 11px;
+    color: var(--sub, #777777);
+    letter-spacing: 0.2em;
+  }
+
+  /* バッジタイトル */
+  .sm-badge-title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--navy, #1A2A3A);
+    margin: 0 0 8px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  /* サブタイトル */
+  .sm-badge-sub {
+    font-family: "Noto Serif JP", serif;
+    font-size: 13px;
+    color: var(--gold, #C5A059);
+    margin: 0 0 6px;
+    letter-spacing: 0.05em;
+  }
+
+  /* 本文 */
+  .sm-badge-text {
+    font-family: "Noto Serif JP", serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--body, #555555);
+    margin: 0;
+  }
+}
+
+/* 小型スマホ */
+@media (max-width: 374px) {
+  .sm-title {
+    font-size: 28px;
+  }
+  .sm-badge-title {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,333 @@
+/* ============================================== */
+/* SECTION 3 — Quote (HIGH FI)                     */
+/* ============================================== */
+.quote{
+  background:var(--navy); color:#FAFAFA;
+  min-height:100vh; padding:0; position:relative; overflow:hidden;
+}
+.quote-mark{
+  position:absolute; left:-4vw; top:-8vh;
+  font-family:"EB Garamond", serif; font-style:italic; font-weight:500;
+  font-size:min(72vh, 86vw); line-height:.7;
+  color:var(--gold); opacity:.92;
+  user-select:none; pointer-events:none;
+  text-shadow: 0 0 80px rgba(197,160,89,.3);
+}
+.quote-mark.right{
+  left:auto; right:-6vw; top:auto; bottom:-30vh;
+  color:rgba(197,160,89,.18);
+}
+.quote-inner{
+  position:relative; z-index:2;
+  min-height:100vh; padding:140px 80px 120px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.quote-eyebrow{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:14px; letter-spacing:.06em; margin-bottom:30px; display:flex; align-items:center; gap:14px;
+}
+.quote-eyebrow::before{ content:""; width:36px; height:1px; background:currentColor; opacity:.7 }
+.quote-eyebrow span{ font-family:"Noto Serif JP", serif; font-style:normal; font-size:11px; letter-spacing:.4em }
+
+.quote-headline{
+  font-family:"Noto Serif JP", serif; font-weight:900;
+  font-size:clamp(48px, 6.6vw, 96px);
+  color:#FAFAFA; line-height:1.18; letter-spacing:.02em;
+  max-width:18ch; margin:0;
+  position:relative; z-index:2;
+}
+.quote-headline em{
+  font-style:normal; color:var(--gold); position:relative; padding:0 .08em;
+}
+.quote-headline em::before{
+  content:""; position:absolute; left:-.05em; right:-.05em; bottom:.03em; height:.62em;
+  background:rgba(197,160,89,.18); z-index:-1;
+}
+.quote-shadow{
+  margin-top:60px; max-width:520px;
+  font-size:13px; line-height:2; color:rgba(250,250,250,.55);
+  position:relative; z-index:2;
+  padding-left:22px; border-left:1px solid rgba(250,250,250,.18);
+}
+.quote-shadow b{ color:var(--gold); font-weight:400; font-family:"EB Garamond", serif; font-style:italic; font-size:15px }
+
+.quote-attrib{
+  position:absolute; right:80px; bottom:80px; z-index:2;
+  text-align:right;
+  font-family:"EB Garamond", serif; font-style:italic;
+  color:rgba(250,250,250,.7); font-size:14px;
+}
+.quote-attrib .name{ font-family:"Noto Serif JP", serif; font-style:normal; font-weight:900; color:#FAFAFA; font-size:18px; display:block; margin-top:6px }
+.quote-attrib .role{ font-size:11px; letter-spacing:.3em; color:var(--gold); font-family:"Noto Serif JP", serif; font-style:normal }
+
+.quote-num{
+  position:absolute; left:80px; bottom:80px; z-index:2;
+  font-family:"EB Garamond", serif; font-style:italic;
+  color:rgba(250,250,250,.4); font-size:13px; letter-spacing:.3em;
+}
+.quote-num b{ font-size:42px; color:var(--gold); font-weight:500; vertical-align:-6px; margin-right:6px }
+
+@media (max-width:900px){
+  .quote-mark{ font-size:80vw }
+  .quote-inner{ padding:120px 24px 110px }
+  .quote-attrib{ right:24px; bottom:24px }
+  .quote-num{ left:24px; bottom:24px; font-size:11px }
+}
+
+/* ============================================== */
+/* セクション3 スマホ版：PHILOSOPHY                */
+/* ============================================== */
+
+/* PC: スマホ版は非表示 */
+.philosophy-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  
+  /* PC版を非表示 */
+  .section.quote {
+    display: none !important;
+  }
+
+  /* スマホ版を表示 */
+  .philosophy-mobile {
+    display: block;
+    padding: 80px 24px;
+    background: var(--base, #FAFAFA);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ヘッダー */
+  .ph-header {
+    position: relative;
+    margin-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  .ph-eyebrow {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold, #C5A059);
+    letter-spacing: 0.2em;
+    margin: 0 0 32px;
+  }
+
+  /* 巨大引用符（装飾） */
+  .ph-quote-mark {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 200px;
+    line-height: 0.8;
+    color: var(--gold, #C5A059);
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .ph-title {
+    position: relative;
+    z-index: 1;
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.5;
+    color: var(--navy, #1A2A3A);
+    margin: 0 0 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .ph-hl {
+    color: var(--gold, #C5A059);
+    background: linear-gradient(transparent 70%, rgba(243, 156, 18, 0.3) 70%);
+    padding: 0 4px;
+  }
+
+  .ph-rule {
+    display: block;
+    width: 48px;
+    height: 1px;
+    background: var(--gold, #C5A059);
+  }
+
+  /* メイン画像 */
+  .ph-visual {
+    position: relative;
+    margin: 0 0 40px;
+    overflow: hidden;
+    border-radius: 2px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ph-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.95) contrast(1.05);
+  }
+
+  /* 画像のキャプション */
+  .ph-visual-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(26, 42, 58, 0.85);
+    color: #FAFAFA;
+    padding: 8px 16px;
+    border-radius: 1px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .ph-caption-num {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold, #C5A059);
+    line-height: 1;
+  }
+
+  .ph-caption-text {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  /* 2枚目画像 */
+  .ph-visual-2 {
+    aspect-ratio: 4 / 3;
+    margin: 48px 0 32px;
+  }
+
+  /* 本文 */
+  .ph-body {
+    margin-bottom: 48px;
+  }
+
+  .ph-text {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    line-height: 2;
+    color: var(--body, #555555);
+    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .ph-text strong {
+    color: var(--navy, #1A2A3A);
+    font-weight: 900;
+    background: linear-gradient(transparent 70%, rgba(197, 160, 89, 0.25) 70%);
+    padding: 0 2px;
+  }
+
+  .ph-text em {
+    font-style: normal;
+    color: var(--gold, #C5A059);
+    font-weight: 700;
+    border-bottom: 1px solid var(--gold, #C5A059);
+    padding-bottom: 1px;
+  }
+
+  /* 約束ブロック（強調・ネイビー背景） */
+  .ph-promise {
+    background: var(--navy, #1A2A3A);
+    color: #FAFAFA;
+    padding: 40px 28px;
+    margin: 48px -8px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ph-promise::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 50%, rgba(197, 160, 89, 0.3) 50%);
+  }
+
+  .ph-promise-label {
+    font-family: "Noto Serif JP", serif;
+    font-size: 13px;
+    color: var(--gold, #C5A059);
+    letter-spacing: 0.3em;
+    margin: 0 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ph-promise-icon {
+    color: var(--gold, #C5A059);
+    font-size: 13px;
+  }
+
+  .ph-promise-text {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .ph-promise-keyword {
+    color: var(--gold, #C5A059);
+    font-size: 28px;
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  .ph-promise-note {
+    font-family: "Noto Serif JP", serif;
+    font-size: 13px;
+    color: rgba(250, 250, 250, 0.7);
+    margin: 0;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+  }
+
+  /* クロージング */
+  .ph-closing {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--navy, #1A2A3A);
+    text-align: center;
+    margin: 0;
+  }
+
+  .ph-closing strong {
+    font-weight: 900;
+    color: var(--navy, #1A2A3A);
+    background: linear-gradient(transparent 65%, rgba(197, 160, 89, 0.4) 65%);
+  }
+}
+
+/* 小型スマホ */
+@media (max-width: 374px) {
+  .ph-title {
+    font-size: 26px;
+  }
+  .ph-promise-text {
+    font-size: 22px;
+  }
+  .ph-promise-keyword {
+    font-size: 26px;
+  }
+  .ph-text {
+    font-size: 15px;
+  }
+}

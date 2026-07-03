@@ -1,0 +1,2509 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ティーチ&ファネルDesign — 2万円から始める、本気のWeb制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=EB+Garamond:ital,wght@1,400;1,500;1,600;0,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- ====== ハンバーガーボタン(スマホのみ表示) ====== -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="メニューを開く">
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</button>
+
+<!-- ====== フルスクリーンメニュー ====== -->
+<div class="fullscreen-menu" id="fullscreenMenu">
+  <ul class="menu-list">
+    <li>
+      <a href="#sec-about">
+        <span class="menu-en">— ABOUT US</span>
+        私たちについて
+      </a>
+    </li>
+    <li>
+      <a href="#evolve-sm">
+        <span class="menu-en">— SERVICE</span>
+        サービス内容
+      </a>
+    </li>
+    <li>
+      <a href="#pricing-map-sm">
+        <span class="menu-en">— PRICE</span>
+        料金プラン
+      </a>
+    </li>
+    <li>
+      <a href="#voices-sm">
+        <span class="menu-en">— VOICE</span>
+        お客様の声
+      </a>
+    </li>
+    <li>
+      <a href="#works-sm">
+        <span class="menu-en">— WORKS</span>
+        制作実績
+      </a>
+    </li>
+    <li>
+      <a href="#faq-sm">
+        <span class="menu-en">— FAQ</span>
+        よくある質問
+      </a>
+    </li>
+  </ul>
+
+  <div class="menu-cta-group">
+    <a href="https://go.taf-design.com/coupon" class="menu-cta menu-cta-primary">
+      クーポンを取得する
+    </a>
+    <a href="https://go.taf-design.com/offer" class="menu-cta menu-cta-outline">
+      無料相談する
+    </a>
+  </div>
+
+  <div class="menu-contact">
+    <a href="tel:09025146064">090-2514-6064</a>
+    ｜
+    <a href="mailto:info@taf-design.com">info@taf-design.com</a>
+  </div>
+</div>
+
+<!-- ====== TOPに戻るボタン ====== -->
+<a href="#top" class="back-to-top" id="backToTop" aria-label="ページ上部に戻る">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</a>
+
+ <!-- Top Nav -->
+<nav class="topnav">
+  <div class="brand">
+  <span class="brand-en">Teach &amp; Funnel <b>Design</b></span>
+  <span class="brand-kana">ティーチ&amp;ファネル デザイン</span>
+</div>
+  <div class="nav-links">
+  <a href="#sec-about">ABOUT US</a>
+  <a href="#evolve-sm">SERVICE</a>
+  <a href="#pricing-map-sm">PRICE</a>
+  <a href="#voices-sm">VOICE</a>
+  <a href="#faq-sm">FAQ</a>
+</div>
+  <a class="nav-cta" href="https://go.taf-design.com/offer">無料相談</a>
+</nav>
+
+<!-- =================================================== -->
+<!-- 全15セクションをスマホ版で統一                        -->
+<!-- 最大幅600pxで中央配置                                  -->
+<!-- =================================================== -->
+
+<!-- ====== SECTION 01 / FV ====== -->
+<section class="fv-mobile" data-screen-label="01 First View Mobile">
+
+  <!-- PC用:1枚画像 -->
+<div class="fv-pc-block fv-pc-hero">
+  <img src="images/fv-pc-1-hero.webp" 
+       alt="..." 
+       loading="eager">
+</div>
+
+<!-- PC用:CTAセクション -->
+<div class="fv-pc-block fv-pc-cta">
+  <div class="fv-pc-cta-buttons">
+    <a href="https://go.taf-design.com/coupon" class="fv-pc-cta-btn fv-pc-cta-btn--primary">
+      <span class="fv-pc-cta-icon">🎁</span>
+      <span class="fv-pc-cta-text">5,000円OFFクーポン</span>
+    </a>
+    <a href="https://go.taf-design.com/offer" class="fv-pc-cta-btn fv-pc-cta-btn--outline">
+      無料相談する
+    </a>
+  </div>
+  <p class="fv-pc-cta-note">
+    ※このクーポンは今だけ。取得から1年間有効・将来のご注文にご利用下さい
+  </p>
+</div>
+
+  <!-- スマホ用:メインビジュアル -->
+  <div class="fv-mobile-block fv-mobile-hero">
+    <img src="images/fv-mobile-1-hero.webp" 
+         alt="攻めのWebで、未来の売上をデザインする。初期費用2万円から始める、小さく始めて売上とともに育てる最新Webサイト。" 
+         loading="eager">
+  </div>
+
+  <!-- スマホ用:サービス紹介 -->
+  <div class="fv-mobile-block fv-mobile-services">
+    <img src="images/fv-mobile-2-services.webp" 
+         alt="セールスファネル / 公式LINE・各種SNS / 保守・管理サポート" 
+         loading="lazy">
+  </div>
+
+  <a href="https://go.taf-design.com/coupon" class="fv-mobile-block fv-mobile-coupon" aria-label="5,000円OFFクーポンを受け取る">
+    <img src="images/fv-mobile-3-coupon.webp" 
+         alt="5,000円OFFクーポンを受け取る" 
+         loading="lazy">
+  </a>
+
+<a href="https://go.taf-design.com/offer" class="fv-mobile-block fv-mobile-cta" aria-label="無料で相談してみる">    <img src="images/fv-mobile-4-cta.webp" 
+         alt="無料で相談してみる" 
+         loading="lazy">
+  </a>
+
+  <div class="fv-mobile-seo">
+    <h1>攻めのWebで、未来の売上をデザインする</h1>
+    <p>ハイスペックAIとのコラボで価格破壊に挑戦。初期費用2万円から始める、小さく始めて売上とともに育てる最新Webサイト。</p>
+    <h2>すべてまとめて一社完結 - All in One</h2>
+    <ul>
+      <li>セールスファネル：集客から成約までを最適化</li>
+      <li>公式LINE/各種SNS：顧客とのつながりを強化</li>
+      <li>保守・管理サポート：安心のサポートで長期的に支援</li>
+    </ul>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 02 / 3つの強み ====== -->
+<section class="strengths-mobile" data-screen-label="02 Strengths Mobile">
+  
+  <header class="sm-header">
+    <p class="sm-eyebrow">3 STRENGTHS / 3つの強み</p>
+    <h2 class="sm-title">
+  AIで作れる時代。<br>
+  でも経営者の時間は、<br>
+  <span class="sm-hl">もっと価値あるものに。</span>
+</h2>
+<!-- ====== メッセージブロック(人物画像+30万→10万の話) ====== -->
+<!-- このブロックは </header> の直後に挿入してください -->
+<div class="sm-message-block">
+  <div class="sm-message-image">
+    <img src="images/strengths-businessman.webp" 
+         alt="経営者の時間を本業に集中する" 
+         loading="lazy">
+    <div class="sm-message-image-frame" aria-hidden="true"></div>
+  </div>
+  <div class="sm-message-content">
+    <p class="sm-message-vs">
+      <span class="sm-message-vs-left">「自分で頑張る時間」</span>
+      <span class="sm-message-vs-mark">vs</span>
+      <span class="sm-message-vs-right">「<span class="sm-message-vs-amount">2万円</span>で外注する<span class="sm-message-vs-bonus">(7万円相当)</span>」</span>
+    </p>
+    <p class="sm-message-cost">
+      これまで<span class="sm-cost-old">30万円</span>掛けていたものを<br>
+      <span class="sm-cost-new">10万円</span>でオーダーする。
+    </p>
+    <p class="sm-message-conclusion">
+      <span class="sm-message-dash">—</span>
+      どちらが儲かるかは、<br>
+      <strong>考えるまでもありません。</strong>
+    </p>
+  </div>
+</div>
+    <span class="sm-rule"></span>
+  </header>
+
+  <article class="sm-badge sm-badge-01">
+    <span class="sm-bignum">01</span>
+    <div class="sm-badge-visual visual-01">
+      <div class="glitters">
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+      </div>
+      <div class="visual-content">
+        <span class="seo-text">SEO</span>
+        <span class="seo-arrow">↗</span>
+        <span class="seo-sub">A I &nbsp;&times;&nbsp; S E A R C H</span>
+      </div>
+    </div>
+    <p class="sm-badge-meta">
+      <span class="sm-badge-num">01</span>
+      <span class="sm-badge-cat">— STRENGTH</span>
+    </p>
+    <h3 class="sm-badge-title">AI検索 × SEO対策</h3>
+    <p class="sm-badge-sub">わずかな追加費用で</p>
+    <p class="sm-badge-text">最新の検索対策を実装し、<br>選ばれるサイトへ。</p>
+  </article>
+
+  <article class="sm-badge sm-badge-02">
+    <span class="sm-bignum">02</span>
+    <div class="sm-badge-visual visual-02">
+      <div class="glitters">
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+      </div>
+      <div class="visual-content">
+        <span class="yen">¥</span>
+        <span class="num">2</span>
+        <span class="man">万</span>
+        <span class="tilde">〜</span>
+      </div>
+    </div>
+    <p class="sm-badge-meta">
+      <span class="sm-badge-num">02</span>
+      <span class="sm-badge-cat">— STRENGTH</span>
+    </p>
+    <h3 class="sm-badge-title">初期費用 2万円〜</h3>
+    <p class="sm-badge-sub">スモールスタート</p>
+    <p class="sm-badge-text">小さく始めて、<br>事業成長と共に拡張。</p>
+  </article>
+
+  <article class="sm-badge sm-badge-03">
+    <span class="sm-bignum">03</span>
+    <div class="sm-badge-visual visual-03">
+      <div class="glitters">
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+        <span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span><span class="glitter"></span>
+      </div>
+      <div class="visual-content">
+        <span class="year-ten">10</span>
+        <span class="plus">+</span>
+      </div>
+      <span class="years">Y E A R S</span>
+    </div>
+    <p class="sm-badge-meta">
+      <span class="sm-badge-num">03</span>
+      <span class="sm-badge-cat">— STRENGTH</span>
+    </p>
+    <h3 class="sm-badge-title">実績 10年 +</h3>
+    <p class="sm-badge-sub">教育・Web制作</p>
+    <p class="sm-badge-text">10年以上の実績で<br>売れる導線を設計します。</p>
+  </article>
+
+</section>
+
+</div>
+
+<!-- ====== ハンバーガーメニュー & TOPボタン用JS(修正版) ====== -->
+<script>
+(function(){
+  // ハンバーガーメニュー
+  const hamburger = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('fullscreenMenu');
+  
+  // スクロール位置を保存
+  let scrollPos = 0;
+
+  function openMenu() {
+    scrollPos = window.scrollY;
+    hamburger.classList.add('active');
+    menu.classList.add('active');
+    // スマホでもグラグラしないように body を固定
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = '-' + scrollPos + 'px';
+    document.body.style.width = '100%';
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    menu.classList.remove('active');
+    // body の固定を解除
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    // 元のスクロール位置に戻す
+    window.scrollTo(0, scrollPos);
+  }
+
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      if (menu.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // メニュー項目をクリックした時の処理
+    document.querySelectorAll('.menu-list a, .menu-cta').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // ページ内リンク(#で始まる)の場合
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetEl = document.getElementById(targetId);
+          
+          // 先にメニューを閉じる
+          closeMenu();
+          
+          // メニューが閉じてからスクロール(タイミングをずらす)
+          if (targetEl) {
+            setTimeout(() => {
+              targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+        } else {
+          // 外部リンクの場合は普通に閉じてから飛ばす
+          closeMenu();
+        }
+      });
+    });
+
+    // ESC でメニューを閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // TOPに戻るボタン
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
+
+<!-- ====== WORKS / 制作実績 ====== -->
+<section class="works-mobile" id="works-sm" data-screen-label="Works Mobile">
+    
+  <header class="works-header">
+    <p class="works-eyebrow">— OUR WORKS / 制作実績</p>
+    <h2 class="works-title">
+      言葉で語るより、<br>
+      <span class="works-hl">作品で証明する。</span>
+    </h2>
+    <p class="works-subtitle">これまで手がけたサイト・LP・ブランディングの一部です。</p>
+    <span class="works-rule"></span>
+    <p class="works-tap-hint">TAP TO ENLARGE</p>
+  </header>
+
+  <div class="works-canvas">
+    <a href="#" class="work-card work-01" data-index="0">
+      <span class="work-num">01</span>
+      <img src="images/work-01.jpg" alt="WORK 01" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-02" data-index="1">
+      <span class="work-num">02</span>
+      <img src="images/work-02.jpg" alt="WORK 02" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-03" data-index="2">
+      <span class="work-num">03</span>
+      <img src="images/work-03.jpg" alt="WORK 03" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-04" data-index="3">
+      <span class="work-num">04</span>
+      <img src="images/work-04.jpg" alt="WORK 04" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-05" data-index="4">
+      <span class="work-num">05</span>
+      <img src="images/work-05.jpg" alt="WORK 05" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-06" data-index="5">
+      <span class="work-num">06</span>
+      <img src="images/work-06.jpg" alt="WORK 06" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-07" data-index="6">
+      <span class="work-num">07</span>
+      <img src="images/work-07.jpg" alt="WORK 07" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+    <a href="#" class="work-card work-08" data-index="7">
+      <span class="work-num">08</span>
+      <img src="images/work-08.jpg" alt="WORK 08" loading="lazy">
+      <span class="work-zoom"></span>
+    </a>
+  </div>
+
+  <div class="works-cta">
+<a href="https://www.foriio.com/surelywork-810" class="works-cta-btn">VIEW OTHER WORKS</a>
+</section>
+
+<!-- ライトボックス(WORKSセクション拡大表示用) -->
+<div class="lightbox" id="worksLightbox">
+  <button class="lightbox-close" aria-label="閉じる">×</button>
+  <button class="lightbox-prev" aria-label="前へ">‹</button>
+  <button class="lightbox-next" aria-label="次へ">›</button>
+  <div class="lightbox-img-wrap">
+    <img class="lightbox-img" id="lightboxContent" src="" alt="">
+  </div>
+  <div class="lightbox-counter"><span class="current">01</span> / 08</div>
+</div>
+
+<!-- WORKSセクションのライトボックス用JavaScript -->
+<script>
+(function(){
+  const works = [
+    'images/work-01.jpg',
+    'images/work-02.jpg',
+    'images/work-03.jpg',
+    'images/work-04.jpg',
+    'images/work-05.jpg',
+    'images/work-06.jpg',
+    'images/work-07.jpg',
+    'images/work-08.jpg'
+  ];
+
+  const lightbox = document.getElementById('worksLightbox');
+  if (!lightbox) return;
+  const lightboxContent = document.getElementById('lightboxContent');
+  const counterCurrent = document.querySelector('#worksLightbox .lightbox-counter .current');
+  let currentIndex = 0;
+
+  function showLightbox(index) {
+    currentIndex = index;
+    lightboxContent.src = works[index];
+    lightboxContent.alt = 'WORK ' + String(index + 1).padStart(2, '0');
+    counterCurrent.textContent = String(index + 1).padStart(2, '0');
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function hideLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function showPrev() {
+    showLightbox((currentIndex - 1 + works.length) % works.length);
+  }
+  function showNext() {
+    showLightbox((currentIndex + 1) % works.length);
+  }
+
+  document.querySelectorAll('.work-card').forEach((card, idx) => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      showLightbox(idx);
+    });
+  });
+
+  lightbox.querySelector('.lightbox-close').addEventListener('click', hideLightbox);
+  lightbox.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+  lightbox.querySelector('.lightbox-next').addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) hideLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') hideLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+})();
+</script>
+
+<!-- ====== SECTION 03 / 予算最優先宣言 ====== -->
+<section class="philosophy-mobile" data-screen-label="03 Philosophy Mobile">
+  
+  <header class="ph-header">
+    <p class="ph-eyebrow">— PHILOSOPHY / 私たちの哲学</p>
+    <span class="ph-quote-mark">"</span>
+    <h2 class="ph-title">
+      まずは<span class="ph-hl">「予算」</span>を<br>
+      決めて話し合う。
+    </h2>
+    <span class="ph-rule"></span>
+  </header>
+
+  <figure class="ph-visual">
+    <img src="images/philosophy-handshake.webp" 
+         alt="お客様との信頼関係:予算を守る誠実な打ち合わせ" 
+         loading="lazy">
+    <figcaption class="ph-visual-caption">
+      <span class="ph-caption-num">01</span>
+      <span class="ph-caption-text">"Budget First" Promise</span>
+    </figcaption>
+  </figure>
+
+  <div class="ph-body">
+    <p class="ph-text">
+      当社は<strong>「ご予算が最優先」</strong>。<br>
+      利益目的で、不要な高額システムを押し付けるようなことは決していたしません。
+    </p>
+    <p class="ph-text">
+      安くても見栄えのする確かなデザインから、ご予算が許すなら高機能の全付けまで。<br>
+      制作からシステムまで<em>一元化</em>しているからこそ、他社なら高額になる高機能サイトが安価で構築可能です。
+    </p>
+  </div>
+
+  <div class="ph-promise">
+    <p class="ph-promise-label">
+      <span class="ph-promise-icon" aria-hidden="true">◆</span>
+      私たちのお約束
+    </p>
+    <p class="ph-promise-text">
+      あなたの<br>
+      <span class="ph-promise-keyword">大切な予算を<br>守り抜く。</span>
+    </p>
+    <p class="ph-promise-note">
+      ※ 資金切れは、ビジネスの終了を意味するからです。
+    </p>
+  </div>
+
+  <figure class="ph-visual ph-visual-2">
+    <img src="images/philosophy-partnership.webp" 
+         alt="低価格でも本物のパートナーシップ" 
+         loading="lazy">
+  </figure>
+
+  <p class="ph-closing">
+    なんどでもアイデアを形にするなら、<br>
+    <strong>低価格の当社とパートナーに</strong>なりましょう。
+  </p>
+
+</section>
+
+
+<!-- ====== SECTION 04 / 共感・問題提起 ====== -->
+<section class="empathy-mobile" id="empathy-sm" aria-labelledby="empathy-sm-title">
+  
+  <div class="em-hero">
+    <img src="images/empathy-main.webp" alt="悩む経営者のシーン" class="em-hero-img" loading="lazy">
+    <div class="em-hero-overlay"></div>
+    <div class="em-hero-text">
+      <span class="em-hero-eyebrow">SECTION 04 — EMPATHY</span>
+      <h2 id="empathy-sm-title" class="em-hero-title">
+        こんなお悩み、<br>ありませんか?
+      </h2>
+      <p class="em-hero-sub">経営者の本音、私たちはすべて聞いてきました。</p>
+    </div>
+  </div>
+
+  <div class="em-cards">
+
+    <article class="em-card em-card--left" data-em-card>
+      <div class="em-card-num">01.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="3" rx="2"/>
+          <line x1="8" x2="16" y1="21" y2="21"/>
+          <line x1="12" x2="12" y1="17" y2="21"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        しっかりしたHPやLPを作って、まずは<mark>売上の基盤</mark>を固めたい
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+    <article class="em-card em-card--right" data-em-card>
+      <div class="em-card-num">02.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" x2="12" y1="2" y2="22"/>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        過去に高いお金を払ってLPを作ったが、<mark>全く売上や問い合わせに繋がらなかった</mark>
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+    <article class="em-card em-card--left" data-em-card>
+      <div class="em-card-num">03.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <path d="m7.5 4.27 9 5.15"/>
+          <polyline points="3.29 7 12 12 20.71 7"/>
+          <line x1="12" x2="12" y1="22" y2="12"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        最初から高額なシステムは不安。<mark>後から柔軟に追加</mark>できたらいいのに…
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+    <article class="em-card em-card--right" data-em-card>
+      <div class="em-card-num">04.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+          <path d="m15 5 4 4"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        文章やキャッチコピーを<mark>自分一人で考えるのは面倒</mark>…
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+    <article class="em-card em-card--left" data-em-card>
+      <div class="em-card-num">05.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.3-4.3"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        SEO対策や<mark>AI検索対策</mark>って必要らしいけど、どうすればいいの?
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+    <article class="em-card em-card--right" data-em-card>
+      <div class="em-card-num">06.</div>
+      <div class="em-card-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <p class="em-card-text">
+        最初に作って終わりじゃなく、<mark>ずっと相談できる相手</mark>が欲しい
+      </p>
+      <div class="em-card-bar"></div>
+    </article>
+
+  </div>
+
+  <div class="em-closing">
+    <div class="em-closing-line"></div>
+    <p class="em-closing-text" data-em-typewriter>
+      <span class="em-closing-mark">—</span>
+      その悩み、<strong>すべて私たちが解決します。</strong>
+    </p>
+    <div class="em-closing-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 05 / 作って終わりをやめる ====== -->
+<section class="evolve-mobile" id="evolve-sm" aria-labelledby="evolve-sm-title">
+
+  <div class="ev-bg-grid" aria-hidden="true"></div>
+  <div class="ev-bg-noise" aria-hidden="true"></div>
+
+  <div class="ev-banner">
+    <div class="ev-banner-bgtext" aria-hidden="true">
+      <span>EVOLVE&nbsp;EVOLVE&nbsp;EVOLVE&nbsp;EVOLVE&nbsp;</span>
+      <span>EVOLVE&nbsp;EVOLVE&nbsp;EVOLVE&nbsp;EVOLVE&nbsp;</span>
+    </div>
+
+    <div class="ev-banner-inner">
+      <span class="ev-banner-eyebrow">SECTION 05 — EVOLUTION</span>
+      <h2 id="evolve-sm-title" class="ev-banner-title">
+        <span class="ev-strike">「作って終わり」</span>の<br>
+        HP・LP制作は<br>
+        <span class="ev-mark-wrap">
+          <span class="ev-mark">やめませんか?</span>
+        </span>
+      </h2>
+      <p class="ev-banner-sub">
+        低価格・スモールスタートで、売上の伸びに合わせて<br>
+        <em>"進化"</em>し続ける仕組みを構築します。
+      </p>
+    </div>
+  </div>
+
+  <div class="ev-hero-img-wrap">
+    <img src="images/evolve-main.webp" alt="進化し続けるサイトのイメージ" class="ev-hero-img" loading="lazy">
+    <div class="ev-hero-tag">
+      <span class="ev-hero-tag-num">01 → ∞</span>
+      <span class="ev-hero-tag-text">EVOLUTION SYSTEM</span>
+    </div>
+  </div>
+
+  <div class="ev-features">
+    <h3 class="ev-features-title">
+      <span class="ev-features-title-en">FEATURES</span>
+      進化の3つの仕組み
+    </h3>
+
+    <article class="ev-feat" data-ev-feat>
+      <div class="ev-feat-num">01</div>
+      <div class="ev-feat-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20"/>
+          <circle cx="12" cy="12" r="9"/>
+        </svg>
+      </div>
+      <div class="ev-feat-body">
+        <h4 class="ev-feat-head">
+          手軽にスタート、<br>必要な時に拡張
+        </h4>
+        <p class="ev-feat-text">
+          WordPress・Canvaを活用し、まずは驚くほど安くプロ品質のサイトを制作。事業が軌道に乗ったタイミングで、<mark>機能を自由に追加</mark>できます。
+        </p>
+      </div>
+    </article>
+
+    <article class="ev-feat" data-ev-feat>
+      <div class="ev-feat-num">02</div>
+      <div class="ev-feat-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18V5l12-2v13"/>
+          <circle cx="6" cy="18" r="3"/>
+          <circle cx="18" cy="16" r="3"/>
+          <path d="m6 9 12-2"/>
+        </svg>
+      </div>
+      <div class="ev-feat-body">
+        <h4 class="ev-feat-head">
+          迷わせない<br>「Yes/No診断チャート」
+        </h4>
+        <p class="ev-feat-text">
+          顧客が自分で答えを選び、<mark>最短ルートで注文</mark>へ辿り着ける診断機能を実装可能。接客の手間を減らし、成約までの心理的ハードルを下げます。
+        </p>
+      </div>
+    </article>
+
+    <article class="ev-feat" data-ev-feat>
+      <div class="ev-feat-num">03</div>
+      <div class="ev-feat-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          <circle cx="12" cy="16" r="1"/>
+        </svg>
+      </div>
+      <div class="ev-feat-body">
+        <h4 class="ev-feat-head">
+          24時間休まない<br>「AIチャットボット」
+        </h4>
+        <p class="ev-feat-text">
+          あなたが寝ている間も、AIが顧客の疑問を即座に解決。深夜の離脱を劇的に防ぐ<mark>「24時間自動接客」</mark>を実現します。
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="ev-core">
+    <div class="ev-core-pulse" aria-hidden="true"></div>
+    <div class="ev-core-inner">
+      <div class="ev-core-en">EVOLVING</div>
+      <div class="ev-core-jp">進化し続ける仕組み</div>
+    </div>
+  </div>
+
+  <div class="ev-ticker-wrap">
+    <div class="ev-ticker-label">
+      <span class="ev-ticker-label-en">+ ADD-ON</span>
+      <span class="ev-ticker-label-jp">追加できる機能</span>
+    </div>
+
+    <div class="ev-ticker">
+      <div class="ev-ticker-track">
+        <span class="ev-tag">▶ 動画挿入</span>
+        <span class="ev-tag">▶ ブログ投稿</span>
+        <span class="ev-tag">▶ 問合せフォーム</span>
+        <span class="ev-tag">▶ 自動配信メール</span>
+        <span class="ev-tag">▶ LINE連携</span>
+        <span class="ev-tag">▶ 会員サイト</span>
+        <span class="ev-tag">▶ ECサイト</span>
+        <span class="ev-tag">▶ SEO/AI検索対策強化</span>
+        <span class="ev-tag">▶ 動画挿入</span>
+        <span class="ev-tag">▶ ブログ投稿</span>
+        <span class="ev-tag">▶ 問合せフォーム</span>
+        <span class="ev-tag">▶ 自動配信メール</span>
+        <span class="ev-tag">▶ LINE連携</span>
+        <span class="ev-tag">▶ 会員サイト</span>
+        <span class="ev-tag">▶ ECサイト</span>
+        <span class="ev-tag">▶ SEO/AI検索対策強化</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ====== SECTION 06 / 選ばれる4つの理由 ====== -->
+<section class="reasons-mobile" id="reasons-sm" aria-labelledby="reasons-sm-title">
+
+  <div class="rs-marquee" aria-hidden="true">
+    <div class="rs-marquee-track">
+      <span>★ REASON ★ 選ばれる理由 ★ REASON ★ 選ばれる理由</span>
+      <span>★ REASON ★ 選ばれる理由 ★ REASON ★ 選ばれる理由</span>
+    </div>
+  </div>
+
+  <div class="rs-header">
+    <span class="rs-eyebrow">SECTION 06 — WHY US</span>
+    <h2 id="reasons-sm-title" class="rs-title">
+      選ばれる<br>
+      <span class="rs-title-accent">4つの理由</span>
+    </h2>
+    <p class="rs-sub">
+      <em>Four reasons</em> to choose us.<br>
+      他社には真似できない、<br>シュアリーワークの強み。
+    </p>
+  </div>
+
+  <div class="rs-cards">
+
+    <article class="rs-card rs-card--left" data-rs-card>
+      <div class="rs-card-num" aria-hidden="true">No.01</div>
+      <div class="rs-card-body">
+        <div class="rs-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <p class="rs-card-tag">SMALL START</p>
+        <h3 class="rs-card-head">
+          <span class="rs-card-head-line">初期費用<em>2万円〜</em>の</span>
+          スモールスタート
+        </h3>
+        <p class="rs-card-text">
+          売れる基本5セクション(FV・共感・解決策・信頼・クロージング)に絞り、初期費用を最小化。事業の成長に合わせて<mark>段階的に拡張</mark>できます。
+        </p>
+      </div>
+    </article>
+
+    <article class="rs-card rs-card--right" data-rs-card>
+      <div class="rs-card-num" aria-hidden="true">No.02</div>
+      <div class="rs-card-body">
+        <div class="rs-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14"/>
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <p class="rs-card-tag">EXPANDABLE</p>
+        <h3 class="rs-card-head">
+          後から<span class="rs-card-head-line">高機能オプション</span>を<br>
+          わずかな追加費用で
+        </h3>
+        <p class="rs-card-text">
+          予約フォーム、LINE連携、AIアプリ、AIチャットボット、SEO・AI検索対策など、必要な機能を必要な時に<mark>驚きの低コスト</mark>で追加できます。
+        </p>
+      </div>
+    </article>
+
+    <article class="rs-card rs-card--left" data-rs-card>
+      <div class="rs-card-num" aria-hidden="true">No.03</div>
+      <div class="rs-card-body">
+        <div class="rs-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"/>
+            <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+          </svg>
+        </div>
+        <p class="rs-card-tag">ALL-IN-ONE</p>
+        <h3 class="rs-card-head">
+          外注を<span class="rs-card-head-line">一本化</span>して<br>
+          コスト削減
+        </h3>
+        <p class="rs-card-text">
+          HP制作・LP制作・コピーライティング・Webマーケティング・SEO対策・AIアプリ開発まで<mark>一社完結</mark>。中間コストを大幅カット。
+        </p>
+      </div>
+    </article>
+
+    <article class="rs-card rs-card--right" data-rs-card>
+      <div class="rs-card-num" aria-hidden="true">No.04</div>
+      <div class="rs-card-body">
+        <div class="rs-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+        </div>
+        <p class="rs-card-tag">VOICE INPUT</p>
+        <h3 class="rs-card-head">
+          スマホ<span class="rs-card-head-line">音声入力</span>で<br>
+          原稿作成OK
+        </h3>
+        <p class="rs-card-text">
+          文章が苦手でも安心。スマホに話しかけるだけで、最新AIが自然な文章に整えます。<mark>「想い」を語るだけ</mark>でプロ品質のLPが完成します。
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="rs-closing">
+    <div class="rs-closing-mark">＊ ＊ ＊</div>
+    <p class="rs-closing-text">
+      これが、私たちが<br>
+      <strong>選ばれる理由です。</strong>
+    </p>
+  </div>
+
+</section>
+
+
+<section class="trust-mobile" id="trust-sm" aria-labelledby="trust-sm-title">
+
+  <div class="tr-deco-top" aria-hidden="true">
+    <span class="tr-deco-line"></span>
+    <span class="tr-deco-diamond">◆</span>
+    <span class="tr-deco-line"></span>
+  </div>
+
+  <div class="tr-header">
+    <span class="tr-eyebrow">SECTION 07 — TRUST</span>
+    <h2 id="trust-sm-title" class="tr-title">
+      なぜ私たちが<br>
+      <span class="tr-title-mark">「売れる仕組み」</span>を<br>
+      作れるのか
+    </h2>
+    <p class="tr-subtitle">
+      <em>Since 2014.</em><br>
+      10年以上の実績が、答えです。
+    </p>
+  </div>
+
+  <div class="tr-stamp" aria-hidden="true" data-tr-stamp>
+    <div class="tr-stamp-inner">
+      <div class="tr-stamp-num">10<span>+</span></div>
+      <div class="tr-stamp-label">YEARS<br>OF TRUST</div>
+    </div>
+  </div>
+
+  <div class="tr-hero-img-wrap">
+    <img src="images/trust-main.webp" alt="信頼の実績" class="tr-hero-img" loading="lazy">
+    <div class="tr-hero-overlay"></div>
+    <div class="tr-hero-badge">
+      <span class="tr-hero-badge-en">ESTABLISHED</span>
+      <span class="tr-hero-badge-year">2014</span>
+    </div>
+  </div>
+
+  <div class="tr-company">
+    <div class="tr-company-name">
+      <span class="tr-company-brand">ティーチ&ファネルDesign</span>
+      <span class="tr-company-corp">運営:株式会社シュアリーワーク</span>
+    </div>
+    <p class="tr-company-text">
+      教育業界をはじめとするWeb制作・セールスファネル構築の最前線で<mark>10年以上の実績</mark>を積んでまいりました。単に見た目を整えるだけの制作会社とは異なり、<mark>集客 → 販売 → リピート</mark>に至る「ビジネス全体の導線設計」を熟知しています。
+    </p>
+  </div>
+
+  <div class="tr-services">
+
+    <h3 class="tr-services-title">
+      <span class="tr-services-title-en">OUR EXPERTISE</span>
+      私たちの取り組み
+    </h3>
+
+    <ul class="tr-list">
+
+      <li class="tr-list-item" data-tr-item>
+        <div class="tr-list-check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="tr-list-body">
+          <div class="tr-list-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+            </svg>
+          </div>
+          <div class="tr-content-block">
+            <p class="tr-list-tag">VIDEO</p>
+            <p class="tr-list-text">
+              成約率を高めるLPへの<strong>ショート動画実装</strong>
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="tr-list-item" data-tr-item>
+        <div class="tr-list-check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="tr-list-body">
+          <div class="tr-list-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="tr-content-block">
+            <p class="tr-list-tag">AI BOT</p>
+            <p class="tr-list-text">
+              24時間顧客対応を可能にする<strong>AIチャットボット導入</strong>
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="tr-list-item" data-tr-item>
+        <div class="tr-list-check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="tr-list-body">
+          <div class="tr-list-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+          </div>
+          <div class="tr-content-block">
+            <p class="tr-list-tag">SEO / AEO</p>
+            <p class="tr-list-text">
+              最新のSEO・<strong>AI検索対策(LLMO/AEO)</strong>
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="tr-list-item" data-tr-item>
+        <div class="tr-list-check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="tr-list-body">
+          <div class="tr-list-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="tr-content-block">
+            <p class="tr-list-tag">FUNNEL</p>
+            <p class="tr-list-text">
+              メルマガ・<strong>LINEのステップ配信</strong>(ファネル構築)
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="tr-list-item" data-tr-item>
+        <div class="tr-list-check" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="tr-list-body">
+          <div class="tr-list-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="12" height="14" rx="2" />
+              <path d="M14 6h4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-2" />
+              <circle cx="8" cy="13" r="1" />
+            </svg>
+          </div>
+          <div class="tr-content-block">
+            <p class="tr-list-tag">AI APP</p>
+            <p class="tr-list-text">
+              顧客満足度とリピート率を高める<strong>カスタムAIアプリ開発</strong>
+            </p>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="tr-closing">
+    <div class="tr-closing-ribbon">
+      <span class="tr-closing-ribbon-text">CLIENT SUCCESS</span>
+    </div>
+    <p class="tr-closing-text">
+      最新のWebマーケティング手法を駆使して、<br>
+      <strong>クライアントの売上拡大</strong>を<br>
+      支援します。
+    </p>
+  </div>
+
+  <div class="tr-deco-bottom" aria-hidden="true">
+    <span class="tr-deco-line"></span>
+    <span class="tr-deco-diamond">◆</span>
+    <span class="tr-deco-line"></span>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 08 / 幻想と低価格の秘密 ====== -->
+<section class="truth-mobile" id="truth-sm" aria-labelledby="truth-sm-title">
+
+  <div class="th-alert" aria-hidden="true" data-th-alert>
+    <div class="th-alert-stamp">
+      <div class="th-alert-line">!</div>
+      <div class="th-alert-text">
+        <span>SUPER</span>
+        <strong>IMPORTANT</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="th-header">
+    <span class="th-eyebrow">SECTION 08 — THE TRUTH</span>
+    <h2 id="truth-sm-title" class="th-title">
+      「1回で完璧なLP」<br>
+      <span class="th-title-accent">という幻想</span>と、<br>
+      低価格の秘密。
+    </h2>
+    <p class="th-question">
+      <em>Q.</em>
+      なぜ私たちは<br>
+      <strong>「2万円から」</strong>を貫くのか?
+    </p>
+  </div>
+
+  <div class="th-vs">
+
+    <div class="th-vs-card th-vs-card--myth" data-th-vs>
+      <div class="th-vs-label">
+        <span class="th-vs-label-num">×</span>
+        <span class="th-vs-label-text">幻想</span>
+      </div>
+      <p class="th-vs-text">
+        LPは<br>
+        <strong>「1回作って終わり」</strong><br>
+        の魔法のツール
+      </p>
+    </div>
+
+    <div class="th-vs-arrow" aria-hidden="true">
+      <span>真実は</span>
+      <div class="th-vs-arrow-icon">↓</div>
+    </div>
+
+    <div class="th-vs-card th-vs-card--truth" data-th-vs>
+      <div class="th-vs-label">
+        <span class="th-vs-label-num">○</span>
+        <span class="th-vs-label-text">現実</span>
+      </div>
+      <p class="th-vs-text">
+        時代の流れやターゲットで<br>
+        刺さる言葉は変わる。<br>
+        <strong>ヒットするまで何度でも<br>テストし、作り直す</strong>ことが<br>
+        絶対に必要。
+      </p>
+    </div>
+
+  </div>
+
+  <div class="th-formula">
+    <div class="th-formula-title">
+      <span class="th-formula-title-en">— THE EQUATION —</span>
+      最も理にかなった選択
+    </div>
+
+    <div class="th-formula-box">
+      <div class="th-formula-row" data-th-formula>
+        <span class="th-formula-tag">A</span>
+        <span class="th-formula-text">2万円〜のスモールスタート</span>
+      </div>
+      <div class="th-formula-op">＋</div>
+      <div class="th-formula-row" data-th-formula>
+        <span class="th-formula-tag">B</span>
+        <span class="th-formula-text">後から安価に修正できる環境</span>
+      </div>
+      <div class="th-formula-op th-formula-op--equal">＝</div>
+      <div class="th-formula-result" data-th-formula>
+        <span class="th-formula-result-en">ANSWER</span>
+        <span class="th-formula-result-text">
+          売れるまで<br>
+          <strong>育て続けられる</strong>仕組み
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="th-roles">
+
+    <h3 class="th-roles-title">
+      <span class="th-roles-title-en">DIVISION OF ROLES</span>
+      事業主様が<br>時間をかけるべきは<br>
+      <span class="th-roles-title-mark">「言葉」</span>です
+    </h3>
+
+    <p class="th-roles-intro">
+      Webデザインの勉強ではなく、<br>
+      ビジネスのアイデアやターゲットを動かす<br>
+      <strong>「言葉(ライティング)」</strong>を磨くことこそ、<br>
+      事業主様の本当の仕事。
+    </p>
+
+    <div class="th-role-cards">
+
+      <article class="th-role-card th-role-card--01" data-th-role>
+        <div class="th-role-num">01</div>
+        <div class="th-role-tag">DESIGN</div>
+        <h4 class="th-role-head">デザイン制作</h4>
+        <p class="th-role-text">
+          当社が<strong>徹底的にコストを抑える</strong>
+        </p>
+        <div class="th-role-by">→ シュアリーワーク</div>
+      </article>
+
+      <article class="th-role-card th-role-card--02" data-th-role>
+        <div class="th-role-num">02</div>
+        <div class="th-role-tag">WRITING BASE</div>
+        <h4 class="th-role-head">文章の土台作り</h4>
+        <p class="th-role-text">
+          当社の<strong>AIシステムで効率化</strong>
+        </p>
+        <div class="th-role-by">→ シュアリーワーク</div>
+      </article>
+
+      <article class="th-role-card th-role-card--03" data-th-role>
+        <div class="th-role-num">03</div>
+        <div class="th-role-tag">YOUR PASSION</div>
+        <h4 class="th-role-head">最終的な熱い言葉</h4>
+        <p class="th-role-text">
+          事業主様<strong>ご自身で手直し</strong>
+        </p>
+        <div class="th-role-by th-role-by--you">→ あなた自身</div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="th-quote">
+    <div class="th-quote-marks" aria-hidden="true">"</div>
+    <p class="th-quote-text">
+      この役割分担こそが、<br>
+      最も説得力のある<br>
+      <strong>「売れるページ」</strong>を<br>
+      生み出します。
+    </p>
+    <div class="th-quote-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 09 / お客様の声 ====== -->
+<section class="voices-mobile" id="voices-sm" aria-labelledby="voices-sm-title">
+
+  <div class="vc-dots" aria-hidden="true">
+    <span class="vc-dot vc-dot--1"></span>
+    <span class="vc-dot vc-dot--2"></span>
+    <span class="vc-dot vc-dot--3"></span>
+    <span class="vc-dot vc-dot--4"></span>
+    <span class="vc-dot vc-dot--5"></span>
+    <span class="vc-dot vc-dot--6"></span>
+  </div>
+
+  <div class="vc-header">
+    <span class="vc-eyebrow">SECTION 09 — VOICES</span>
+    <h2 id="voices-sm-title" class="vc-title">
+      お客様の声
+    </h2>
+    <p class="vc-subtitle">
+      <em>Reviews from our clients.</em>
+    </p>
+  </div>
+
+  <div class="vc-stars-banner" data-vc-stars>
+    <div class="vc-stars" aria-hidden="true">
+      <span class="vc-star">★</span>
+      <span class="vc-star">★</span>
+      <span class="vc-star">★</span>
+      <span class="vc-star">★</span>
+      <span class="vc-star">★</span>
+    </div>
+    <p class="vc-stars-text">
+      <strong>全レビュー</strong><br>
+      <span class="vc-stars-big">星5評価</span><br>
+      をいただいております
+    </p>
+    <p class="vc-stars-sub">
+      皆様から寄せられた、<br>喜びと信頼の声を一部ご紹介。
+    </p>
+  </div>
+
+  <div class="vc-category">
+    <div class="vc-cat-header">
+      <span class="vc-cat-emoji" aria-hidden="true">💻</span>
+      <h3 class="vc-cat-title">
+        <span class="vc-cat-en">CATEGORY 01</span>
+        LP制作・Webデザイン
+      </h3>
+    </div>
+
+    <div class="vc-cards">
+
+      <article class="vc-card vc-card--mint vc-card--tilt-l" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-01.webp" alt="お客様の声 01" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          初めてでも安心・<br>美しい仕上がり
+        </h4>
+        <p class="vc-card-text">
+          終始丁寧にご対応いただき、大変感謝しております。仕上がりもとても美しく、大変満足しております。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+      <article class="vc-card vc-card--pink vc-card--tilt-r" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-02.webp" alt="お客様の声 02" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          イメージ以上の<br>クオリティ
+        </h4>
+        <p class="vc-card-text">
+          イメージ以上のものが短期間で出来上がり非常に感謝しています。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+      <article class="vc-card vc-card--gold vc-card--tilt-l" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-03.webp" alt="お客様の声 03" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          凄まじい<br>スピード対応
+        </h4>
+        <p class="vc-card-text">
+          凄まじい速さでご対応頂きありがとうございました。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="vc-category">
+    <div class="vc-cat-header">
+      <span class="vc-cat-emoji" aria-hidden="true">🎨</span>
+      <h3 class="vc-cat-title">
+        <span class="vc-cat-en">CATEGORY 02</span>
+        画像編集・デザイン作成
+      </h3>
+    </div>
+
+    <div class="vc-cards">
+
+      <article class="vc-card vc-card--pink vc-card--tilt-r" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-04.webp" alt="お客様の声 04" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          数時間での納品と<br>高品質
+        </h4>
+        <p class="vc-card-text">
+          ご依頼から数時間という、驚くほどのスピードで画像を完成させていただき、大変感動いたしました。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+      <article class="vc-card vc-card--mint vc-card--tilt-l" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-05.webp" alt="お客様の声 05" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          +αの提案と<br>自然な仕上がり
+        </h4>
+        <p class="vc-card-text">
+          さらに2種類のパターンを作って送っていただけたことにも感謝しています。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="vc-category">
+    <div class="vc-cat-header">
+      <span class="vc-cat-emoji" aria-hidden="true">🤝</span>
+      <h3 class="vc-cat-title">
+        <span class="vc-cat-en">CATEGORY 03</span>
+        リピート・継続的なご依頼
+      </h3>
+    </div>
+
+    <div class="vc-cards">
+
+      <article class="vc-card vc-card--gold vc-card--tilt-r" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-06.webp" alt="お客様の声 06" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          アップグレードして<br>次の仕事もお願い
+        </h4>
+        <p class="vc-card-text">
+          良いコミュニケーションがとれました。アップグレードして次の仕事もお願いしています。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+      <article class="vc-card vc-card--mint vc-card--tilt-l" data-vc-card>
+        <div class="vc-card-avatar">
+          <img src="images/avatar-07.webp" alt="お客様の声 07" loading="lazy">
+        </div>
+        <div class="vc-card-stars">★★★★★</div>
+        <h4 class="vc-card-head">
+          気品のある<br>仕上がりに大変満足
+        </h4>
+        <p class="vc-card-text">
+          気品のある仕上がりで大変満足しております。
+        </p>
+        <div class="vc-card-tape" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="vc-closing">
+    <span class="vc-closing-emoji" aria-hidden="true">✨</span>
+    <p class="vc-closing-text">
+      その「ありがとう」が、<br>
+      私たちの<strong>原動力</strong>です。
+    </p>
+  </div>
+
+</section>
+
+<!-- ====== 料金マップ(画像入りカード版) ====== -->
+<section class="pricing-map" id="pricing-map-sm" aria-label="料金プランのナビゲーション">  
+  
+  <header class="pm-header">
+    <span class="pm-eyebrow">— PRICING —</span>
+    <h2 class="pm-title">料金のご案内</h2>
+    <p class="pm-title-en">Clear & Honest Pricing</p>
+    <p class="pm-tagline">制作からAIアプリ開発、安心の保守管理まで</p>
+  </header>
+
+  <div class="pm-canvas">
+
+    <a href="#partner-sm" class="pm-point pm-point-partner">
+      <div class="pm-point-image">
+        <img src="images/pricing-monthly.webp" alt="保守管理プラン" loading="lazy">
+        <div class="pm-point-marker">
+          <span class="pm-point-icon">M</span>
+        </div>
+      </div>
+      <div class="pm-point-body">
+        <span class="pm-point-en">— MAINTENANCE —</span>
+        <h3 class="pm-point-jp">サイト安心保守管理プラン</h3>
+        <p class="pm-point-price">¥5,500 〜 ¥11,000 <em>/月</em></p>
+        <ul class="pm-point-benefits">
+          <li><span class="pm-check">✓</span>月次アップデート・自動バックアップ</li>
+          <li><span class="pm-check">✓</span>万が一のサイトダウン時も迅速に対応</li>
+        </ul>
+        <span class="pm-point-cta">
+          保守内容を詳しく見る
+          <span class="pm-point-arrow">→</span>
+        </span>
+      </div>
+    </a>
+
+    <a href="#pricing-sm" class="pm-point pm-point-pricing">
+      <div class="pm-point-image">
+        <img src="images/pricing-build.webp" alt="制作料金プラン" loading="lazy">
+        <div class="pm-point-marker">
+          <span class="pm-point-icon">B</span>
+        </div>
+      </div>
+      <div class="pm-point-body">
+        <span class="pm-point-en">— BUILD & INNOVATION —</span>
+        <h3 class="pm-point-jp">制作・AIアプリ開発料金</h3>
+        <p class="pm-point-price">¥15,000 〜 ¥150,000</p>
+        <ul class="pm-point-benefits">
+          <li><span class="pm-check">✓</span>単発制作OK・不要なサブスクなし</li>
+          <li><span class="pm-check">✓</span>最新AIアプリ開発も3万円から受付</li>
+        </ul>
+        <span class="pm-point-cta">
+          制作料金を詳しく見る
+          <span class="pm-point-arrow">→</span>
+        </span>
+      </div>
+    </a>
+
+  </div>
+
+  <p class="pm-note">
+    タップでジャンプ、各プラン下部から目次に戻れます
+  </p>
+
+</section>
+ 
+
+<section class="partner-mobile" id="partner-sm" aria-labelledby="partner-sm-title">
+
+  <div class="pp-header">
+    <span class="pp-eyebrow">SECTION 11 — MAINTENANCE & INNOVATION</span>
+    <h2 id="partner-sm-title" class="pp-title">
+      安心の<span class="pp-title-accent">保守管理</span>と<br>
+      <span class="pp-title-accent">カスタムAIアプリ開発</span>
+    </h2>
+    <p class="pp-tagline">
+      <em>"</em>資産としてのWebサイトを守り、<br><strong>最新AIのパワーで進化させる</strong><em>"</em>
+    </p>
+  </div>
+
+  <div class="pp-hero-img">
+    <img src="images/partner-main.webp" alt="保守管理・AIアプリイメージ" loading="lazy">
+    <div class="pp-hero-overlay"></div>
+    <div class="pp-hero-tag">
+      <span class="pp-hero-tag-en">SECURITY & EVOLUTION</span>
+      <span class="pp-hero-tag-jp">日々の安全なシステム維持から、顧客満足度を高める<br>Q&A・各種規約のアプリ化まで一社完結</span>
+    </div>
+  </div>
+
+  <article class="pp-plan pp-plan--maint" data-pp-plan style="margin-top: var(--space-md);">
+    <div class="pp-plan-emblem">
+      <span class="pp-plan-emblem-num">01</span>
+      <span class="pp-plan-emblem-line"></span>
+      <span class="pp-plan-emblem-en">MAINTENANCE</span>
+    </div>
+
+    <h3 class="pp-plan-name">
+      <span class="pp-plan-name-en">Standard Security</span>
+      サイト基本保守管理プラン
+    </h3>
+
+    <p class="pp-plan-catch">
+      WordPressのシステムを裏側から静かに守る。<br>
+      プラグインの脆弱性やセキュリティリスクを自動で予防するベースプラン
+    </p>
+
+    <div class="pp-plan-price">
+      <span class="pp-plan-price-prefix">月額</span>
+      <span class="pp-plan-price-num">5,500</span>
+      <span class="pp-plan-price-yen">円</span>
+    </div>
+
+    <ul class="pp-plan-features">
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <span class="pp-feat-text">WordPressコア・プラグインの定期アップデート巡回</span>
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <span class="pp-feat-text">クラウド自動バックアップの設置 <span class="pp-feat-sub">（週1回・過去4週間分を外部保存）</span></span>
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <span class="pp-feat-text">SSL証明書の有効期限自動チェック</span>
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <span class="pp-feat-text">基本セキュリティ設定の最適化</span>
+      </li>
+      <li class="pp-feat pp-feat--note">
+        <span class="pp-feat-icon" aria-hidden="true">💡</span>
+        <span class="pp-feat-text">万が一のトラブル・復旧作業は<strong>「会員限定・特別実費（都度見積）」</strong>にて迅速に対応いたします</span>
+      </li>
+    </ul>
+  </article>
+
+  <article class="pp-plan pp-plan--standard pp-plan--featured" data-pp-plan style="margin-top: var(--space-xl);">
+    <div class="pp-plan-ribbon">
+      <span class="pp-plan-ribbon-star">★</span>
+      INNOVATION
+      <span class="pp-plan-ribbon-star">★</span>
+    </div>
+
+    <div class="pp-plan-emblem pp-plan-emblem--gold">
+      <span class="pp-plan-emblem-num">02</span>
+      <span class="pp-plan-emblem-line"></span>
+      <span class="pp-plan-emblem-en">AI APP</span>
+    </div>
+
+    <h3 class="pp-plan-name pp-plan-name--gold">
+      <span class="pp-plan-name-en">Custom AI App</span>
+      顧客満足度UP・カスタムAIアプリ開発
+    </h3>
+
+    <p class="pp-plan-catch pp-plan-catch--gold">
+      社内用ならNotebookLMで十分ですが、<br>
+      <strong>お客様が使うなら「直感的なアプリ化」</strong>が正解です
+    </p>
+
+    <div class="pp-plan-price pp-plan-price--featured">
+      <span class="pp-plan-price-prefix">個別見積</span>
+      <span class="pp-plan-price-num">30,000</span>
+      <span class="pp-plan-price-yen">円〜</span>
+    </div>
+
+    <div class="pp-plan-summary">
+      <strong>複雑なお問い合わせ、Q&A、各種規約をアプリへ変換</strong>
+    </div>
+
+    <ul class="pp-plan-features pp-plan-features--featured">
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <strong>24時間自動接客Q&Aアプリ</strong>（顧客の離脱を劇的に防ぐ）
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <strong>利用規約・社内規則のアシスタント化</strong>（探す手間をゼロに）
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <strong>ゲーム感覚の対話型診断シミュレーション</strong>（リード獲得強化）
+      </li>
+      <li class="pp-feat pp-feat--yes">
+        <span class="pp-feat-icon" aria-hidden="true">✓</span>
+        <strong>完全買い切り対応</strong>（アプリ自体への追加の月額固定費ゼロ）
+      </li>
+    </ul>
+  </article>
+
+  <div class="pp-calc" style="background: #F0F4F8; border: 1px solid var(--color-border); margin: -10px 0 0 0; padding: 16px; position: relative; z-index: 10; border-radius: var(--radius-md);">
+    <div class="pp-calc-header" style="margin: 0; padding: 0;">
+      <span class="pp-calc-header-en" style="font-size: var(--fs-xs); display: block; margin: 0; padding: 0; line-height: 1.0; color: var(--color-gold-dark); font-weight: 700;">— SECURITY NOTE —</span>
+      <h3 class="pp-calc-title" style="font-size: var(--fs-md); line-height: 1.3; margin: 4px 0 0 0; padding: 0; color: #1A2A3A; font-weight: 700;">
+        なぜ保守管理がビジネスの命綱なのか？
+      </h3>
+    </div>
+    <p class="pp-calc-conclusion" style="text-align: left; font-size: var(--fs-sm); color: #243447; line-height: 1.6; margin: 10px 0 0 0; padding: 0; font-family: var(--font-sans);">
+      世界中のWebサイトの多くがWordPressで構築されていますが、更新の放置による「プラグインの脆弱性を突いた改ざんや乗っ取り」の被害が後を絶ちません。サイトが突然真っ白になるようなトラブルは、これまで築いた信頼を一瞬で失墜させます。<br><br>
+      当社の保守管理プラン（月額5,500円）は、システムを常に最新・安全に保ち、バックアップを二重化することで、重大なトラブルを未然に防ぎ、あなたが本業のビジネスに100%集中できる環境をお約束します。(恐れ入りますが高額サイトは別途お見積りとなります)
+    </p>
+  </div>
+
+</section>
+
+
+<section class="flow-mobile" id="flow-sm" aria-labelledby="flow-sm-title" style="margin-top: 0; padding-top: 30px;">
+
+  <div class="fl-bg-numbers" aria-hidden="true">
+    <span class="fl-bg-num fl-bg-num--1">01</span>
+    <span class="fl-bg-num fl-bg-num--2">02</span>
+    <span class="fl-bg-num fl-bg-num--3">03</span>
+    <span class="fl-bg-num fl-bg-num--4">04</span>
+    <span class="fl-bg-num fl-bg-num--5">05</span>
+  </div>
+
+  <div class="fl-header" style="margin-top: 0; padding-top: 0;">
+    <span class="fl-eyebrow" style="display: block; margin: 0; padding: 0;">SECTION 12 — PROCESS</span>
+    <h2 id="flow-sm-title" class="fl-title" style="margin-top: 4px; padding-top: 0;">
+      制作の<br>
+      <span class="fl-title-accent">流れ</span>
+    </h2>
+    <p class="fl-subtitle" style="margin-top: 4px; margin-bottom: 8px;">
+      <em>From concept to launch.</em><br>
+      5つのステップで、確実に。
+    </p>
+    <div class="fl-progress-wrap" style="margin-top: 4px;">
+      <span class="fl-progress-label">START</span>
+      <div class="fl-progress-bar"></div>
+      <span class="fl-progress-label">FINISH</span>
+    </div>
+  </div>
+
+  <div class="fl-timeline" style="margin-top: 15px;">
+
+    <div class="fl-axis" aria-hidden="true"></div>
+
+    <div class="fl-step fl-step--left" data-fl-step>
+      <div class="fl-step-marker" aria-hidden="true">
+        <span class="fl-step-marker-num">01</span>
+      </div>
+      <div class="fl-step-card">
+        <div class="fl-step-card-meta">
+          <span class="fl-step-card-en">HEAR</span>
+          <span class="fl-step-card-progress">20%</span>
+        </div>
+        <div class="fl-step-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" x2="12" y1="19" y2="22"/>
+          </svg>
+        </div>
+        <h3 class="fl-step-card-title">
+          ヒアリング
+          <span class="fl-step-card-sub">(スマホ音声入力OK)</span>
+        </h3>
+        <p class="fl-step-card-text">
+          事業ビジョン・ターゲット層・<strong>「誰に・何を届けたいか」</strong>をじっくり伺います。
+        </p>
+      </div>
+    </div>
+
+    <div class="fl-step fl-step--right" data-fl-step>
+      <div class="fl-step-marker" aria-hidden="true">
+        <span class="fl-step-marker-num">02</span>
+      </div>
+      <div class="fl-step-card">
+        <div class="fl-step-card-meta">
+          <span class="fl-step-card-en">STRATEGY</span>
+          <span class="fl-step-card-progress">40%</span>
+        </div>
+        <div class="fl-step-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" x2="12" y1="3" y2="6"/>
+            <line x1="12" x2="12" y1="18" y2="21"/>
+            <line x1="3" x2="6" y1="12" y2="12"/>
+            <line x1="18" x2="21" y1="12" y2="12"/>
+          </svg>
+        </div>
+        <h3 class="fl-step-card-title">
+          戦略・構成案作成
+          <span class="fl-step-card-sub">＋キーワード設計</span>
+        </h3>
+        <p class="fl-step-card-text">
+          集客・成約に繋がる構成を設計。<strong>SEO/AI検索対策のキーワード設計</strong>もこの段階で(オプション選択時)。
+        </p>
+      </div>
+    </div>
+
+    <div class="fl-step fl-step--left" data-fl-step>
+      <div class="fl-step-marker" aria-hidden="true">
+        <span class="fl-step-marker-num">03</span>
+      </div>
+      <div class="fl-step-card">
+        <div class="fl-step-card-meta">
+          <span class="fl-step-card-en">DESIGN</span>
+          <span class="fl-step-card-progress">60%</span>
+        </div>
+        <div class="fl-step-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12h6"/>
+            <path d="M22 12h-6"/>
+            <path d="M12 2v6"/>
+            <path d="M12 22v-6"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <h3 class="fl-step-card-title">
+          Webデザイン<br>制作
+        </h3>
+        <p class="fl-step-card-text">
+          ターゲットに響くトンマナで、<strong>信頼感のあるデザイン</strong>を制作。
+        </p>
+      </div>
+    </div>
+
+    <div class="fl-step fl-step--right" data-fl-step>
+      <div class="fl-step-marker" aria-hidden="true">
+        <span class="fl-step-marker-num">04</span>
+      </div>
+      <div class="fl-step-card">
+        <div class="fl-step-card-meta">
+          <span class="fl-step-card-en">OPTIMIZE</span>
+          <span class="fl-step-card-progress">80%</span>
+        </div>
+        <div class="fl-step-card-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h3 class="fl-step-card-title">
+          導線設計・<br>最適化
+        </h3>
+        <p class="fl-step-card-text">
+          ユーザー離脱を防ぐ<strong>UI/UX調整</strong>。検索エンジン・AI検索の両方に評価される構造を実装。
+        </p>
+      </div>
+    </div>
+
+    <div class="fl-step fl-step--left fl-step--final" data-fl-step>
+      <div class="fl-step-marker fl-step-marker--final" aria-hidden="true">
+        <span class="fl-step-marker-num">05</span>
+        <span class="fl-step-marker-star" aria-hidden="true">★</span>
+      </div>
+      <div class="fl-step-card fl-step-card--final">
+        <div class="fl-step-card-meta">
+          <span class="fl-step-card-en">LAUNCH</span>
+          <span class="fl-step-card-progress fl-step-card-progress--final">100%</span>
+        </div>
+        <div class="fl-step-card-icon fl-step-card-icon--final" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+          </svg>
+        </div>
+        <h3 class="fl-step-card-title">
+          公開・納品<br>
+          <span class="fl-step-card-sub">＆運用サポート</span>
+        </h3>
+        <p class="fl-step-card-text">
+          納品後も<strong>事業成長のパートナー</strong>として継続サポート。月額1,555円〜のパートナープランでお得に育てられます。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fl-closing">
+    <div class="fl-closing-line"></div>
+    <p class="fl-closing-text">
+      <em>The journey doesn't end here.</em><br>
+      <strong>納品は、ゴールではなく、スタート。</strong>
+    </p>
+    <div class="fl-closing-line"></div>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 13 / 売れる本物のLPを作るコツ ====== -->
+<section class="tips-mobile" id="tips-sm" aria-labelledby="tips-sm-title">
+
+  <div class="tp-bg-lines" aria-hidden="true"></div>
+
+  <div class="tp-header">
+    <span class="tp-eyebrow">SECTION 13 — TIPS</span>
+    <h2 id="tips-sm-title" class="tp-title">
+      <span class="tp-title-mark">「売れる本物のLP」</span><br>
+      を作るためのコツ
+    </h2>
+    <p class="tp-subtitle">
+      <em>The secret of authentic LP.</em>
+    </p>
+  </div>
+
+  <div class="tp-hero-img" data-tp-fade>
+    <img src="images/tips-notebook.webp" alt="ノートに書き込む手元" loading="lazy">
+    <div class="tp-hero-tag">
+      <span class="tp-hero-tag-num">01</span>
+      <span class="tp-hero-tag-text">LISTEN<br>FIRST</span>
+    </div>
+  </div>
+
+  <div class="tp-lead">
+    <h3 class="tp-lead-title">
+      簡単な質問に答えるだけで、<br>
+      <span class="tp-lead-mark">プロが想いを引き出します</span>
+    </h3>
+
+    <div class="tp-quote">
+      <p class="tp-quote-text">
+        制作の<strong>「丸投げ」は大歓迎</strong>です。しかし、お客様の想い・強みがゼロの状態では、誰の心にも響かないLPになってしまいます。
+      </p>
+      <p class="tp-quote-text tp-quote-text--accent">
+        だからこそ私たちは、<strong>簡単な質問に答えるだけで<br>プロが想いを引き出す</strong>ヒアリング手法を用意しています。
+      </p>
+    </div>
+  </div>
+
+  <div class="tp-points">
+    <h3 class="tp-points-title">
+      <span class="tp-points-title-en">— 3 KEY POINTS —</span>
+      ヒアリングの3つのポイント
+    </h3>
+
+    <div class="tp-points-list">
+
+      <article class="tp-point tp-point--yellow" data-tp-point>
+        <div class="tp-point-pin" aria-hidden="true"></div>
+        <div class="tp-point-num">
+          <span class="tp-point-num-en">POINT</span>
+          <span class="tp-point-num-fig">01</span>
+        </div>
+        <h4 class="tp-point-head">
+          顧客の<br>
+          <span class="tp-point-head-mark">深い悩み</span>を<br>
+          言語化
+        </h4>
+        <p class="tp-point-desc">
+          表面ではなく、本当に解決したい<br>核心の悩みを引き出します。
+        </p>
+      </article>
+
+      <article class="tp-point tp-point--coral" data-tp-point>
+        <div class="tp-point-pin" aria-hidden="true"></div>
+        <div class="tp-point-num">
+          <span class="tp-point-num-en">POINT</span>
+          <span class="tp-point-num-fig">02</span>
+        </div>
+        <h4 class="tp-point-head">
+          商品独自の<br>
+          <span class="tp-point-head-mark">強み</span>を<br>
+          引き出す
+        </h4>
+        <p class="tp-point-desc">
+          他社にはない、あなただけの<br>価値を言葉にします。
+        </p>
+      </article>
+
+      <article class="tp-point tp-point--mint" data-tp-point>
+        <div class="tp-point-pin" aria-hidden="true"></div>
+        <div class="tp-point-num">
+          <span class="tp-point-num-en">POINT</span>
+          <span class="tp-point-num-fig">03</span>
+        </div>
+        <h4 class="tp-point-head">
+          得られる<br>
+          <span class="tp-point-head-mark">ベネフィット</span><br>
+          を明確化
+        </h4>
+        <p class="tp-point-desc">
+          顧客が手にする変化と利益を、<br>具体的に描き出します。
+        </p>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="tp-voice">
+
+    <div class="tp-voice-img" data-tp-fade>
+      <div class="tp-voice-rings" aria-hidden="true">
+        <span class="tp-voice-ring tp-voice-ring--1"></span>
+        <span class="tp-voice-ring tp-voice-ring--2"></span>
+        <span class="tp-voice-ring tp-voice-ring--3"></span>
+      </div>
+      <img src="images/tips-voice.webp" alt="スマホで音声入力" loading="lazy">
+      <div class="tp-voice-badge">
+        <span class="tp-voice-badge-en">VOICE INPUT OK</span>
+      </div>
+    </div>
+
+    <div class="tp-voice-text">
+      <h3 class="tp-voice-title">
+        <span class="tp-voice-title-en">— HOW IT WORKS —</span>
+        制作開始後、<br>
+        <span class="tp-voice-title-mark">直感的に答えるだけ</span>
+      </h3>
+
+      <div class="tp-voice-steps">
+        <div class="tp-voice-step">
+          <span class="tp-voice-step-num">→</span>
+          <p>トークルームで<strong>一問一答方式</strong>のアンケートをお送りします</p>
+        </div>
+        <div class="tp-voice-step">
+          <span class="tp-voice-step-num">→</span>
+          <p><strong>直感的に答えるだけ</strong>でOK</p>
+        </div>
+        <div class="tp-voice-step">
+          <span class="tp-voice-step-num">→</span>
+          <p>スマホの<strong>音声入力・箇条書き</strong>でも大丈夫</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tp-closing">
+    <p class="tp-closing-text">
+      あなたの中にある<br>
+      <strong>言葉にならない想い</strong>を、<br>
+      私たちが形にします。
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ====== SECTION 14 / FAQ ====== -->
+<section class="faq-mobile" id="faq-sm" aria-labelledby="faq-sm-title">
+
+  <div class="fq-blobs" aria-hidden="true">
+    <div class="fq-blob fq-blob--1"></div>
+    <div class="fq-blob fq-blob--2"></div>
+    <div class="fq-blob fq-blob--3"></div>
+    <div class="fq-blob fq-blob--4"></div>
+  </div>
+
+  <div class="fq-header">
+    <span class="fq-eyebrow">SECTION 14 — FAQ</span>
+    <div class="fq-bubble-q" aria-hidden="true">?</div>
+    <h2 id="faq-sm-title" class="fq-title">
+      よくある<br>
+      <span class="fq-title-accent">ご質問</span>
+    </h2>
+    <p class="fq-subtitle">
+      <em>Frequently asked questions.</em><br>
+      気になることを、ひとつずつ。
+    </p>
+  </div>
+
+  <div class="fq-hero-img">
+    <img src="images/faq-conversation.webp" alt="対話のシーン" loading="lazy">
+    <div class="fq-hero-overlay"></div>
+    <div class="fq-hero-tag">
+      <span class="fq-hero-tag-en">LET'S TALK</span>
+    </div>
+  </div>
+
+  <div class="fq-list">
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">01</span>
+        </div>
+        <p class="fq-item-question">ホームページ制作の初期費用はいくらからですか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          <strong>初期費用2万円から</strong>ホームページ制作が可能です。WordPressまたはHTML/CSSベースで、3セクション以内の一般的な構成を想定しています。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">02</span>
+        </div>
+        <p class="fq-item-question">SEO対策・AI検索対策はオプションですか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          はい、わずかな追加費用でオプション対応しております。<strong>簡易SEO対策は5,000円、詳細SEO対策は20,000円から</strong>。会員様は20%OFFでご利用いただけます。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">03</span>
+        </div>
+        <p class="fq-item-question">月額1,555円のライトプランは何ができますか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          毎月<strong>3箇所まで修正無料</strong>、追加セクション半額、高機能オプション20%OFFの3大特典がご利用いただけます。加入・解約はいつでも自由です。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item fq-item--featured" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-star" aria-hidden="true">★</div>
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">04</span>
+        </div>
+        <p class="fq-item-question">一番お得なプランはどれですか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          <strong>スタンダードプラン(月額4,400円)</strong>です。ライト(1,555円)と保守(3,300円)を別々に契約すると4,855円ですが、スタンダードなら<mark>4,400円で両方の全特典</mark>が使えます。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">05</span>
+        </div>
+        <p class="fq-item-question">まずは安いプランでLPだけ作り、半年後にAIチャットボットを追加できますか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          はい、<strong>大歓迎です</strong>。事業の成長に合わせて最適なタイミングでご相談ください。会員様は20%OFFで導入できます。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">06</span>
+        </div>
+        <p class="fq-item-question">制作期間はどれくらいかかりますか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          基本のLP制作であれば、<strong>ヒアリング完了から最短3日〜10日(営業日)</strong>で納品可能です。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">07</span>
+        </div>
+        <p class="fq-item-question">アンケートにうまく答えられるか不安です。</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          箇条書き・スマホ音声入力で<strong>思いついたまま送っていただければOK</strong>です。プロが想いを汲み取ります。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">08</span>
+        </div>
+        <p class="fq-item-question">サーバーやドメインの知識がなくても依頼できますか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          はい、<strong>すべて丸投げOK</strong>です。サーバー設定・WordPressインストールも代行します。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">09</span>
+        </div>
+        <p class="fq-item-question">自作のHP・LPの修正だけでも依頼できますか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          はい、可能です。<strong>SEO診断・改善提案・部分修正</strong>も承っております。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">10</span>
+        </div>
+        <p class="fq-item-question">AIチャットボットはどんな仕組みですか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          <strong>24時間自動でお客様の質問に回答</strong>するシステムです。深夜の離脱防止と接客の手間削減に効果的です。導入20,000円〜(会員様は20%OFF)。
+        </p>
+      </div>
+    </details>
+
+    <details class="fq-item fq-item--featured" data-fq-item>
+      <summary class="fq-item-summary">
+        <div class="fq-item-star" aria-hidden="true">★</div>
+        <div class="fq-item-q">
+          <span class="fq-item-q-mark">Q</span>
+          <span class="fq-item-q-num">11</span>
+        </div>
+        <p class="fq-item-question">保守ってそんなに必要ですか?</p>
+        <span class="fq-item-toggle" aria-hidden="true">+</span>
+      </summary>
+      <div class="fq-item-answer">
+        <span class="fq-item-a-mark">A</span>
+        <p>
+          WordPressは<strong>更新を放置するとセキュリティリスクが高まります</strong>。サイト改ざん・乗っ取りの多くは古いプラグインが原因と言われており、<mark>保守は事業の生命線</mark>とも言えます。
+        </p>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="fq-closing">
+    <div class="fq-closing-bubble" aria-hidden="true"></div>
+    <p class="fq-closing-text">
+      他にもご不明点があれば、<br>
+      <strong>お気軽にご相談ください。</strong>
+    </p>
+  </div>
+
+</section>
+
+<!-- ========================================
+       Section: About / 私たちについて
+       LPより詳しい、ホームページ用の紹介
+       ======================================== -->
+  <section class="sec-about" id="sec-about" aria-label="私たちについて">
+    <div class="sec-about__inner">
+      <p class="sec-about__eyebrow">ABOUT US</p>
+      <h2 class="sec-about__heading">私たちについて</h2>
+      <p class="sec-about__lead">
+        Teach &amp; Funnel Design は、<br>
+        マーケター・エンジニア・デザイナー・<br>
+        Plus αが連携する小さなチームです。
+      </p>
+
+      <div class="sec-about__intro">
+        <p>
+          <strong>社長</strong>自らデザイナー/マーケター
+          全体の設計とマーケティング戦略を担当しています。<br>
+          長年共に仕事をしてきた、早稲田理工学術院出身のエンジニア兼プログラマー、
+          そして同じく早稲田大学出身のアメリカ人デザイナーが、
+          技術とデザインの両面からサポートしています。
+        </p>
+        <p>
+          私たちは、「<strong>AI時代の三方よし</strong>」を理念として、
+          制作者・依頼者・エンドユーザー、すべての方が満足できる
+          Webサービスをお届けすることを大切にしています。
+        </p>
+      </div>
+
+      <ul class="sec-about__members">
+        <li class="sec-about__member">
+          <p class="sec-about__role">DIRECTOR / MARKETING</p>
+          <p class="sec-about__name">社長</p>
+          <p class="sec-about__desc">
+            2004年より英語教育事業を運営。<br>
+            マーケティングスクール、Webデザインスクールで体系的に学び、
+            20年以上にわたり自身の事業で集客とWeb制作に取り組んできた。<br>
+            現在は、AI時代の新しいWeb制作の形を提案している。
+          </p>
+        </li>
+        <li class="sec-about__member">
+          <p class="sec-about__role">ENGINEER / DESIGNER</p>
+          <p class="sec-about__name">デザイン及び技術担当</p>
+          <p class="sec-about__desc">
+            早稲田理工学術院出身。
+            複雑なシステム構築からコーディング、デザインまで全て総括している。
+            デザインカンプ/アイデア/AIでの実装まで技術的におけるすべての領域の基礎を担当。
+          </p>
+        </li>
+        <li class="sec-about__member">
+          <p class="sec-about__role">DESIGNER</p>
+          <p class="sec-about__name">デザイン担当</p>
+          <p class="sec-about__desc">
+            アメリカ出身、早稲田大学卒業。
+            グローバルな感性と、日本市場への深い理解を併せ持つ。
+            サンフランシスコでWEBデザイナーとしてのキャリアをスタートし、現在日本在住。
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+<!-- ====== SECTION 15 / クロージング・最終CTA ====== -->
+<section class="closing-mobile" id="closing-sm" aria-labelledby="closing-sm-title">
+
+  <div class="cl-stars" aria-hidden="true">
+    <span class="cl-star cl-star--1"></span>
+    <span class="cl-star cl-star--2"></span>
+    <span class="cl-star cl-star--3"></span>
+    <span class="cl-star cl-star--4"></span>
+    <span class="cl-star cl-star--5"></span>
+    <span class="cl-star cl-star--6"></span>
+    <span class="cl-star cl-star--7"></span>
+    <span class="cl-star cl-star--8"></span>
+  </div>
+
+  <div class="cl-collage">
+    <div class="cl-photo cl-photo--1">
+      <img src="images/closing-team-01.webp" alt="チームで支える" loading="lazy">
+    </div>
+    <div class="cl-photo cl-photo--2">
+      <img src="images/closing-team-02.webp" alt="デザイン作業" loading="lazy">
+    </div>
+    <div class="cl-photo cl-photo--3">
+      <img src="images/closing-team-03.webp" alt="成功した経営者" loading="lazy">
+    </div>
+
+    <div class="cl-collage-label" aria-hidden="true">
+      <span>ONE TEAM</span>
+      <span>—</span>
+      <span>YOUR PARTNER</span>
+    </div>
+  </div>
+
+  <div class="cl-message">
+    <span class="cl-eyebrow">SECTION 15 — FINAL</span>
+    <h2 id="closing-sm-title" class="cl-title">
+      あなたのビジネスの<br>
+      <span class="cl-title-mark">「今」</span>と<br>
+      <span class="cl-title-mark">「未来」</span>を、<br>
+      <span class="cl-title-accent">ワンチーム</span>で<br>
+      支えます
+    </h2>
+    <p class="cl-lead">
+      なんどでもアイデアを形にする<br>
+      パートナーとして、<br>
+      一緒に<strong>「本物」</strong>を作り上げましょう。
+    </p>
+  </div>
+
+  <div class="cl-cta-wrap">
+
+    <div class="cl-coupon" data-cl-coupon>
+      <div class="cl-coupon-deco-l" aria-hidden="true"></div>
+      <div class="cl-coupon-inner">
+        <span class="cl-coupon-label">SPECIAL GIFT</span>
+        <span class="cl-coupon-value">¥<span class="cl-coupon-num">5,000</span></span>
+        <span class="cl-coupon-off">OFF</span>
+      </div>
+      <div class="cl-coupon-deco-r" aria-hidden="true"></div>
+    </div>
+
+    <a href="https://go.taf-design.com/coupon" class="cl-btn-main">
+      <span class="cl-btn-main-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 12 20 22 4 22 4 12"/>
+          <rect x="2" y="7" width="20" height="5"/>
+          <line x1="12" x2="12" y1="22" y2="7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+      </span>
+      <span class="cl-btn-main-text">
+        <span class="cl-btn-main-main">5,000円OFFクーポンを受け取る</span>
+        <span class="cl-btn-main-sub">無料相談はこちらから</span>
+      </span>
+      <span class="cl-btn-main-arrow" aria-hidden="true">→</span>
+    </a>
+
+    <p class="cl-cta-note">
+      <span class="cl-cta-note-line"></span>
+      LINEやフォームが苦手な方はこちら
+      <span class="cl-cta-note-line"></span>
+    </p>
+
+    <div class="cl-cta-sub">
+      <a href="mailto:info@taf-design.com" class="cl-btn-sub">
+        <span class="cl-btn-sub-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-10 5L2 7"/>
+          </svg>
+        </span>
+        <span class="cl-btn-sub-text">
+          <span class="cl-btn-sub-en">EMAIL</span>
+          <span class="cl-btn-sub-jp">メールで連絡</span>
+        </span>
+      </a>
+
+      <a href="tel:09025146064" class="cl-btn-sub">
+        <span class="cl-btn-sub-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        <span class="cl-btn-sub-text">
+          <span class="cl-btn-sub-en">PHONE</span>
+          <span class="cl-btn-sub-jp">電話してみる</span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cl-finale">
+    <div class="cl-finale-line"></div>
+    <p class="cl-finale-text">
+      <em>"</em>
+      まずは、お話しましょう。<br>
+      <strong>あなたの想いを聞かせてください。</strong>
+      <em>"</em>
+    </p>
+    <div class="cl-finale-line"></div>
+  </div>
+
+</section>
+
+<!-- ====== フッター(サイトマップ版) ====== -->
+<footer class="footer-mobile" id="footer-sm">
+
+  <div class="ft-main">
+
+    <!-- 左:ブランド -->
+    <div class="ft-brand">
+      <div class="ft-brand-logo">
+  <span class="ft-brand-logo-en">Teach &amp; Funnel</span>
+  <span class="ft-brand-logo-jp">DESIGN</span>
+  <span class="ft-brand-logo-kana">ティーチ&amp;ファネル デザイン</span>
+</div>
+      <p class="ft-brand-corp">運営:株式会社シュアリーワーク</p>
+      <p class="ft-brand-tagline">攻めのWebで、未来の売上をデザインする。</p>
+    </div>
+
+    <!-- 中:サイトマップ -->
+    <div class="ft-column">
+      <h3 class="ft-column-title">
+        <span class="ft-column-en">SITE MAP</span>
+        <span class="ft-column-jp">サイトマップ</span>
+      </h3>
+      <ul class="ft-column-list">
+        <li><a href="#evolve-sm">サービス内容</a></li>
+        <li><a href="#pricing-map-sm">料金プラン</a></li>
+        <li><a href="#works-sm">制作実績</a></li>
+        <li><a href="#voices-sm">お客様の声</a></li>
+        <li><a href="#faq-sm">よくある質問</a></li>
+      </ul>
+    </div>
+
+    <!-- 右:お問い合わせ -->
+    <div class="ft-column">
+      <h3 class="ft-column-title">
+        <span class="ft-column-en">CONTACT</span>
+        <span class="ft-column-jp">お問い合わせ</span>
+      </h3>
+      <ul class="ft-column-list">
+        <li><a href="https://go.taf-design.com/coupon">クーポンを取得する</a></li>
+        <li><a href="https://go.taf-design.com/offer">無料相談する</a></li>
+        <li><a href="mailto:info@taf-design.com">メールで連絡</a></li>
+<li><a href="https://lin.ee/pqfXTUJ" target="_blank" rel="noopener">公式LINE</a></li>
+<li><a href="tel:09025146064">電話で連絡</a></li>
+    </div>
+
+  </div>
+
+  <!-- 区切り線 -->
+  <div class="ft-divider"></div>
+
+  <!-- 規約系リンク -->
+  <ul class="ft-links">
+    <li><a href="https://taf-design.com/privacy-policy">プライバシーポリシー</a></li>
+    <li><a href="https://taf-design.com/tokushoho">特定商取引法に基づく表記</a></li>
+    <li><a href="#">会員ログイン</a></li>
+  </ul>
+
+  <!-- コピーライト -->
+  <p class="ft-copy">
+    © 2026 Surely Work Inc. All Rights Reserved.
+  </p>
+
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

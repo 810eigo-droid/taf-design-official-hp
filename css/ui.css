@@ -1,0 +1,244 @@
+/* ============ Custom cursor ============ */
+.cursor-dot, .cursor-ring{
+  position:fixed; top:0; left:0; pointer-events:none; z-index:9999;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:normal;
+}
+.cursor-dot{
+  width:6px; height:6px; background:#0a0a0a; border-radius:50%;
+}
+.cursor-ring{
+  width:42px; height:42px; border:1px solid var(--gold);
+  border-radius:50%;
+  transition:width .25s, height .25s, background .25s, color .25s, border-color .25s;
+  display:flex; align-items:center; justify-content:center;
+  font-family:"EB Garamond", serif; font-style:italic; font-size:13px; color:transparent;
+  letter-spacing:.05em;
+}
+.cursor-ring.is-hover{ width:64px; height:64px; background:rgba(197,160,89,.10) }
+.cursor-ring.is-view{ width:84px; height:84px; background:var(--navy); border-color:var(--navy); color:var(--gold) }
+.cursor-ring.is-view::before{ content:"VIEW" }
+body.cursor-hide .cursor-dot, body.cursor-hide .cursor-ring{ opacity:0 }
+@media (max-width:900px){ .cursor-dot,.cursor-ring{ display:none } }
+
+/* ============ Scroll progress (right edge gold line) ============ */
+.scroll-rail{
+  position:fixed; right:14px; top:0; bottom:0; width:1px;
+  background:rgba(26,42,58,.06); z-index:50; pointer-events:none;
+}
+.scroll-rail .fill{
+  position:absolute; left:-1px; top:0; width:3px; height:0%;
+  background:linear-gradient(180deg, var(--gold), var(--amber));
+}
+.scroll-rail .pct{
+  position:absolute; right:14px; top:14px;
+  font-family:"EB Garamond", serif; font-style:italic; font-size:13px; color:var(--gold);
+  white-space:nowrap;
+}
+
+/* ============ Almost there hint ============ */
+.almost{
+  position:fixed; right:24px; bottom:18px; z-index:60;
+  font-family:"Noto Serif JP", serif; font-size:11px; color:var(--gold);
+  writing-mode:vertical-rl;
+  letter-spacing:.4em;
+  opacity:0; transition:opacity .5s ease;
+  pointer-events:none;
+}
+.almost.show{opacity:1}
+
+/* ============ Loader ============ */
+.loader{
+  position:fixed; inset:0; background:var(--off); z-index:10000;
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .8s ease, visibility .8s;
+}
+.loader svg{ width:min(280px, 50vw); height:auto }
+.loader.done{ opacity:0; visibility:hidden }
+
+/* ============ Top fixed nav ============ */
+/* ============================================== */
+/* ヘッダー（トップナビゲーション）                 */
+/* ============================================== */
+
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 80;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  /* mix-blend-mode を削除して、明確な背景色に */
+  background: rgba(250, 250, 250, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--navy);
+  font-family: "EB Garamond", serif;
+  border-bottom: 1px solid rgba(26, 42, 58, 0.08);
+  transition: all 0.3s ease;
+}
+
+.topnav .brand {
+  font-style: italic;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+
+.topnav .brand b {
+  font-style: normal;
+  font-weight: 600;
+  font-family: "Noto Serif JP", serif;
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  margin-left: 10px;
+  vertical-align: 1px;
+  color: var(--navy);
+}
+
+.topnav .nav-links {
+  display: flex;
+  gap: 26px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  font-family: "Noto Serif JP", serif;
+}
+
+.topnav .nav-links a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.topnav .nav-links a:hover {
+  color: var(--gold);
+}
+
+.topnav .nav-cta {
+  font-family: "Noto Serif JP", serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  border: 1px solid var(--navy);
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: var(--navy);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.topnav .nav-cta:hover {
+  background: var(--navy);
+  color: #FAFAFA;
+}
+
+/* ============================================== */
+/* スマホ対応（768px以下）                          */
+/* ============================================== */
+@media (max-width: 768px) {
+
+  .topnav {
+    padding: 12px 16px;
+    /* スマホでは背景をしっかり白に */
+    background: rgba(250, 250, 250, 0.98);
+  }
+
+  /* ロゴを小さく */
+  .topnav .brand {
+    font-size: 18px;
+  }
+
+  .topnav .brand b {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    margin-left: 6px;
+  }
+
+  /* PC用メニューは非表示 */
+  .topnav .nav-links {
+    display: none;
+  }
+
+  /* CTAボタンをコンパクトに */
+  .topnav .nav-cta {
+    font-size: 10px;
+    padding: 8px 14px;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    /* 縦書きをリセット */
+    writing-mode: horizontal-tb;
+  }
+}
+
+/* ============================================== */
+/* 小型スマホ（375px以下）                          */
+/* ============================================== */
+@media (max-width: 375px) {
+
+  .topnav {
+    padding: 10px 12px;
+  }
+
+  .topnav .brand {
+    font-size: 15px;
+  }
+
+  .topnav .brand b {
+    display: none;  /* 「デザイン」の文字を非表示にして詰める */
+  }
+
+  .topnav .nav-cta {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}
+
+/* ============ Section frame ============ */
+.section{ position:relative; padding:120px 56px; overflow:hidden }
+.section.navy{ background:var(--navy); color:#EFE7D9 }
+.section.gold-strip{ background:var(--gold); color:var(--navy) }
+.section .eyebrow{
+  font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:14px; letter-spacing:.06em; display:flex; align-items:center; gap:14px;
+}
+.section .eyebrow::before{ content:""; width:36px; height:1px; background:currentColor; opacity:.6 }
+
+@media (max-width: 900px){ .section{ padding:80px 22px } }
+
+/* shared display heading */
+.display-jp{
+  font-family:"Noto Serif JP", serif; font-weight:900;
+  line-height:.9; letter-spacing:-.02em;
+  color:var(--navy);
+}
+.section.navy .display-jp{ color:#FAFAFA }
+
+/* gold marker underline (animatable on hover/intersection) */
+.hl{ position:relative; display:inline-block; padding:0 .12em; }
+.hl::after{
+  content:""; position:absolute; left:0; right:100%; bottom:.05em; height:.55em;
+  background:linear-gradient(180deg, transparent 35%, rgba(197,160,89,.55) 35%);
+  transition:right .4s cubic-bezier(.7,0,.2,1);
+  z-index:-1;
+}
+.hl.lit::after, a:hover .hl::after, button:hover .hl::after, .hl:hover::after{ right:0 }
+
+/* underline / strike / brackets as graphic */
+.strike{ text-decoration:line-through; text-decoration-color:var(--amber); text-decoration-thickness:2px}
+.brak::before{ content:"「"; color:var(--gold); font-weight:400}
+.brak::after{ content:"」"; color:var(--gold); font-weight:400}
+
+/* ============ wavy text on hover ============ */
+.wave .ch{ display:inline-block; transition:transform .35s cubic-bezier(.6,-.2,.3,1.4) }
+.wave:hover .ch{ animation:wave 1s ease both }
+@keyframes wave{
+  0%,100%{ transform:translateY(0) }
+  40%{ transform:translateY(-10px) }
+  60%{ transform:translateY(4px) }
+}
+.wave .ch:nth-child(2n){ animation-delay:.05s }
+.wave .ch:nth-child(3n){ animation-delay:.1s }
+.wave .ch:nth-child(4n){ animation-delay:.15s }
+.wave .ch:nth-child(5n){ animation-delay:.2s }

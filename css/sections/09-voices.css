@@ -1,0 +1,476 @@
+/* ============================================== */
+/* SECTION 9 — voices (masonry tilt)               */
+/* ============================================== */
+.voices{ background:var(--off); padding:120px 0; overflow:hidden }
+.voices h2{ padding:0 56px; font-family:"Noto Serif JP", serif; font-weight:900; font-size:64px; color:var(--navy); margin:0 0 50px }
+.voices h2 i{ font-style:italic; font-family:"EB Garamond", serif; color:var(--gold) }
+.voices-track{
+  display:flex; gap:28px; padding:30px 56px;
+  overflow-x:auto; scroll-snap-type:x mandatory;
+  scrollbar-width:none; align-items:flex-start;
+}
+.voices-track::-webkit-scrollbar{display:none}
+.voice-card{
+  flex:0 0 340px; scroll-snap-align:start;
+  background:#FFF; border:1px solid var(--line);
+  padding:28px 26px; position:relative;
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  transform: rotate(var(--tilt, 0deg));
+  box-shadow: 0 6px 0 -4px rgba(26,42,58,.08);
+}
+.voice-card:nth-child(odd){ margin-top:40px }
+.voice-card:hover{ transform:rotate(0deg) translateY(-4px); border-color:var(--gold); box-shadow:0 18px 40px -20px rgba(26,42,58,.25) }
+.voice-card .stars{ font-family:"EB Garamond", serif; color:var(--gold); font-size:18px; letter-spacing:2px }
+.voice-card blockquote{
+  font-family:"Noto Serif JP", serif; font-weight:900; font-size:17px; color:var(--navy);
+  line-height:1.6; margin:18px 0 22px;
+}
+.voice-card blockquote::before{
+  content:"“"; font-family:"EB Garamond", serif; font-style:italic; color:var(--gold);
+  font-size:50px; line-height:0; vertical-align:-12px; margin-right:4px;
+}
+.voice-card .who{ display:flex; gap:12px; align-items:center; padding-top:14px; border-top:1px solid var(--line); font-size:12px }
+.voice-card .who .av{
+  width:38px; height:38px; border-radius:50%;
+  background:linear-gradient(135deg, var(--gold), var(--amber));
+  display:flex; align-items:center; justify-content:center;
+  font-family:"EB Garamond", serif; font-style:italic; color:#FFF; font-size:16px;
+}
+.voice-card .who .name{ font-family:"Noto Serif JP", serif; font-weight:900; color:var(--navy) }
+.voice-card .who .biz{ color:var(--sub); font-size:11px }
+.voice-card .pin{ position:absolute; top:14px; right:14px; font-family:"EB Garamond", serif; font-style:italic; color:var(--gold); font-size:13px; opacity:.7 }
+
+/* ========================================================
+   セクション9:お客様の声(スマホ版)
+   ======================================================== */
+@media (max-width: 768px) {
+
+  /* PC版を非表示(クラス名は調整) */
+  .voices,
+  .section.voices {
+    display: none !important;
+  }
+
+  /* ===== コンテナ ===== */
+  .voices-mobile {
+    position: relative;
+    background: #FBF9F4;
+    padding: 60px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ===== 背景の水玉 ===== */
+  .vc-dots {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .vc-dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: vcFloat 6s ease-in-out infinite;
+  }
+
+  .vc-dot--1 {
+    width: 80px; height: 80px;
+    top: 8%; left: 5%;
+    background: rgba(127, 183, 163, 0.4);
+    animation-delay: 0s;
+  }
+  .vc-dot--2 {
+    width: 50px; height: 50px;
+    top: 20%; right: 8%;
+    background: rgba(232, 164, 164, 0.4);
+    animation-delay: 1s;
+  }
+  .vc-dot--3 {
+    width: 100px; height: 100px;
+    top: 45%; left: -3%;
+    background: rgba(197, 160, 89, 0.3);
+    animation-delay: 2s;
+  }
+  .vc-dot--4 {
+    width: 60px; height: 60px;
+    top: 60%; right: -5%;
+    background: rgba(127, 183, 163, 0.3);
+    animation-delay: 0.5s;
+  }
+  .vc-dot--5 {
+    width: 70px; height: 70px;
+    top: 80%; left: 10%;
+    background: rgba(232, 164, 164, 0.3);
+    animation-delay: 1.5s;
+  }
+  .vc-dot--6 {
+    width: 40px; height: 40px;
+    top: 90%; right: 15%;
+    background: rgba(197, 160, 89, 0.4);
+    animation-delay: 2.5s;
+  }
+
+  @keyframes vcFloat {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33%      { transform: translateY(-15px) translateX(8px); }
+    66%      { transform: translateY(8px) translateX(-10px); }
+  }
+
+  /* ===== ヘッダー ===== */
+  .vc-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px 30px;
+  }
+
+  .vc-eyebrow {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    margin-bottom: 14px;
+  }
+
+  .vc-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 36px;
+    color: #1A2A3A;
+    margin: 0 0 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .vc-subtitle {
+    margin: 0;
+  }
+
+  .vc-subtitle em {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #C5A059;
+    font-weight: 600;
+  }
+
+  /* ===== 星評価バナー ===== */
+  .vc-stars-banner {
+    position: relative;
+    z-index: 2;
+    margin: 20px 24px 50px;
+    padding: 32px 20px 28px;
+    background: linear-gradient(135deg, #FFF8E7 0%, #FFE8B0 100%);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow:
+      0 8px 30px rgba(197, 160, 89, 0.25),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+    transform: scale(0.9);
+    opacity: 0;
+    transition:
+      opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .vc-stars-banner.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .vc-stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .vc-star {
+    font-size: 32px;
+    color: #F39C12;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(243, 156, 18, 0.3);
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    transition: opacity 0.5s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .vc-stars-banner.is-visible .vc-star {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+
+  .vc-stars-banner.is-visible .vc-star:nth-child(1) { transition-delay: 0.1s; }
+  .vc-stars-banner.is-visible .vc-star:nth-child(2) { transition-delay: 0.2s; }
+  .vc-stars-banner.is-visible .vc-star:nth-child(3) { transition-delay: 0.3s; }
+  .vc-stars-banner.is-visible .vc-star:nth-child(4) { transition-delay: 0.4s; }
+  .vc-stars-banner.is-visible .vc-star:nth-child(5) { transition-delay: 0.5s; }
+
+  .vc-stars-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 14px;
+    color: #1A2A3A;
+    margin: 0 0 12px;
+    line-height: 1.7;
+  }
+
+  .vc-stars-text strong {
+    font-weight: 900;
+    color: #8A6A2E;
+  }
+
+  .vc-stars-big {
+    display: inline-block;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: #C44536;
+    margin: 4px 0;
+    letter-spacing: 0.02em;
+  }
+
+  .vc-stars-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: #555;
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ===== カテゴリヘッダー ===== */
+  .vc-category {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+    padding: 0 16px;
+  }
+
+  .vc-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px;
+    margin-bottom: 24px;
+  }
+
+  .vc-cat-emoji {
+    font-size: 32px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .vc-cat-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 17px;
+    color: #1A2A3A;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .vc-cat-en {
+    display: block;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #C5A059;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  /* ===== レビューカード ===== */
+  .vc-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .vc-card {
+    position: relative;
+    padding: 22px 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(26, 42, 58, 0.1);
+    opacity: 0;
+    transform: translateY(40px) scale(0.85) rotate(0deg);
+    transition:
+      opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* カードの背景色バリエーション */
+  .vc-card--mint {
+    background: linear-gradient(135deg, #E8F5EE 0%, #D4EDDC 100%);
+    border-left: 4px solid #7FB7A3;
+  }
+
+  .vc-card--pink {
+    background: linear-gradient(135deg, #FFF0F0 0%, #FFE0E0 100%);
+    border-left: 4px solid #E8A4A4;
+  }
+
+  .vc-card--gold {
+    background: linear-gradient(135deg, #FFF8E7 0%, #FFEBC2 100%);
+    border-left: 4px solid #C5A059;
+  }
+
+  /* 傾き */
+  .vc-card.is-visible {
+    opacity: 1;
+  }
+
+  .vc-card--tilt-l.is-visible {
+    transform: translateY(0) scale(1) rotate(-1.5deg);
+  }
+
+  .vc-card--tilt-r.is-visible {
+    transform: translateY(0) scale(1) rotate(1.5deg);
+  }
+
+  /* 上部のテープ装飾 */
+  .vc-card-tape {
+    position: absolute;
+    top: -8px;
+    width: 60px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .vc-card--tilt-l .vc-card-tape {
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+  .vc-card--tilt-r .vc-card-tape {
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+  }
+
+  /* アバター画像 */
+  .vc-card-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(26, 42, 58, 0.15);
+    background: #FFF;
+  }
+
+  .vc-card-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* カード内の星 */
+  .vc-card-stars {
+    color: #F39C12;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 2px rgba(243, 156, 18, 0.2);
+  }
+
+  /* 見出し */
+  .vc-card-head {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #1A2A3A;
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+
+  .vc-card-head::before {
+    content: '"';
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: rgba(26, 42, 58, 0.2);
+    font-size: 28px;
+    line-height: 0;
+    margin-right: 4px;
+    vertical-align: -8px;
+  }
+
+  /* 本文 */
+  .vc-card-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    line-height: 1.85;
+    color: #444;
+    margin: 0;
+  }
+
+  /* ===== 締めメッセージ ===== */
+  .vc-closing {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 50px 24px 0;
+    padding: 24px 20px;
+    background: #1A2A3A;
+    border-radius: 8px;
+    color: #FAFAFA;
+  }
+
+  .vc-closing-emoji {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 8px;
+    animation: vcSparkle 2s ease-in-out infinite;
+  }
+
+  @keyframes vcSparkle {
+    0%, 100% { transform: scale(1) rotate(0); }
+    50%      { transform: scale(1.15) rotate(15deg); }
+  }
+
+  .vc-closing-text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    line-height: 1.85;
+    color: #FAFAFA;
+    margin: 0;
+  }
+
+  .vc-closing-text strong {
+    color: #C5A059;
+    font-weight: 900;
+    font-size: 18px;
+    border-bottom: 2px solid #F39C12;
+    padding-bottom: 2px;
+  }
+
+  /* ===== JS未動作フォールバック ===== */
+  .vc-stars-banner,
+  .vc-card,
+  .vc-star {
+    opacity: 1;
+  }
+
+  .vc-stars-banner {
+    transform: scale(1);
+  }
+
+  .vc-card--tilt-l {
+    transform: rotate(-1.5deg);
+  }
+
+  .vc-card--tilt-r {
+    transform: rotate(1.5deg);
+  }
+
+  .vc-star {
+    transform: scale(1) rotate(0);
+  }
+
+}

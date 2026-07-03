@@ -1,0 +1,810 @@
+/* ============================================== */
+/* SECTION 1 — FV                                  */
+/* ============================================== */
+
+/* カラー変数（既にbase.cssにあれば不要） */
+:root {
+  --navy: #1A2A3A;
+  --gold: #C5A059;
+  --amber: #F39C12;
+  --base: #FAFAFA;
+  --body: #555555;
+  --sub: #777777;
+}
+
+/* ===== レイアウト ===== */
+.fv {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.fv-wrap {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: stretch;
+}
+
+/* ===== 左カラム背景の地紋 ===== */
+.fv-bg-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fv-bg-texture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: grayscale(40%) contrast(1.05);
+}
+
+.fv-bg-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(250,250,250,0.35) 60%, #FAFAFA 100%);
+  z-index: 2;
+}
+
+/* ===== 左カラム ===== */
+.fv-left {
+  position: relative;
+  z-index: 2;
+  padding: 100px 60px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* 巨大な「2万円」 */
+.fv-mega {
+  position: absolute;
+  left: -2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--navy);
+  font-size: clamp(220px, 32vw, 520px);
+  line-height: 0.78;
+  letter-spacing: -0.03em;
+  margin: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.fv-mega .yen {
+  font-family: "Noto Serif JP", serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 0.18em;
+  vertical-align: 0.55em;
+  margin-left: 0.04em;
+}
+
+/* 装飾 */
+.fv-star {
+  position: absolute;
+  left: 46%;
+  top: 18%;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 60px;
+  color: var(--gold);
+  opacity: 0.85;
+  z-index: 3;
+}
+
+.fv-strike {
+  position: absolute;
+  left: 8%;
+  right: 22%;
+  top: 32%;
+  height: 4px;
+  background: var(--amber);
+  opacity: 0.55;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+/* コピー群 */
+.fv-copy {
+  position: relative;
+  z-index: 5;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.fv-catch {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.fv-main {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 900;
+  font-size: clamp(48px, 6vw, 72px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.fv-hl {
+  background: linear-gradient(transparent 65%, rgba(197,160,89,0.4) 65%);
+  padding: 0 4px;
+}
+
+.fv-desc {
+  margin: 0;
+  max-width: 520px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--body);
+  background: rgba(250,250,250,0.85);
+  padding: 8px 12px;
+  border-radius: 2px;
+}
+
+.fv-desc .fv-was {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  color: var(--gold);
+  text-decoration: line-through;
+  text-decoration-color: var(--gold);
+  font-size: 17px;
+}
+
+.fv-desc em {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.fv-desc strong {
+  color: var(--navy);
+  font-weight: 900;
+}
+
+/* 4サークルボタン */
+.fv-circles {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.circle-btn {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1.5px solid var(--navy);
+  background: rgba(250,250,250,0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.circle-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.circle-btn:nth-child(3) { border-color: var(--gold); }
+.circle-btn:nth-child(4) { border-color: var(--amber); }
+
+.circle-btn .num {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.circle-btn .lbl {
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* CTA */
+.fv-cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fv-cta {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  padding: 16px 24px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.cta-coupon {
+  border: 1.5px solid var(--gold);
+  color: var(--navy);
+  background: rgba(250,250,250,0.95);
+}
+
+.cta-coupon:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+.cta-primary {
+  background: var(--navy);
+  color: #FAFAFA;
+  border: 1.5px solid var(--navy);
+}
+
+.cta-primary:hover {
+  background: #0e1722;
+  transform: translateY(-2px);
+}
+
+/* 縦書きスクロールキュー */
+.fv-scroll-cue {
+  position: absolute;
+  left: 32px;
+  bottom: 40px;
+  z-index: 5;
+  writing-mode: vertical-rl;
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+}
+
+/* ===== 右カラム ===== */
+.fv-right {
+  position: relative;
+  z-index: 2;
+  background: var(--navy);
+  color: #FAFAFA;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 実績数字 */
+.fv-meta {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 4;
+}
+
+.meta-lbl {
+  font-family: "Noto Serif JP", serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: rgba(250,250,250,0.5);
+}
+
+.meta-mt {
+  margin-top: 24px;
+}
+
+.meta-num {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 38px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* カルーセル（3枚を立体的に重ねて配置） */
+.fv-carousel {
+  position: relative;
+  width: 75%;
+  aspect-ratio: 4 / 5;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.carousel-card {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border: 1px solid rgba(197,160,89,0.3);
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.card-1 {
+  top: 0;
+  left: 0;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+.card-2 {
+  top: 15%;
+  left: 15%;
+  transform: rotate(2deg);
+  z-index: 2;
+}
+
+.card-3 {
+  top: 30%;
+  left: 30%;
+  transform: rotate(-1deg);
+  z-index: 1;
+}
+
+/* キャプション */
+.fv-caption {
+  position: absolute;
+  left: 24px;
+  bottom: 30px;
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  z-index: 4;
+}
+
+.cap-idx {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 42px;
+  color: var(--gold);
+  line-height: 0.9;
+}
+
+.cap-cat {
+  display: block;
+  font-family: "Noto Serif JP", serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.cap-ttl {
+  display: block;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 900;
+  font-size: 14px;
+  color: #FAFAFA;
+  max-width: 240px;
+  line-height: 1.4;
+}
+
+/* ============================================== */
+/* スマホビュー：完全リデザイン（375〜768px）       */
+/* ============================================== */
+@media (max-width: 768px) {
+
+  /* ===== 全体構造 ===== */
+  .fv {
+    min-height: auto;
+  }
+
+  .fv-wrap {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+
+  /* ===== 左カラム：完全に「読み物」として再設計 ===== */
+  .fv-left {
+    padding: 90px 24px 40px;
+    min-height: auto;
+    background: var(--base);
+    gap: 0;
+    overflow: hidden;
+  }
+
+  /* 邪魔になる装飾は全部消す */
+  .fv-bg-texture,
+  .fv-mega,
+  .fv-star,
+  .fv-strike,
+  .fv-scroll-cue {
+    display: none;
+  }
+
+  /* ===== コピー全体の流れ ===== */
+  .fv-copy {
+    gap: 24px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* キャッチ：小さく目立たせない（メインを引き立てる役） */
+  .fv-catch {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--gold);
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  /* メインコピー：絶対主役 */
+  .fv-main {
+    font-size: clamp(34px, 9vw, 44px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 900;
+    color: var(--navy);
+    margin: 0;
+    /* 改行を確実にコントロール */
+    word-break: keep-all;
+  }
+
+  /* 「この価格で。」の蛍光ペン下線 */
+  .fv-hl {
+    background: linear-gradient(transparent 65%, rgba(243,156,18,0.45) 65%);
+    padding: 0 4px;
+    display: inline;
+  }
+
+  /* ===== 説明文：読ませる ===== */
+  .fv-desc {
+    font-size: 14px;
+    line-height: 2;
+    padding: 0;
+    background: transparent;
+    color: var(--body);
+    max-width: 100%;
+    margin: 8px 0 0;
+  }
+
+  .fv-desc .fv-was {
+    font-size: 15px;
+    text-decoration: line-through;
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+  }
+
+  .fv-desc em {
+    font-size: 15px;
+  }
+
+  .fv-desc strong {
+    color: var(--navy);
+    font-size: 17px;
+    font-weight: 900;
+  }
+
+  /* ===== サークルボタン：3つ横並び ===== */
+  .fv-circles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    margin: 16px 0 8px;
+  }
+
+  .circle-btn {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .circle-btn .num {
+    font-size: 17px;
+  }
+
+  .circle-btn .lbl {
+    font-size: 9px;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  /* ===== CTAボタン ===== */
+  .fv-cta-row {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .fv-cta {
+    width: 100%;
+    text-align: center;
+    padding: 18px 16px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== 右カラム：実績の証明として活用 ===== */
+  .fv-right {
+    min-height: auto;
+    padding: 50px 24px;
+    background: var(--navy);
+  }
+
+  /* 実績数字：大きく中央配置 */
+  .fv-meta {
+    position: relative;
+    top: auto;
+    right: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    padding: 0;
+  }
+
+  .fv-meta > * {
+    text-align: center;
+  }
+
+  /* SINCE と PROJECTS の縦組み */
+  .meta-lbl + .meta-num {
+    font-size: 32px;
+  }
+
+  .meta-mt {
+    margin-top: 0;
+  }
+
+  .meta-num {
+    font-size: 32px;
+  }
+
+  .meta-lbl {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+  }
+
+  /* カルーセル：1枚だけ大きく */
+  .fv-carousel {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .card-2,
+  .card-3 {
+    display: none;
+  }
+
+  .card-1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: rotate(-1.5deg);
+  }
+
+  .fv-caption {
+    display: none;
+  }
+}
+
+/* ============================================== */
+/* 小型スマホ（375px以下）                          */
+/* ============================================== */
+@media (max-width: 375px) {
+  .fv-left {
+    padding: 40px 18px 30px;
+  }
+
+  .fv-main {
+    font-size: 32px;
+  }
+
+  .fv-desc {
+    font-size: 13px;
+  }
+
+  .circle-btn .lbl {
+    font-size: 8px;
+  }
+}
+
+/* ============================================== */
+/* スマホ専用FV：画像ベース実装                     */
+/* ============================================== */
+
+/* PC: スマホ版は非表示 */
+.fv-mobile {
+  display: none !important;
+}
+
+/* SEO対策：画面に表示しないが、検索エンジンには読まれる */
+.fv-mobile-seo,
+.fv-mobile-seo h1,
+.fv-mobile-seo h2,
+.fv-mobile-seo p,
+.fv-mobile-seo ul,
+.fv-mobile-seo li {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  font-size: 1px !important;
+  color: transparent !important;
+  pointer-events: none !important;
+}
+
+/* スマホ: スマホ版を表示、PC版を非表示 */
+@media (max-width: 768px) {
+
+  .fv {
+    display: none !important;
+  }
+
+  .fv-mobile {
+    display: block !important;
+    background: var(--base);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .fv-mobile-block {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fv-mobile-block.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fv-mobile-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fv-mobile-hero {
+    opacity: 1;
+    transform: none;
+    animation: fvMobileFadeIn 1.2s ease-out;
+  }
+
+  .fv-mobile-coupon,
+  .fv-mobile-cta {
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.2s ease;
+  }
+
+  .fv-mobile-coupon:active,
+  .fv-mobile-cta:active {
+    filter: brightness(0.92);
+    transform: translateY(0) scale(0.98) !important;
+  }
+
+  @keyframes fvMobileFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ============================================== */
+/* スマホ：FV以外のセクションを一時的に非表示       */
+/* ============================================== */
+@media (max-width: 768px) {
+  
+  /* セクション2以降を一旦すべて非表示 */
+  .section:not(.fv):not(.fv-mobile) {
+    display: none !important;
+  }
+  
+  /* フッターは残す（連絡先として必要） */
+  footer,
+  .footer {
+    display: block !important;
+  }
+}
+
+/* ============================================== */
+/* PC表示（969px以上）：FVの横幅広がりすぎ・落差解消 */
+/* ============================================== */
+@media (min-width: 969px) {
+  /* スマホ優先になっていた最外枠（.fv-mobile）を、PCでは1200px幅のコンテナに変身させる */
+  section.fv-mobile {
+    max-width: 1200px !important; /* 他のセクション（3つの強み等）と最大横幅を完璧に揃える */
+    margin-left: auto !important;  /* 画面中央に配置（左側の余白） */
+    margin-right: auto !important; /* 画面中央に配置（右側の余白） */
+    width: 100% !important;
+    padding-left: 24px !important;  /* 画面端に密着しすぎないよう上品な余白を確保 */
+    padding-right: 24px !important; /* 画面端に密着しすぎないよう上品な余白を確保 */
+    box-sizing: border-box !important;
+  }
+
+  /* PC用のヒーロー画像ブロックの余白や配置を最適化 */
+  .fv-pc-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  /* PC用画像そのものが枠からはみ出さないようにガード */
+  .fv-pc-hero img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: var(--radius-md, 8px); /* 国内SaaSのFVのように角を少し丸めると高級感が出ます（お好みで） */
+  }
+
+  /* PC用のCTAボタンエリアも1200pxの中に美しく中央配置 */
+  .fv-pc-cta {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 20px auto 0 !important; /* 画像とのバランスを見て程よい隙間を確保 */
+  }
+}

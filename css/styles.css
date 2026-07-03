@@ -1,0 +1,31 @@
+/* ===================================================== */
+/*  T&F Design — entry stylesheet                          */
+/*  各セクションは下記の個別 CSS に分割しています。        */
+/*  編集する際は対応するファイルだけ触れば OK。           */
+/* ===================================================== */
+
+/* base / shared UI */
+@import url('./base.css');
+@import url('./ui.css');
+
+/* sections (15) */
+@import url('./sections/01-fv.css');
+@import url('./sections/02-manifesto.css');
+@import url('./sections/03-quote.css');
+@import url('./sections/04-services.css');
+@import url('./sections/05-hscroll.css');
+@import url('./sections/06-price-strip.css');
+@import url('./sections/07-ten.css');
+@import url('./sections/08-process.css');
+@import url('./sections/09-voices.css');
+@import url('./sections/10-tickets.css');
+@import url('./sections/11-plans.css');
+@import url('./sections/12-about.css');
+@import url('./sections/13-work.css');
+@import url('./sections/14-faq.css');
+@import url('./sections/15-closing.css');
+
+/* footer + helpers */
+@import url('./footer.css');
+
+@import url('./override.css');
