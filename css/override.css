@@ -8296,7 +8296,7 @@
 /* マーカー(円・画像の上に被せる) */
 .pm-point-marker {
   position: absolute;
-  bottom: -22px;
+  bottom: 5px;
   left: 20px;
   width: 56px;
   height: 56px;
@@ -8306,7 +8306,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 6;
+  z-index: 20;
   box-shadow: 0 4px 12px rgba(26, 42, 58, 0.15);
   transition: all 0.3s ease;
 }
