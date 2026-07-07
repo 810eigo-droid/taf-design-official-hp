@@ -474,3 +474,195 @@
   }
 
 }
+
+/* ====== 追加レビュー / 開閉式：JS不要版 ====== */
+/* ============================================================
+  SECTION 09 / 追加レビュー 開閉式
+  WordPress用：JS不要 details版
+============================================================ */
+
+.voices-mobile .vc-more-reviews {
+  width: min(92%, 720px);
+  margin: 32px auto 0;
+  padding: 0;
+  border: none;
+}
+
+/* summaryの標準三角を消す */
+.voices-mobile .vc-more-reviews summary {
+  list-style: none;
+}
+
+.voices-mobile .vc-more-reviews summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 開閉ボタン */
+.voices-mobile .vc-more-toggle {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 18px 56px 18px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff7e8 0%, #f6e3b7 52%, #e9c87a 100%);
+  box-shadow: 0 12px 28px rgba(130, 92, 30, 0.16);
+  color: #3c2c16;
+  text-align: center;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+}
+
+.voices-mobile .vc-more-toggle-main {
+  display: block;
+  font-size: clamp(18px, 4.8vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.voices-mobile .vc-more-toggle-sub {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  opacity: 0.72;
+  line-height: 1.2;
+}
+
+.voices-mobile .vc-more-toggle-icon {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 400;
+  transition: transform 0.25s ease;
+}
+
+/* 開いたとき */
+.voices-mobile .vc-more-reviews[open] .vc-more-toggle-icon {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.voices-mobile .vc-more-reviews[open] .vc-more-toggle-main {
+  font-size: 0;
+}
+
+.voices-mobile .vc-more-reviews[open] .vc-more-toggle-main::before {
+  content: "閉じる";
+  font-size: clamp(18px, 4.8vw, 28px);
+}
+
+/* レビュー一覧 */
+.voices-mobile .vc-more-list {
+  margin-top: 24px;
+  display: grid;
+  gap: 18px;
+}
+
+/* 追加レビューカード */
+.voices-mobile .vc-more-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  padding: 18px 18px 18px 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(201, 188, 221, 0.75);
+  box-shadow: 0 14px 32px rgba(80, 64, 110, 0.12);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.voices-mobile .vc-more-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 19px;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  pointer-events: none;
+}
+
+/* アイコン画像 */
+.voices-mobile .vc-more-avatar {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f5f1ea;
+  border: 2px solid rgba(197, 160, 89, 0.55);
+  box-shadow: 0 8px 18px rgba(80, 64, 110, 0.15);
+  box-sizing: border-box;
+}
+
+.voices-mobile .vc-more-avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 画像未設定でも崩れにくくする */
+.voices-mobile .vc-more-avatar img[src=""],
+.voices-mobile .vc-more-avatar img:not([src]) {
+  display: none;
+}
+
+.voices-mobile .vc-more-content {
+  position: relative;
+  z-index: 1;
+}
+
+.voices-mobile .vc-more-stars {
+  margin-bottom: 6px;
+  color: #c5a059;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.voices-mobile .vc-more-head {
+  margin: 0 0 8px;
+  color: #4a3b6b;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  font-size: clamp(17px, 4.5vw, 24px);
+  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.voices-mobile .vc-more-text {
+  margin: 0;
+  color: #3f334f;
+  font-size: clamp(14px, 3.7vw, 17px);
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+}
+
+/* スマホ微調整 */
+@media (max-width: 420px) {
+  .voices-mobile .vc-more-card {
+    grid-template-columns: 54px 1fr;
+    gap: 12px;
+    padding: 16px 14px;
+  }
+
+  .voices-mobile .vc-more-avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .voices-mobile .vc-more-toggle {
+    padding: 16px 48px 16px 18px;
+  }
+
+  .voices-mobile .vc-more-toggle-icon {
+    right: 18px;
+  }
+}
