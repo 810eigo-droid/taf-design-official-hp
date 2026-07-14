@@ -9515,3 +9515,36 @@
 html {
   scroll-behavior: smooth;
 }
+/* ===== FV mobile: 資料DL・無料相談ボタン(画像ブロック置き換え) ===== */
+@media (max-width: 968px) {
+  .fv-mobile-btns{
+    background:#1C2C44;
+    padding:8px 30px 22px;
+    line-height:1.5;
+  }
+  .fv-mbtn{
+    display:flex; align-items:center; justify-content:center;
+    width:100%; border-radius:10px; padding:16px 40px 16px 20px;
+    margin:0 0 14px; position:relative; box-sizing:border-box;
+    font-family:'Noto Serif JP',serif; font-weight:600; font-size:16px;
+    letter-spacing:.04em; text-decoration:none; line-height:1.4;
+  }
+  .fv-mbtn .ar{
+    position:absolute; right:16px; top:50%; transform:translateY(-50%);
+    font-size:14px;
+  }
+  .fv-mbtn--gold{
+    background:linear-gradient(90deg,#C19239 0%,#E3D9A8 50%,#C19239 100%);
+    color:#fff; text-shadow:0 1px 3px rgba(90,60,0,.45);
+    box-shadow:0 4px 14px rgba(0,0,0,.28);
+  }
+  .fv-mbtn--white{
+    background:#fff; color:#1A2A3A;
+    box-shadow:0 4px 14px rgba(0,0,0,.22);
+  }
+  .fv-mnote{
+    margin:4px 0 0; text-align:center;
+    font-family:'Noto Serif JP',serif;
+    font-size:11.5px; color:#B0BFD1;
+  }
+}
