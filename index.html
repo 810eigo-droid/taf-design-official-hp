@@ -225,6 +225,12 @@ html { scroll-padding-top: 64px; }
 
 /* --- PC(769px〜) --- */
 @media (min-width: 769px){
+  /* セクションが1200pxに制限されていても、FVだけ画面幅いっぱいに広げる */
+  .fv-mobile{ overflow: visible !important; }
+  .fv-hero-block{
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
   /* 背景写真(images/fv-bg.webp)。未配置でも下のグラデで成立する */
   .fv-hero-block{
     background:
@@ -236,9 +242,11 @@ html { scroll-padding-top: 64px; }
   .fv-hero{
     display: grid;
     grid-template-columns: 1.12fr 1fr;
-    column-gap: 36px;
+    column-gap: 24px;
     align-items: end;
-    padding: 48px 40px 0 48px;
+    /* 右パディングなし=モデルを画面右端まで。左は1200px中央寄せ相当を維持 */
+    max-width: none;
+    padding: 48px 0 0 max(48px, calc((100vw - 1200px) / 2 + 48px));
   }
   .fv-hero-copy{ padding-bottom: 44px; }
   .fv-hero-font{ max-width: 620px; margin: 0 auto; }
@@ -247,9 +255,12 @@ html { scroll-padding-top: 64px; }
   .fp-num{ font-size: clamp(38px, 3.6vw, 50px); }
   .fp-num.fp-new{ font-size: clamp(46px, 4.4vw, 60px); }
   .fp-x, .fp-arrow{ font-size: clamp(20px, 2vw, 28px); }
-  .fv-hero-slides{ max-width: 470px; }
+  .fv-hero-slides{
+    max-width: 500px;
+    margin: 0 0 0 auto;   /* 右カラム内で右端に寄せる */
+  }
   .fv-hero-copy2{
-    left: -12%;
+    left: -4%;
     top: 12%;
     padding: 20px 26px;
     font-size: clamp(16px, 1.5vw, 21px);
