@@ -6675,6 +6675,80 @@
     50%      { transform: translateX(4px); }
   }
 
+  /* ===== 無料お見積もりボタン ===== */
+  .cl-btn-main {
+    margin-bottom: 14px;
+  }
+
+  .cl-btn-quote {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 22px;
+    background: rgba(197, 160, 89, 0.08);
+    border: 1.5px solid rgba(197, 160, 89, 0.55);
+    color: #E8C875;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+  }
+  .cl-btn-quote:hover {
+    background: #C5A059;
+    border-color: #C5A059;
+    color: #1A2A3A;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(197, 160, 89, 0.35);
+  }
+
+  .cl-btn-quote-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 200, 117, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+  }
+  .cl-btn-quote:hover .cl-btn-quote-icon {
+    border-color: rgba(26, 42, 58, 0.35);
+  }
+
+  .cl-btn-quote-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+  }
+  .cl-btn-quote-main {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+  }
+  .cl-btn-quote-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 11px;
+    opacity: 0.85;
+    letter-spacing: 0.04em;
+  }
+
+  .cl-btn-quote-arrow {
+    flex-shrink: 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  }
+  .cl-btn-quote:hover .cl-btn-quote-arrow {
+    transform: translateX(5px);
+  }
+
   /* ===== CTA注釈 ===== */
   .cl-cta-note {
     display: flex;
