@@ -6417,6 +6417,101 @@
     white-space: nowrap;
   }
 
+  /* ===== 背景を流れる巨大タイポ ===== */
+  .cl-watermark {
+    position: absolute;
+    left: 0;
+    top: 42%;
+    transform: translateY(-50%);
+    display: flex;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+  }
+  .cl-watermark span {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(76px, 15vw, 190px);
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(197, 160, 89, 0.17);
+    animation: clMarquee 46s linear infinite;
+  }
+  @keyframes clMarquee {
+    to { transform: translateX(-100%); }
+  }
+
+  /* ===== スクロール・リビール ===== */
+  .closing-mobile [data-reveal] {
+    opacity: 0;
+    transform: translateY(36px);
+    transition:
+      opacity 0.9s ease,
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .closing-mobile [data-reveal].in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 写真は時間差でふわっと現れる(floatアニメと競合しないよう opacity+blur で) */
+  .cl-collage[data-reveal] .cl-photo {
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.8s ease, filter 0.8s ease;
+  }
+  .cl-collage[data-reveal].in-view .cl-photo--1 { opacity: 1; filter: none; transition-delay: 0.15s; }
+  .cl-collage[data-reveal].in-view .cl-photo--2 { opacity: 1; filter: none; transition-delay: 0.4s; }
+  .cl-collage[data-reveal].in-view .cl-photo--3 { opacity: 1; filter: none; transition-delay: 0.65s; }
+
+  /* ラベルは写真が出そろってからポンと */
+  .cl-collage[data-reveal] .cl-collage-label {
+    opacity: 0;
+    transition: opacity 0.6s ease 0.95s;
+  }
+  .cl-collage[data-reveal].in-view .cl-collage-label {
+    opacity: 1;
+  }
+
+  /* 写真ホバーで中の画像がズーム */
+  .cl-photo img {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cl-photo:hover img {
+    transform: scale(1.07);
+  }
+
+  /* 「ワンチーム」の金線が左から描画される */
+  .cl-message[data-reveal] .cl-title-accent::after {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s;
+  }
+  .cl-message[data-reveal].in-view .cl-title-accent::after {
+    transform: scaleX(1);
+  }
+
+  /* 動きを抑えたい環境ではすべて静止 */
+  @media (prefers-reduced-motion: reduce) {
+    .cl-watermark span { animation: none; }
+    .cl-photo { animation: none !important; }
+    .closing-mobile [data-reveal],
+    .cl-collage[data-reveal] .cl-photo,
+    .cl-collage[data-reveal] .cl-collage-label {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+      transition: none !important;
+    }
+    .cl-message[data-reveal] .cl-title-accent::after {
+      transform: scaleX(1);
+      transition: none;
+    }
+  }
+
   /* ===== メインメッセージ ===== */
   .cl-message {
     position: relative;
@@ -8743,54 +8838,68 @@
 @media (min-width: 769px) {
   
   /* セクション全体:中央寄せで適度な余白 */
+  /* 全幅の紺背景+中央寄せグリッド(左:言葉 / 右:写真 / 下:CTA) */
   .closing-mobile {
-    max-width: 1080px !important;
-    margin: 0 auto;
-    padding: 80px 40px 100px;
+    max-width: 100% !important;
+    margin: 0;
+    padding: 110px 48px 120px;
     position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, 520px) minmax(0, 520px);
+    column-gap: 64px;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* 写真コラージュとメッセージを左右に並べる */
-  .closing-mobile .cl-collage,
+  /* 左:メッセージ(読む順序どおり先頭に) */
   .closing-mobile .cl-message {
-    width: 48%;
-    box-sizing: border-box;
-  }
-
-  /* 左:写真コラージュ */
-  .closing-mobile .cl-collage {
-    float: left;
-    margin-right: 4%;
-    margin-bottom: 0;
-  }
-
-  /* 右:メッセージ */
-  .closing-mobile .cl-message {
-    float: right;
+    grid-column: 1;
+    grid-row: 1;
+    width: auto;
+    float: none;
     text-align: left;
-    padding-top: 20px;
+    padding: 0;
   }
 
   .closing-mobile .cl-title {
-    font-size: 32px;
-    line-height: 1.5;
+    font-size: 38px;
+    line-height: 1.55;
     text-align: left;
   }
 
   .closing-mobile .cl-lead {
     font-size: 16px;
-    line-height: 1.9;
+    line-height: 2;
     text-align: left;
-    margin-top: 24px;
+    margin-top: 26px;
   }
 
-  /* CTAエリア:メッセージの下、右半分に収める */
+  /* 右:写真コラージュ(少し大きく) */
+  .closing-mobile .cl-collage {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    float: none;
+    height: 440px;
+    margin: 0;
+  }
+  .closing-mobile .cl-photo--1 { height: 265px; }
+  .closing-mobile .cl-photo--2 { height: 245px; }
+  .closing-mobile .cl-photo--3 { height: 255px; }
+
+  /* CTA:両カラムの下・中央(ピラミッドの頂点) */
   .closing-mobile .cl-cta-wrap {
+    grid-column: 1 / -1;
+    grid-row: 2;
     clear: none;
-    float: right;
-    width: 48%;
-    margin-top: 30px;
+    float: none;
+    width: 100%;
+    max-width: 620px;
+    justify-self: center;
+    margin-top: 76px;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2;
   }
 
   /* メインCTAボタン:横長で大きく */
@@ -8810,15 +8919,23 @@
     flex: 1;
   }
 
-  /* フィナーレを全幅で表示(写真+メッセージの下) */
+  /* フィナーレ:全幅で最後に */
   .closing-mobile .cl-finale {
-    clear: both;
-    margin-top: 80px;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    clear: none;
+    width: 100%;
+    margin-top: 88px;
     padding-top: 60px;
   }
   .closing-mobile .cl-finale-text {
     font-size: 18px;
     line-height: 1.9;
+  }
+
+  /* 背景タイポは2カラムの帯の裏を流す */
+  .closing-mobile .cl-watermark {
+    top: 36%;
   }
 
   /* 星のキラキラもPCで広範囲に散らす */
@@ -8835,14 +8952,22 @@
 /* 大画面(1100px以上)でさらに調整 */
 @media (min-width: 1100px) {
   .closing-mobile {
-    padding: 100px 60px 120px;
+    padding: 130px 60px 140px;
+    grid-template-columns: minmax(0, 560px) minmax(0, 560px);
+    column-gap: 80px;
   }
   .closing-mobile .cl-title {
-    font-size: 36px;
+    font-size: 44px;
   }
   .closing-mobile .cl-lead {
     font-size: 17px;
   }
+  .closing-mobile .cl-collage {
+    height: 480px;
+  }
+  .closing-mobile .cl-photo--1 { height: 290px; }
+  .closing-mobile .cl-photo--2 { height: 265px; }
+  .closing-mobile .cl-photo--3 { height: 275px; }
 }
 
 /* ============================================
