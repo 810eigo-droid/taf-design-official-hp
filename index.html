@@ -292,6 +292,15 @@ html { scroll-padding-top: 64px; }
 
 /* --- スマホ(〜768px) --- */
 @media (max-width: 768px){
+  /* 背景写真(images/fv-bg-sp.webp)。未配置でも下のグラデで成立する */
+  .fv-hero-block{
+    background:
+      linear-gradient(180deg, rgba(253,252,248,.95) 0%, rgba(253,252,248,.85) 38%, rgba(253,252,248,.30) 72%, rgba(253,252,248,.10) 100%),
+      url('images/fv-bg-sp.webp') center bottom / cover no-repeat,
+      radial-gradient(90% 70% at 85% 20%, rgba(197,160,89,.10) 0%, rgba(197,160,89,0) 60%),
+      linear-gradient(135deg, #FDFCF8 0%, #F3EDE0 100%);
+  }
+
   /* コピー内の要素をバラして並べ替え(価格をモデルの後ろへ) */
   .fv-hero{
     display: flex;
