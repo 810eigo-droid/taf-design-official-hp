@@ -3020,45 +3020,59 @@ html { scroll-padding-top: 64px; }
 
 <script src="js/app.js"></script>
 <script>
-/* FVヒーロー: モデル6人のクロスフェード・スライドショー */
+/* FVヒーロー: モデル6人のスライドショー+吹き出しの言葉を連動して切替 */
 (function(){
   var slides = document.querySelectorAll('.fv-hero-slides img');
-  if (slides.length < 2) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bubble = document.querySelector('.fv-hero-copy2');
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* モデル1〜6と対になる吹き出しの言葉 */
+  var MESSAGES = [
+    'もう悩まない。<br>HP・LP制作の<br><em>“正解”</em>は、ここだ。',
+    '初めてでも、大丈夫。<br>面倒なことは<br><em>“まるごと”</em>お任せ。',
+    'その予算、あきらめないで。<br><em>“2万円”</em>から、<br>ちゃんと作れます。',
+    '作って終わり、にしない。<br>売上とともに<br><em>“育てる”</em>Webを。',
+    'AIの時代こそ、<br><em>“プロの設計”</em>が<br>差になります。',
+    '全国どこでも、<br><em>“オンライン完結”</em>。<br>相談は無料です。'
+  ];
+
+  /* 文字を1文字ずつ流し込む */
+  function flow(el, base){
+    var idx = 0;
+    (function split(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if (n.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          n.textContent.split('').forEach(function(ch){
+            if (/\s/.test(ch)){ frag.appendChild(document.createTextNode(ch)); return; }
+            var s = document.createElement('span');
+            s.className = 'fv-ch';
+            s.textContent = ch;
+            s.style.animationDelay = (base + idx * 0.06) + 's';
+            idx++;
+            frag.appendChild(s);
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1 && n.tagName !== 'BR'){
+          split(n);
+        }
+      });
+    })(el);
+  }
+
+  if (bubble && !reduced) flow(bubble, 1.0);
+  if (slides.length < 2 || reduced) return;
+
   var i = 0;
   setInterval(function(){
     slides[i].classList.remove('is-active');
     i = (i + 1) % slides.length;
     slides[i].classList.add('is-active');
+    if (bubble && MESSAGES[i]){
+      bubble.innerHTML = MESSAGES[i];
+      flow(bubble, 0.15);
+    }
   }, 4200);
-})();
-
-/* FVヒーロー: 吹き出しの文字を1文字ずつ流し込む */
-(function(){
-  var el = document.querySelector('.fv-hero-copy2');
-  if (!el) return;
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var idx = 0;
-  function split(node){
-    Array.prototype.slice.call(node.childNodes).forEach(function(n){
-      if (n.nodeType === 3){
-        var frag = document.createDocumentFragment();
-        n.textContent.split('').forEach(function(ch){
-          if (/\s/.test(ch)){ frag.appendChild(document.createTextNode(ch)); return; }
-          var s = document.createElement('span');
-          s.className = 'fv-ch';
-          s.textContent = ch;
-          s.style.animationDelay = (1.0 + idx * 0.06) + 's';
-          idx++;
-          frag.appendChild(s);
-        });
-        node.replaceChild(frag, n);
-      } else if (n.nodeType === 1 && n.tagName !== 'BR'){
-        split(n);
-      }
-    });
-  }
-  split(el);
 })();
 </script>
 </body>
