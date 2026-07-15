@@ -194,16 +194,16 @@ html { scroll-padding-top: 64px; }
   to  { transform: scale(1); }
 }
 
-/* --- 「正解はここだ」カード --- */
+/* --- 「正解はここだ」吹き出し --- */
 .fv-hero-copy2{
   position: absolute;
   z-index: 2;
   margin: 0;
-  background: rgba(255,255,255,.85);
+  background: rgba(255,255,255,.92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(197,160,89,.5);
-  border-left: 4px solid #C5A059;
+  border: 1px solid rgba(197,160,89,.55);
+  border-radius: 14px;
   box-shadow: 0 18px 44px rgba(26,42,58,.14);
   font-family: 'Noto Serif JP', serif;
   font-weight: 700;
@@ -212,10 +212,44 @@ html { scroll-padding-top: 64px; }
   letter-spacing: .08em;
   animation: fvUp 1s cubic-bezier(.22,1,.36,1) .7s both;
 }
+/* 吹き出し口(下向き・やや右寄り=モデルの方を向く) */
+.fv-hero-copy2::before,
+.fv-hero-copy2::after{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 68%;
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  pointer-events: none;
+}
+.fv-hero-copy2::before{
+  border-width: 17px 13px 0 13px;
+  border-top-color: rgba(197,160,89,.55);
+  margin-left: -13px;
+}
+.fv-hero-copy2::after{
+  border-width: 15px 11px 0 11px;
+  border-top-color: rgba(255,255,255,.92);
+  margin-left: -11px;
+  margin-top: -2px;
+}
 .fv-hero-copy2 em{
   font-style: normal;
   font-size: 1.4em;
   color: #A07C2E;
+}
+/* 文字が1文字ずつ流れ込む */
+.fv-hero-copy2 .fv-ch{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.5em);
+  filter: blur(5px);
+  animation: fvChar .7s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes fvChar{
+  to{ opacity: 1; transform: none; filter: none; }
 }
 
 @keyframes fvUp{
@@ -2959,6 +2993,34 @@ html { scroll-padding-top: 64px; }
     i = (i + 1) % slides.length;
     slides[i].classList.add('is-active');
   }, 4200);
+})();
+
+/* FVヒーロー: 吹き出しの文字を1文字ずつ流し込む */
+(function(){
+  var el = document.querySelector('.fv-hero-copy2');
+  if (!el) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var idx = 0;
+  function split(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if (n.nodeType === 3){
+        var frag = document.createDocumentFragment();
+        n.textContent.split('').forEach(function(ch){
+          if (/\s/.test(ch)){ frag.appendChild(document.createTextNode(ch)); return; }
+          var s = document.createElement('span');
+          s.className = 'fv-ch';
+          s.textContent = ch;
+          s.style.animationDelay = (1.0 + idx * 0.06) + 's';
+          idx++;
+          frag.appendChild(s);
+        });
+        node.replaceChild(frag, n);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR'){
+        split(n);
+      }
+    });
+  }
+  split(el);
 })();
 </script>
 </body>
