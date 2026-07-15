@@ -225,6 +225,14 @@ html { scroll-padding-top: 64px; }
 
 /* --- PC(769px〜) --- */
 @media (min-width: 769px){
+  /* 背景写真(images/fv-bg.webp)。未配置でも下のグラデで成立する */
+  .fv-hero-block{
+    background:
+      linear-gradient(90deg, rgba(253,252,248,.94) 0%, rgba(253,252,248,.82) 40%, rgba(253,252,248,.18) 78%, rgba(253,252,248,.05) 100%),
+      url('images/fv-bg.webp') right center / cover no-repeat,
+      radial-gradient(90% 70% at 85% 20%, rgba(197,160,89,.10) 0%, rgba(197,160,89,0) 60%),
+      linear-gradient(135deg, #FDFCF8 0%, #F3EDE0 100%);
+  }
   .fv-hero{
     display: grid;
     grid-template-columns: 1.12fr 1fr;
