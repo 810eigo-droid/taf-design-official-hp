@@ -257,6 +257,91 @@ html { scroll-padding-top: 64px; }
   to  { opacity: 1; transform: translateY(0); }
 }
 
+/* --- できる作業のベルト --- */
+.fv-belt{
+  padding: 20px 0 8px;
+  background: linear-gradient(180deg, #F3EDE0 0%, #FAF7F0 100%);
+  overflow: hidden;
+}
+.fv-belt-track{
+  display: flex;
+  width: max-content;
+  animation: fvBelt 42s linear infinite;
+  /* 両端をふわっとフェード */
+}
+.fv-belt-track--rev{
+  animation: fvBeltRev 50s linear infinite;
+  margin-top: 12px;
+}
+.fv-belt{
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+@keyframes fvBelt{ to{ transform: translateX(-50%); } }
+@keyframes fvBeltRev{ from{ transform: translateX(-50%); } to{ transform: translateX(0); } }
+
+.fv-belt-row{
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0 6px;
+}
+.fv-belt-row li{
+  /* ピコピコ(1個ずつ違うリズムで弾む) */
+  animation: fvPiko 2.2s ease-in-out infinite;
+}
+.fv-belt-row li:nth-child(2n){ animation-delay: .3s; }
+.fv-belt-row li:nth-child(3n){ animation-delay: .55s; animation-duration: 2.6s; }
+.fv-belt-row li:nth-child(4n){ animation-delay: .8s; }
+.fv-belt-row li:nth-child(5n){ animation-delay: 1.05s; animation-duration: 2s; }
+@keyframes fvPiko{
+  0%, 100%{ transform: translateY(0); }
+  50%     { transform: translateY(-5px); }
+}
+
+.fv-belt-row a{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid rgba(197,160,89,.55);
+  box-shadow: 0 3px 10px rgba(26,42,58,.07);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .05em;
+  color: #1A2A3A;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.fv-belt-row li:nth-child(2n) a{
+  background: #1A2A3A;
+  color: #FAFAFA;
+  border-color: #1A2A3A;
+}
+.fv-belt-row a .ic{ font-size: 15px; line-height: 1; }
+.fv-belt-row a:hover{
+  background: #C5A059;
+  border-color: #C5A059;
+  color: #1A2A3A;
+  transform: scale(1.06);
+}
+.fv-belt-track:hover{ animation-play-state: paused; }
+
+@media (max-width: 768px){
+  .fv-belt{ padding: 16px 0 6px; }
+  .fv-belt-row a{ font-size: 12px; padding: 8px 14px; }
+  .fv-belt-track--rev{ margin-top: 10px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .fv-belt-track, .fv-belt-track--rev{ animation: none; }
+  .fv-belt-row li{ animation: none; }
+}
+
 /* --- PC(769px〜) --- */
 @media (min-width: 769px){
   /* 背景写真(images/fv-bg.webp)。未配置でも下のグラデで成立する */
@@ -501,6 +586,50 @@ html { scroll-padding-top: 64px; }
       </p>
     </div>
 
+  </div>
+</div>
+
+<!-- できる作業のベルト(2段・左右反対に流れる) -->
+<div class="fv-belt" aria-label="対応できる作業一覧">
+  <div class="fv-belt-track">
+    <ul class="fv-belt-row">
+      <li><a href="https://taf-design.com/order/"><span class="ic">🖥️</span>ホームページ制作</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">📄</span>LP制作</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🎨</span>ロゴ・バナー</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🔧</span>既存サイトの修正・機能追加</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">📱</span>スマホ最適化</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🤖</span>AIアプリ開発</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🛡️</span>保守・管理サポート</a></li>
+    </ul>
+    <ul class="fv-belt-row" aria-hidden="true">
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🖥️</span>ホームページ制作</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">📄</span>LP制作</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🎨</span>ロゴ・バナー</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🔧</span>既存サイトの修正・機能追加</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">📱</span>スマホ最適化</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🤖</span>AIアプリ開発</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🛡️</span>保守・管理サポート</a></li>
+    </ul>
+  </div>
+  <div class="fv-belt-track fv-belt-track--rev">
+    <ul class="fv-belt-row">
+      <li><a href="https://taf-design.com/order/"><span class="ic">📣</span>メタ広告運用</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">▶️</span>YouTube・Google広告</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">📷</span>インスタ運用</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">💬</span>公式LINE運用</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🔁</span>セールスファネル構築</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">⚙️</span>UTAGE・マイスピー対応</a></li>
+      <li><a href="https://taf-design.com/order/"><span class="ic">🔍</span>SEO・AI検索対策</a></li>
+    </ul>
+    <ul class="fv-belt-row" aria-hidden="true">
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">📣</span>メタ広告運用</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">▶️</span>YouTube・Google広告</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">📷</span>インスタ運用</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">💬</span>公式LINE運用</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🔁</span>セールスファネル構築</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">⚙️</span>UTAGE・マイスピー対応</a></li>
+      <li><a href="https://taf-design.com/order/" tabindex="-1"><span class="ic">🔍</span>SEO・AI検索対策</a></li>
+    </ul>
   </div>
 </div>
 
