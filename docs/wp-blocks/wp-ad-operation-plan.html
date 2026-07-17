@@ -1,0 +1,1094 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: 広告運用・集客サポート 料金ページ(taf-adop-*)
+  保管日: 2026-07-17(ユーザー提供のWP掲載中HTML・CSS+HTML一体型)
+  リンクルール: 見積もり=https://taf-design.com/order/ / 相談・資料=https://taf-design.com/offer2/
+  リンク確認: 末尾CTA「相談する」= offer2 で正しい ✓
+  ★表現要確認: 引き継ぎルール「広告系で『審査対応』という言葉は使わない」に照らし、
+    本文中の「広告審査に向けた初期確認」「広告審査…」の表現が抵触しないか後で要チェック
+  価格は TAF-V2meta-LP/docs/price-master.md に同期すること(内容の照合は未実施)
+============================================================ -->
+<style>
+  .taf-adop {
+    --taf-bg: #f3efe8;
+    --taf-card: #ffffff;
+    --taf-navy: #17283a;
+    --taf-navy-2: #24394f;
+    --taf-gold: #c5a059;
+    --taf-gold-2: #d9bd75;
+    --taf-text: #2f3d4c;
+    --taf-muted: #6f7b87;
+    --taf-border: rgba(197, 160, 89, 0.28);
+    --taf-soft-border: rgba(23, 40, 58, 0.1);
+    --taf-shadow: 0 18px 48px rgba(23, 40, 58, 0.12);
+    --taf-serif: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    --taf-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+
+    font-family: var(--taf-sans);
+    color: var(--taf-text);
+    background:
+      radial-gradient(circle at top right, rgba(197, 160, 89, 0.14), transparent 34%),
+      radial-gradient(circle at bottom left, rgba(23, 40, 58, 0.08), transparent 34%),
+      var(--taf-bg);
+    padding: 80px 22px;
+    line-height: 1.85;
+    overflow: hidden;
+  }
+
+  .taf-adop *,
+  .taf-adop *::before,
+  .taf-adop *::after {
+    box-sizing: border-box;
+  }
+
+  .taf-adop h1,
+  .taf-adop h2,
+  .taf-adop h3,
+  .taf-adop p,
+  .taf-adop ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .taf-adop ul {
+    list-style: none;
+  }
+
+  .taf-adop__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .taf-adop__hero {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .taf-adop__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--taf-gold);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .taf-adop__eyebrow::before,
+  .taf-adop__eyebrow::after {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: var(--taf-gold);
+  }
+
+  .taf-adop__title {
+    font-family: var(--taf-serif);
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.35;
+    color: var(--taf-navy);
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+  }
+
+  .taf-adop__title span {
+    color: var(--taf-gold);
+  }
+
+  .taf-adop__lead {
+    max-width: 780px;
+    margin: 0 auto;
+    color: var(--taf-muted);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .taf-adop__hero-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .taf-adop__badge {
+    background: #fff;
+    border: 1px solid var(--taf-border);
+    color: var(--taf-navy);
+    border-radius: 999px;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .taf-adop__main-price {
+    background: linear-gradient(135deg, var(--taf-navy), var(--taf-navy-2));
+    color: #fff;
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: var(--taf-shadow);
+    margin-bottom: 34px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .taf-adop__main-price::after {
+    content: "";
+    position: absolute;
+    right: -70px;
+    top: -70px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(217, 189, 117, 0.35);
+  }
+
+  .taf-adop__main-price-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .taf-adop__main-price-label {
+    color: var(--taf-gold-2);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .taf-adop__main-price-title {
+    font-family: var(--taf-serif);
+    font-size: clamp(24px, 4vw, 34px);
+    line-height: 1.45;
+    letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+
+  .taf-adop__main-price-text {
+    color: rgba(255,255,255,0.78);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .taf-adop__price-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(217, 189, 117, 0.32);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .taf-adop__price-main {
+    font-family: var(--taf-serif);
+    font-size: clamp(32px, 6vw, 46px);
+    color: var(--taf-gold-2);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .taf-adop__price-main small {
+    font-family: var(--taf-sans);
+    font-size: 15px;
+    color: rgba(255,255,255,0.74);
+  }
+
+  .taf-adop__price-note {
+    color: rgba(255,255,255,0.72);
+    font-size: 13px;
+  }
+
+  .taf-adop__section {
+    background: var(--taf-card);
+    border: 1px solid var(--taf-soft-border);
+    border-radius: 18px;
+    padding: 34px;
+    margin-bottom: 26px;
+    box-shadow: 0 10px 28px rgba(23, 40, 58, 0.06);
+  }
+
+  .taf-adop__section-head {
+    margin-bottom: 24px;
+  }
+
+  .taf-adop__kicker {
+    color: var(--taf-gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+  }
+
+  .taf-adop__section-title {
+    font-family: var(--taf-serif);
+    color: var(--taf-navy);
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.45;
+    letter-spacing: 0.05em;
+  }
+
+  .taf-adop__section-desc {
+    color: var(--taf-muted);
+    font-size: 14px;
+    margin-top: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .taf-adop__cards,
+  .taf-adop__plans,
+  .taf-adop__price-examples {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .taf-adop__card,
+  .taf-adop__plan,
+  .taf-adop__example {
+    background: #fbfaf7;
+    border: 1px solid var(--taf-border);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  .taf-adop__card-num {
+    color: var(--taf-gold);
+    font-family: var(--taf-serif);
+    font-size: 26px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .taf-adop__card-title,
+  .taf-adop__plan-title,
+  .taf-adop__example-title {
+    color: var(--taf-navy);
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+
+  .taf-adop__card-text,
+  .taf-adop__plan-text {
+    color: var(--taf-muted);
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .taf-adop__plan-label,
+  .taf-adop__example-label {
+    display: inline-block;
+    background: var(--taf-navy);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 5px 10px;
+    margin-bottom: 14px;
+  }
+
+  .taf-adop__plan-price {
+    font-family: var(--taf-serif);
+    color: var(--taf-gold);
+    font-size: 26px;
+    line-height: 1.25;
+    margin: 12px 0;
+  }
+
+  .taf-adop__plan-price small {
+    font-family: var(--taf-sans);
+    color: var(--taf-muted);
+    font-size: 13px;
+  }
+
+  .taf-adop__mini-list {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px !important;
+  }
+
+  .taf-adop__mini-list li {
+    position: relative;
+    padding-left: 20px;
+    color: var(--taf-text);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .taf-adop__mini-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--taf-gold);
+    font-weight: 900;
+  }
+
+  .taf-adop__table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--taf-soft-border);
+    border-radius: 14px;
+  }
+
+  .taf-adop__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    background: #fff;
+  }
+
+  .taf-adop__table th,
+  .taf-adop__table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(23, 40, 58, 0.08);
+    text-align: left;
+    vertical-align: top;
+    font-size: 14px;
+  }
+
+  .taf-adop__table th {
+    background: #f6f2eb;
+    color: var(--taf-navy);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .taf-adop__table td:last-child,
+  .taf-adop__table th:last-child {
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 800;
+    color: var(--taf-navy);
+  }
+
+  .taf-adop__table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .taf-adop__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .taf-adop__list li {
+    background: #fbfaf7;
+    border: 1px solid rgba(23, 40, 58, 0.08);
+    border-radius: 12px;
+    padding: 13px 14px 13px 38px;
+    position: relative;
+    font-size: 14px;
+    color: var(--taf-text);
+  }
+
+  .taf-adop__list li::before {
+    content: "✓";
+    position: absolute;
+    left: 15px;
+    top: 13px;
+    color: var(--taf-gold);
+    font-weight: 900;
+  }
+
+  .taf-adop__example-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    border-bottom: 1px dashed rgba(23, 40, 58, 0.14);
+    padding: 9px 0;
+    font-size: 13.5px;
+  }
+
+  .taf-adop__example-row span:last-child {
+    font-weight: 800;
+    color: var(--taf-navy);
+    white-space: nowrap;
+  }
+
+  .taf-adop__example-total {
+    margin-top: 14px;
+    background: var(--taf-navy);
+    color: #fff;
+    border-radius: 12px;
+    padding: 13px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: 800;
+  }
+
+  .taf-adop__example-total span:last-child {
+    color: var(--taf-gold-2);
+  }
+
+  .taf-adop__notice {
+    background: #f8f5ef;
+    border-left: 4px solid var(--taf-gold);
+    border-radius: 12px;
+    padding: 18px 20px;
+    color: var(--taf-muted);
+    font-size: 13.5px;
+  }
+
+  .taf-adop__notice strong {
+    color: var(--taf-navy);
+  }
+
+  .taf-adop__faq {
+    display: grid;
+    gap: 12px;
+  }
+
+  .taf-adop__faq details {
+    background: #fbfaf7;
+    border: 1px solid rgba(23, 40, 58, 0.1);
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .taf-adop__faq summary {
+    cursor: pointer;
+    padding: 16px 18px;
+    color: var(--taf-navy);
+    font-weight: 800;
+    list-style: none;
+  }
+
+  .taf-adop__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .taf-adop__faq summary::after {
+    content: "＋";
+    float: right;
+    color: var(--taf-gold);
+  }
+
+  .taf-adop__faq details[open] summary::after {
+    content: "−";
+  }
+
+  .taf-adop__faq p {
+    border-top: 1px solid rgba(23, 40, 58, 0.08);
+    padding: 15px 18px 18px;
+    color: var(--taf-muted);
+    font-size: 14px;
+  }
+
+  .taf-adop__cta {
+    text-align: center;
+    background: linear-gradient(135deg, var(--taf-navy), #0f1d2b);
+    color: #fff;
+    border-radius: 22px;
+    padding: 46px 28px;
+    box-shadow: var(--taf-shadow);
+  }
+
+  .taf-adop__cta h2 {
+    font-family: var(--taf-serif);
+    font-size: clamp(24px, 4vw, 34px);
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .taf-adop__cta p {
+    color: rgba(255,255,255,0.78);
+    max-width: 720px;
+    margin: 0 auto 24px;
+    font-size: 14px;
+  }
+
+  .taf-adop__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--taf-gold-2);
+    color: var(--taf-navy) !important;
+    text-decoration: none !important;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    box-shadow: 0 10px 24px rgba(217, 189, 117, 0.24);
+  }
+
+  .taf-adop__cta-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 900px) {
+    .taf-adop {
+      padding: 56px 16px;
+    }
+
+    .taf-adop__main-price-grid,
+    .taf-adop__cards,
+    .taf-adop__plans,
+    .taf-adop__price-examples {
+      grid-template-columns: 1fr;
+    }
+
+    .taf-adop__section,
+    .taf-adop__main-price {
+      padding: 24px 18px;
+    }
+
+    .taf-adop__list {
+      grid-template-columns: 1fr;
+    }
+
+    .taf-adop__table th,
+    .taf-adop__table td {
+      padding: 13px 14px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<div class="taf-adop">
+  <div class="taf-adop__inner">
+
+    <section class="taf-adop__hero">
+      <div class="taf-adop__eyebrow">AD OPERATION &amp; GROWTH</div>
+      <h1 class="taf-adop__title">広告運用・<span>集客サポート</span></h1>
+      <p class="taf-adop__lead">
+        制作したLP・LINE導線を活かして、Meta広告の簡易運用から公式LINE配信までサポートします。
+        まずは小さく始めたい方でも導入しやすいよう、低価格のライトプランをご用意しています。
+      </p>
+      <div class="taf-adop__hero-badges">
+        <span class="taf-adop__badge">Meta広告対応</span>
+        <span class="taf-adop__badge">月額18,000円〜</span>
+        <span class="taf-adop__badge">LINE配信代行対応</span>
+        <span class="taf-adop__badge">ファネル制作と相性◎</span>
+      </div>
+    </section>
+
+    <section class="taf-adop__main-price">
+      <div class="taf-adop__main-price-grid">
+        <div>
+          <div class="taf-adop__main-price-label">PRICE</div>
+          <h2 class="taf-adop__main-price-title">月額18,000円〜。<br>小さく始められる広告運用サポート。</h2>
+          <p class="taf-adop__main-price-text">
+            最初から高額な広告運用代行を契約するのではなく、まずは少額広告費で反応を見ながら改善していくためのサポートです。
+            標準運用では広告費の20％を基本とし、作業量に応じた最低手数料を設定しています。
+          </p>
+        </div>
+
+        <div class="taf-adop__price-box">
+          <div class="taf-adop__price-main">¥18,000〜 <small>/月</small></div>
+          <p class="taf-adop__price-note">
+            お試しライト：月18,000円〜<br>
+            標準広告運用：広告費の20％<br>
+            標準運用の最低手数料：月22,000円〜<br>
+            公式LINE月4回配信：月44,000円
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">FOR YOU</div>
+        <h2 class="taf-adop__section-title">こんな方におすすめです</h2>
+      </div>
+
+      <div class="taf-adop__cards">
+        <div class="taf-adop__card">
+          <div class="taf-adop__card-num">01</div>
+          <h3 class="taf-adop__card-title">LPやLINE導線はあるが、集客まで手が回らない方</h3>
+          <p class="taf-adop__card-text">
+            制作して終わりではなく、広告出稿後の確認・調整・改善提案まで継続してサポートします。
+          </p>
+        </div>
+
+        <div class="taf-adop__card">
+          <div class="taf-adop__card-num">02</div>
+          <h3 class="taf-adop__card-title">広告運用を低価格で始めたい方</h3>
+          <p class="taf-adop__card-text">
+            いきなり高額な運用代行ではなく、月18,000円〜のライト運用から始められます。
+          </p>
+        </div>
+
+        <div class="taf-adop__card">
+          <div class="taf-adop__card-num">03</div>
+          <h3 class="taf-adop__card-title">LINE配信までまとめて任せたい方</h3>
+          <p class="taf-adop__card-text">
+            配信文の作成、画像準備、配信設定まで対応します。月4回の継続配信に対応可能です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">PLAN</div>
+        <h2 class="taf-adop__section-title">運用プラン</h2>
+        <p class="taf-adop__section-desc">
+          低価格で始めたい方向けのライトプランと、継続的に改善したい方向けの標準運用を分けています。
+          料金を抑えるため、各プランには対応範囲があります。
+        </p>
+      </div>
+
+      <div class="taf-adop__plans">
+        <div class="taf-adop__plan">
+          <div class="taf-adop__plan-label">LIGHT</div>
+          <h3 class="taf-adop__plan-title">予算1日3000円以下で運用の場合</h3>
+          <div class="taf-adop__plan-price">¥18,000〜 <small>/月</small></div>
+          <p class="taf-adop__plan-text">
+            まずは小さく広告を出して反応を見たい方向けの簡易プランです。
+          </p>
+          <ul class="taf-adop__mini-list">
+            <li>広告費目安：〜9万円程度</li>
+            <li>月1回の広告確認</li>
+            <li>簡易改善コメント</li>
+            <li>既存広告の軽微な調整</li>
+            <li>詳細レポート・新規制作は別途</li>
+          </ul>
+        </div>
+
+        <div class="taf-adop__plan">
+          <div class="taf-adop__plan-label">STANDARD</div>
+          <h3 class="taf-adop__plan-title">標準広告運用</h3>
+          <div class="taf-adop__plan-price">広告費の20％ <small>/月</small></div>
+          <p class="taf-adop__plan-text">
+            広告の確認・調整・改善提案まで、継続的に見ていく標準プランです。
+          </p>
+          <ul class="taf-adop__mini-list">
+            <li>最低運用手数料：月22,000円〜</li>
+            <li>月1回の簡易レポート</li>
+            <li>月2回までの広告確認・調整</li>
+            <li>改善提案</li>
+            <li>広告クリエイティブ制作1点まで</li>
+          </ul>
+        </div>
+
+        <div class="taf-adop__plan">
+          <div class="taf-adop__plan-label">LINE</div>
+          <h3 class="taf-adop__plan-title">公式LINE配信代行</h3>
+          <div class="taf-adop__plan-price">¥44,000 <small>/月</small></div>
+          <p class="taf-adop__plan-text">
+            公式LINEの配信作業まで外注したい方向けのオプションです。
+          </p>
+          <ul class="taf-adop__mini-list">
+            <li>月4回配信</li>
+            <li>簡易リサーチ</li>
+            <li>配信文作成</li>
+            <li>画像準備</li>
+            <li>配信設定</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">RECOMMENDED SET</div>
+        <h2 class="taf-adop__section-title">ファネル構築パッケージと合わせたご利用がおすすめです</h2>
+        <p class="taf-adop__section-desc">
+          広告運用だけを始めるよりも、先にLP・LINE導線・Meta広告初期設定を整えておくことで、
+          広告から登録・問い合わせにつながりやすい状態を作れます。
+        </p>
+      </div>
+
+      <div class="taf-adop__table-wrap">
+        <table class="taf-adop__table">
+          <thead>
+            <tr>
+              <th>組み合わせ推奨プラン</th>
+              <th>内容</th>
+              <th>料金</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ファネル構築パッケージ</td>
+              <td>リスト取りLP制作・LINE初期設計・Meta広告初期設定までを一式で構築</td>
+              <td>150,000円〜</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <br>
+
+      <ul class="taf-adop__list">
+        <li>リスト取りLP制作</li>
+        <li>LP構成作成</li>
+        <li>LPデザイン制作</li>
+        <li>デザインデータ納品</li>
+        <li>広告バナー1枚制作</li>
+        <li>LINEステップ初期設計</li>
+        <li>初期ステップ文案作成</li>
+        <li>Meta広告初期設定</li>
+        <li>広告出稿前の導線確認</li>
+        <li>広告審査に向けた初期確認</li>
+        <li>文章修正2回まで</li>
+      </ul>
+
+      <div class="taf-adop__notice" style="margin-top: 20px;">
+        <p>
+          <strong>このページの商品は「広告運用・集客サポート」です。</strong><br>
+          ファネル構築パッケージは、広告運用を始める前にLP・LINE・広告設定の土台を整えるための別プランです。
+          すでにLPやLINE導線をお持ちの場合は、既存の内容を確認したうえで広告運用のみのご相談も可能です。
+        </p>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">MONTHLY SUPPORT</div>
+        <h2 class="taf-adop__section-title">月額サポート料金</h2>
+        <p class="taf-adop__section-desc">
+          広告費はMeta社へ支払う実費です。下記の運用手数料・LINE配信代行費が当社へのお支払い対象です。
+        </p>
+      </div>
+
+      <div class="taf-adop__table-wrap">
+        <table class="taf-adop__table">
+          <thead>
+            <tr>
+              <th>サポート内容</th>
+              <th>内容</th>
+              <th>料金</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>少額からの運用</td>
+              <td>少額広告費向け。月1回の確認、簡易改善コメント、既存広告の軽微な調整</td>
+              <td>月18,000円〜</td>
+            </tr>
+            <tr>
+              <td>標準広告運用</td>
+              <td>広告確認・調整、月1回の簡易レポート、改善提案、軽微な文言修正、広告クリエイティブ制作1点まで</td>
+              <td>広告費の20％</td>
+            </tr>
+            <tr>
+              <td>標準運用の最低手数料</td>
+              <td>広告費が少額の場合でも、継続的な確認・調整・改善提案に必要な最低稼働費として設定しています</td>
+              <td>月22,000円〜</td>
+            </tr>
+            <tr>
+              <td>公式LINE月4回配信代行</td>
+              <td>簡易リサーチ、配信文作成、画像準備、配信設定</td>
+              <td>月44,000円</td>
+            </tr>
+            <tr>
+              <td>LINE追加配信</td>
+              <td>月4回を超える追加配信。配信文・画像準備・設定を含みます</td>
+              <td>1通 11,000円〜</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+  <div class="taf-adop__section-head">
+    <div class="taf-adop__kicker">COMPARISON</div>
+    <h2 class="taf-adop__section-title">一般的な広告運用代行との違い</h2>
+    <p class="taf-adop__section-desc">
+      当サービスは、広告費の料率の安さを競うサービスではありません。
+      小規模事業者・個人事業主の方でも始めやすいよう、少額広告費での相談しやすさ、LP・LINE・広告導線までまとめて見られること、追加料金の範囲が分かりやすいことを重視しています。
+    </p>
+  </div>
+
+  <div class="taf-adop__table-wrap">
+    <table class="taf-adop__table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th>一般的な広告運用代行で起こりやすいこと</th>
+          <th>当サービス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>始めやすさ</td>
+          <td>広告費や運用規模が小さいと、相談しにくい場合があります</td>
+          <td>予算1日3,000円以下の少額広告から相談可能</td>
+        </tr>
+        <tr>
+          <td>最低月額</td>
+          <td>最低手数料や初期費用が分かりにくく、総額が見えづらい場合があります</td>
+          <td>少額からの運用：月18,000円〜<br>標準運用：最低22,000円〜</td>
+        </tr>
+        <tr>
+          <td>対応範囲</td>
+          <td>広告運用のみで、LPやLINE導線は別業者になる場合があります</td>
+          <td>LP・LINE導線・広告設定までまとめて相談可能</td>
+        </tr>
+        <tr>
+          <td>ファネル構築</td>
+          <td>LP制作、LINE設計、広告設定を別々に依頼すると管理が複雑になりやすいです</td>
+          <td>ファネル構築パッケージ：150,000円〜<br>広告運用前の土台づくりまで対応</td>
+        </tr>
+        <tr>
+          <td>公式LINE配信</td>
+          <td>配信文作成、画像準備、設定作業が別料金になる場合があります</td>
+          <td>月4回配信代行：44,000円<br>配信文作成・画像準備・配信設定まで対応</td>
+        </tr>
+        <tr>
+          <td>追加料金</td>
+          <td>修正・追加制作・レポート作成などの料金範囲が分かりにくい場合があります</td>
+          <td>追加制作・追加対応の料金目安を事前に明記</td>
+        </tr>
+        <tr>
+          <td>向いている方</td>
+          <td>広告費を大きく使える企業、本格的な広告チームを外注したい企業</td>
+          <td>まずは小さく試したい方、LP・LINE・広告導線を低価格で整えたい方</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="taf-adop__notice" style="margin-top: 20px;">
+    <p>
+      <strong>当サービスは「小さく始めたい方向け」の広告運用サポートです。</strong><br>
+      毎日の細かな広告調整や大規模な分析レポートを前提とした高額プランではありません。
+      その代わり、対応範囲を明確にすることで、少額広告費でも相談しやすい価格にしています。
+    </p>
+  </div>
+</section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">SCOPE</div>
+        <h2 class="taf-adop__section-title">月額内に含まれること・含まれないこと</h2>
+        <p class="taf-adop__section-desc">
+          低価格を維持するため、対応範囲を明確にしています。必要な追加対応は、作業前に必ずお見積もりします。
+        </p>
+      </div>
+
+      <div class="taf-adop__table-wrap">
+        <table class="taf-adop__table">
+          <thead>
+            <tr>
+              <th>区分</th>
+              <th>内容</th>
+              <th>扱い</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>広告確認・調整</td>
+              <td>広告の配信状況確認、簡易調整、改善提案</td>
+              <td>月額内</td>
+            </tr>
+            <tr>
+              <td>簡易レポート</td>
+              <td>標準運用プランの月1回の簡易レポート</td>
+              <td>月額内</td>
+            </tr>
+            <tr>
+              <td>広告クリエイティブ</td>
+              <td>標準運用プランでの広告クリエイティブ制作1点まで</td>
+              <td>月額内</td>
+            </tr>
+            <tr>
+              <td>LP大幅修正</td>
+              <td>構成変更、セクション追加、大幅なデザイン変更</td>
+              <td>別途見積もり</td>
+            </tr>
+            <tr>
+              <td>詳細分析レポート</td>
+              <td>数値分析、改善提案書、全体導線の再設計</td>
+              <td>別途見積もり</td>
+            </tr>
+            <tr>
+              <td>新規キャンペーン設計</td>
+              <td>新しい広告目的・新ターゲット・新訴求の設計</td>
+              <td>別途見積もり</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">OPTION</div>
+        <h2 class="taf-adop__section-title">追加制作・追加対応の料金目安</h2>
+        <p class="taf-adop__section-desc">
+          月額内に含まれない大幅修正や追加制作は、事前に内容と金額をご相談のうえ進行します。
+        </p>
+      </div>
+
+      <div class="taf-adop__table-wrap">
+        <table class="taf-adop__table">
+          <thead>
+            <tr>
+              <th>区分</th>
+              <th>内容</th>
+              <th>料金目安</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LP・ページ制作</td>
+              <td>LP文言の軽微な修正</td>
+              <td>3,300円〜</td>
+            </tr>
+            <tr>
+              <td>LP・ページ制作</td>
+              <td>LP 1セクション修正</td>
+              <td>5,500円〜</td>
+            </tr>
+            <tr>
+              <td>LP・ページ制作</td>
+              <td>LP大幅修正</td>
+              <td>22,000円〜</td>
+            </tr>
+            <tr>
+              <td>LP・ページ制作</td>
+              <td>ABテスト用ファーストビュー制作</td>
+              <td>11,000円〜</td>
+            </tr>
+            <tr>
+              <td>LP・ページ制作</td>
+              <td>ABテスト用追加LP 7セクション程度</td>
+              <td>55,000円〜</td>
+            </tr>
+            <tr>
+              <td>Meta広告</td>
+              <td>広告文追加</td>
+              <td>3,300円〜</td>
+            </tr>
+            <tr>
+              <td>Meta広告</td>
+              <td>新規バナー1枚</td>
+              <td>5,500円〜</td>
+            </tr>
+            <tr>
+              <td>Meta広告</td>
+              <td>簡易動画広告1本</td>
+              <td>22,000円〜</td>
+            </tr>
+            <tr>
+              <td>Meta広告</td>
+              <td>新キャンペーン設計</td>
+              <td>22,000円〜</td>
+            </tr>
+            <tr>
+              <td>公式LINE</td>
+              <td>LINE追加配信1通</td>
+              <td>11,000円〜</td>
+            </tr>
+            <tr>
+              <td>公式LINE</td>
+              <td>LINE配信用画像制作</td>
+              <td>3,300円〜</td>
+            </tr>
+            <tr>
+              <td>公式LINE</td>
+              <td>LINE導線の見直し</td>
+              <td>11,000円〜</td>
+            </tr>
+            <tr>
+              <td>分析・改善提案</td>
+              <td>詳細分析レポート</td>
+              <td>11,000円〜</td>
+            </tr>
+            <tr>
+              <td>分析・改善提案</td>
+              <td>改善提案書の作成</td>
+              <td>11,000円〜</td>
+            </tr>
+            <tr>
+              <td>分析・改善提案</td>
+              <td>全体導線の再設計</td>
+              <td>22,000円〜</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">IMPORTANT</div>
+        <h2 class="taf-adop__section-title">ご確認事項</h2>
+      </div>
+
+      <div class="taf-adop__notice">
+        <p>
+          <strong>広告運用は成果保証型ではありません。</strong><br>
+          広告審査、市場反応、商品内容、LP内容、競合状況など外部要因も関係するため、
+          本サービスは「制作・運用・改善サポート」として進行いたします。<br><br>
+          <strong>低価格を維持するため、対応範囲を明確にしています。</strong><br>
+          大幅修正、新規制作、詳細分析、新キャンペーン設計などは別途お見積もりとなります。
+          追加対応が必要な場合は、作業前に必ず内容と金額をご相談し、ご了承いただいたうえで進行します。<br><br>
+          <strong>広告費は別途必要です。</strong><br>
+          Meta広告費は、お客様の広告アカウントから別途お支払いいただく実費です。
+          当社へのお支払いは、運用手数料・制作費・LINE配信代行費などのサポート費用となります。
+        </p>
+      </div>
+    </section>
+
+    <section class="taf-adop__section">
+      <div class="taf-adop__section-head">
+        <div class="taf-adop__kicker">FAQ</div>
+        <h2 class="taf-adop__section-title">よくある質問</h2>
+      </div>
+
+      <div class="taf-adop__faq">
+        <details>
+          <summary>広告費はいくらから始められますか？</summary>
+          <p>
+            まずは月5万円程度のテスト運用からでも開始可能です。小さく始めたい場合は、お試しライト運用 月18,000円〜をご検討ください。
+          </p>
+        </details>
+
+        <details>
+          <summary>18,000円のプランでどこまで対応してもらえますか？</summary>
+          <p>
+            お試しライト運用は、少額広告費向けの簡易プランです。月1回の広告確認、簡易改善コメント、既存広告の軽微な調整が中心です。
+            詳細レポート、新規クリエイティブ制作、大幅な広告設計変更は別途となります。
+          </p>
+        </details>
+
+        <details>
+          <summary>公式LINE配信は必須ですか？</summary>
+          <p>
+            必須ではありません。Meta広告運用のみでもご相談可能です。LINE配信まで任せたい場合は、月4回配信代行として月44,000円で対応しています。
+          </p>
+        </details>
+
+        <details>
+          <summary>ファネル構築パッケージとセットでないと利用できませんか？</summary>
+          <p>
+            既存のLPやLINE導線が整っている場合は、広告運用のみでもご相談可能です。
+            ただし、LP・LINE・広告設定が未整備の場合は、ファネル構築パッケージ 150,000円〜と合わせたご利用をおすすめしています。
+          </p>
+        </details>
+
+        <details>
+          <summary>途中で自社運用に切り替えることはできますか？</summary>
+          <p>
+            可能です。貴社側で公式LINEや広告運用を行うタイミングになりましたら、速やかに交代できるよう対応いたします。
+            継続サポートの終了をご希望の場合は、1か月前までにお知らせください。
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="taf-adop__cta">
+      <h2>まずは現在の導線と広告予算をお聞かせください。</h2>
+      <p>
+        LP・LINE・Meta広告の状況を確認したうえで、必要なサポート範囲と料金をご提案します。
+        小さく始めたい方も、ファネル制作からまとめて任せたい方もご相談ください。
+      </p>
+      <a class="taf-adop__cta-btn" href="https://taf-design.com/offer2/" target="_blank" rel="noopener">
+        相談する →
+      </a>
+    </section>
+
+  </div>
+</div>
