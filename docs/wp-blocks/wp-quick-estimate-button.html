@@ -1,0 +1,100 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: 簡単見積もりボタン(taf-quickest-*)
+  保管日: 2026-07-17
+  設置ルール: 料金ページの全個別詳細料金ページの「上下」に設置(2026-07-17設置済み)
+  リンク先: https://taf-design.com/order/(見積もり=アウトライン金枠ボタンのルール準拠)
+  備考: CSS内包・taf-quickest-プレフィックスでテーマと衝突しない。同一ページに複数設置OK
+============================================================ -->
+<div class="taf-quickest-wrap">
+  <a href="https://taf-design.com/order/" class="taf-quickest-btn">
+    <span class="taf-quickest-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2"/>
+        <line x1="8" y1="7" x2="16" y2="7"/>
+        <line x1="8" y1="12" x2="10" y2="12"/>
+        <line x1="14" y1="12" x2="16" y2="12"/>
+        <line x1="8" y1="17" x2="10" y2="17"/>
+        <line x1="14" y1="17" x2="16" y2="17"/>
+      </svg>
+    </span>
+    <span class="taf-quickest-text">
+      <span class="taf-quickest-main">簡単!無料お見積もりはこちら</span>
+      <span class="taf-quickest-sub">項目を選ぶだけ・48時間以内にご返信</span>
+    </span>
+    <span class="taf-quickest-arrow" aria-hidden="true">→</span>
+  </a>
+</div>
+
+<style>
+.taf-quickest-wrap{
+  max-width:560px;
+  margin:32px auto;
+  padding:0 16px;
+  font-family:'Noto Serif JP','Hiragino Mincho ProN',serif;
+}
+.taf-quickest-btn{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:18px 24px;
+  background:#FFFFFF;
+  border:2px solid #C5A059;
+  border-radius:6px;
+  color:#8A6A2E;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(197,160,89,0.18);
+  transition:background .3s ease,color .3s ease,transform .3s ease,box-shadow .3s ease;
+}
+.taf-quickest-btn:hover{
+  background:#C5A059;
+  color:#FFFFFF;
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(197,160,89,0.4);
+}
+.taf-quickest-icon{
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border:1.5px solid currentColor;
+  border-radius:50%;
+}
+.taf-quickest-text{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.taf-quickest-main{
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.05em;
+  line-height:1.4;
+}
+.taf-quickest-sub{
+  font-size:12px;
+  opacity:.75;
+  letter-spacing:.04em;
+}
+.taf-quickest-arrow{
+  flex-shrink:0;
+  font-size:20px;
+}
+@media (prefers-reduced-motion: no-preference){
+  .taf-quickest-arrow{
+    animation:tafQuickestNudge 1.6s ease-in-out infinite;
+  }
+  @keyframes tafQuickestNudge{
+    0%,100%{transform:translateX(0)}
+    50%{transform:translateX(5px)}
+  }
+}
+@media (max-width:480px){
+  .taf-quickest-btn{padding:15px 18px;gap:10px}
+  .taf-quickest-main{font-size:14.5px}
+  .taf-quickest-sub{font-size:11px}
+  .taf-quickest-icon{width:38px;height:38px}
+}
+</style>
