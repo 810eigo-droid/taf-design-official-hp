@@ -1,0 +1,624 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック(SWELL用): LP/HPデザイン制作 料金ページ(lp-*)
+  保管日: 2026-07-17(ユーザー提供のWP掲載中HTML・CSS+HTML一体型)
+  リンクルール: 見積もり=https://taf-design.com/order/ / 相談・資料=https://taf-design.com/offer2/
+  メモ:
+  - 末尾CTAは「お問い合わせ」→「簡単見積もり(/order/)」に変更済み。CTA全体の統一は後日調整予定
+  - 価格は TAF-V2meta-LP/docs/price-master.md に同期すること(内容の照合は未実施)
+  - SWELLで崩れやすい width:100vw / margin-left:calc(50% - 50vw) は不使用(安全な中央寄せ版)
+============================================================ -->
+<!--
+SWELLのカスタムHTMLブロックにそのまま貼り付けるコードです。
+このファイルには「CSS」と「HTML」が両方入っています。
+
+今回の修正版では、SWELLで崩れやすい
+width:100vw;
+margin-left:calc(50% - 50vw);
+は使っていません。
+
+安全に中央寄せされる料金表カード版です。
+-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&display=swap');
+
+/* =========================
+   CSS部分：料金表のデザイン設定
+========================= */
+
+.lp-price-box {
+  font-family: "Noto Serif JP", serif;
+  background: #FAFAFA;
+  color: #555555;
+  padding: 48px 20px;
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.lp-price-box * {
+  box-sizing: border-box;
+}
+
+.lp-price-inner {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.lp-price-card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(26,42,58,0.14);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(26,42,58,0.08);
+  overflow: hidden;
+}
+
+.lp-price-head {
+  background: #1A2A3A;
+  color: #ffffff;
+  padding: 40px 40px 34px;
+}
+
+.lp-price-label {
+  display: inline-block;
+  color: #C5A059;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+}
+
+.lp-price-title {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.45;
+  margin: 0 0 18px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.lp-price-lead {
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 0;
+  color: rgba(255,255,255,0.88);
+  max-width: 920px;
+}
+
+.lp-main-price {
+  margin-top: 28px;
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.lp-main-price .yen {
+  font-family: Garamond, "Times New Roman", serif;
+  font-size: clamp(50px, 6vw, 76px);
+  line-height: 1;
+  color: #C5A059;
+  font-weight: 700;
+}
+
+.lp-main-price .tax {
+  font-size: 15px;
+  color: rgba(255,255,255,0.78);
+  padding-bottom: 8px;
+}
+
+.lp-price-body {
+  padding: 36px 40px 42px;
+}
+
+.lp-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.lp-mini-card {
+  background: #FAFAFA;
+  border: 1px solid rgba(26,42,58,0.12);
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+}
+
+.lp-mini-card strong {
+  display: block;
+  color: #1A2A3A;
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.lp-mini-card span {
+  display: block;
+  color: #777777;
+  font-size: 13px;
+}
+
+.lp-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1A2A3A;
+  font-size: 22px;
+  font-weight: 900;
+  margin: 32px 0 16px;
+}
+
+.lp-section-title::before {
+  content: "";
+  width: 8px;
+  height: 26px;
+  border-radius: 99px;
+  background: #C5A059;
+  flex: 0 0 auto;
+}
+
+.lp-text {
+  font-size: 16px;
+  margin: 0 0 18px;
+  color: #555555;
+}
+
+.lp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.lp-list.two {
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+
+.lp-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15px;
+  color: #555555;
+}
+
+.lp-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #C5A059;
+  font-weight: 900;
+}
+
+.lp-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(26,42,58,0.14);
+  border-radius: 18px;
+  margin-top: 14px;
+}
+
+.lp-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  background: #ffffff;
+}
+
+.lp-table th {
+  background: #FAFAFA;
+  color: #1A2A3A;
+  font-size: 15px;
+  text-align: left;
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(26,42,58,0.12);
+}
+
+.lp-table td {
+  font-size: 15px;
+  color: #555555;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(26,42,58,0.10);
+  vertical-align: top;
+}
+
+.lp-table tr:last-child td {
+  border-bottom: none;
+}
+
+.lp-table .price {
+  font-family: Garamond, "Times New Roman", serif;
+  color: #1A2A3A;
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lp-note-box {
+  background: rgba(197,160,89,0.10);
+  border: 1px solid rgba(197,160,89,0.35);
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 20px;
+}
+
+.lp-note-title {
+  color: #1A2A3A;
+  font-size: 17px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+.lp-note {
+  color: #777777;
+  font-size: 13px;
+  margin: 0;
+}
+
+.lp-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.lp-flow-item {
+  border: 1px solid rgba(26,42,58,0.12);
+  border-radius: 16px;
+  padding: 18px;
+  background: #FAFAFA;
+}
+
+.lp-flow-num {
+  font-family: Garamond, "Times New Roman", serif;
+  color: #C5A059;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.lp-flow-item strong {
+  display: block;
+  color: #1A2A3A;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.lp-flow-item span {
+  color: #777777;
+  font-size: 13px;
+}
+
+.lp-contact-box {
+  background: #1A2A3A;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 34px;
+  color: #ffffff;
+}
+
+.lp-contact-box h3 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  color: #ffffff;
+}
+
+.lp-contact-box p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.86);
+  margin: 0;
+}
+
+.lp-contact-button {
+  display: inline-flex;
+  margin-top: 20px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #C5A059;
+  color: #1A2A3A;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.lp-orange {
+  color: #F39C12;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .lp-price-box {
+    padding: 32px 14px;
+    max-width: 100%;
+  }
+
+  .lp-price-head,
+  .lp-price-body {
+    padding: 28px 20px;
+  }
+
+  .lp-summary-grid,
+  .lp-flow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lp-list.two {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-price-title {
+    font-size: 28px;
+  }
+
+  .lp-price-lead,
+  .lp-text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 520px) {
+  .lp-summary-grid,
+  .lp-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-price-card {
+    border-radius: 18px;
+  }
+
+  .lp-main-price .yen {
+    font-size: 52px;
+  }
+}
+</style>
+
+<!-- =========================
+     HTML部分：料金表の表示内容
+========================= -->
+
+<div class="lp-price-box">
+  <div class="lp-price-inner">
+    <div class="lp-price-card">
+
+      <div class="lp-price-head">
+        <div class="lp-price-label">LP / HP DESIGN PRICE</div>
+        <h2 class="lp-price-title">
+          原稿を送るだけ。<br>
+          スマホで見やすいLP・HPを制作します。
+        </h2>
+        <p class="lp-price-lead">
+          LPやホームページを作りたいけれど、デザインに自信がない方へ。
+          原稿や参考サイトをもとに、読みやすく、伝わりやすいページに整えます。
+          Canva・HTML/CSS・WordPress転用まで、ご希望に合わせて対応可能です。
+        </p>
+
+        <div class="lp-main-price">
+          <div class="yen">¥20,000〜</div>
+          <div class="tax">基本5セクションまで</div>
+        </div>
+      </div>
+
+      <div class="lp-price-body">
+
+        <div class="lp-summary-grid">
+          <div class="lp-mini-card">
+            <strong>5セクション</strong>
+            <span>基本料金内</span>
+          </div>
+          <div class="lp-mini-card">
+            <strong>スマホ優先</strong>
+            <span>見やすさ重視</span>
+          </div>
+          <div class="lp-mini-card">
+            <strong>原稿持込OK</strong>
+            <span>文章をもとに制作</span>
+          </div>
+          <div class="lp-mini-card">
+            <strong>WP対応</strong>
+            <span>追加料金で転用可</span>
+          </div>
+        </div>
+
+        <h3 class="lp-section-title">このプランでできること</h3>
+        <p class="lp-text">
+          いただいた原稿やサービス内容をもとに、見出し・余白・画像・図解・色味を整え、
+          スマホで読みやすいLPまたはHPに仕上げます。
+          「文字ばかりで読みにくい」「何を目立たせればよいか分からない」という状態から、
+          内容が直感的に伝わるページへ整理します。
+        </p>
+
+        <ul class="lp-list two">
+          <li>LPまたはHPのデザイン制作</li>
+          <li>基本5セクションまで対応</li>
+          <li>スマホ優先のレイアウト設計</li>
+          <li>原稿に合わせた見出し・余白調整</li>
+          <li>図解・インフォグラフィック風デザイン</li>
+          <li>Canva共有リンク納品に対応</li>
+          <li>画像納品 PNG / JPG に対応</li>
+          <li>HTML / CSS / JS 納品も相談可能</li>
+          <li>既存サイトやページの修正相談</li>
+          <li>納品前の文章修正対応</li>
+        </ul>
+
+        <h3 class="lp-section-title">基本のページ構成</h3>
+        <p class="lp-text">
+          構成が決まっていない場合は、LPで使いやすい基本5セクション構成で制作します。
+          商品やサービスの魅力が伝わりやすい順番に整理します。
+        </p>
+
+        <div class="lp-flow">
+          <div class="lp-flow-item">
+            <div class="lp-flow-num">01</div>
+            <strong>ファーストビュー</strong>
+            <span>価格・内容・対象者を最初に伝えるメイン部分</span>
+          </div>
+          <div class="lp-flow-item">
+            <div class="lp-flow-num">02</div>
+            <strong>共感・問題提起</strong>
+            <span>お客様の悩みや不安を整理する部分</span>
+          </div>
+          <div class="lp-flow-item">
+            <div class="lp-flow-num">03</div>
+            <strong>特徴・解決策</strong>
+            <span>サービス内容や強みを分かりやすく説明</span>
+          </div>
+          <div class="lp-flow-item">
+            <div class="lp-flow-num">04</div>
+            <strong>信頼・証拠</strong>
+            <span>実績・対応範囲・納品形式などを整理</span>
+          </div>
+        </div>
+
+        <div class="lp-note-box">
+          <p class="lp-note-title">5セクション目はクロージングです</p>
+          <p class="lp-note">
+            料金、納期、ご依頼時に必要なものをまとめ、問い合わせや申し込みにつながりやすい形に整えます。
+          </p>
+        </div>
+
+        <h3 class="lp-section-title">料金表</h3>
+        <div class="lp-table-wrap">
+          <table class="lp-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>料金</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>基本制作料金</strong></td>
+                <td><span class="price">¥20,000〜</span></td>
+                <td>LPまたはHPをスマホ優先で制作します。基本5セクションまで対応します。</td>
+              </tr>
+              <tr>
+                <td><strong>6セクション以上</strong></td>
+                <td>お見積もり</td>
+                <td>情報量が多いページや、複数の商品・サービスを掲載する場合に対応します。</td>
+              </tr>
+              <tr>
+                <td><strong>WordPressに転用</strong></td>
+                <td><span class="price">+¥11,000</span></td>
+                <td>制作した内容をWordPressで使いやすい形へ転用します。</td>
+              </tr>
+              <tr>
+                <td><strong>特急ラフ案作成</strong></td>
+                <td><span class="price">+¥5,500</span></td>
+                <td>通常より早くラフ案をご希望の場合のオプションです。</td>
+              </tr>
+              <tr>
+                <td><strong>実績掲載不可</strong></td>
+                <td><span class="price">+¥5,500</span></td>
+                <td>制作物を実績として掲載されたくない場合に必要です。</td>
+              </tr>
+              <tr>
+                <td><strong>SEO・AEO構成調整</strong></td>
+                <td><span class="price">+¥5,500</span></td>
+                <td>検索エンジンとAI検索の両方を考慮して、見出しや文章構成を調整します。</td>
+              </tr>
+              <tr>
+                <td><strong>デザイン確定後の大幅修正</strong></td>
+                <td><span class="price">¥2,500</span> / 1セクション</td>
+                <td>根本的なデザイン変更や、当初内容と大きく異なる変更がある場合の追加費用です。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="lp-section-title">納品形式</h3>
+        <ul class="lp-list two">
+          <li>Canva共有リンク</li>
+          <li>画像納品 PNG / JPG</li>
+          <li>HTML / CSS / JS</li>
+          <li>WordPress転用</li>
+        </ul>
+
+        <div class="lp-note-box">
+          <p class="lp-note-title">Canva納品について</p>
+          <p class="lp-note">
+            Canva上の通常テキストは、お客様ご自身で編集可能です。
+            ただし、図解画像や装飾画像の中に組み込んだ文字は、画像として統合する場合があります。
+            その場合、納品後にCanva上で直接打ち替えることはできません。
+            納品前までは文章修正に対応いたします。
+          </p>
+        </div>
+
+        <h3 class="lp-section-title">修正について</h3>
+        <div class="lp-table-wrap">
+          <table class="lp-table">
+            <thead>
+              <tr>
+                <th>区分</th>
+                <th>対応内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>無料修正</strong></td>
+                <td>誤字脱字、軽微な文章修正、納品前の文字調整、表現の微調整</td>
+              </tr>
+              <tr>
+                <td><strong>追加費用の対象</strong></td>
+                <td>デザインの根本変更、別の図解への変更、当初の原稿と大きく異なる内容への変更、一度修正した箇所の再修正</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="lp-section-title">納期について</h3>
+        <p class="lp-text">
+          原稿確定後、通常は<span class="lp-orange">2営業日程度</span>で初稿をお送りします。
+          確認メッセージへのご返信が遅れた場合は、その分納期が延びる場合があります。
+          24時間納品をご希望の場合は有料オプションにて対応可能です。
+        </p>
+
+        <div class="lp-note-box">
+          <p class="lp-note-title">24時間納品をご希望の場合</p>
+          <p class="lp-note">
+            デザイン案のご確認後、3時間以内のご返信をお願いいたします。
+            未返信の時間が発生した場合、その超過時間は納期に加算されます。
+            3日以上ご連絡がない場合は、その時点の内容で納品扱いとさせていただく場合があります。
+          </p>
+        </div>
+
+        <h3 class="lp-section-title">ご依頼時にお送りいただきたいもの</h3>
+        <ul class="lp-list two">
+          <li>掲載したい原稿</li>
+          <li>参考サイト</li>
+          <li>好みの色味</li>
+          <li>入れたい画像やロゴ</li>
+          <li>希望する納品形式</li>
+          <li>WordPress化の希望有無</li>
+          <li>24時間納品の希望有無</li>
+          <li>実績掲載不可の希望有無</li>
+        </ul>
+
+        <div class="lp-note-box">
+          <p class="lp-note-title">実績掲載・画像について</p>
+          <p class="lp-note">
+            制作物は実績として掲載させていただく場合があります。
+            掲載されたくない方は、必ず事前に実績掲載不可オプションをご利用ください。
+            また、AI生成画像や素材画像の雰囲気がご希望と合わない場合は、お客様ご自身で画像をご用意ください。
+          </p>
+        </div>
+
+        <div class="lp-contact-box">
+          <h3>まずは原稿・参考サイト・希望の色味をお送りください</h3>
+          <p>
+            「この内容で作れるか分からない」「CanvaとHTMLのどちらがよいか迷っている」
+            「WordPress化まで必要か相談したい」という場合も、内容に合わせて最適な形をご提案します。
+          </p>
+          <a class="lp-contact-button" href="https://taf-design.com/order/">簡単見積もり</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
