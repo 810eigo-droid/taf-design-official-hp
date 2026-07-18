@@ -1,0 +1,533 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: 予算セレクター「先に、ご予算を教えてください。」(tafbud-*)
+  設置先: 固定ページ /budget/
+  作成日: 2026-07-18
+  リンクルール: 見積もり=https://taf-design.com/order/ / 相談・資料=https://taf-design.com/offer2/
+  予算帯は /order/ フォームの「ご予算感」ボタンと同じ区分に揃えてある
+  価格は TAF-V2meta-LP/docs/price-master.md に同期すること
+============================================================ -->
+<div class="tafbud" id="tafbud">
+<style>
+  .tafbud{
+    --tb-bg:#f3efe8; --tb-card:#ffffff; --tb-navy:#17283a; --tb-navy2:#24394f;
+    --tb-gold:#c5a059; --tb-gold2:#d9bd75; --tb-text:#2f3d4c; --tb-muted:#6f7b87;
+    --tb-border:rgba(197,160,89,.28); --tb-soft:rgba(23,40,58,.1);
+    --tb-serif:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
+    --tb-sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+    font-family:var(--tb-sans); color:var(--tb-text); line-height:1.85;
+    background:
+      radial-gradient(circle at top right, rgba(197,160,89,.14), transparent 34%),
+      radial-gradient(circle at bottom left, rgba(23,40,58,.08), transparent 34%),
+      var(--tb-bg);
+    padding:72px 20px 80px;
+  }
+  .tafbud *,.tafbud *::before,.tafbud *::after{box-sizing:border-box;}
+  .tafbud h1,.tafbud h2,.tafbud h3,.tafbud p,.tafbud ul{margin:0;padding:0;}
+  .tafbud ul{list-style:none;}
+  .tafbud__inner{max-width:980px;margin:0 auto;}
+
+  /* ---------- ヒーロー ---------- */
+  .tafbud__hero{text-align:center;margin-bottom:40px;}
+  .tafbud__eyebrow{
+    display:inline-flex;align-items:center;gap:12px;color:var(--tb-gold);
+    font-size:13px;letter-spacing:.22em;font-weight:700;margin-bottom:16px;
+  }
+  .tafbud__eyebrow::before,.tafbud__eyebrow::after{content:"";width:34px;height:1px;background:var(--tb-gold);}
+  .tafbud__title{
+    font-family:var(--tb-serif);font-size:clamp(28px,5vw,44px);line-height:1.4;
+    color:var(--tb-navy);letter-spacing:.05em;margin-bottom:18px;
+  }
+  .tafbud__title span{color:var(--tb-gold);}
+  .tafbud__lead{max-width:760px;margin:0 auto;color:var(--tb-muted);font-size:15px;letter-spacing:.03em;}
+  .tafbud__lead b{color:var(--tb-navy);}
+
+  .tafbud__policy{
+    max-width:760px;margin:26px auto 0;background:var(--tb-card);
+    border:1px solid var(--tb-border);border-left:4px solid var(--tb-gold);
+    border-radius:14px;padding:18px 22px;text-align:left;font-size:14px;color:var(--tb-text);
+  }
+  .tafbud__policy b{color:var(--tb-navy);}
+
+  /* ---------- セレクター ---------- */
+  .tafbud__selector{margin:44px 0 0;}
+  .tafbud__selector-label{
+    text-align:center;font-family:var(--tb-serif);color:var(--tb-navy);
+    font-size:clamp(20px,3vw,26px);letter-spacing:.05em;margin-bottom:18px;
+  }
+  .tafbud__tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .tafbud__tab{
+    font-family:var(--tb-sans);cursor:pointer;border:1.5px solid var(--tb-soft);
+    background:#fff;color:var(--tb-muted);border-radius:999px;
+    padding:12px 22px;font-size:15px;font-weight:800;letter-spacing:.04em;
+    transition:all .2s ease;
+  }
+  .tafbud__tab:hover{border-color:var(--tb-gold);color:var(--tb-navy);transform:translateY(-2px);}
+  .tafbud__tab.is-active{
+    background:var(--tb-navy);border-color:var(--tb-navy);color:var(--tb-gold2);
+    box-shadow:0 10px 26px rgba(23,40,58,.25);
+  }
+
+  .tafbud__panel{display:none;}
+  .tafbud__panel.is-active{display:block;animation:tafbudFade .35s ease;}
+  @keyframes tafbudFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  @media (prefers-reduced-motion: reduce){
+    .tafbud__panel.is-active{animation:none;}
+  }
+
+  .tafbud__card{
+    background:var(--tb-card);border:1px solid var(--tb-soft);border-radius:18px;
+    padding:30px;box-shadow:0 14px 38px rgba(23,40,58,.08);
+  }
+  .tafbud__plan-head{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+    flex-wrap:wrap;border-bottom:1px dashed rgba(23,40,58,.15);
+    padding-bottom:18px;margin-bottom:22px;
+  }
+  .tafbud__plan-name{font-family:var(--tb-serif);color:var(--tb-navy);font-size:clamp(19px,2.6vw,24px);line-height:1.5;}
+  .tafbud__plan-note{color:var(--tb-muted);font-size:13px;margin-top:4px;}
+  .tafbud__plan-badge{
+    flex:none;background:linear-gradient(135deg,var(--tb-navy),var(--tb-navy2));
+    color:var(--tb-gold2);border-radius:12px;padding:10px 18px;
+    font-family:var(--tb-serif);font-size:18px;white-space:nowrap;
+  }
+
+  .tafbud__cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .tafbud__col{background:#fbfaf7;border:1px solid var(--tb-border);border-radius:14px;padding:20px;}
+  .tafbud__col-title{
+    display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;
+    color:var(--tb-navy);margin-bottom:12px;
+  }
+  .tafbud__col--keep .tafbud__col-title{color:#7a6023;}
+  .tafbud__col--later .tafbud__col-title{color:var(--tb-muted);}
+  .tafbud__col ul{display:grid;gap:8px;}
+  .tafbud__col li{position:relative;padding-left:24px;font-size:13.5px;line-height:1.7;color:var(--tb-text);}
+  .tafbud__col--keep li::before{content:"✓";position:absolute;left:0;color:var(--tb-gold);font-weight:900;}
+  .tafbud__col--later li{color:var(--tb-muted);}
+  .tafbud__col--later li::before{content:"→";position:absolute;left:0;color:#b9bec5;font-weight:900;}
+
+  .tafbud__comment{
+    margin-top:18px;background:rgba(197,160,89,.1);border:1px solid var(--tb-border);
+    border-radius:12px;padding:14px 18px;font-size:14px;color:var(--tb-text);
+  }
+  .tafbud__comment b{color:var(--tb-navy);}
+
+  .tafbud__panel-cta{margin-top:20px;text-align:center;}
+  .tafbud__panel-cta a{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:#fff;border:2px solid var(--tb-gold);color:#8a6a2e;
+    border-radius:999px;padding:13px 30px;font-weight:900;font-size:15px;
+    letter-spacing:.05em;text-decoration:none;transition:all .25s ease;
+    box-shadow:0 8px 20px rgba(197,160,89,.18);
+  }
+  .tafbud__panel-cta a:hover{background:var(--tb-gold);color:#fff;transform:translateY(-2px);}
+
+  /* ---------- 絶対に削らないもの ---------- */
+  .tafbud__section{margin-top:52px;}
+  .tafbud__kicker{
+    text-align:center;color:var(--tb-gold);font-size:12px;font-weight:800;
+    letter-spacing:.2em;margin-bottom:8px;
+  }
+  .tafbud__section-title{
+    text-align:center;font-family:var(--tb-serif);color:var(--tb-navy);
+    font-size:clamp(21px,3.2vw,28px);letter-spacing:.05em;margin-bottom:22px;line-height:1.5;
+  }
+  .tafbud__promise{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .tafbud__promise-item{
+    background:var(--tb-card);border:1px solid var(--tb-border);border-radius:16px;
+    padding:22px;text-align:center;
+  }
+  .tafbud__promise-num{font-family:var(--tb-serif);color:var(--tb-gold);font-size:26px;line-height:1;margin-bottom:10px;}
+  .tafbud__promise-item b{display:block;color:var(--tb-navy);font-size:15.5px;margin-bottom:6px;}
+  .tafbud__promise-item p{color:var(--tb-muted);font-size:13px;line-height:1.75;}
+
+  /* ---------- 育てる順路 ---------- */
+  .tafbud__road{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .tafbud__road-item{
+    background:#fbfaf7;border:1px solid var(--tb-border);border-radius:14px;
+    padding:18px 16px;position:relative;
+  }
+  .tafbud__road-item::after{
+    content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);
+    color:var(--tb-gold);font-weight:900;font-size:16px;
+  }
+  .tafbud__road-item:last-child::after{content:none;}
+  .tafbud__road-price{font-family:var(--tb-serif);color:var(--tb-gold);font-size:20px;margin-bottom:6px;}
+  .tafbud__road-item b{display:block;color:var(--tb-navy);font-size:14px;margin-bottom:4px;}
+  .tafbud__road-item p{color:var(--tb-muted);font-size:12.5px;line-height:1.7;}
+
+  /* ---------- おすすめの育て方 ---------- */
+  .tafbud__recommend{
+    margin-top:22px;background:linear-gradient(135deg,rgba(197,160,89,.14),rgba(217,189,117,.08));
+    border:1.5px solid var(--tb-gold);border-radius:16px;padding:24px 26px;position:relative;
+  }
+  .tafbud__recommend-badge{
+    position:absolute;top:-14px;left:22px;background:var(--tb-gold);color:#fff;
+    border-radius:999px;padding:5px 16px;font-size:12px;font-weight:800;letter-spacing:.08em;
+  }
+  .tafbud__recommend > b{display:block;color:var(--tb-navy);font-size:16px;margin:6px 0 8px;}
+  .tafbud__recommend p{color:var(--tb-text);font-size:14px;line-height:1.9;}
+  .tafbud__recommend p b{color:#8a6a2e;}
+
+  /* ---------- FAQ ---------- */
+  .tafbud__faq{display:grid;gap:12px;max-width:760px;margin:0 auto;}
+  .tafbud__faq details{
+    background:var(--tb-card);border:1px solid var(--tb-soft);border-radius:12px;overflow:hidden;
+  }
+  .tafbud__faq summary{
+    cursor:pointer;padding:16px 18px;color:var(--tb-navy);font-weight:800;
+    font-size:14.5px;list-style:none;
+  }
+  .tafbud__faq summary::-webkit-details-marker{display:none;}
+  .tafbud__faq summary::after{content:"＋";float:right;color:var(--tb-gold);}
+  .tafbud__faq details[open] summary::after{content:"−";}
+  .tafbud__faq p{
+    border-top:1px solid rgba(23,40,58,.08);padding:15px 18px 18px;
+    color:var(--tb-muted);font-size:14px;
+  }
+
+  /* ---------- 最終CTA ---------- */
+  .tafbud__cta{
+    margin-top:52px;text-align:center;color:#fff;border-radius:22px;
+    background:linear-gradient(135deg,var(--tb-navy),#0f1d2b);
+    padding:44px 26px;box-shadow:0 18px 48px rgba(23,40,58,.16);
+  }
+  .tafbud__cta h2{
+    font-family:var(--tb-serif);font-size:clamp(22px,3.6vw,32px);
+    letter-spacing:.05em;line-height:1.55;margin-bottom:12px;
+  }
+  .tafbud__cta p{color:rgba(255,255,255,.78);max-width:680px;margin:0 auto 22px;font-size:14px;}
+  .tafbud__cta-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--tb-gold2);color:var(--tb-navy) !important;
+    text-decoration:none !important;border-radius:999px;padding:15px 32px;
+    font-weight:900;font-size:15.5px;letter-spacing:.05em;
+    box-shadow:0 10px 24px rgba(217,189,117,.28);transition:transform .2s ease;
+  }
+  .tafbud__cta-btn:hover{transform:translateY(-2px);}
+  .tafbud__cta-sub{margin-top:14px;font-size:13px;}
+  .tafbud__cta-sub a{color:var(--tb-gold2);text-decoration:underline;}
+
+  .tafbud__fineprint{
+    text-align:center;color:var(--tb-muted);font-size:11.5px;margin-top:26px;line-height:1.8;
+  }
+
+  @media (max-width:820px){
+    .tafbud{padding:52px 14px 60px;}
+    .tafbud__cols{grid-template-columns:1fr;}
+    .tafbud__promise{grid-template-columns:1fr;}
+    .tafbud__road{grid-template-columns:1fr 1fr;gap:14px;}
+    .tafbud__road-item::after{content:none;}
+    .tafbud__card{padding:22px 18px;}
+    .tafbud__tab{padding:10px 16px;font-size:13.5px;}
+  }
+</style>
+
+  <!-- ヒーロー -->
+  <section class="tafbud__hero">
+    <div class="tafbud__eyebrow">BUDGET FIRST</div>
+    <h1 class="tafbud__title">先に、<span>ご予算</span>を教えてください。</h1>
+    <p class="tafbud__lead">
+      当社のWeb制作は「まずは予算」がポリシーです。<br>
+      要件を積み上げてから予算オーバーで削るのではなく、<b>最初に予算を決めて、
+      その中で効果が最大になる「残すもの」をプロが設計</b>します。
+    </p>
+    <div class="tafbud__policy">
+      <b>予算を先に伺うのは、高く売るためではありません。</b><br>
+      当社は料金表をすべて公開しています。予算を先に教えていただくことで、
+      無駄な見積もりのやり取りをなくし、その金額内で成果に直結する部分から順に組み立てるためです。
+    </div>
+  </section>
+
+  <!-- 予算セレクター -->
+  <section class="tafbud__selector">
+    <h2 class="tafbud__selector-label">ご予算を選ぶと、「残すもの」と「後回しにするもの」が分かります</h2>
+
+    <div class="tafbud__tabs" role="tablist" aria-label="ご予算の選択">
+      <button type="button" class="tafbud__tab is-active" data-tafbud="t1">〜2万円</button>
+      <button type="button" class="tafbud__tab" data-tafbud="t2">2〜5万円</button>
+      <button type="button" class="tafbud__tab" data-tafbud="t3">5〜10万円</button>
+      <button type="button" class="tafbud__tab" data-tafbud="t4">10万円以上</button>
+    </div>
+
+    <!-- 〜2万円 -->
+    <div class="tafbud__panel is-active" data-tafbud-panel="t1">
+      <div class="tafbud__card">
+        <div class="tafbud__plan-head">
+          <div>
+            <h3 class="tafbud__plan-name">まず1ページ。市場の反応を見る</h3>
+            <p class="tafbud__plan-note">プラン例: LP制作(基本5セクション・スマホ重視) / HTML・CSSベースのHP</p>
+          </div>
+          <div class="tafbud__plan-badge">¥20,000〜</div>
+        </div>
+        <div class="tafbud__cols">
+          <div class="tafbud__col tafbud__col--keep">
+            <div class="tafbud__col-title">✅ この予算で必ず残すもの</div>
+            <ul>
+              <li>スマホでの見やすさ(スマホ最適化は全案件標準)</li>
+              <li>売れる基本5セクション構成(FV・共感・解決策・信頼・クロージング)</li>
+              <li>申し込み・問い合わせにつながる導線</li>
+              <li>プロによる配色・レイアウトの美しさ</li>
+            </ul>
+          </div>
+          <div class="tafbud__col tafbud__col--later">
+            <div class="tafbud__col-title">🕐 後回しにするもの(売上が出てから)</div>
+            <ul>
+              <li>下層ページ(会社概要・詳細ページなど)</li>
+              <li>オリジナル図解・凝ったアニメーション</li>
+              <li>文章の全面代行(原稿はメモ・音声入力の持ち込みが基本)</li>
+              <li>WordPress化・詳細SEO(オプションで追加可能)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tafbud__comment">
+          💡 <b>この予算の考え方(いちばんのおすすめ):</b> 完璧を目指すより、まず2万円でできる限り作って公開し、反応を見る。
+          当社は<b>セクション追加が安い</b>ので、必要になった部分だけ後から足していくのが、最も無駄のない始め方です。
+        </p>
+        <div class="tafbud__panel-cta">
+          <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2〜5万円 -->
+    <div class="tafbud__panel" data-tafbud-panel="t2">
+      <div class="tafbud__card">
+        <div class="tafbud__plan-head">
+          <div>
+            <h3 class="tafbud__plan-name">「育てられるHP」を持つ</h3>
+            <p class="tafbud__plan-note">プラン例: WordPress HP(SEO込み) / 専用AIアプリ / LP+下層ページ</p>
+          </div>
+          <div class="tafbud__plan-badge">¥30,000前後</div>
+        </div>
+        <div class="tafbud__cols">
+          <div class="tafbud__col tafbud__col--keep">
+            <div class="tafbud__col-title">✅ この予算で必ず残すもの</div>
+            <ul>
+              <li>〜2万円プランの内容すべて</li>
+              <li>WordPress化(納品後にご自身で文字・画像を更新できる)</li>
+              <li>簡易SEO対策(検索・AI検索を意識した構成)</li>
+              <li>下層ページ1〜3枚(1ページ3,000円〜)や規約ページの追加</li>
+            </ul>
+          </div>
+          <div class="tafbud__col tafbud__col--later">
+            <div class="tafbud__col-title">🕐 後回しにするもの(売上が出てから)</div>
+            <ul>
+              <li>構成・キャッチコピーの本格代行</li>
+              <li>オリジナル画像・図解の大量制作</li>
+              <li>LINE・メルマガなどの販売導線(ファネル)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tafbud__comment">
+          💡 <b>この予算の考え方:</b> 会社の顔になるHPを持ちつつ、更新は自分でできる形に。
+          月々の固定費を抑えながら、事業の成長に合わせて拡張できます。
+        </p>
+        <div class="tafbud__panel-cta">
+          <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5〜10万円 -->
+    <div class="tafbud__panel" data-tafbud-panel="t3">
+      <div class="tafbud__card">
+        <div class="tafbud__plan-head">
+          <div>
+            <h3 class="tafbud__plan-name">「作る」から「売れるように作る」へ</h3>
+            <p class="tafbud__plan-note">プラン例: プロ制作プラン(構成戦略・ライティング補助・画像制作込み)</p>
+          </div>
+          <div class="tafbud__plan-badge">¥70,000〜</div>
+        </div>
+        <div class="tafbud__cols">
+          <div class="tafbud__col tafbud__col--keep">
+            <div class="tafbud__col-title">✅ この予算で必ず残すもの</div>
+            <ul>
+              <li>2〜5万円プランの内容すべて</li>
+              <li>マーケティング視点の構成・戦略立案(丸投げOK)</li>
+              <li>ヒアリングからのライティング補助・キャッチコピー</li>
+              <li>AI活用のオリジナル画像・素材制作</li>
+            </ul>
+          </div>
+          <div class="tafbud__col tafbud__col--later">
+            <div class="tafbud__col-title">🕐 後回しにするもの(売上が出てから)</div>
+            <ul>
+              <li>LINE公式・メルマガ・ステップ配信の自動化(ファネル構築)</li>
+              <li>広告運用(月額サポートとして別途)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tafbud__comment">
+          💡 <b>この予算の考え方:</b> 原稿も画像も丸投げで、「集客から申し込みまでの流れ」を
+          プロが設計。デザインの綺麗さだけでなく、成約への導線を作り込みます。
+        </p>
+        <div class="tafbud__panel-cta">
+          <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10万円以上 -->
+    <div class="tafbud__panel" data-tafbud-panel="t4">
+      <div class="tafbud__card">
+        <div class="tafbud__plan-head">
+          <div>
+            <h3 class="tafbud__plan-name">制作で終わらず、「売れる仕組み」まで</h3>
+            <p class="tafbud__plan-note">プラン例: HP/LP+セールスファネル一元化(UTAGE・マイスピー等対応)</p>
+          </div>
+          <div class="tafbud__plan-badge">¥100,000〜150,000〜</div>
+        </div>
+        <div class="tafbud__cols">
+          <div class="tafbud__col tafbud__col--keep">
+            <div class="tafbud__col-title">✅ この予算で必ず残すもの</div>
+            <ul>
+              <li>5〜10万円プランの内容すべて</li>
+              <li>集客→教育→販売の導線一式(LP・販売ページ・Thank Youページ)</li>
+              <li>公式LINE・メルマガの初期設計(ステップ配信3通程度)</li>
+              <li>Meta広告の初期設定・出稿前の導線確認</li>
+            </ul>
+          </div>
+          <div class="tafbud__col tafbud__col--later">
+            <div class="tafbud__col-title">🕐 後回しにするもの(必要になってから)</div>
+            <ul>
+              <li>広告の継続運用(月額18,000円〜の運用サポートで対応)</li>
+              <li>LINE配信の代行(月4回配信プランで対応)</li>
+              <li>ファネルページの大量追加(1枚ずつ追加可能)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="tafbud__comment">
+          💡 <b>この予算の考え方:</b> 通常50万〜100万円で販売されている領域を、
+          制作と導線をまとめて一元化することで大幅に抑えます。工程が少ない場合は10万円〜から。
+        </p>
+        <div class="tafbud__panel-cta">
+          <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 絶対に削らないもの -->
+  <section class="tafbud__section">
+    <div class="tafbud__kicker">OUR PROMISE</div>
+    <h2 class="tafbud__section-title">どの予算でも、絶対に削らないもの</h2>
+    <div class="tafbud__promise">
+      <div class="tafbud__promise-item">
+        <div class="tafbud__promise-num">01</div>
+        <b>スマホでの見やすさ</b>
+        <p>アクセスの大半はスマホから。2万円の案件でも、スマホ最適化は全案件標準です。</p>
+      </div>
+      <div class="tafbud__promise-item">
+        <div class="tafbud__promise-num">02</div>
+        <b>売れる導線設計</b>
+        <p>削るのは「量」であって「導線」ではありません。問い合わせ・申し込みへの流れは、どの予算でも作り込みます。</p>
+      </div>
+      <div class="tafbud__promise-item">
+        <div class="tafbud__promise-num">03</div>
+        <b>追加費用の事前相談</b>
+        <p>予算を超える作業が発生する場合は、作業前に必ず内容と金額をご相談します。不透明な請求は一切しません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 育てる順路 -->
+  <section class="tafbud__section">
+    <div class="tafbud__kicker">GROWTH ROADMAP</div>
+    <h2 class="tafbud__section-title">予算が増えたら、この順番で育てる</h2>
+    <div class="tafbud__road">
+      <div class="tafbud__road-item">
+        <div class="tafbud__road-price">2万円〜</div>
+        <b>LPで市場の反応を見る</b>
+        <p>1ページで小さくスタート。反応を見て次を決める。</p>
+      </div>
+      <div class="tafbud__road-item">
+        <div class="tafbud__road-price">3万円〜</div>
+        <b>WordPressのHPを持つ</b>
+        <p>自分で更新できる「会社の顔」。SEOの土台も整う。</p>
+      </div>
+      <div class="tafbud__road-item">
+        <div class="tafbud__road-price">7万円〜</div>
+        <b>売れるページに作り込む</b>
+        <p>構成・文章・画像までプロが設計。丸投げOK。</p>
+      </div>
+      <div class="tafbud__road-item">
+        <div class="tafbud__road-price">10万円〜</div>
+        <b>売れる仕組みを持つ</b>
+        <p>LINE・メルマガ・広告まで、集客から販売まで自動化。</p>
+      </div>
+    </div>
+
+    <div class="tafbud__recommend">
+      <div class="tafbud__recommend-badge">おすすめの育て方</div>
+      <b>プランを上げるだけが、育て方ではありません。</b>
+      <p>
+        まず2万円でできる限り作って公開し、反応が出たところに<b>セクションを1つずつ追加</b>していく方法が、
+        最も無駄のないおすすめの進め方です。当社はセクション追加を低価格に設定しているので、
+        「最初に全部盛り」にしなくても、必要になった時に必要な分だけ足せます。
+        大きな初期投資なしで、売上と一緒にサイトが育っていきます。
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tafbud__section">
+    <div class="tafbud__kicker">FAQ</div>
+    <h2 class="tafbud__section-title">「まずは予算」のよくある質問</h2>
+    <div class="tafbud__faq">
+      <details>
+        <summary>予算を先に言うと、その金額いっぱいまで請求されませんか?</summary>
+        <p>
+          いいえ。当社は料金表をすべて公開しており、内容ごとの積み上げでお見積りします。
+          予算を先に伺うのは金額を吊り上げるためではなく、その範囲で「何を残すか」の設計を最初から行うためです。
+          内容が予算より安く収まる場合は、そのままの金額でご提案します。
+        </p>
+      </details>
+      <details>
+        <summary>やりたいことが予算内に収まらなかったらどうなりますか?</summary>
+        <p>
+          「今回やること」と「売上が出てから足すこと」に分けてご提案します。
+          全部を諦めるのではなく、優先順位をつけて第一歩を予算内に収める、が当社のやり方です。
+        </p>
+      </details>
+      <details>
+        <summary>あとから予算を増やして追加できますか?</summary>
+        <p>
+          もちろんです。むしろそれが前提の設計です。納品後の修正・セクション追加も低価格で承っており、
+          事業の成長に合わせて何度でもサイトを育てられます。
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="tafbud__cta">
+    <h2>ご予算が決まったら、<br>そのまま見積もりへ。</h2>
+    <p>
+      項目を選ぶだけの簡単フォームです。ご予算感の欄に、今日決めた金額を選んでください。
+      48時間以内にお見積りをご返信します。送信=ご契約ではありません。
+    </p>
+    <a class="tafbud__cta-btn" href="https://taf-design.com/order/">簡単!無料お見積もりはこちら →</a>
+    <p class="tafbud__cta-sub">
+      まだ予算も決められない…という方は <a href="https://taf-design.com/offer2/">無料相談・資料ダウンロード</a> からどうぞ
+    </p>
+  </section>
+
+  <p class="tafbud__fineprint">
+    ※ 各プランの詳細な料金・オプションは各料金ページをご確認ください。表示価格は目安であり、内容により変動します。
+  </p>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('#tafbud .tafbud__tab');
+  var panels = document.querySelectorAll('#tafbud .tafbud__panel');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var key = tab.getAttribute('data-tafbud');
+      tabs.forEach(function(t){ t.classList.toggle('is-active', t === tab); });
+      panels.forEach(function(p){
+        p.classList.toggle('is-active', p.getAttribute('data-tafbud-panel') === key);
+      });
+    });
+  });
+})();
+</script>
+</div>
