@@ -1,0 +1,27 @@
+<!-- ============================================================
+  WPブロック部品: /order/ お見積りフォーム内「料金の目安」アコーディオン
+  保管日: 2026-07-19
+  用途: /order/ のカスタムHTMLブロック内にある
+        <a class="to-price-link" ...>📋 料金表を見る...</a> の1行を
+        丸ごとこのコードに置き換える(検索キーワード: to-price-link)
+  ねらい: ページ移動なしでその場で料金目安を開閉できるようにし、
+          見積もりフォームからの離脱・迷子を防ぐ。
+          料金ページへのリンクは同一タブ(戻るで帰れる)
+  注意: /order/ ブロック本体はTAF-V2meta-LPの管理。置き換え後の
+        ブロック全体をLP-V2側のGitにも保存すること
+  価格は TAF-V2meta-LP/docs/price-master.md に同期すること
+============================================================ -->
+<details style="margin-top:14px;border:1.5px solid var(--to-orange);border-radius:10px;background:#fffaf0;overflow:hidden;">
+  <summary style="cursor:pointer;padding:12px 18px;font-weight:800;font-size:13.5px;color:#b97f06;text-align:center;">📋 料金の目安をこの場で見る(タップで開閉)</summary>
+  <div style="padding:2px 18px 14px;">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;color:#555A62;">
+      <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">LP/HP制作(5セクションまで・スマホ重視)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">2万円〜</td></tr>
+      <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">ホームページ制作(WordPress+SEO込み)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">3万円〜</td></tr>
+      <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">専用AIアプリ制作</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">3万円〜</td></tr>
+      <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">プロ制作プラン(リスト取り特化・対策込み)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">7万円〜</td></tr>
+      <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">HP/LP+セールスファネル一元化</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">10〜15万円〜</td></tr>
+      <tr><td style="padding:7px 4px;">サイト保守管理</td><td style="padding:7px 4px;text-align:right;font-weight:800;white-space:nowrap;">月5,500円〜</td></tr>
+    </table>
+    <p style="margin:10px 0 0;font-size:11.5px;color:#555A62;">さらに詳しい料金は、見積もり送信後のご返信でご案内します。この場で確認したい方は <a href="https://taf-design.com/price/" style="color:#b97f06;font-weight:700;">料金ページ</a> もどうぞ。</p>
+  </div>
+</details>
