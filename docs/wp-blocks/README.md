@@ -42,6 +42,10 @@
 ## 共通ルール
 
 - リンク: 見積もり=`https://taf-design.com/order/` / 相談・資料=`https://taf-design.com/offer2/`
+- **スマホ優先の導線ルール: 同一ドメイン内のリンクに `target="_blank"` を使わない**。
+  スマホは「ブラウザの戻るボタン」でしか戻れない人が多いため、別タブで開くと迷子になる。
+  PDF表示・印刷ボタンも同様に、戻るで帰れる挙動にする。
+  (tel: / mailto: / LINE(lin.ee)など外部アプリを起動する系は例外)
 - 価格の原本: `810eigo-droid/TAF-V2meta-LP` の `docs/price-master.md`(照合状況は各ファイル冒頭のコメント参照)
 - ブロックを更新したら: WordPressに貼り直し+このリポジトリの該当ファイルも更新(二重編集しない)
 - /order/ フォームの完成版控えは `wp-order-estimate-form.html`(原本管理はTAF-V2meta-LP。更新したら両方に反映)
