@@ -112,14 +112,22 @@
   .tafbud__comment b{color:var(--tb-navy);}
 
   .tafbud__panel-cta{margin-top:20px;text-align:center;}
-  .tafbud__panel-cta a{
+  .tafbud__panel-cta > a{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     background:#fff;border:2px solid var(--tb-gold);color:#8a6a2e;
     border-radius:999px;padding:13px 30px;font-weight:900;font-size:15px;
     letter-spacing:.05em;text-decoration:none;transition:all .25s ease;
     box-shadow:0 8px 20px rgba(197,160,89,.18);
   }
-  .tafbud__panel-cta a:hover{background:var(--tb-gold);color:#fff;transform:translateY(-2px);}
+  .tafbud__panel-cta > a:hover{background:var(--tb-gold);color:#fff;transform:translateY(-2px);}
+  .tafbud__panel-links{margin-top:14px;display:flex;justify-content:center;flex-wrap:wrap;gap:6px 20px;}
+  .tafbud__panel-links a{
+    color:#8a6a2e;font-size:13px;font-weight:700;text-decoration:underline;
+    text-underline-offset:3px;transition:color .2s ease;
+  }
+  .tafbud__panel-links a:hover{color:var(--tb-navy);}
+  .tafbud__road-link{display:inline-block;margin-top:8px;color:#8a6a2e;font-size:12px;font-weight:800;text-decoration:underline;text-underline-offset:3px;}
+  .tafbud__road-link:hover{color:var(--tb-navy);}
 
   /* ---------- 絶対に削らないもの ---------- */
   .tafbud__section{margin-top:52px;}
@@ -285,6 +293,9 @@
         </p>
         <div class="tafbud__panel-cta">
           <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+          <div class="tafbud__panel-links">
+            <a href="https://taf-design.com/lp-hp2/">📄 LP・HPデザイン制作プラン(2万円〜)の詳細を見る</a>
+          </div>
         </div>
       </div>
     </div>
@@ -324,6 +335,10 @@
         </p>
         <div class="tafbud__panel-cta">
           <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+          <div class="tafbud__panel-links">
+            <a href="https://taf-design.com/hp3/">📄 WordPress HP/LP制作プラン(3万円〜)の詳細</a>
+            <a href="https://taf-design.com/app2_9/">📄 専用AIアプリ制作プラン(2.9万円〜)の詳細</a>
+          </div>
         </div>
       </div>
     </div>
@@ -362,6 +377,9 @@
         </p>
         <div class="tafbud__panel-cta">
           <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+          <div class="tafbud__panel-links">
+            <a href="https://taf-design.com/lp7/">📄 プロ制作プラン(7万円〜)の詳細を見る</a>
+          </div>
         </div>
       </div>
     </div>
@@ -401,6 +419,10 @@
         </p>
         <div class="tafbud__panel-cta">
           <a href="https://taf-design.com/order/">この予算で見積もり相談する →</a>
+          <div class="tafbud__panel-links">
+            <a href="https://taf-design.com/lp15/">📄 HP/LP+セールスファネル一元化(15万円〜)の詳細</a>
+            <a href="https://taf-design.com/ad/">📄 広告運用・集客サポート(月1.8万円〜)の詳細</a>
+          </div>
         </div>
       </div>
     </div>
@@ -438,21 +460,25 @@
         <div class="tafbud__road-price">2万円〜</div>
         <b>LPで市場の反応を見る</b>
         <p>1ページで小さくスタート。反応を見て次を決める。</p>
+        <a class="tafbud__road-link" href="https://taf-design.com/lp-hp2/">プラン詳細 →</a>
       </div>
       <div class="tafbud__road-item">
         <div class="tafbud__road-price">3万円〜</div>
         <b>WordPressのHPを持つ</b>
         <p>自分で更新できる「会社の顔」。SEOの土台も整う。</p>
+        <a class="tafbud__road-link" href="https://taf-design.com/hp3/">プラン詳細 →</a>
       </div>
       <div class="tafbud__road-item">
         <div class="tafbud__road-price">7万円〜</div>
         <b>売れるページに作り込む</b>
         <p>構成・文章・画像までプロが設計。丸投げOK。</p>
+        <a class="tafbud__road-link" href="https://taf-design.com/lp7/">プラン詳細 →</a>
       </div>
       <div class="tafbud__road-item">
         <div class="tafbud__road-price">10万円〜</div>
         <b>売れる仕組みを持つ</b>
         <p>LINE・メルマガ・広告まで、集客から販売まで自動化。</p>
+        <a class="tafbud__road-link" href="https://taf-design.com/lp15/">プラン詳細 →</a>
       </div>
     </div>
 
