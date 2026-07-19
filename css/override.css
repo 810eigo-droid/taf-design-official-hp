@@ -10062,3 +10062,22 @@ a.cl-collage {
     animation: tafNudgeX 1.6s ease-in-out infinite;
   }
 }
+
+/* ============================================================
+   トップナビ: 「まずは予算から選ぶ」(/budget/ への入口)
+   ============================================================ */
+.topnav .nav-links a.nav-budget{
+  color: #8A6A2E;
+  font-weight: 700;
+  letter-spacing: .12em;
+  border-bottom: 1px solid rgba(197, 160, 89, .5);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+.topnav .nav-links a.nav-budget:hover{
+  color: #C5A059;
+  border-bottom-color: #C5A059;
+}
+@media (max-width: 1080px){
+  .topnav .nav-links{ gap: 18px; }
+}
