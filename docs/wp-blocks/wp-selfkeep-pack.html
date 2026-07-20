@@ -1,0 +1,165 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: 保守の2択「任せる vs 自分で守る」(taf-sk-*)
+  作成日: 2026-07-19
+  設置先候補: 料金表(/price/)の保守セクション付近、各プランページ下部など
+  商品: セルフ保守スタートパック 16,500円(税込)・完全売り切り
+        (含む: データ一式納品/自動バックアップ初期設定/教材/チェックリスト)
+        単体: データファイル一式納品 5,500円(税込)
+  リンクルール: 見積もり=https://taf-design.com/order/(同一タブ)
+  価格は TAF-V2meta-LP/docs/price-master.md に同期すること(追記依頼済み)
+============================================================ -->
+<div class="taf-sk">
+<style>
+  .taf-sk{
+    --sk-navy:#17283a; --sk-navy2:#24394f; --sk-gold:#c5a059; --sk-gold2:#d9bd75;
+    --sk-text:#2f3d4c; --sk-muted:#6f7b87; --sk-border:rgba(197,160,89,.3);
+    --sk-serif:"Noto Serif JP","Yu Mincho","Hiragino Mincho ProN",serif;
+    --sk-sans:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+    font-family:var(--sk-sans); color:var(--sk-text); line-height:1.85;
+    max-width:980px; margin:0 auto; padding:56px 18px;
+  }
+  .taf-sk *,.taf-sk *::before,.taf-sk *::after{box-sizing:border-box;}
+  .taf-sk h2,.taf-sk h3,.taf-sk p,.taf-sk ul{margin:0;padding:0;}
+  .taf-sk ul{list-style:none;}
+
+  .taf-sk__kicker{
+    text-align:center;color:var(--sk-gold);font-size:12px;font-weight:800;
+    letter-spacing:.2em;margin-bottom:8px;
+  }
+  .taf-sk__title{
+    text-align:center;font-family:var(--sk-serif);color:var(--sk-navy);
+    font-size:clamp(22px,3.6vw,32px);letter-spacing:.05em;line-height:1.5;margin-bottom:12px;
+  }
+  .taf-sk__lead{
+    text-align:center;color:var(--sk-muted);font-size:14.5px;max-width:700px;margin:0 auto 28px;
+  }
+
+  /* 比較アンカー帯 */
+  .taf-sk__anchor{
+    background:linear-gradient(135deg,var(--sk-navy),var(--sk-navy2));
+    color:#fff;border-radius:14px;padding:18px 22px;text-align:center;
+    font-size:15px;margin-bottom:26px;
+  }
+  .taf-sk__anchor b{color:var(--sk-gold2);font-family:var(--sk-serif);font-size:1.25em;}
+
+  /* 2択カード */
+  .taf-sk__grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .taf-sk__card{
+    background:#fff;border:1.5px solid rgba(23,40,58,.12);border-radius:18px;
+    padding:26px 24px;position:relative;
+  }
+  .taf-sk__card--pack{border:2px solid var(--sk-gold);background:#fffdf7;}
+  .taf-sk__badge{
+    position:absolute;top:-14px;left:22px;background:var(--sk-gold);color:#fff;
+    border-radius:999px;padding:5px 16px;font-size:12px;font-weight:800;letter-spacing:.08em;
+  }
+  .taf-sk__card-label{
+    color:var(--sk-muted);font-size:12px;font-weight:800;letter-spacing:.16em;margin-bottom:6px;
+  }
+  .taf-sk__card--pack .taf-sk__card-label{color:#8a6a2e;}
+  .taf-sk__card-name{
+    font-family:var(--sk-serif);color:var(--sk-navy);font-size:20px;line-height:1.5;margin-bottom:8px;
+  }
+  .taf-sk__price{
+    font-family:var(--sk-serif);color:var(--sk-gold);font-size:32px;line-height:1.2;margin-bottom:2px;
+  }
+  .taf-sk__price small{font-family:var(--sk-sans);color:var(--sk-muted);font-size:13px;}
+  .taf-sk__price-note{color:var(--sk-muted);font-size:12.5px;margin-bottom:14px;}
+  .taf-sk__list{display:grid;gap:8px;margin-bottom:14px;}
+  .taf-sk__list li{
+    position:relative;padding-left:22px;font-size:13.5px;line-height:1.7;
+  }
+  .taf-sk__list li::before{
+    content:"✓";position:absolute;left:0;color:var(--sk-gold);font-weight:900;
+  }
+  .taf-sk__fit{
+    background:rgba(23,40,58,.05);border-radius:10px;padding:10px 14px;
+    font-size:12.5px;color:var(--sk-muted);
+  }
+  .taf-sk__card--pack .taf-sk__fit{background:rgba(197,160,89,.12);}
+  .taf-sk__fit b{color:var(--sk-navy);}
+
+  /* 注意書き */
+  .taf-sk__note{
+    margin-top:20px;background:#f8f5ef;border-left:4px solid var(--sk-gold);
+    border-radius:12px;padding:16px 20px;color:var(--sk-muted);font-size:12.5px;line-height:1.9;
+  }
+  .taf-sk__note b{color:var(--sk-navy);}
+
+  /* CTA */
+  .taf-sk__cta{margin-top:24px;text-align:center;}
+  .taf-sk__cta > a{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:#fff;border:2px solid var(--sk-gold);color:#8a6a2e;
+    border-radius:999px;padding:14px 30px;font-weight:900;font-size:15px;
+    letter-spacing:.05em;text-decoration:none;transition:all .25s ease;
+    box-shadow:0 8px 20px rgba(197,160,89,.18);
+  }
+  .taf-sk__cta > a:hover{background:var(--sk-gold);color:#fff;transform:translateY(-2px);}
+
+  @media (max-width:720px){
+    .taf-sk{padding:40px 14px;}
+    .taf-sk__grid{grid-template-columns:1fr;gap:24px;}
+    .taf-sk__card{padding:22px 18px;}
+  }
+</style>
+
+  <div class="taf-sk__kicker">MAINTENANCE</div>
+  <h2 class="taf-sk__title">保守は、2つの選び方。</h2>
+  <p class="taf-sk__lead">
+    「任せて安心したい方」も「自分で守れるようになりたい方」も。
+    どちらでも、あなたのサイトは守られます。
+  </p>
+
+  <div class="taf-sk__anchor">
+    月額プランは1年で <b>66,000円</b>。自分で守れるようになれば、<b>16,500円</b>の一度きりで完了です。
+  </div>
+
+  <div class="taf-sk__grid">
+
+    <!-- 任せる: 月額プラン -->
+    <div class="taf-sk__card">
+      <div class="taf-sk__card-label">おまかせで安心</div>
+      <h3 class="taf-sk__card-name">サイト基本保守管理プラン</h3>
+      <div class="taf-sk__price">月額5,500円<small>(税込)</small></div>
+      <p class="taf-sk__price-note">当社がサイトを裏側から守り続けます</p>
+      <ul class="taf-sk__list">
+        <li>WordPressコア・プラグインの定期アップデート巡回</li>
+        <li>クラウド自動バックアップの管理(週1回・過去4週分)</li>
+        <li>SSL証明書の有効期限自動チェック</li>
+        <li>基本セキュリティ設定の最適化</li>
+      </ul>
+      <p class="taf-sk__fit"><b>こんな方に:</b> 本業に集中したい。サイトのことは一切考えたくない。</p>
+    </div>
+
+    <!-- 自分で守る: 買い切りパック -->
+    <div class="taf-sk__card taf-sk__card--pack">
+      <div class="taf-sk__badge">買い切り・月額ゼロ</div>
+      <div class="taf-sk__card-label">自分で守れるようになる</div>
+      <h3 class="taf-sk__card-name">セルフ保守スタートパック</h3>
+      <div class="taf-sk__price">16,500円<small>(税込・一度きり)</small></div>
+      <p class="taf-sk__price-note">納品時にすべて完結。以後の月額は0円</p>
+      <ul class="taf-sk__list">
+        <li>データファイル一式納品(使用画像・元データ・初回バックアップ)</li>
+        <li>自動バックアップの初期設定(週1回・以後ずっと自動で動作)</li>
+        <li>セルフ保守のやり方教材(更新・確認・戻し方)</li>
+        <li>月5分でできるセルフ保守チェックリスト</li>
+      </ul>
+      <p class="taf-sk__fit"><b>こんな方に:</b> 固定費を持ちたくない。月5分なら自分でできる。</p>
+    </div>
+
+  </div>
+
+  <div class="taf-sk__note">
+    <b>セルフ保守スタートパックは買い切り商品です。</b>
+    毎月の作業・監視・レポート・個別サポートは含まれません(必要になった場合は都度お見積もりで対応します)。
+    ご自身の更新作業による不具合の復旧は特別実費(都度見積)となります。
+    「やっぱり任せたい」となったら、月額プランへの切り替えはいつでも歓迎です(パックで整えた設定はそのまま活きます)。
+    データファイル一式の納品だけをご希望の場合は、単体5,500円(税込)でも承ります。
+  </div>
+
+  <div class="taf-sk__cta">
+    <a href="https://taf-design.com/order/">保守の相談・お見積もりはこちら →</a>
+  </div>
+
+</div>

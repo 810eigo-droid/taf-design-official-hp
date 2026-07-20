@@ -38,6 +38,7 @@
 |---|---|---|
 | `wp-quick-estimate-button.html` | 簡単見積もりボタン(→/order/) | 全個別料金ページの上下 |
 | `wp-order-price-accordion.html` | 料金の目安の開閉表(to-price-linkと置換) | /order/ フォーム内 |
+| `wp-selfkeep-pack.html` | 保守の2択「任せる月額5,500円 vs 買い切り16,500円」比較ブロック | 料金表(/price/)の保守付近など(設置先は未定) |
 
 ## 共通ルール
 
