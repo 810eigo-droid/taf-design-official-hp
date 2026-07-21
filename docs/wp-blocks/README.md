@@ -16,6 +16,7 @@
 | `wp-ad-operation-plan.html` | 広告運用・集客サポート(月1.8万円〜) | `https://taf-design.com/ad/` | 月1.8万円〜(標準は広告費の20%) |
 | `wp-budget-selector.html` | 先に、ご予算を教えてください(予算から選ぶ) | `https://taf-design.com/budget/` | — |
 | `wp-order-estimate-form.html` | 簡単見積もり-order(フォーム完成版・料金目安アコーディオン込み) | `https://taf-design.com/order/` | — |
+| `wp-offer2-contact-form.html` | お問い合わせV2(無料相談・資料請求ステップフォーム) | `https://taf-design.com/offer2/` | — |
 
 ※ **スラッグ(URL)は変更しないこと**。変えると設置済みのボタン・リンクが切れる。変更するのはページタイトルのみ。
 ※ 2026-07-19 WP管理画面でタイトル付け替え・実URL確認済み。
@@ -24,7 +25,6 @@
 
 | WordPressページタイトル | URL | 役割 |
 |---|---|---|
-| お問い合わせV2 | `https://taf-design.com/offer2/` | 相談・資料DLの導線先 |
 | 料金表 | `https://taf-design.com/price/` | 料金の総合ページ |
 | 5,000円OFFクーポン(5万円以上ご利用) | `https://taf-design.com/coupon/` | クーポン配布 |
 | クーポン受け取りTHANKYOUV2 | `https://taf-design.com/coupon-thanks/` | クーポンのサンクスページ |

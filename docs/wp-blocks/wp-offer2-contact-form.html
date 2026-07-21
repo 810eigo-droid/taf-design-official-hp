@@ -1,0 +1,223 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: お問い合わせV2(無料相談・資料請求)ステップフォーム(taf-offer2)
+  設置先: https://taf-design.com/offer2/
+  保管日: 2026-07-19(ユーザー提供版の送信完了メッセージのJS構文エラーを修正して保管)
+  構成: Contact Form 7 [contact-form-7 id="dd3556d"] をステップ形式に変換するCSS+JS
+  修正履歴: 2026-07-19 wpcf7mailsent内のcard.innerHTMLで文字列外に生HTMLが
+            混入し全JS停止 → 文字列連結に修正(資料案内→返信案内の順)
+  文言変更時の注意: card.innerHTML の各行は + '〜' の形(クォートの中だけ)を書き換えること
+============================================================ -->
+<div class="taf-offer2">
+
+<div class="lead-box">
+<span class="lb">CONTACT</span>
+<h2>無料相談・<span class="bl">資料請求</span></h2>
+<p>1問ずつ答えるだけ、約30秒。資料はメールでその場でお届けします。</p>
+</div>
+
+<div class="form-card">
+[contact-form-7 id="dd3556d" title="お問い合わせV2"]</div>
+
+</div>
+
+<style>
+.taf-offer2{max-width:620px;margin:26px auto 70px;padding:0 16px;color:#111;font-feature-settings:"palt";line-height:1.7;}
+
+/* 見出し */
+.taf-offer2 .lead-box{text-align:center;margin-bottom:24px;}
+.taf-offer2 .lb{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.2em;color:#00A2DE;margin-bottom:8px;}
+.taf-offer2 h2{font-size:26px;font-weight:900;line-height:1.4;margin:0;border:none;padding:0;background:none;}
+.taf-offer2 h2 .bl{color:#00A2DE;}
+.taf-offer2 .lead-box>p{font-size:14px;color:#555A62;margin-top:10px;}
+
+/* カード */
+.taf-offer2 .form-card{background:#fff;border-radius:20px;box-shadow:0 18px 50px rgba(30,50,70,.12);padding:30px 30px 28px;}
+
+/* 進捗バー */
+.taf-offer2 .tf-progress{margin-bottom:22px;}
+.taf-offer2 .tf-progress .tf-ptext{display:flex;justify-content:space-between;font-size:12px;font-weight:800;color:#555A62;margin-bottom:8px;}
+.taf-offer2 .tf-progress .tf-ptext b{color:#00A2DE;}
+.taf-offer2 .tf-pbar{height:8px;background:#EDF1F5;border-radius:999px;overflow:hidden;}
+.taf-offer2 .tf-pbar i{display:block;height:100%;width:25%;background:linear-gradient(90deg,#00A2DE,#27b7ea);border-radius:999px;transition:width .35s ease;}
+
+/* ステップ表示制御 */
+.taf-offer2 .field{display:none;margin:0 0 6px;}
+.taf-offer2 .field.tf-active{display:block;animation:tfIn .3s ease;}
+@keyframes tfIn{from{opacity:0;transform:translateX(18px);}to{opacity:1;transform:none;}}
+
+/* ラベル */
+.taf-offer2 .field label ~ label{margin-top:18px;}
+.taf-offer2 .field label,.taf-offer2 .field .lbl{display:block;font-size:16px;font-weight:800;margin:0 0 10px;}
+.taf-offer2 .req{display:inline-block;background:#e82e6c;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:2px;}
+.taf-offer2 .opt{display:inline-block;background:#eef1f4;color:#8a919b;font-size:10px;font-weight:700;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:2px;}
+
+/* 入力欄 */
+.taf-offer2 .wpcf7-form input[type=text],
+.taf-offer2 .wpcf7-form input[type=email],
+.taf-offer2 .wpcf7-form textarea{
+  width:100%;border:1.5px solid #E5E8EC;border-radius:12px;padding:15px 16px;
+  font-size:16px;background:#fbfcfd;margin-top:2px;transition:.15s;box-sizing:border-box;font-family:inherit;}
+.taf-offer2 .wpcf7-form input:focus,
+.taf-offer2 .wpcf7-form textarea:focus{
+  outline:none;border-color:#00A2DE;background:#fff;box-shadow:0 0 0 4px rgba(0,162,222,.12);}
+.taf-offer2 .wpcf7-form textarea{min-height:120px;}
+
+/* チェックをカード風に */
+.taf-offer2 .wpcf7-checkbox{display:grid;grid-template-columns:1fr;gap:9px;margin-top:4px;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item{margin:0;display:block;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label{
+  display:flex;align-items:center;border:1.5px solid #E5E8EC;border-radius:12px;
+  padding:13px 15px;font-size:13.5px;font-weight:700;color:#3a4048;background:#fff;
+  cursor:pointer;transition:.12s;line-height:1.45;margin:0;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:hover{border-color:#9fd6ec;}
+.taf-offer2 .wpcf7-checkbox input{margin:0 10px 0 0;accent-color:#00A2DE;width:17px;height:17px;flex:none;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:has(input:checked){border-color:#00A2DE;background:#ECF4F9;color:#0a5c7d;}
+
+/* エラー */
+.taf-offer2 .tf-error{display:none;color:#e82e6c;font-size:12.5px;font-weight:700;margin-top:10px;}
+.taf-offer2 .tf-error.tf-show{display:block;}
+
+/* ナビ(次へ/戻る) */
+.taf-offer2 .tf-nav{display:flex;gap:10px;align-items:center;margin-top:20px;}
+.taf-offer2 .tf-back{flex:none;background:none;border:none;color:#8a919b;font-size:13px;font-weight:700;cursor:pointer;padding:12px 6px;font-family:inherit;display:none;}
+.taf-offer2 .tf-back.tf-show{display:block;}
+.taf-offer2 .tf-next{flex:1;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:900;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#00A2DE,#27b7ea);box-shadow:0 10px 24px rgba(0,140,200,.3);font-family:inherit;transition:.15s;}
+.taf-offer2 .tf-next:hover{filter:brightness(1.06);}
+
+/* 送信ボタン(最終ステップのみ表示) */
+.taf-offer2 .wpcf7-submit{
+  display:none;width:100%;border:none;border-radius:999px;padding:18px;
+  font-size:17px;font-weight:900;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#f5a30a,#f6b52e);
+  box-shadow:0 12px 28px rgba(246,172,14,.4);margin-top:20px;transition:.15s;font-family:inherit;}
+.taf-offer2 .wpcf7-submit:hover{filter:brightness(1.05);}
+.taf-offer2 .wpcf7-form.tf-last .wpcf7-submit{display:block;animation:tfIn .3s ease;}
+.taf-offer2 .wpcf7-form.tf-last .tf-next{display:none;}
+.taf-offer2 .submit-note{display:none;text-align:center;font-size:12px;color:#555A62;margin-top:12px;}
+.taf-offer2 .wpcf7-form.tf-last .submit-note{display:block;}
+
+/* CF7の応答メッセージ */
+.taf-offer2 .wpcf7-response-output{border:none!important;background:#ECF4F9;border-radius:12px;padding:14px 18px!important;margin:18px 0 0!important;font-size:13.5px;font-weight:700;color:#0a5c7d;}
+.taf-offer2 .wpcf7-spinner{display:block;margin:10px auto 0;}
+
+/* 送信完了パネル */
+.taf-offer2 .tf-done{text-align:center;padding:22px 12px 8px;animation:tfIn .35s ease;}
+.taf-offer2 .tf-done-ic{width:66px;height:66px;border-radius:50%;background:#06C755;color:#fff;font-size:36px;line-height:66px;margin:0 auto 16px;box-shadow:0 12px 28px rgba(6,199,85,.38);}
+.taf-offer2 .tf-done h3{font-size:22px;font-weight:900;margin:0 0 12px;color:#111;}
+.taf-offer2 .tf-done p{font-size:14px;color:#3a4048;line-height:1.85;margin:0 0 8px;}
+.taf-offer2 .tf-done p b{color:#0a5c7d;}
+.taf-offer2 .tf-done .note{font-size:12px;color:#8a919b;margin-top:14px;line-height:1.7;}
+
+/* このページだけパンくずを非表示 */
+.breadSection, .breadcrumb, .vk_breadcrumb,
+nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
+</style>
+
+<script>
+(function(){
+  function initStepForm(){
+    var root = document.querySelector('.taf-offer2');
+    if(!root) return;
+    var form = root.querySelector('form.wpcf7-form');
+    if(!form || form.dataset.tfInit) return;
+    form.dataset.tfInit = '1';
+
+    var steps = Array.prototype.slice.call(form.querySelectorAll('.field'));
+    if(steps.length < 2) return;
+    var cur = 0;
+
+    var prog = document.createElement('div');
+    prog.className = 'tf-progress';
+    prog.innerHTML = '<div class="tf-ptext"><span>質問 <b class="tf-cur">1</b> / '+steps.length+'</span><span class="tf-remain"></span></div><div class="tf-pbar"><i></i></div>';
+    form.insertBefore(prog, form.firstChild);
+
+    var err = document.createElement('p'); err.className = 'tf-error';
+    var nav = document.createElement('div'); nav.className = 'tf-nav';
+    nav.innerHTML = '<button type="button" class="tf-back">← 戻る</button><button type="button" class="tf-next">次へ →</button>';
+    var lastStep = steps[steps.length-1];
+    lastStep.parentNode.insertBefore(err, lastStep.nextSibling);
+    lastStep.parentNode.insertBefore(nav, err.nextSibling);
+    var btnNext = nav.querySelector('.tf-next'), btnBack = nav.querySelector('.tf-back');
+
+    function validate(i){
+      var s = steps[i];
+      var txt = s.querySelector('input[type=text][aria-required=true], input[type=text].wpcf7-validates-as-required');
+      var em  = s.querySelector('input[type=email]');
+      var cbs = s.querySelectorAll('input[type=checkbox]');
+      if(txt && !txt.value.trim()) return 'お名前を入力してください。';
+      if(em){
+        if(!em.value.trim()) return 'メールアドレスを入力してください。';
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())) return 'メールアドレスの形式が正しくないようです。';
+      }
+      if(cbs.length){
+        var any=false; cbs.forEach(function(c){ if(c.checked) any=true; });
+        if(!any) return '1つ以上選択してください（「まずは相談したい」でもOKです）。';
+      }
+      return '';
+    }
+
+    function show(i){
+      steps.forEach(function(s,k){ s.classList.toggle('tf-active', k===i); });
+      cur = i;
+      form.classList.toggle('tf-last', i===steps.length-1);
+      btnBack.classList.toggle('tf-show', i>0);
+      if(i===steps.length-1){
+        prog.querySelector('.tf-ptext').innerHTML = '<span>あと少し！</span><span>任意・スキップOK</span>';
+      }else{
+        prog.querySelector('.tf-ptext').innerHTML = '<span>質問 <b>'+(i+1)+'</b> / '+(steps.length-1)+'</span><span>残り約'+((steps.length-1-i)*10)+'秒</span>';
+      }
+      prog.querySelector('.tf-pbar i').style.width = (((i+1)/steps.length)*100)+'%';
+      err.classList.remove('tf-show');
+      var f = steps[i].querySelector('input[type=text],input[type=email],textarea');
+      if(f && window.innerWidth > 700) setTimeout(function(){ f.focus(); }, 250);
+    }
+
+    btnNext.addEventListener('click', function(){
+      var m = validate(cur);
+      if(m){ err.textContent = m; err.classList.add('tf-show'); return; }
+      if(cur < steps.length-1) show(cur+1);
+    });
+    btnBack.addEventListener('click', function(){ if(cur>0) show(cur-1); });
+
+    form.addEventListener('keydown', function(e){
+      if(e.key==='Enter' && e.target.matches('input[type=text],input[type=email]')){
+        e.preventDefault(); btnNext.click();
+      }
+    });
+
+    document.addEventListener('wpcf7invalid', function(){
+      steps.forEach(function(s){ s.classList.add('tf-active'); });
+      form.classList.add('tf-last');
+      prog.style.display='none'; nav.style.display='none';
+    });
+
+    show(0);
+  }
+
+  function hideCoupon(){
+    document.querySelectorAll('a, button').forEach(function(el){
+      if(el.textContent.indexOf('初回限定クーポン') !== -1){ el.style.display='none'; }
+    });
+  }
+
+  function boot(){ initStepForm(); hideCoupon(); }
+  if(document.readyState !== 'loading'){ boot(); } else { document.addEventListener('DOMContentLoaded', boot); }
+  new MutationObserver(hideCoupon).observe(document.documentElement,{childList:true,subtree:true});
+
+  /* 送信成功時に大きな「送信完了」画面を表示 */
+  document.addEventListener('wpcf7mailsent', function(){
+    if(window.fbq){ fbq('track','Lead'); }
+    var card = document.querySelector('.taf-offer2 .form-card');
+    if(!card) return;
+    card.innerHTML = '<div class="tf-done">'
+      + '<div class="tf-done-ic">✓</div>'
+      + '<h3>送信ありがとうございます！</h3>'
+      + '<p>資料はご入力のメールアドレス宛にお送りしています。</p>'
+      + '<p>質問をご記入頂いた方には、内容を確認のうえ、<b>1〜2営業日以内</b>にご返信します。</p>'
+      + '<p class="note">※メールが届かない場合は、迷惑メール（プロモーション）フォルダもご確認ください。</p>'
+      + '</div>';
+    card.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
