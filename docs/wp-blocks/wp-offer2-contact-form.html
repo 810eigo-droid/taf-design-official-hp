@@ -108,6 +108,19 @@
 .taf-offer2 .tf-done p{font-size:14px;color:#3a4048;line-height:1.85;margin:0 0 8px;}
 .taf-offer2 .tf-done p b{color:#0a5c7d;}
 .taf-offer2 .tf-done .note{font-size:12px;color:#8a919b;margin-top:14px;line-height:1.7;}
+.taf-offer2 .tf-main-btn{display:block;background:linear-gradient(135deg,#f5a30a,#f6b52e);color:#fff;text-decoration:none;border-radius:999px;padding:18px 20px;font-size:17px;font-weight:900;box-shadow:0 12px 28px rgba(246,172,14,.4);margin:6px 0 4px;transition:.15s;}
+.taf-offer2 .tf-main-btn:hover{filter:brightness(1.05);}
+.taf-offer2 .tf-box{border-radius:16px;padding:18px 16px;margin-top:14px;text-align:center;}
+.taf-offer2 .tf-box .tf-box-ic{font-size:32px;line-height:1;display:block;margin-bottom:8px;}
+.taf-offer2 .tf-box-line{background:#E9FBF0;border:1.5px solid #06C755;}
+.taf-offer2 .tf-box-line p{font-size:13.5px;color:#0a7c3f;font-weight:700;margin:0 0 12px;line-height:1.8;}
+.taf-offer2 .tf-line-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#06C755;color:#fff;text-decoration:none;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:900;box-shadow:0 10px 24px rgba(6,199,85,.35);transition:.15s;}
+.taf-offer2 .tf-line-btn:hover{filter:brightness(1.06);}
+.taf-offer2 .tf-box-mail{background:#FFF6E5;border:1.5px solid #F6AC0E;}
+.taf-offer2 .tf-box-mail .tf-big{font-size:16px;font-weight:900;color:#8a5b00;margin:0 0 8px;line-height:1.6;}
+.taf-offer2 .tf-box-mail p{font-size:13px;color:#6b5327;margin:0;line-height:1.8;}
+.taf-offer2 .tf-box-mail b{background:#ffe9bf;border-radius:6px;padding:1px 6px;}
+.taf-offer2 .tf-reply{font-size:12.5px;color:#8a919b;margin-top:16px;line-height:1.7;}
 
 /* このページだけパンくずを非表示 */
 .breadSection, .breadcrumb, .vk_breadcrumb,
@@ -213,11 +226,18 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
     card.innerHTML = '<div class="tf-done">'
       + '<div class="tf-done-ic">✓</div>'
       + '<h3>送信ありがとうございます！</h3>'
-      + '<a href="https://taf-design.com/lp/service-guide.html" style="display:block;margin:6px auto 14px;background:linear-gradient(135deg,#f5a30a,#f6b52e);color:#fff;text-decoration:none;border-radius:999px;padding:18px 20px;font-size:17px;font-weight:900;box-shadow:0 12px 28px rgba(246,172,14,.4);">📄 資料を今すぐ見る →</a>'
-      + '<p>同じ資料を、ご入力のメールアドレス宛にもお送りしました。<br>あとで見返すときはメールからどうぞ。</p>'
-      + '<p>質問をご記入頂いた方には、内容を確認のうえ、<b>1〜2営業日以内</b>にご返信します。</p>'
-      + '<p class="note">※メールが届かない場合は、迷惑メール（プロモーション）フォルダもご確認ください。</p>'
-      + '<a href="https://lin.ee/pqfXTUJ" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;background:#06C755;color:#fff;text-decoration:none;border-radius:999px;padding:13px 26px;font-size:14px;font-weight:900;box-shadow:0 10px 24px rgba(6,199,85,.35);">💬 ご質問があればLINEからどうぞ</a>'
+      + '<a class="tf-main-btn" href="https://taf-design.com/lp/service-guide.html">📄 資料を今すぐ見る →</a>'
+      + '<div class="tf-box tf-box-line">'
+      + '<span class="tf-box-ic">🎁</span>'
+      + '<p>公式LINEでは、セール・クーポン情報を配信中！<br>ご質問への回答も、メールよりLINEが早いです。</p>'
+      + '<a class="tf-line-btn" href="https://lin.ee/pqfXTUJ">💬 LINEで友だち追加する</a>'
+      + '</div>'
+      + '<div class="tf-box tf-box-mail">'
+      + '<span class="tf-box-ic">📮</span>'
+      + '<p class="tf-big">同じ資料を、メールでもお送りしました！</p>'
+      + '<p>あとで見返すときはメールからどうぞ。<br>届いていない時は<b>「迷惑メール（プロモーション）フォルダ」</b>をチェック！</p>'
+      + '</div>'
+      + '<p class="tf-reply">質問をご記入いただいた方には、内容を確認のうえ<b>1〜2営業日以内</b>にご返信します。</p>'
       + '</div>';
     card.scrollIntoView({behavior:'smooth', block:'center'});
   });
