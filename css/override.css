@@ -10081,3 +10081,143 @@ a.cl-collage {
 @media (max-width: 1080px){
   .topnav .nav-links{ gap: 18px; }
 }
+
+/* ============================================================
+   SECTION 05 EVOLUTION — PCレイアウト(FVと同じ1200px幅)
+   追加: 2026-07-22
+   方針: スマホ版(600px縦帯)の例外として、このセクションだけ
+         PC幅ではフル幅背景+コンテンツ1200pxで展開する。
+         769px未満は従来のスマホ版のまま(ここは一切影響しない)。
+   ============================================================ */
+@media (min-width: 769px) {
+
+  /* 600px縦帯の例外化(override.css冒頭(B)の打ち消し) */
+  .evolve-mobile {
+    max-width: none !important;
+    padding-bottom: 100px;
+  }
+
+  /* 背景グリッドはPCでは少し大きく */
+  .evolve-mobile .ev-bg-grid {
+    background-size: 32px 32px;
+  }
+
+  /* ===== バナー(見出し) ===== */
+  .evolve-mobile .ev-banner {
+    padding: 110px 40px 60px;
+  }
+  .evolve-mobile .ev-banner-bgtext {
+    font-size: 240px;
+  }
+  .evolve-mobile .ev-banner-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .evolve-mobile .ev-banner-eyebrow {
+    font-size: 14px;
+    letter-spacing: 0.3em;
+  }
+  .evolve-mobile .ev-banner-title {
+    font-size: 54px;
+    line-height: 1.45;
+    margin: 18px 0 26px;
+  }
+  .evolve-mobile .ev-banner-title br {
+    /* PCでは「HP・LP制作は」までを1行に */
+  }
+  .evolve-mobile .ev-banner-sub {
+    font-size: 17px;
+    line-height: 2.2;
+  }
+
+  /* ===== メインビジュアル ===== */
+  .evolve-mobile .ev-hero-img-wrap {
+    width: min(1200px, calc(100% - 80px));
+    margin: 10px auto 80px;
+    border-radius: 6px;
+  }
+  .evolve-mobile .ev-hero-img {
+    height: 420px;
+  }
+  .evolve-mobile .ev-hero-tag {
+    bottom: 24px;
+    left: 24px;
+    padding: 12px 20px;
+  }
+  .evolve-mobile .ev-hero-tag-num { font-size: 20px; }
+  .evolve-mobile .ev-hero-tag-text { font-size: 13px; }
+
+  /* ===== FEATURES: 3カラムグリッド ===== */
+  .evolve-mobile .ev-features {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+  .evolve-mobile .ev-features-title {
+    grid-column: 1 / -1;
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+  .evolve-mobile .ev-features-title-en {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .evolve-mobile .ev-feat {
+    margin-bottom: 0;
+    padding: 36px 28px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .evolve-mobile .ev-feat-head {
+    font-size: 19px;
+    min-height: 3.2em; /* 2行分を確保して3枚の高さを揃える */
+  }
+  .evolve-mobile .ev-feat-text {
+    font-size: 14.5px;
+  }
+  .evolve-mobile .ev-feat-num {
+    font-size: 64px;
+  }
+
+  /* ===== 中央コア(パルス) ===== */
+  .evolve-mobile .ev-core {
+    width: 240px;
+    height: 240px;
+    margin: 80px auto 70px;
+  }
+
+  /* ===== ADD-ONティッカー ===== */
+  .evolve-mobile .ev-ticker-wrap {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ============================================================
+   PHILOSOPHY — 背景画像(background-2.webp / 1672x941)
+   追加: 2026-07-22
+   画像の上に白のベールを重ねて文字の可読性を確保。
+   画像ファイルが未配置でも従来の背景色にフォールバックする。
+   ============================================================ */
+.philosophy-mobile {
+  background-color: var(--base, #FAFAFA);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(250, 250, 250, 0.93) 0%,
+      rgba(250, 250, 250, 0.84) 45%,
+      rgba(250, 250, 250, 0.93) 100%
+    ),
+    url("../images/background-2.webp");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
