@@ -10212,9 +10212,9 @@ a.cl-collage {
   background-image:
     linear-gradient(
       180deg,
-      rgba(250, 250, 250, 0.93) 0%,
-      rgba(250, 250, 250, 0.84) 45%,
-      rgba(250, 250, 250, 0.93) 100%
+      rgba(250, 250, 250, 0.38) 0%,
+      rgba(250, 250, 250, 0.14) 45%,
+      rgba(250, 250, 250, 0.38) 100%
     ),
     url("../images/background-2.webp");
   background-size: cover, cover;
