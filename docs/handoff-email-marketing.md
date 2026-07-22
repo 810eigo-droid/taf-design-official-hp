@@ -52,7 +52,9 @@
       → 完成: [xserver-spf-dkim-dmarc.md](./xserver-spf-dkim-dmarc.md)(2026-07-22)
 - [x] Google Postmaster Tools登録手順
       → 完成: [google-postmaster-tools.md](./google-postmaster-tools.md)(2026-07-22)
-- [ ] MailPoet導入・初期設定手順(+Brevo接続)
+- [x] MailPoet導入・初期設定手順(+Brevo接続)
+      → 完了(2026-07-22): Brevo認証済み・SMTP接続(ポート465)・テスト送信成功。
+        設定詳細は [taf-design-dns-records.md](./taf-design-dns-records.md)
 - [ ] ステップメール3通の文面たたき台
       (1通目=資料の補足+予算ページ/budget/案内 → 2通目=事例・お客様の声 → 3通目=クーポン+見積もり案内)
 - [ ] offer2フォームへのオプトインチェック追加の要否判断
