@@ -10102,3 +10102,26 @@ a.cl-collage {
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
 }
+
+/* ============================================================
+   背景の演出強化(2026-07-22)
+   1) PCの左右余白(body): 金継ぎ和紙 bg-kintsugi.webp
+      — 「壊れても金で直して育てる」= 作って終わりをやめる、の隠喩
+   2) クロージング: 星図 bg-constellation.webp(紺面の演出強化)
+      — background-position 30% で右下のAI透かしをフレーム外へ
+   ※どちらも文字の可読性優先でベールを重ねる。スマホにも適用されるが
+     ベール付きなので問題なし(bodyの方はPCのみ)。
+   ============================================================ */
+@media (min-width: 769px) {
+  body {
+    background:
+      linear-gradient(rgba(250, 250, 250, 0.42), rgba(250, 250, 250, 0.42)) center / cover no-repeat fixed,
+      url("../images/bg-kintsugi.webp") center / cover no-repeat fixed !important;
+  }
+}
+
+.closing-mobile {
+  background:
+    linear-gradient(180deg, rgba(26, 42, 58, 0.78) 0%, rgba(14, 24, 37, 0.88) 100%),
+    url("../images/bg-constellation.webp") 30% center / cover no-repeat !important;
+}
