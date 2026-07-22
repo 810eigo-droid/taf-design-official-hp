@@ -50,7 +50,8 @@
 
 - [x] SPF/DKIM/DMARCのエックスサーバー設定手順書(図解・具体的に)
       → 完成: [xserver-spf-dkim-dmarc.md](./xserver-spf-dkim-dmarc.md)(2026-07-22)
-- [ ] Google Postmaster Tools登録手順
+- [x] Google Postmaster Tools登録手順
+      → 完成: [google-postmaster-tools.md](./google-postmaster-tools.md)(2026-07-22)
 - [ ] MailPoet導入・初期設定手順(+Brevo接続)
 - [ ] ステップメール3通の文面たたき台
       (1通目=資料の補足+予算ページ/budget/案内 → 2通目=事例・お客様の声 → 3通目=クーポン+見積もり案内)
