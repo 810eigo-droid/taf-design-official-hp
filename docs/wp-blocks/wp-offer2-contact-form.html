@@ -5,6 +5,8 @@
   構成: Contact Form 7 [contact-form-7 id="dd3556d"] をステップ形式に変換するCSS+JS
   修正履歴: 2026-07-19 wpcf7mailsent内のcard.innerHTMLで文字列外に生HTMLが
             混入し全JS停止 → 文字列連結に修正(資料案内→返信案内の順)
+            2026-07-22 メルマガ登録の明示文言(オプトイン表記)をJSで自動挿入
+            (最終ステップの「送信後、1〜2営業日〜」の下に小さく表示。CF7側の編集は不要)
   文言変更時の注意: card.innerHTML の各行は + '〜' の形(クォートの中だけ)を書き換えること
 ============================================================ -->
 <div class="taf-offer2">
@@ -96,6 +98,7 @@
 .taf-offer2 .wpcf7-form.tf-last .tf-next{display:none;}
 .taf-offer2 .submit-note{display:none;text-align:center;font-size:12px;color:#555A62;margin-top:12px;}
 .taf-offer2 .wpcf7-form.tf-last .submit-note{display:block;}
+.taf-offer2 .tf-optin{font-size:11px;color:#8a919b;margin-top:6px;}
 
 /* CF7の応答メッセージ */
 .taf-offer2 .wpcf7-response-output{border:none!important;background:#ECF4F9;border-radius:12px;padding:14px 18px!important;margin:18px 0 0!important;font-size:13.5px;font-weight:700;color:#0a5c7d;}
@@ -152,6 +155,14 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
     lastStep.parentNode.insertBefore(err, lastStep.nextSibling);
     lastStep.parentNode.insertBefore(nav, err.nextSibling);
     var btnNext = nav.querySelector('.tf-next'), btnBack = nav.querySelector('.tf-back');
+
+    /* メルマガ登録の明示文言(オプトイン表記)を送信ボタン下の注記の直後に挿入 */
+    var optin = document.createElement('p');
+    optin.className = 'submit-note tf-optin';
+    optin.textContent = '※資料請求と同時にメルマガにご登録されます。(いつでも解除できます)';
+    var existingNote = form.querySelector('.submit-note:not(.tf-optin)');
+    if(existingNote){ existingNote.parentNode.insertBefore(optin, existingNote.nextSibling); }
+    else { form.appendChild(optin); }
 
     function validate(i){
       var s = steps[i];
