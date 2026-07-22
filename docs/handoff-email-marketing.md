@@ -48,7 +48,8 @@
 
 ## 4. このチャットのタスク(この順で依頼するとスムーズ)
 
-- [ ] SPF/DKIM/DMARCのエックスサーバー設定手順書(図解・具体的に)
+- [x] SPF/DKIM/DMARCのエックスサーバー設定手順書(図解・具体的に)
+      → 完成: [xserver-spf-dkim-dmarc.md](./xserver-spf-dkim-dmarc.md)(2026-07-22)
 - [ ] Google Postmaster Tools登録手順
 - [ ] MailPoet導入・初期設定手順(+Brevo接続)
 - [ ] ステップメール3通の文面たたき台
