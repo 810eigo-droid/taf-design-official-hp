@@ -10146,3 +10146,34 @@ a.cl-collage {
   text-underline-offset: 3px;
 }
 .pm-alt-note a:hover{ color: #C5A059; }
+
+/* 保守セクション: 買い切りバックアップパックへの分岐(2026-07-23) */
+.pp-alt-buyout{
+  margin: 18px 0 0;
+  padding: 16px 18px;
+  background: #FBF7EE;
+  border: 1px solid rgba(197, 160, 89, .45);
+  border-left: 4px solid #C5A059;
+  border-radius: 8px;
+}
+.pp-alt-buyout-label{
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #A07C2E;
+  margin-bottom: 6px;
+}
+.pp-alt-buyout-text{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #3a4048;
+}
+.pp-alt-buyout-text a{
+  color: #A07C2E;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pp-alt-buyout-text a:hover{ color: #C5A059; }
