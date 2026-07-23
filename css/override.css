@@ -10125,3 +10125,24 @@ a.cl-collage {
     linear-gradient(180deg, rgba(26, 42, 58, 0.78) 0%, rgba(14, 24, 37, 0.88) 100%),
     url("../images/bg-constellation.webp") 30% center / cover no-repeat !important;
 }
+
+/* 料金セクション: 買い切りバックアップパックの注記(2026-07-23) */
+.pm-alt-note{
+  max-width: 540px;
+  margin: 20px auto 0;
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 12.5px;
+  line-height: 2;
+  color: #5a6470;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(197,160,89,.4);
+  border-radius: 10px;
+}
+.pm-alt-note a{
+  color: #A07C2E;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pm-alt-note a:hover{ color: #C5A059; }
