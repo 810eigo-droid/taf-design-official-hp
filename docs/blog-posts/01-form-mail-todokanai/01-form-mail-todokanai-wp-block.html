@@ -1,0 +1,496 @@
+﻿<style>
+  .taf-mail-article {
+    --taf-ink: #162033;
+    --taf-muted: #5f6b7a;
+    --taf-line: #dbe4ef;
+    --taf-soft: #f6f9fc;
+    --taf-soft-blue: #eaf4ff;
+    --taf-blue: #1769e0;
+    --taf-green: #129a74;
+    --taf-orange: #e36b2c;
+    --taf-red: #d73d45;
+    --taf-bg: #ffffff;
+    color: var(--taf-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+    line-height: 1.9;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .taf-mail-article * {
+    box-sizing: border-box;
+  }
+
+  .taf-mail-article a {
+    color: var(--taf-blue);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .taf-mail-article p {
+    margin: 0 0 1.1em;
+  }
+
+  .taf-mail-article h2,
+  .taf-mail-article h3 {
+    line-height: 1.45;
+    letter-spacing: 0;
+  }
+
+  .taf-mail-article h2 {
+    border-left: 6px solid var(--taf-blue);
+    padding-left: 0.72em;
+    margin: 2.7em 0 1em;
+    font-size: clamp(1.45rem, 1.15rem + 0.7vw, 1.9rem);
+  }
+
+  .taf-mail-article h3 {
+    margin: 1.8em 0 0.7em;
+    font-size: clamp(1.18rem, 1rem + 0.45vw, 1.45rem);
+  }
+
+  .taf-hero {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef7ff 55%, #fff7ef 100%);
+    border: 1px solid var(--taf-line);
+    border-radius: 8px;
+    padding: clamp(24px, 5vw, 46px);
+    margin: 0 0 32px;
+    overflow: hidden;
+  }
+
+  .taf-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--taf-blue);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+
+  .taf-kicker::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--taf-blue);
+  }
+
+  .taf-hero h1 {
+    max-width: 780px;
+    margin: 0 0 18px;
+    font-size: clamp(1.75rem, 1.25rem + 1.8vw, 3rem);
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  .taf-lead {
+    max-width: 760px;
+    color: #344052;
+    font-size: clamp(1.02rem, 0.96rem + 0.25vw, 1.18rem);
+  }
+
+  .taf-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0 0;
+  }
+
+  .taf-summary-item {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--taf-line);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  .taf-summary-item strong {
+    display: block;
+    font-size: 1.03rem;
+    margin-bottom: 4px;
+  }
+
+  .taf-summary-item span {
+    color: var(--taf-muted);
+    font-size: 0.92rem;
+  }
+
+  .taf-note,
+  .taf-warning,
+  .taf-cta,
+  .taf-check {
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 22px 0;
+  }
+
+  .taf-note {
+    background: var(--taf-soft-blue);
+    border: 1px solid #bfdcfb;
+  }
+
+  .taf-warning {
+    background: #fff5ec;
+    border: 1px solid #f7c9a3;
+  }
+
+  .taf-check {
+    background: #eefaf5;
+    border: 1px solid #bde8d8;
+  }
+
+  .taf-steps {
+    counter-reset: taf-step;
+    list-style: none;
+    padding: 0;
+    margin: 18px 0;
+  }
+
+  .taf-steps li {
+    counter-increment: taf-step;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 12px;
+    align-items: start;
+    border-bottom: 1px solid var(--taf-line);
+    padding: 14px 0;
+  }
+
+  .taf-steps li::before {
+    content: counter(taf-step);
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--taf-blue);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .taf-auth-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+
+  .taf-auth-card {
+    border: 1px solid var(--taf-line);
+    border-radius: 8px;
+    padding: 18px;
+    background: var(--taf-bg);
+  }
+
+  .taf-auth-card b {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    height: 34px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .taf-auth-card:nth-child(1) b { background: var(--taf-green); }
+  .taf-auth-card:nth-child(2) b { background: var(--taf-blue); }
+  .taf-auth-card:nth-child(3) b { background: var(--taf-orange); }
+
+  .taf-auth-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.16rem;
+  }
+
+  .taf-auth-card p {
+    color: var(--taf-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .taf-article-image { margin: 28px 0; }
+
+  .taf-article-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--taf-line);
+  }
+  .taf-list {
+    padding-left: 1.25em;
+  }
+
+  .taf-list li {
+    margin: 0.42em 0;
+  }
+
+  .taf-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.96rem;
+  }
+
+  .taf-table th,
+  .taf-table td {
+    border: 1px solid var(--taf-line);
+    padding: 12px 14px;
+    vertical-align: top;
+  }
+
+  .taf-table th {
+    background: #f1f6fb;
+    text-align: left;
+    width: 28%;
+  }
+
+  .taf-cta {
+    background: #162033;
+    color: #fff;
+    margin-top: 36px;
+  }
+
+  .taf-cta h2 {
+    border: 0;
+    padding: 0;
+    margin: 0 0 10px;
+    color: #fff;
+  }
+
+  .taf-cta p {
+    color: #e5edf7;
+  }
+
+  .taf-cta-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .taf-cta-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #fff;
+    color: #162033;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .taf-cta-links a:first-child {
+    background: #33c38c;
+    color: #082216;
+  }
+
+  .taf-faq details {
+    border: 1px solid var(--taf-line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    background: #fff;
+  }
+
+  .taf-faq summary {
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .taf-small {
+    color: var(--taf-muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 760px) {
+    .taf-summary,
+    .taf-auth-grid,
+    .taf-flow {
+      grid-template-columns: 1fr;
+    }
+
+    .taf-flow-arrow {
+      transform: rotate(90deg);
+      line-height: 1;
+    }
+
+    .taf-table,
+    .taf-table tbody,
+    .taf-table tr,
+    .taf-table th,
+    .taf-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .taf-table th {
+      border-bottom: 0;
+    }
+  }
+</style>
+
+<article class="taf-mail-article">
+  <section class="taf-hero">
+    <p class="taf-kicker">WordPressのお問い合わせフォーム改善</p>
+    <h1>お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定</h1>
+    <p class="taf-lead">送信テストをしたのに通知が来ない。お客様への自動返信が迷惑メールに入る。そんなとき、フォーム本体ではなく「メールの本人確認設定」が原因になっていることがあります。</p>
+    <div class="taf-summary" aria-label="この記事でわかること">
+      <div class="taf-summary-item">
+        <strong>原因</strong>
+        <span>SPF・DKIM・DMARCの未設定で、メールが信頼されにくくなります。</span>
+      </div>
+      <div class="taf-summary-item">
+        <strong>対策</strong>
+        <span>エックスサーバーの管理画面から無料で設定できます。</span>
+      </div>
+      <div class="taf-summary-item">
+        <strong>確認</strong>
+        <span>mail-testerやGmailのソース表示で認証結果を確認します。</span>
+      </div>
+    </div>
+  </section>
+
+  <p>お問い合わせフォームを設置したのに、「送信テストしたのにメールが来ない」「お客様からの問い合わせ通知が迷惑メールに入っていた」という経験はありませんか。</p>
+  <p>実はこれ、フォームの故障ではないことがほとんどです。原因の多くは、メールの「本人確認」にあたる<strong>送信ドメイン認証</strong>が整っていないことです。</p>
+  <p>この記事では、エックスサーバーを使っている方向けに、<strong>無料で・今日中にできる3つの設定</strong>を解説します。設定後は、無料の採点サイトで状態を確認するところまで進めましょう。</p>
+
+  <figure class="taf-article-image">
+    <img src="https://taf-design.com/wp-content/uploads/2026/07/form-mail-auth-flow.png" alt="フォームメールが受信箱に届くまでのSPF・DKIM・DMARC認証フロー図" loading="lazy" decoding="async">
+  </figure>
+  </div>
+
+  <h2>なぜフォームのメールは届かなくなったのか</h2>
+  <p>2024年以降、Gmailをはじめとする受信側のメールサービスは、送信者を確認できないメールへの判定を強化しています。Googleの送信者ガイドラインでも、Gmail宛に送るメールではSPFまたはDKIMの設定が求められ、大量送信者にはSPF・DKIM・DMARCの設定が求められています。</p>
+  <p>小規模なサイトのお問い合わせフォームでも、Gmail宛に通知を飛ばすケースは多いはずです。だからこそ、フォームを作ったあとに「送れるか」だけでなく、<strong>受信側から信頼される状態か</strong>まで確認しておくことが大切です。</p>
+
+  <div class="taf-auth-grid">
+    <div class="taf-auth-card">
+      <b>SPF</b>
+      <h3>送信元サーバーの確認</h3>
+      <p>このサーバーから送ってよい、とドメイン側で宣言する設定です。</p>
+    </div>
+    <div class="taf-auth-card">
+      <b>DKIM</b>
+      <h3>電子署名の確認</h3>
+      <p>メールに署名を付け、改ざんされていないか確認できるようにします。</p>
+    </div>
+    <div class="taf-auth-card">
+      <b>DMARC</b>
+      <h3>失敗時の扱いを宣言</h3>
+      <p>SPFやDKIMに失敗したメールをどう扱うか、受信側へ伝えます。</p>
+    </div>
+  </div>
+
+  <div class="taf-note">
+    <strong>結論：</strong>WordPressのフォーム通知・自動返信メールを安定させたいなら、SPF・DKIM・DMARCの3つを確認しておきましょう。エックスサーバーなら管理画面から設定できます。
+  </div>
+
+  <figure class="taf-article-image">
+    <img src="https://taf-design.com/wp-content/uploads/2026/07/form-mail-xserver-checklist.png" alt="エックスサーバーで確認するDKIM・SPF・DMARC設定チェックリスト" loading="lazy" decoding="async">
+  </figure>
+
+  <h2>設定1：DKIMをONにする</h2>
+  <p>まずは、メールに電子署名を付けるDKIMから確認します。エックスサーバーのサーバーパネルにログインし、次の順に進みます。</p>
+  <ol class="taf-steps">
+    <li>カテゴリ「メール」内の「DKIM設定」をクリックします。</li>
+    <li>対象ドメインの「選択する」をクリックします。</li>
+    <li>設定状況が「OFF」になっていたら「ON」に切り替えます。</li>
+  </ol>
+  <p>エックスサーバーのネームサーバーを使っている場合、必要なDNSレコードは自動で追加されます。反映には時間がかかることがありますが、通常は数分から数時間ほどで確認できるようになります。</p>
+
+  <h2>設定2：SPFレコードを確認する</h2>
+  <p>SPFは「このドメインのメールは、このサーバーから送ります」という宣言です。エックスサーバーでは最初から設定されているケースも多いため、まずは確認にとどめます。</p>
+  <ol class="taf-steps">
+    <li>サーバーパネルのカテゴリ「ドメイン」内の「DNSレコード設定」をクリックします。</li>
+    <li>対象ドメインの「選択する」から「DNSレコード一覧」を開きます。</li>
+    <li>種別「TXT」で、内容が <code>v=spf1</code> で始まる行があるか確認します。</li>
+  </ol>
+
+  <div class="taf-warning">
+    <strong>注意：</strong>SPFレコードは1ドメインに1つだけです。良かれと思って2行目を追加すると、かえって認証エラーになります。メルマガ配信サービスなどを追加する場合は、新しいSPF行を足すのではなく、既存のSPFレコードに <code>include:</code> を追記します。
+  </div>
+
+  <h2>設定3：DMARCを設定する</h2>
+  <p>DMARCは、SPFやDKIMの認証に失敗したメールをどう扱うかを宣言する設定です。最初から厳しく拒否するのではなく、まずは観測できる状態で始めるのが安全です。</p>
+  <ol class="taf-steps">
+    <li>カテゴリ「メール」内の「DMARC設定」をクリックします。</li>
+    <li>対象ドメインの「編集」をクリックします。</li>
+    <li>DMARCポリシーは「何もしない」、レポート設定はONにして保存します。</li>
+  </ol>
+
+  <table class="taf-table">
+    <tbody>
+      <tr>
+        <th>DMARCポリシー</th>
+        <td>まずは「何もしない（p=none）」から始めます。</td>
+      </tr>
+      <tr>
+        <th>レポート設定</th>
+        <td>ONにして、メールの認証状況を観測できるようにします。</td>
+      </tr>
+      <tr>
+        <th>通知メールアドレス</th>
+        <td>例：<code>info@あなたのドメイン</code> のように、自分のドメインのメールアドレスを設定します。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>ポイントは、最初は必ず<strong>「何もしない（p=none）」から始める</strong>ことです。いきなり厳しい設定にすると、設定漏れのある正規メールまで届かなくなる恐れがあります。まずは1〜2か月ほどレポートを見て、問題がなければ段階的に強化していきます。</p>
+
+  <h2>設定できたか確認する方法</h2>
+  <p>設定したら、実際にメールを送って確認します。おすすめは無料の採点サイト <a href="https://www.mail-tester.com/">mail-tester</a> です。</p>
+  <ol class="taf-steps">
+    <li>mail-testerを開き、画面に表示されたテスト用メールアドレスを確認します。</li>
+    <li>そのアドレス宛に、自分のドメインからメールを送ります。フォームのテスト送信でもOKです。</li>
+    <li>mail-testerに戻り、「Then check your score」をクリックします。</li>
+  </ol>
+  <p>10点満点で採点され、SPF・DKIM・DMARCの合否が個別に表示されます。点数だけでなく、どの認証が通っていないかを確認しましょう。</p>
+
+  <div class="taf-check">
+    <strong>Gmailでも確認できます。</strong><br>
+    自分のGmail宛にテスト送信し、届いたメールのメニューから「メッセージのソースを表示」を開きます。上部に SPF: PASS / DKIM: PASS / DMARC: PASS と表示されていれば、認証は通っています。
+  </div>
+
+  <h2>よくあるつまずき</h2>
+  <div class="taf-faq">
+    <details>
+      <summary>SPFを2つ追加してしまった</summary>
+      <p>SPFレコードは1つだけにします。複数の送信サービスを使う場合は、既存のSPFレコードに <code>include:</code> を追加してまとめます。</p>
+    </details>
+    <details>
+      <summary>設定したのにすぐPASSにならない</summary>
+      <p>DNSの反映には時間がかかることがあります。数分で反映することもありますが、最大24時間ほど見ておくと安心です。</p>
+    </details>
+    <details>
+      <summary>WordPressのフォームだけ届かない</summary>
+      <p>送信ドメイン認証に加えて、フォーム側の送信元メールアドレス、SMTP設定、管理者通知先、迷惑メールフォルダも確認しましょう。</p>
+    </details>
+  </div>
+
+  <h2>まとめ：3つの設定で「届くフォーム」に近づける</h2>
+  <ul class="taf-list">
+    <li><strong>DKIM：</strong>サーバーパネルでONにする</li>
+    <li><strong>SPF：</strong><code>v=spf1</code> で始まるTXTレコードを確認する。2行にしない</li>
+    <li><strong>DMARC：</strong>まずは「何もしない」＋レポートONで観測する</li>
+  </ul>
+  <p>お問い合わせフォームは、集客の最後の出口です。せっかく問い合わせしてもらえたのに、通知が迷惑メールに埋もれていた。そんな機会損失は、メール認証の設定で減らせます。</p>
+
+  <section class="taf-cta">
+    <h2>設定に不安がある方へ</h2>
+    <p>「手順どおりやったのに認証が通らない」「他社サーバーを使っている」「フォームの自動返信ごと整えたい」という方には、設定代行も対応しています。メール到達の設定は、Web制作でも標準で確認しておきたい大切な作業です。</p>
+    <div class="taf-cta-links">
+      <a href="https://taf-design.com/offer2/">無料相談・お問い合わせ</a>
+      <a href="https://taf-design.com/order/">1分でわかる自動見積もり</a>
+      <a href="https://taf-design.com/budget/">予算から選ぶ</a>
+    </div>
+  </section>
+
+  <p class="taf-small">参考：<a href="https://support.google.com/mail/answer/81126">Google「Email sender guidelines」</a>、<a href="https://www.xserver.ne.jp/support/faq/service_mail_trouble_spf_dkim_dmarc_set_notification.php">エックスサーバー公式FAQ</a></p>
+</article>
+
+
+
