@@ -6,10 +6,27 @@
 
 ---
 
-## 0. 完了済み(2026-07-22 実施)
+## 0. 完了済み
 
+### 2026-07-22
 - [x] SEO基礎タグを index.html に実装(meta description / OGP / canonical / 構造化データ ProfessionalService)
 - [x] DNSに google-site-verification TXT 設定済み(Postmaster用)→ **Search Consoleの認証にそのまま使える**
+
+### 2026-07-23(1日で全部完了!)
+- [x] Search Console 登録(ドメインプロパティ taf-design.com・TXTで即認証)
+- [x] サイトマップ確認(wp-sitemap.xml は7/7に送信済み・成功)
+- [x] 主要ページのインデックス登録リクエスト(トップ/offer2/budget/order/lp/資料)
+- [x] WordPressに SEO SIMPLE PACK 導入(GA欄・ウェブマスター欄は空欄=二重防止)
+- [x] offer2/budget/order にタイトルタグ+ディスクリプション設定
+- [x] 資料ページ(service-guide.html)と /lp/ にSEOタグ(Git経由)
+- [x] /lp/ の noindex を解除し「資料請求特化の検索ページ」に役割変更(タイトル案B採用)
+- [x] 戦略確定: **全国 × オーガニック × Googleビジネスプロフィール登録しない(口コミ欄を作らない)**
+- [x] **記事1本目公開**: /form-mail-todokanai/(HTMLブロックで図解つきの力作)+インデックス依頼済み
+- [x] 記事2本目の原稿完成(MailPoet×Brevo)→ docs/blog-drafts/02-mailpoet-brevo.md
+- [x] カテゴリー「メールの届け方」(email-deliverability)新設
+- [x] サンプル記事 hello-world 削除
+- [x] インデックス未登録3件を調査 → 全て正常(wp-admin 403等)と判定
+- [x] おまけ: /maintenance/ 保守管理プランページ新設・/backup/ と相互リンク・HP料金導線3か所追加
 
 ---
 
