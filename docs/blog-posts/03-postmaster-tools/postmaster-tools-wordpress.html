@@ -1,0 +1,141 @@
+<style>
+  .taf-postmaster-article {
+    --ink: #172033;
+    --muted: #5e6b7a;
+    --line: #dbe4ef;
+    --blue: #1769e0;
+    --green: #129a74;
+    --orange: #e36b2c;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
+    line-height: 1.9;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .taf-postmaster-article * { box-sizing: border-box; }
+  .taf-postmaster-article a { color: var(--blue); text-decoration: underline; text-underline-offset: .18em; }
+  .taf-postmaster-article p { margin: 0 0 1.1em; }
+  .taf-postmaster-article h2 {
+    border-left: 6px solid var(--blue);
+    padding-left: .72em;
+    margin: 2.6em 0 1em;
+    font-size: clamp(1.45rem, 1.15rem + .7vw, 1.9rem);
+    line-height: 1.45;
+  }
+  .taf-postmaster-article h3 { margin: 1.6em 0 .7em; font-size: clamp(1.16rem, 1rem + .4vw, 1.42rem); line-height: 1.45; }
+  .taf-pm-hero {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef7ff 56%, #eefaf5 100%);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: clamp(24px, 5vw, 46px);
+    margin: 0 0 32px;
+  }
+  .taf-pm-kicker { color: var(--blue); font-size: .9rem; font-weight: 800; margin: 0 0 12px; }
+  .taf-pm-hero h1 { margin: 0 0 18px; font-size: clamp(1.75rem, 1.25rem + 1.8vw, 3rem); line-height: 1.35; }
+  .taf-pm-lead { color: #344052; font-size: clamp(1.02rem, .96rem + .25vw, 1.18rem); }
+  .taf-pm-summary, .taf-pm-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
+  .taf-pm-summary-item, .taf-pm-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+  .taf-pm-summary-item strong, .taf-pm-card strong { display: block; margin-bottom: 4px; }
+  .taf-pm-summary-item span, .taf-pm-card p { color: var(--muted); font-size: .94rem; }
+  .taf-pm-note, .taf-pm-warning, .taf-pm-check, .taf-pm-cta { border-radius: 8px; padding: 18px 20px; margin: 22px 0; }
+  .taf-pm-note { background: #eaf4ff; border: 1px solid #bfdcfb; }
+  .taf-pm-warning { background: #fff5ec; border: 1px solid #f7c9a3; }
+  .taf-pm-check { background: #eefaf5; border: 1px solid #bde8d8; }
+  .taf-pm-steps { counter-reset: step; list-style: none; padding: 0; margin: 18px 0; }
+  .taf-pm-steps li { counter-increment: step; display: grid; grid-template-columns: 38px 1fr; gap: 12px; border-bottom: 1px solid var(--line); padding: 14px 0; }
+  .taf-pm-steps li::before { content: counter(step); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; }
+  .taf-pm-code { display: inline-block; border-radius: 6px; background: #f2f5f8; padding: 0 .35em; font-family: Consolas, "Courier New", monospace; }
+  .taf-pm-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: .96rem; }
+  .taf-pm-table th, .taf-pm-table td { border: 1px solid var(--line); padding: 12px 14px; vertical-align: top; }
+  .taf-pm-table th { background: #f1f6fb; text-align: left; }
+  .taf-pm-list { padding-left: 1.25em; }
+  .taf-pm-list li { margin: .42em 0; }
+  .taf-pm-cta { background: #172033; color: #fff; margin-top: 36px; }
+  .taf-pm-cta h2 { border: 0; padding: 0; margin: 0 0 10px; color: #fff; }
+  .taf-pm-cta p { color: #e5edf7; }
+  .taf-pm-cta-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .taf-pm-cta-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border-radius: 8px; background: #fff; color: #172033; font-weight: 800; text-decoration: none; }
+  .taf-pm-cta-links a:first-child { background: #33c38c; color: #082216; }
+  @media (max-width: 760px) {
+    .taf-pm-summary, .taf-pm-card-grid { grid-template-columns: 1fr; }
+    .taf-pm-table, .taf-pm-table tbody, .taf-pm-table tr, .taf-pm-table th, .taf-pm-table td { display: block; width: 100%; }
+    .taf-pm-table th { border-bottom: 0; }
+  }
+</style>
+
+<article class="taf-postmaster-article">
+  <section class="taf-pm-hero">
+    <p class="taf-pm-kicker">Gmailへの到達状況を無料で監視</p>
+    <h1>Google Postmaster Toolsの登録方法と見方｜自ドメインの迷惑メール率を無料で監視する</h1>
+    <p class="taf-pm-lead">送ったメールがGmailにどう見られているかを、ドメイン評価・迷惑メール率・認証成功率などの数字で確認できる無料ツールの登録手順と見方を解説します。</p>
+    <div class="taf-pm-summary" aria-label="この記事でわかること">
+      <div class="taf-pm-summary-item"><strong>登録方法</strong><span>DNSへ確認用TXTレコードを追加します。</span></div>
+      <div class="taf-pm-summary-item"><strong>見る指標</strong><span>迷惑メール率とドメイン評価を確認します。</span></div>
+      <div class="taf-pm-summary-item"><strong>注意点</strong><span>送信量が少ない間はデータが出なくても正常です。</span></div>
+    </div>
+  </section>
+
+  <p>「メルマガやお問い合わせの通知メール、ちゃんと届いているのかな？」——送る側からは、相手の受信トレイに入ったか、迷惑メールに落ちたか、まったく見えません。</p>
+  <p>その見えない部分を数字で見せてくれる無料ツールが、<strong>Google Postmaster Tools（ポストマスターツール）</strong>です。Gmailがあなたのドメインをどう評価しているかが分かります。この記事では登録手順と、見るべきポイントを解説します。</p>
+
+  <h2>Postmaster Toolsで何が分かるのか</h2>
+  <p>Gmail宛に送ったメールについて、主に次のことが数字で見えます。</p>
+  <div class="taf-pm-card-grid">
+    <div class="taf-pm-card"><strong>ドメインの評価</strong><p>ReputationをHigh、Medium、Low、Badの4段階で確認できます。</p></div>
+    <div class="taf-pm-card"><strong>迷惑メール率</strong><p>受信者が「迷惑メール」として報告した割合を確認できます。</p></div>
+    <div class="taf-pm-card"><strong>認証・暗号化</strong><p>SPF・DKIM・DMARCの成功率やTLS率を確認できます。</p></div>
+  </div>
+  <p>メール配信の「健康診断の結果表」のようなものです。特に迷惑メール率は、放置すると全体の到達率を一気に下げるため、早めに気づくためのレーダーになります。</p>
+  <div class="taf-pm-note"><strong>先に確認したいこと：</strong>送信ドメイン認証（SPF・DKIM・DMARC）がまだの方は、先に <a href="https://taf-design.com/form-mail-todokanai/">お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定</a> を済ませておくと、Postmaster Toolsの数字も意味を持ちます。</div>
+
+  <h2>登録手順（6ステップ・約10分）</h2>
+  <ol class="taf-pm-steps">
+    <li><div><strong>ツールを開いてGoogleでログイン</strong><br>Google Postmaster Toolsを開き、事業で使っているGoogleアカウントでログインします。</div></li>
+    <li><div><strong>ドメインを追加</strong><br>画面右下の「＋」から自分のドメインを入力します。<span class="taf-pm-code">https://</span>や<span class="taf-pm-code">www.</span>は付けません。</div></li>
+    <li><div><strong>認証用TXTレコードを確認</strong><br><span class="taf-pm-code">google-site-verification=…</span>という文字列が表示されます。画面は開いたままにします。</div></li>
+    <li><div><strong>サーバーのDNSにTXTレコードを追加</strong><br>エックスサーバーなら「DNSレコード設定」から、種別TXT・ホスト名は空欄・内容に表示された文字列を貼り付けます。</div></li>
+    <li><div><strong>Postmaster Tools側で「確認」を押す</strong><br>DNSが反映されると認証が通ります。失敗する場合は数時間〜最大24時間待って再度確認します。</div></li>
+    <li><div><strong>データが溜まるのを待つ</strong><br>最初に各グラフで「データが不足しています」と表示されても正常です。</div></li>
+  </ol>
+  <div class="taf-pm-warning"><strong>TXTレコードを消さないでください：</strong>確認用TXTはSPFとは別の行として追加します。TXTレコードは複数行あっても問題ありません。既存のSPF（<span class="taf-pm-code">v=spf1…</span>）を上書きしたり削除したりしないでください。</div>
+
+  <h2>【重要】データが出るには「送信量」が必要</h2>
+  <p>Postmaster Toolsは、<strong>ある程度の送信量がないとデータが表示されません</strong>。そのため、小規模なうちは「登録したのに数字が出ない」状態が続くことがありますが、異常ではありません。</p>
+  <div class="taf-pm-check"><strong>おすすめの順番：</strong>先に登録とドメイン認証だけを済ませ、メルマガなどで配信量が増えたらデータを確認しましょう。</div>
+  <p>WordPressでメルマガを始める方法は、<a href="https://taf-design.com/mailpoet-brevo-setup/">WordPressで無料メルマガを始める｜MailPoet×Brevoの設定手順</a>で解説しています。</p>
+
+  <h2>データが出たら、どこを見るか</h2>
+  <p>配信を始めてデータが溜まったら、週1回ほど次の2つを確認すれば十分です。</p>
+  <table class="taf-pm-table">
+    <thead><tr><th>指標</th><th>見方</th><th>目安</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Spam rate<br>（迷惑メール率）</strong></td><td>最重要。ここが上がると全体が届きにくくなります。</td><td>0.1％未満を目標にし、0.3％を超えたら配信内容やリストを見直します。</td></tr>
+      <tr><td><strong>Domain Reputation</strong></td><td>送信ドメインの信用度です。</td><td>HighまたはMediumを維持します。</td></tr>
+    </tbody>
+  </table>
+
+  <h3>迷惑メール率を上げないための基本</h3>
+  <ul class="taf-pm-list">
+    <li>本人が登録した（オプトインした）相手にだけ送る</li>
+    <li>配信解除リンクを必ず入れ、見つけやすくする</li>
+    <li>送りすぎず、読者との関係に合った頻度を守る</li>
+  </ul>
+
+  <h2>まとめ</h2>
+  <ul class="taf-pm-list">
+    <li>Postmaster Toolsは、Gmailから見た自ドメインの評価を無料で確認できる健康診断ツールです。</li>
+    <li>登録は確認用TXTレコードをDNSに追加して行います。</li>
+    <li>送信量が少ないうちはデータが出なくても正常です。</li>
+    <li>データが出たら、迷惑メール率とドメイン評価を週1回確認します。</li>
+  </ul>
+  <p>送る側から見えない「到達の実態」を数字で持っておくと、メール施策の打ち手が変わります。まずは器だけ用意しておきましょう。</p>
+
+  <section class="taf-pm-cta">
+    <h2>メール周りをまとめて整えたい方へ</h2>
+    <p>「フォームの通知が届かない」「メルマガを始めたいが設定が不安」という方へ。メール到達の設定は、当方のWeb制作でも標準で行っています。設定代行も承っています。</p>
+    <div class="taf-pm-cta-links">
+      <a href="https://taf-design.com/offer2/">無料相談・お問い合わせ</a>
+      <a href="https://taf-design.com/order/">1分でわかる自動見積もり</a>
+    </div>
+  </section>
+</article>
