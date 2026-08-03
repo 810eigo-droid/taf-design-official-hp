@@ -1,5 +1,6 @@
 <!--
 WordPress公開設定（本文には貼り付けない）
+投稿タイトルはWordPress側で入力し、テーマがH1・著者・公開日を表示するため、本文HTML内には重複して入れない
 スラッグ: postmaster-tools-guide
 SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷惑メール率を無料で見る
 メタディスクリプション: Google Postmaster Toolsの登録手順と見方を解説。Gmailから見たドメイン評価、迷惑メール率、SPF・DKIM・DMARCの認証状況を無料で確認し、メール到達率の悪化を早めに発見できます。
@@ -68,8 +69,6 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
     margin: 0 0 32px;
   }
   .taf-pm-kicker { color: var(--blue); font-size: .9rem; font-weight: 800; margin: 0 0 12px; }
-  .taf-pm-byline { color: var(--muted); font-size: .9rem; margin: 0 0 18px; }
-  .taf-pm-hero h1 { margin: 0 0 18px; font-size: clamp(1.75rem, 1.25rem + 1.8vw, 3rem); line-height: 1.35; }
   .taf-pm-lead { color: #344052; font-size: clamp(1.02rem, .96rem + .25vw, 1.18rem); }
   .taf-pm-summary, .taf-pm-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
   .taf-pm-summary-item, .taf-pm-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
@@ -111,8 +110,6 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
 <article class="taf-postmaster-article">
   <section class="taf-pm-hero">
     <p class="taf-pm-kicker">Gmailへの到達状況を無料で監視</p>
-    <h1>Google Postmaster Toolsの登録方法と見方｜独自ドメインの迷惑メール率を無料で監視する</h1>
-    <p class="taf-pm-byline">著者：TAF Design　公開日：2026年7月24日　更新日：2026年8月3日</p>
     <p class="taf-pm-lead">送ったメールがGmailにどう見られているかを、ドメイン評価・迷惑メール率・認証成功率などの数字で確認できる無料ツールの登録手順と見方を解説します。</p>
     <div class="taf-pm-summary" aria-label="この記事でわかること">
       <div class="taf-pm-summary-item"><strong>登録方法</strong><span>DNSへ確認用TXTレコードを追加します。</span></div>
