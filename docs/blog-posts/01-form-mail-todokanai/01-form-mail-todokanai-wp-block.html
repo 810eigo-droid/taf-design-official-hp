@@ -76,14 +76,6 @@
     background: var(--taf-blue);
   }
 
-  .taf-hero h1 {
-    max-width: 780px;
-    margin: 0 0 18px;
-    font-size: clamp(1.75rem, 1.25rem + 1.8vw, 3rem);
-    line-height: 1.35;
-    letter-spacing: 0;
-  }
-
   .taf-lead {
     max-width: 760px;
     color: #344052;
@@ -333,10 +325,41 @@
   }
 </style>
 
+<!--
+WordPress公開設定（本文には貼り付けない）
+投稿タイトル: お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定
+投稿タイトルはWordPress側で入力し、テーマがH1を表示するため、本文HTML内には重複して入れない
+管理用の記事番号「01.」はWordPress投稿タイトルへ入れない
+スラッグ: form-mail-todokanai
+カテゴリー: メールの届け方
+SEOタイトル: お問い合わせフォームのメールが届かない？エックスサーバーでできる3つの設定
+メタディスクリプション: お問い合わせフォームの通知や自動返信メールが届かない・迷惑メールに入る原因の一つが送信ドメイン認証の未設定です。エックスサーバーで確認できるSPF・DKIM・DMARCの設定手順を解説します。
+robots: index, follow
+canonical: https://taf-design.com/form-mail-todokanai/
+キーワード: 空欄
+OG画像: https://taf-design.com/wp-content/uploads/2026/07/form-mail-eyecatch.png
+公開日: 2026年7月23日 / 更新日: 2026年8月3日
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定",
+  "description": "お問い合わせフォームの通知や自動返信メールが届かない場合に、エックスサーバーで確認できるSPF・DKIM・DMARCの設定手順を解説します。",
+  "image": "https://taf-design.com/wp-content/uploads/2026/07/form-mail-eyecatch.png",
+  "datePublished": "2026-07-23T09:00:00+09:00",
+  "dateModified": "2026-08-03T09:00:00+09:00",
+  "author": { "@type": "Organization", "name": "TAF Design", "url": "https://taf-design.com/" },
+  "publisher": { "@type": "Organization", "name": "TAF Design", "url": "https://taf-design.com/" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://taf-design.com/form-mail-todokanai/" },
+  "inLanguage": "ja-JP"
+}
+</script>
+
 <article class="taf-mail-article">
   <section class="taf-hero">
     <p class="taf-kicker">WordPressのお問い合わせフォーム改善</p>
-    <h1>お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定</h1>
     <p class="taf-lead">送信テストをしたのに通知が来ない。お客様への自動返信が迷惑メールに入る。そんなとき、フォーム本体ではなく「メールの本人確認設定」が原因になっていることがあります。</p>
     <div class="taf-summary" aria-label="この記事でわかること">
       <div class="taf-summary-item">
@@ -354,14 +377,21 @@
     </div>
   </section>
 
+  <div class="taf-check">
+    <strong>先に結論：</strong>エックスサーバーで運用するWordPressのフォームメールが届かない場合は、DKIM・SPF・DMARCの設定状況を確認します。ただし、認証設定だけで配信を保証するものではありません。送信元アドレス、SMTP、通知先、迷惑メール判定もあわせて確認してください。
+  </div>
+
   <p>お問い合わせフォームを設置したのに、「送信テストしたのにメールが来ない」「お客様からの問い合わせ通知が迷惑メールに入っていた」という経験はありませんか。</p>
-  <p>実はこれ、フォームの故障ではないことがほとんどです。原因の多くは、メールの「本人確認」にあたる<strong>送信ドメイン認証</strong>が整っていないことです。</p>
+  <p>フォーム本体の故障だけでなく、メールの「本人確認」にあたる<strong>送信ドメイン認証</strong>が整っていないことも原因になります。</p>
   <p>この記事では、エックスサーバーを使っている方向けに、<strong>無料で・今日中にできる3つの設定</strong>を解説します。設定後は、無料の採点サイトで状態を確認するところまで進めましょう。</p>
+
+  <div class="taf-note">
+    <strong>関連する次のステップ：</strong>認証設定後にメルマガを始める場合は<a href="https://taf-design.com/mailpoet-brevo-setup/">MailPoet×Brevoの設定手順</a>、Gmailから見た評価を確認する場合は<a href="https://taf-design.com/postmaster-tools-guide/">Google Postmaster Toolsの登録方法と見方</a>も参考にしてください。
+  </div>
 
   <figure class="taf-article-image">
     <img src="https://taf-design.com/wp-content/uploads/2026/07/form-mail-auth-flow.png" alt="フォームメールが受信箱に届くまでのSPF・DKIM・DMARC認証フロー図" loading="lazy" decoding="async">
   </figure>
-  </div>
 
   <h2>なぜフォームのメールは届かなくなったのか</h2>
   <p>2024年以降、Gmailをはじめとする受信側のメールサービスは、送信者を確認できないメールへの判定を強化しています。Googleの送信者ガイドラインでも、Gmail宛に送るメールではSPFまたはDKIMの設定が求められ、大量送信者にはSPF・DKIM・DMARCの設定が求められています。</p>
@@ -469,6 +499,10 @@
       <summary>WordPressのフォームだけ届かない</summary>
       <p>送信ドメイン認証に加えて、フォーム側の送信元メールアドレス、SMTP設定、管理者通知先、迷惑メールフォルダも確認しましょう。</p>
     </details>
+    <details>
+      <summary>SPF・DKIM・DMARCを設定すれば必ず届きますか？</summary>
+      <p>必ず届くことを保証する設定ではありません。認証は重要な判断材料ですが、送信元アドレス、メール本文、送信量、IPやドメインの評価、受信側のフィルターなども配信結果に影響します。</p>
+    </details>
   </div>
 
   <h2>まとめ：3つの設定で「届くフォーム」に近づける</h2>
@@ -489,7 +523,14 @@
     </div>
   </section>
 
-  <p class="taf-small">参考：<a href="https://support.google.com/mail/answer/81126">Google「Email sender guidelines」</a>、<a href="https://www.xserver.ne.jp/support/faq/service_mail_trouble_spf_dkim_dmarc_set_notification.php">エックスサーバー公式FAQ</a></p>
+  <div class="taf-small" aria-label="参考資料">
+    <strong>参考資料</strong>
+    <ul class="taf-list">
+      <li><a href="https://support.google.com/mail/answer/81126" rel="noopener noreferrer">Google「メール送信者のガイドライン」</a></li>
+      <li><a href="https://www.xserver.ne.jp/support/faq/service_mail_trouble_err_mail_sender_gmail.php" rel="noopener noreferrer">エックスサーバー「Gmailへメールが送信できません」</a></li>
+      <li><a href="https://www.xserver.ne.jp/manual/man_mail_dmarc.php" rel="noopener noreferrer">エックスサーバー「DMARC設定」</a></li>
+    </ul>
+  </div>
 </article>
 
 
