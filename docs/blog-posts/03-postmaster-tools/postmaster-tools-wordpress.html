@@ -12,8 +12,9 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Google Postmaster Toolsの登録方法と見方｜自ドメインの迷惑メール率を無料で監視する",
+  "headline": "Google Postmaster Toolsの登録方法と見方｜独自ドメインの迷惑メール率を無料で監視する",
   "description": "Google Postmaster Toolsの登録手順と、Gmailから見たドメイン評価・迷惑メール率・認証状況の確認方法を解説します。",
+  "image": "https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-1.webp",
   "datePublished": "2026-07-24T09:00:00+09:00",
   "dateModified": "2026-08-03T12:00:00+09:00",
   "author": {
@@ -74,6 +75,9 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
   .taf-pm-summary-item, .taf-pm-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
   .taf-pm-summary-item strong, .taf-pm-card strong { display: block; margin-bottom: 4px; }
   .taf-pm-summary-item span, .taf-pm-card p { color: var(--muted); font-size: .94rem; }
+  .taf-pm-figure { margin: 28px 0; }
+  .taf-pm-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+  .taf-pm-figure figcaption { color: var(--muted); font-size: .85rem; margin-top: 8px; text-align: center; }
   .taf-pm-note, .taf-pm-warning, .taf-pm-check, .taf-pm-cta { border-radius: 8px; padding: 18px 20px; margin: 22px 0; }
   .taf-pm-note { background: #eaf4ff; border: 1px solid #bfdcfb; }
   .taf-pm-warning { background: #fff5ec; border: 1px solid #f7c9a3; }
@@ -107,7 +111,7 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
 <article class="taf-postmaster-article">
   <section class="taf-pm-hero">
     <p class="taf-pm-kicker">Gmailへの到達状況を無料で監視</p>
-    <h1>Google Postmaster Toolsの登録方法と見方｜自ドメインの迷惑メール率を無料で監視する</h1>
+    <h1>Google Postmaster Toolsの登録方法と見方｜独自ドメインの迷惑メール率を無料で監視する</h1>
     <p class="taf-pm-byline">著者：TAF Design　公開日：2026年7月24日　更新日：2026年8月3日</p>
     <p class="taf-pm-lead">送ったメールがGmailにどう見られているかを、ドメイン評価・迷惑メール率・認証成功率などの数字で確認できる無料ツールの登録手順と見方を解説します。</p>
     <div class="taf-pm-summary" aria-label="この記事でわかること">
@@ -121,6 +125,11 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
     <strong>先に結論：</strong>Google Postmaster Toolsは、Gmail宛に送ったメールの迷惑メール率や送信ドメインの評価を無料で確認するツールです。登録は、Googleが発行する確認用TXTレコードをDNSへ追加して行います。送信量が少ない場合はデータが表示されないことがあります。
   </div>
 
+  <figure class="taf-pm-figure">
+    <img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-1.webp" alt="Google Postmaster Toolsで迷惑メール率とドメイン評価を無料で確認する方法" loading="eager" decoding="async">
+    <figcaption>Google Postmaster Toolsで、Gmailへのメール到達状況を可視化できます。</figcaption>
+  </figure>
+
   <p>「メルマガやお問い合わせの通知メール、ちゃんと届いているのかな？」——送る側からは、相手の受信トレイに入ったか、迷惑メールに落ちたか、まったく見えません。</p>
   <p>その見えない部分を数字で見せてくれる無料ツールが、<strong>Google Postmaster Tools（ポストマスターツール）</strong>です。Gmailがあなたのドメインをどう評価しているかが分かります。この記事では登録手順と、見るべきポイントを解説します。</p>
 
@@ -133,9 +142,17 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
   </div>
   <p>メール配信の「健康診断の結果表」のようなものです。特に迷惑メール率は、放置すると全体の到達率を一気に下げるため、早めに気づくためのレーダーになります。</p>
   <p>Googleの公式案内によると、表示されるデータは<strong>個人向けGmail（@gmail.com、@googlemail.com）宛のメール</strong>が対象で、リアルタイムではありません。企業のGoogle Workspace宛を含む、すべての送信結果を示すものではない点に注意してください。</p>
+  <figure class="taf-pm-figure">
+    <img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-2.webp" alt="Google Postmaster Toolsがドメイン評価・迷惑メール率・認証成功率・TLS率を数値化する仕組み" loading="lazy" decoding="async">
+    <figcaption>送信者から見えないGmail側の判断を、4つの指標で確認します。</figcaption>
+  </figure>
   <div class="taf-pm-note"><strong>先に確認したいこと：</strong>送信ドメイン認証（SPF・DKIM・DMARC）がまだの方は、先に <a href="https://taf-design.com/form-mail-todokanai/">お問い合わせフォームのメールが届かない？エックスサーバーで無料でできる3つの設定</a> を済ませておくと、Postmaster Toolsの数字も意味を持ちます。</div>
 
   <h2>登録手順（6ステップ・約10分）</h2>
+  <figure class="taf-pm-figure">
+    <img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-3.webp" alt="Google Postmaster ToolsをDNSのTXTレコードで認証する6ステップの登録手順" loading="lazy" decoding="async">
+    <figcaption>ログインからTXTレコードの認証、データが溜まるまでの流れです。</figcaption>
+  </figure>
   <ol class="taf-pm-steps">
     <li><div><strong>ツールを開いてGoogleでログイン</strong><br><a href="https://postmaster.google.com/" rel="noopener noreferrer">Google Postmaster Tools</a>を開き、事業で使っているGoogleアカウントでログインします。</div></li>
     <li><div><strong>ドメインを追加</strong><br>画面右下の「＋」から自分のドメインを入力します。<span class="taf-pm-code">https://</span>や<span class="taf-pm-code">www.</span>は付けません。</div></li>
@@ -153,6 +170,10 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
 
   <h2>データが出たら、どこを見るか</h2>
   <p>配信を始めてデータが溜まったら、週1回ほど次の2つを確認すれば十分です。</p>
+  <figure class="taf-pm-figure">
+    <img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-4.webp" alt="Google Postmaster Toolsで確認する迷惑メール率とドメイン評価の目安" loading="lazy" decoding="async">
+    <figcaption>まずは迷惑メール率とドメイン評価の2項目を確認します。</figcaption>
+  </figure>
   <table class="taf-pm-table">
     <thead><tr><th>指標</th><th>見方</th><th>目安</th></tr></thead>
     <tbody>
@@ -205,6 +226,11 @@ SEOタイトル: Google Postmaster Toolsの使い方｜ドメイン評価・迷�
       <li><a href="https://support.google.com/mail/answer/14289100" rel="noopener noreferrer">Google「メール送信者のガイドラインとPostmaster Toolsに関するよくある質問」</a></li>
     </ul>
   </aside>
+
+  <figure class="taf-pm-figure">
+    <img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-5.webp" alt="フォーム通知やメルマガのメール到達設定に関するTAF Designの相談案内" loading="lazy" decoding="async">
+    <figcaption>フォーム通知やメルマガ設定に不安がある方はご相談ください。</figcaption>
+  </figure>
 
   <section class="taf-pm-cta">
     <h2>メール周りをまとめて整えたい方へ</h2>
