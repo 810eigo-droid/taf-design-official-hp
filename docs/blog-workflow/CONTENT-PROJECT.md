@@ -177,6 +177,13 @@ newsletter/
 - [ ] CTAリンクを確認
 - [ ] SEOタイトルを設定
 - [ ] メタディスクリプションを設定
+- [ ] robotsが公開記事用の `index, follow` になっている
+- [ ] canonical URLが実際の公開URLと一致している
+- [ ] タグ欄へSEOタイトルや説明文を入れていない
+- [ ] 著者名・公開日・更新日を確認
+- [ ] 公式出典と内部リンクを確認
+- [ ] OG画像と画像altを確認
+- [ ] BlogPosting構造化データが本文・公開URLと一致している
 
 投稿後:
 
@@ -184,6 +191,10 @@ newsletter/
 - [ ] スマホ表示を確認
 - [ ] Search ConsoleでURL検査
 - [ ] インデックス登録をリクエスト
+- [ ] 公開ページのtitle・description・canonical・robotsを確認
+- [ ] リッチリザルトテストで構造化データを確認
+- [ ] XMLサイトマップに公開URLが含まれることを確認
+- [ ] Googlebot・Bingbot・OAI-SearchBotを意図せず遮断していない
 - [ ] note用原稿を投稿または予約
 - [ ] メルマガ用に短く再編集
 
