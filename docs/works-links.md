@@ -24,6 +24,8 @@
 | 12 | デカ目になれる | https://demo1129.my.canva.site/dahhh-e1eae | work-12.jpg(未) | ⏳ 画像待ち・カード未追加 |
 | 13 | ネオビジョン | https://mellow-concha-95d5a0.netlify.app/ | work-13.jpg(未) | ⏳ 画像待ち・カード未追加 |
 | 14 | インソール(WordPress) | https://insole-care.com/ | work-14.jpg(未) | ⏳ 画像待ち・カード未追加 |
+| 15 | KINDER | https://elementor.810eigo.com/ | work-15.jpg(未) | ⏳ 画像待ち・カード未追加 |
+| 16 | リフトアップ | https://demo1129.my.canva.site/dag8-tzv-ei | work-16.jpg(未) | ⏳ 画像待ち・カード未追加 |
 
 ## 次のアクション
 - 09〜14の画像(work-09.jpg〜work-14.jpg 相当)をGitに入れ次第、カードを追加してリンク設定する
@@ -34,3 +36,4 @@
 - 2026-08-04 01〜08にリンク設定(新タブ)。09〜14を台帳に登録(画像待ち)。
 - 2026-08-04 05のリンクを swell.810eigo.com → demo1129.my.canva.site/dag9rvyobwg(パーソナルジム)に変更。
 - 2026-08-04 各作品の名称(備忘録)を記録。
+- 2026-08-04 15(KINDER)・16(リフトアップ)を追加。WORKS合計16件に。
