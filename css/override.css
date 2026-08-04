@@ -7824,15 +7824,16 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 32px;
-  background: transparent;
-  color: #E8C875;
+  padding: 15px 36px;
+  background: rgba(20, 18, 12, 0.45);
+  color: #F5E4B0;
   font-family: 'Noto Serif JP', serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: 0.15em;
   text-decoration: none;
-  border: 1px solid #C5A059;
+  border: 1.5px solid #E8C875;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25);
   transition: all 0.3s ease;
 }
 .works-cta-btn::after {
@@ -7840,8 +7841,9 @@
   transition: transform 0.3s ease;
 }
 .works-cta-btn:hover {
-  background: #C5A059;
+  background: #E8C875;
   color: #2C2C22;
+  border-color: #E8C875;
 }
 .works-cta-btn:hover::after {
   transform: translateX(4px);
