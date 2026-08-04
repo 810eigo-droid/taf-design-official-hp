@@ -950,42 +950,42 @@ html { scroll-padding-top: 64px; }
   </header>
 
   <div class="works-canvas">
-    <a href="#" class="work-card work-01" data-index="0">
+    <a href="https://gofukuno-yokoo.com/kimono-care-event-fukuoka/" target="_blank" rel="noopener noreferrer" class="work-card work-01" data-index="0">
       <span class="work-num">01</span>
       <img src="images/work-01.jpg" alt="WORK 01" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-02" data-index="1">
+    <a href="https://demo1129.my.canva.site/dahihgbbow0" target="_blank" rel="noopener noreferrer" class="work-card work-02" data-index="1">
       <span class="work-num">02</span>
       <img src="images/work-02.jpg" alt="WORK 02" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-03" data-index="2">
+    <a href="https://eyespa-academy.com/lp/" target="_blank" rel="noopener noreferrer" class="work-card work-03" data-index="2">
       <span class="work-num">03</span>
       <img src="images/work-03.jpg" alt="WORK 03" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-04" data-index="3">
+    <a href="https://swell.810eigo.com/" target="_blank" rel="noopener noreferrer" class="work-card work-04" data-index="3">
       <span class="work-num">04</span>
       <img src="images/work-04.jpg" alt="WORK 04" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-05" data-index="4">
+    <a href="https://swell.810eigo.com/" target="_blank" rel="noopener noreferrer" class="work-card work-05" data-index="4">
       <span class="work-num">05</span>
       <img src="images/work-05.jpg" alt="WORK 05" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-06" data-index="5">
+    <a href="https://cryptonova.jp/evidence-info/" target="_blank" rel="noopener noreferrer" class="work-card work-06" data-index="5">
       <span class="work-num">06</span>
       <img src="images/work-06.jpg" alt="WORK 06" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-07" data-index="6">
+    <a href="https://fanglam.my.canva.site/" target="_blank" rel="noopener noreferrer" class="work-card work-07" data-index="6">
       <span class="work-num">07</span>
       <img src="images/work-07.jpg" alt="WORK 07" loading="lazy">
       <span class="work-zoom"></span>
     </a>
-    <a href="#" class="work-card work-08" data-index="7">
+    <a href="https://illustrious-zuccutto-cdc1f2.netlify.app/" target="_blank" rel="noopener noreferrer" class="work-card work-08" data-index="7">
       <span class="work-num">08</span>
       <img src="images/work-08.jpg" alt="WORK 08" loading="lazy">
       <span class="work-zoom"></span>
@@ -1048,6 +1048,8 @@ html { scroll-padding-top: 64px; }
 
   document.querySelectorAll('.work-card').forEach((card, idx) => {
     card.addEventListener('click', (e) => {
+      const href = card.getAttribute('href');
+      if (href && href !== '#') return; // 外部リンク付きカードはそのまま新規タブで遷移
       e.preventDefault();
       showLightbox(idx);
     });
