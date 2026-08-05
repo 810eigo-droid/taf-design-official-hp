@@ -7,6 +7,10 @@
             混入し全JS停止 → 文字列連結に修正(資料案内→返信案内の順)
             2026-07-22 メルマガ登録の明示文言(オプトイン表記)をJSで自動挿入
             (最終ステップの「送信後、1〜2営業日〜」の下に小さく表示。CF7側の編集は不要)
+            2026-08-05 電話相談ステップ対応(任意)。CF7側に tel-consult / tel-number /
+            tel-time の項目追加が必要(docs/wp-blocks/wp-offer2-cf7-phone-fields.md 参照)。
+            ラジオのカード風スタイル・「希望する」選択時のみ番号欄を表示・
+            番号の形式チェック・送信完了画面に電話予約の受領メッセージを追加
   文言変更時の注意: card.innerHTML の各行は + '〜' の形(クォートの中だけ)を書き換えること
 ============================================================ -->
 <div class="taf-offer2">
@@ -56,6 +60,7 @@
 /* 入力欄 */
 .taf-offer2 .wpcf7-form input[type=text],
 .taf-offer2 .wpcf7-form input[type=email],
+.taf-offer2 .wpcf7-form input[type=tel],
 .taf-offer2 .wpcf7-form textarea{
   width:100%;border:1.5px solid #E5E8EC;border-radius:12px;padding:15px 16px;
   font-size:16px;background:#fbfcfd;margin-top:2px;transition:.15s;box-sizing:border-box;font-family:inherit;}
@@ -64,16 +69,30 @@
   outline:none;border-color:#00A2DE;background:#fff;box-shadow:0 0 0 4px rgba(0,162,222,.12);}
 .taf-offer2 .wpcf7-form textarea{min-height:120px;}
 
-/* チェックをカード風に */
-.taf-offer2 .wpcf7-checkbox{display:grid;grid-template-columns:1fr;gap:9px;margin-top:4px;}
-.taf-offer2 .wpcf7-checkbox .wpcf7-list-item{margin:0;display:block;}
-.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label{
+/* チェック・ラジオをカード風に */
+.taf-offer2 .wpcf7-checkbox,
+.taf-offer2 .wpcf7-radio{display:grid;grid-template-columns:1fr;gap:9px;margin-top:4px;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item,
+.taf-offer2 .wpcf7-radio .wpcf7-list-item{margin:0;display:block;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label,
+.taf-offer2 .wpcf7-radio .wpcf7-list-item label{
   display:flex;align-items:center;border:1.5px solid #E5E8EC;border-radius:12px;
   padding:13px 15px;font-size:13.5px;font-weight:700;color:#3a4048;background:#fff;
   cursor:pointer;transition:.12s;line-height:1.45;margin:0;}
-.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:hover{border-color:#9fd6ec;}
-.taf-offer2 .wpcf7-checkbox input{margin:0 10px 0 0;accent-color:#00A2DE;width:17px;height:17px;flex:none;}
-.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:has(input:checked){border-color:#00A2DE;background:#ECF4F9;color:#0a5c7d;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:hover,
+.taf-offer2 .wpcf7-radio .wpcf7-list-item label:hover{border-color:#9fd6ec;}
+.taf-offer2 .wpcf7-checkbox input,
+.taf-offer2 .wpcf7-radio input{margin:0 10px 0 0;accent-color:#00A2DE;width:17px;height:17px;flex:none;}
+.taf-offer2 .wpcf7-checkbox .wpcf7-list-item label:has(input:checked),
+.taf-offer2 .wpcf7-radio .wpcf7-list-item label:has(input:checked){border-color:#00A2DE;background:#ECF4F9;color:#0a5c7d;}
+
+/* 電話相談ステップ(2026-08-05追加) */
+.taf-offer2 .tf-tel-detail{display:none;margin-top:16px;padding:16px 14px 14px;background:#F4FAFD;border:1.5px solid #cfe8f4;border-radius:14px;}
+.taf-offer2 .tf-tel-detail.tf-show{display:block;animation:tfIn .25s ease;}
+.taf-offer2 .tf-tel-detail .lbl{font-size:14px;}
+/* 時間帯は2列(スマホでも収まる短いラベルのため) */
+.taf-offer2 [data-name="tel-time"] .wpcf7-radio{grid-template-columns:1fr 1fr;}
+.taf-offer2 .tf-tel-note{font-size:12px;color:#8a919b;margin:10px 0 0;line-height:1.7;}
 
 /* エラー */
 .taf-offer2 .tf-error{display:none;color:#e82e6c;font-size:12.5px;font-weight:700;margin-top:10px;}
@@ -119,6 +138,10 @@
 .taf-offer2 .tf-box-line p{font-size:13.5px;color:#0a7c3f;font-weight:700;margin:0 0 12px;line-height:1.8;}
 .taf-offer2 .tf-line-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#06C755;color:#fff;text-decoration:none;border-radius:999px;padding:14px 26px;font-size:15px;font-weight:900;box-shadow:0 10px 24px rgba(6,199,85,.35);transition:.15s;}
 .taf-offer2 .tf-line-btn:hover{filter:brightness(1.06);}
+.taf-offer2 .tf-box-tel{background:#EAF6FD;border:1.5px solid #00A2DE;}
+.taf-offer2 .tf-box-tel .tf-big{font-size:16px;font-weight:900;color:#0a5c7d;margin:0 0 8px;line-height:1.6;}
+.taf-offer2 .tf-box-tel p{font-size:13px;color:#25607a;margin:0;line-height:1.8;}
+.taf-offer2 .tf-box-tel b{background:#d3edfa;border-radius:6px;padding:1px 6px;}
 .taf-offer2 .tf-box-mail{background:#FFF6E5;border:1.5px solid #F6AC0E;}
 .taf-offer2 .tf-box-mail .tf-big{font-size:16px;font-weight:900;color:#8a5b00;margin:0 0 8px;line-height:1.6;}
 .taf-offer2 .tf-box-mail p{font-size:13px;color:#6b5327;margin:0;line-height:1.8;}
@@ -178,7 +201,32 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
         var any=false; cbs.forEach(function(c){ if(c.checked) any=true; });
         if(!any) return '1つ以上選択してください（「まずは相談したい」でもOKです）。';
       }
+      /* 電話相談: 「希望する」を選んだ時だけ番号を必須にする(項目自体は任意) */
+      var tcOn = s.querySelector('input[name="tel-consult"]:checked');
+      var tel  = s.querySelector('input[type=tel]');
+      if(tel && tcOn && tcOn.value.indexOf('希望する') === 0){
+        var tv = tel.value.trim();
+        if(!tv) return 'お電話番号をご入力ください。（「希望しない」に変更してもOKです）';
+        if(!/^[0-9０-９+＋()（）\-ー−\s]{10,16}$/.test(tv)) return 'お電話番号の形式をご確認ください。（例: 090-1234-5678）';
+      }
       return '';
+    }
+
+    /* 電話相談: 「希望する」選択時のみ番号・時間帯を表示 */
+    var telDetail = form.querySelector('.tf-tel-detail');
+    if(telDetail){
+      form.querySelectorAll('input[name="tel-consult"]').forEach(function(r){
+        r.addEventListener('change', function(){
+          var on = r.checked && r.value.indexOf('希望する') === 0;
+          telDetail.classList.toggle('tf-show', on);
+          if(on){
+            var telInput = telDetail.querySelector('input[type=tel]');
+            if(telInput && window.innerWidth > 700) setTimeout(function(){ telInput.focus(); }, 200);
+          }
+        });
+      });
+      var pre = form.querySelector('input[name="tel-consult"]:checked');
+      if(pre && pre.value.indexOf('希望する') === 0) telDetail.classList.add('tf-show');
     }
 
     function show(i){
@@ -205,7 +253,7 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
     btnBack.addEventListener('click', function(){ if(cur>0) show(cur-1); });
 
     form.addEventListener('keydown', function(e){
-      if(e.key==='Enter' && e.target.matches('input[type=text],input[type=email]')){
+      if(e.key==='Enter' && e.target.matches('input[type=text],input[type=email],input[type=tel]')){
         e.preventDefault(); btnNext.click();
       }
     });
@@ -232,11 +280,22 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
   /* 送信成功時に大きな「送信完了」画面を表示 */
   document.addEventListener('wpcf7mailsent', function(){
     if(window.fbq){ fbq('track','Lead'); }
+    if(window.gtag){ gtag('event','generate_lead',{form_id:'offer2'}); }
     var card = document.querySelector('.taf-offer2 .form-card');
     if(!card) return;
+    /* innerHTML差し替えの前に電話希望を読み取る */
+    var tc = document.querySelector('.taf-offer2 input[name="tel-consult"]:checked');
+    var wantTel = !!(tc && tc.value.indexOf('希望する') === 0);
+    var telBox = ''
+      + '<div class="tf-box tf-box-tel">'
+      + '<span class="tf-box-ic">📞</span>'
+      + '<p class="tf-big">お電話のご希望、承りました！</p>'
+      + '<p>ご記入いただいた時間帯に、<b>こちらからお掛けします</b>。<br>無料・10分程度です。売り込みはしません。</p>'
+      + '</div>';
     card.innerHTML = '<div class="tf-done">'
       + '<div class="tf-done-ic">✓</div>'
       + '<h3>送信ありがとうございます！</h3>'
+      + (wantTel ? telBox : '')
       + '<a class="tf-main-btn" href="https://taf-design.com/lp/service-guide.html">📄 資料を今すぐ見る →</a>'
       + '<div class="tf-box tf-box-line">'
       + '<span class="tf-box-ic">🎁</span>'
