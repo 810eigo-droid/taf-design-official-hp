@@ -1,52 +1,34 @@
-# WPブロック管理表(GitファイルとWordPressページの対応)
+# WPブロック管理表(このフォルダのファイル ⇄ WordPressページ)
 
-> 更新日: 2026-07-19
-> WordPressページのタイトルはこの表の「ページタイトル」に合わせて付ける。
-> 価格をタイトルに含めることで、管理画面でもお客様にも判別しやすくする。
+> **ファイル名 = WordPressのスラッグ に統一(2026-08-05リネーム)。**
+> `budget.html` → 固定ページ /budget/ のカスタムHTMLブロック、という対応。
+> 全18ページの横断対応表は TAF-V2meta-LP `docs/wp-page-map.md` が原本(旧名→新名の記録もそちら)。
+> 価格の原本は TAF-V2meta-LP `docs/price-master.md`。
 
 ## 固定ページ(1ファイル=1ページ)
 
-| Gitファイル | WordPressページタイトル | URL | 基本価格 |
+| ファイル | スラッグ | WordPressページタイトル | 備考 |
 |---|---|---|---|
-| `wp-lp-hp2-plan.html`(旧 `wp-lp-price-swell.html`) | LP・HPデザイン制作プラン(2万円〜) | `https://taf-design.com/lp-hp2/` | 2万円〜(7セクション・スマホ重視) |
-| `wp-hp-lp-plan.html` | WordPress HP/LP制作プラン(3万円〜) | `https://taf-design.com/hp3/` | 3万円〜(3〜4セクション) |
-| `wp-ai-app-plan.html` | 専用AIアプリ制作プラン(2.9万円〜) | `https://taf-design.com/app2_9/` | 2.9万円〜(公式HPは3万円表記・要統一) |
-| `wp-lp-hp-pro-70k.html` | プロ制作プラン(7万円〜)リスト取り特化 | `https://taf-design.com/lp7/` | 7万円〜(構成・文章・画像込み) |
-| `wp-funnel-plan.html` | HP/LP+セールスファネル一元化(15万円〜) | `https://taf-design.com/lp15/` | 15万円〜(工程少なら10万円〜) |
-| `wp-ad-operation-plan.html` | 広告運用・集客サポート(月1.8万円〜) | `https://taf-design.com/ad/` | 月1.8万円〜(標準は広告費の20%) |
-| `wp-budget-selector.html` | 先に、ご予算を教えてください(予算から選ぶ) | `https://taf-design.com/budget/` | — |
-| `wp-order-estimate-form.html` | 簡単見積もり-order(フォーム完成版・料金目安アコーディオン込み) | `https://taf-design.com/order/` | — |
-| `wp-offer2-contact-form.html` | お問い合わせV2(無料相談・資料請求ステップフォーム) | `https://taf-design.com/offer2/` | — |
+| `lp-hp2.html` | /lp-hp2/ | LP・HPデザイン制作プラン(2万円〜) | SWELL用。税込22,000円表記への修正が宿題 |
+| `hp3.html` | /hp3/ | WordPress HP/LP制作プラン(3万円〜) | 税込33,000円表記への修正が宿題 |
+| `app2_9.html` | /app2_9/ | 専用AIアプリ制作プラン(2.9万円〜) | スラッグはアンダースコア(app2-9はリンク切れ) |
+| `lp7.html` | /lp7/ | プロ制作プラン(7万円〜)リスト取り特化 | |
+| `lp15.html` | /lp15/ | HP/LP+セールスファネル一元化(15万円〜) | 工程少なら10万円〜 |
+| `ad.html` | /ad/ | 広告運用・集客サポート(月1.8万円〜) | **「広告費の20%/月・最低月11,000円(税込)」への修正が宿題**(price-master F2) |
+| `budget.html` | /budget/ | 先に、ご予算を教えてください(予算から選ぶ) | 2026-08-05 表示崩れ修正済み(7セクション版) |
+| `offer2.html` | /offer2/ | お問い合わせ2-renew | ステップフォームのガワ。CF7(dd3556d)側の電話項目追加は `offer2-cf7-phone-fields.md` の手順で |
+| `order-old.html` | /order/ | (旧版・使わない) | **正は TAF-V2meta-LP `wordpress/order.html`**(電話相談の条件分岐入り・2026-08-04)。この旧版には電話相談なし |
 
-※ **スラッグ(URL)は変更しないこと**。変えると設置済みのボタン・リンクが切れる。変更するのはページタイトルのみ。
-※ 2026-07-19 WP管理画面でタイトル付け替え・実URL確認済み。
+## 部品(ページ内に組み込むもの・1ページ=1ファイルではない)
 
-## その他の主要ページ(このリポジトリのブロック管理外・リンク先として使用)
+| ファイル | 用途 |
+|---|---|
+| `parts-quick-estimate-button.html` | 簡単見積もりボタン。各プランページの上下に設置(2026-07-17設置済み) |
+| `order-parts-price-accordion.html` | /order/ フォーム内「料金の目安」開閉アコーディオン |
+| `parts-selfkeep-pack.html` | 保守の2択「任せる vs 自分で守る」。/price/ 保守セクション付近など |
 
-| WordPressページタイトル | URL | 役割 |
-|---|---|---|
-| 料金表 | `https://taf-design.com/price/` | 料金の総合ページ |
-| 5,000円OFFクーポン(5万円以上ご利用) | `https://taf-design.com/coupon/` | クーポン配布 |
-| クーポン受け取りTHANKYOUV2 | `https://taf-design.com/coupon-thanks/` | クーポンのサンクスページ |
-| Privacy-policy | `https://taf-design.com/privacy-policy/` | プライバシーポリシー |
-| 利用規約 | `https://taf-design.com/kiyaku/` | 利用規約 |
-| 特定商取引法に基づく表記 | `https://taf-design.com/tokushoho/` | 特商法表記 |
+## 運用ルール
 
-## 部品(ページに埋め込むパーツ・単体ページではない)
-
-| Gitファイル | 役割 | 設置先 |
-|---|---|---|
-| `wp-quick-estimate-button.html` | 簡単見積もりボタン(→/order/) | 全個別料金ページの上下 |
-| `wp-order-price-accordion.html` | 料金の目安の開閉表(to-price-linkと置換) | /order/ フォーム内 |
-| `wp-selfkeep-pack.html` | 保守の2択「任せる月額5,500円 vs 買い切り16,500円」比較ブロック | 料金表(/price/)の保守付近など(設置先は未定) |
-
-## 共通ルール
-
-- リンク: 見積もり=`https://taf-design.com/order/` / 相談・資料=`https://taf-design.com/offer2/`
-- **スマホ優先の導線ルール: 同一ドメイン内のリンクに `target="_blank"` を使わない**。
-  スマホは「ブラウザの戻るボタン」でしか戻れない人が多いため、別タブで開くと迷子になる。
-  PDF表示・印刷ボタンも同様に、戻るで帰れる挙動にする。
-  (tel: / mailto: / LINE(lin.ee)など外部アプリを起動する系は例外)
-- 価格の原本: `810eigo-droid/TAF-V2meta-LP` の `docs/price-master.md`(照合状況は各ファイル冒頭のコメント参照)
-- ブロックを更新したら: WordPressに貼り直し+このリポジトリの該当ファイルも更新(二重編集しない)
-- /order/ フォームの完成版控えは `wp-order-estimate-form.html`(原本管理はTAF-V2meta-LP。更新したら両方に反映)
+- **スラッグ(URL)は変更しないこと**。変えると設置済みのボタン・リンクが切れる。変えるのはページタイトルのみ
+- ファイルを追加するときも**スラッグと同じ名前**を付けること(部品は `parts-` / ページ内部品は `<スラッグ>-parts-` プレフィックス)
+- 価格変更は price-master.md → 各ファイル → WPの順に反映

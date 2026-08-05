@@ -30,7 +30,7 @@
 - [ ] **本番反映**:今日のindex.html+css/override.css+images(work-09〜16.jpg)をエックスサーバーへアップ
 - [ ] 06 WORKSの画像を仮想通貨アプリ画像に差し替え(work-06.jpg 同名上書きでOK)
 - [ ] スマホのクロージング(SECTION15)崩れ修正(ボタン折返し・見積もり導線・上に戻るボタン重なり)
-- [ ] /budget/ に電話相談バナー追加(docs/wp-blocks/wp-budget-selector.html)
+- [ ] /budget/ に電話相談バナー追加(docs/wp-blocks/budget.html)
 - [ ] WordPress固定ページの価格税込同期(/lp-hp2/ /hp3/ /ad/ /app2_9/)※このGit外
 - [ ] fv-bg.webp / fv-bg-sp.webp のAI生成・配置
 - [ ] 既存リードへのフォローメール送信(docs/manual-followup-existing-leads.md)

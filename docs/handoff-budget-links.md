@@ -9,7 +9,7 @@
 - 「まずは予算」ポリシーのハブページ。予算(〜2万/2〜5万/5〜10万/10万以上)を選ぶと
   「残すもの/後回しにするもの」が切り替わるセレクターつき
 - 全プラン個別ページへのリンクを持ち、CTAは /order/(見積もり)に接続済み
-- ブロック原本: 公式HPリポジトリ `docs/wp-blocks/wp-budget-selector.html`
+- ブロック原本: 公式HPリポジトリ `docs/wp-blocks/budget.html`
 - 公式HP側の導線は設置済み: トップナビ「まずは予算から選ぶ」/ハンバーガー/フッター料金・プラン列
 
 ## リンクルール(全チャット共通)
@@ -46,7 +46,7 @@
 
 ## ボタンの見た目(流用可)
 
-公式HPリポジトリ `docs/wp-blocks/wp-quick-estimate-button.html` の
+公式HPリポジトリ `docs/wp-blocks/parts-quick-estimate-button.html` の
 簡単見積もりボタンと同型で、文言・リンク先を差し替えるのが手早い:
 
 - メイン文言: 「まずは予算から選ぶ」
