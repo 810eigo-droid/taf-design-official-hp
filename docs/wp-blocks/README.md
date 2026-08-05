@@ -8,7 +8,7 @@
 
 | Gitファイル | WordPressページタイトル | URL | 基本価格 |
 |---|---|---|---|
-| `wp-lp-price-swell.html` | LP・HPデザイン制作プラン(2万円〜) | `https://taf-design.com/lp-hp2/` | 2万円〜(5セクション・スマホ重視) |
+| `wp-lp-hp2-plan.html`(旧 `wp-lp-price-swell.html`) | LP・HPデザイン制作プラン(2万円〜) | `https://taf-design.com/lp-hp2/` | 2万円〜(5セクション・スマホ重視) |
 | `wp-hp-lp-plan.html` | WordPress HP/LP制作プラン(3万円〜) | `https://taf-design.com/hp3/` | 3万円〜(3〜4セクション) |
 | `wp-ai-app-plan.html` | 専用AIアプリ制作プラン(2.9万円〜) | `https://taf-design.com/app2_9/` | 2.9万円〜(公式HPは3万円表記・要統一) |
 | `wp-lp-hp-pro-70k.html` | プロ制作プラン(7万円〜)リスト取り特化 | `https://taf-design.com/lp7/` | 7万円〜(構成・文章・画像込み) |
