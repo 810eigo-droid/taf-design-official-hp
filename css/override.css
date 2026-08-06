@@ -10237,3 +10237,37 @@ a.cl-collage {
   text-underline-offset: 3px;
 }
 .pp-alt-buyout-text a:hover{ color: #C5A059; }
+
+/* ============================================================
+   電話番号の留守番電話案内(2026-08-06追加)
+   掲載3か所のうち、メニュー内とクロージングに注記を表示
+   ============================================================ */
+.menu-contact-note {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cl-tel-note {
+  max-width: 640px;
+  margin: 16px auto 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: rgba(250, 250, 250, 0.55);
+}
+
+@media (max-width: 767px) {
+  .menu-contact-note {
+    font-size: 10.5px;
+    padding: 0 14px;
+  }
+  .cl-tel-note {
+    font-size: 11.5px;
+    padding: 0 18px;
+  }
+}
