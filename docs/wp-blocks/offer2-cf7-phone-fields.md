@@ -34,6 +34,50 @@
 | tel-number | `[tel]`・通常は非表示 | 「希望する」を選んだ時だけガワのJSが表示し、**その時だけ入力を要求**する（空のまま次へ進むとエラー、「希望しない」に戻せば通る） |
 | tel-time | ラジオ・「平日午後」を初期選択 | 選択肢は /order/ フォームと同一区分（平日午前/平日午後/夕方以降/土日） |
 
+## 1-b. フォームタブ全文（貼り付け後の完成形・2026-08-06記録）
+
+CF7のフォーム内容はWordPressにしか存在しないため、ここに控えを残す。
+管理画面で全選択して置き換えればこの状態に復元できる。
+
+```
+<div class="field">
+<p class="lbl">ご相談内容<span class="opt">複数OK</span></p>
+[checkbox* inquiry-type use_label_element "資料請求（資料だけ欲しい）" "LP（ランディングページ）制作について" "HP（ホームページ）制作について" "自動化・ファネル構築（メール/LINE/診断など）について" "AIを活用したサイト改善・集客について" "既存サイトの修正・リニューアルについて" "機能追加について" "その他・まずは相談したい（無料相談）"]
+</div>
+
+<div class="field">
+<label>お名前<span class="req">必須</span>
+[text* your-name placeholder "ニックネーム可"]</label>
+</div>
+
+<div class="field">
+<label>メールアドレス<span class="req">必須</span>
+[email* your-email placeholder "example@mail.com"]</label>
+</div>
+
+<div class="field">
+<span class="lbl">お電話でのご相談（無料・10分程度）<span class="opt">任意</span></span>
+[radio tel-consult use_label_element default:2 "希望する（こちらからお電話します）" "希望しない（メール・LINEで進めたい）"]
+<div class="tf-tel-detail">
+<label>お電話番号
+[tel tel-number placeholder "090-1234-5678"]</label>
+<span class="lbl">ご都合の良い時間帯</span>
+[radio tel-time use_label_element default:2 "平日午前" "平日午後" "夕方以降" "土日"]
+</div>
+<p class="tf-tel-note">※お電話が苦手な方は「希望しない」のままで大丈夫です。メール・LINEだけで最後まで進められます。<br>※内容が複雑な場合は、無料のZoom相談をご案内することもあります。</p>
+</div>
+
+<div class="field">
+<label>メッセージ<span class="opt">任意・スキップOK</span>
+[textarea your-message placeholder "空欄でもOKです。ご要望・ご予算・公開時期など、わかる範囲で。"]</label>
+</div>
+
+[submit "この内容で送信する"]
+<p class="submit-note">送信後、1〜2営業日以内にご返信します。</p>
+```
+
+ステップ順: ご相談内容 → お名前 → メールアドレス → **お電話でのご相談** → メッセージ（全5ステップ）
+
 ## 2. メールタブ（管理者宛て）に追記する行
 
 受信メールの本文に以下を追加してください（既存項目の下でOK）。
