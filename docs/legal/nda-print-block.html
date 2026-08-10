@@ -1,0 +1,169 @@
+<!-- ============================================================
+  秘密保持契約書(NDA)PDF作成用ブロック
+  貼り付け先: WordPress → 固定ページ(非公開推奨)→「カスタムHTML」ブロック
+  PDF化: ページをプレビュー表示 → ブラウザの印刷(Ctrl+P / ⌘+P)→「PDFに保存」
+         印刷時はこの契約書部分だけが出力されます(サイトのヘッダー等は消えます)
+  編集: 〔委託者名〕〔住所〕、締結日などは、このHTML内の文字を直接書き換えて使う
+  ⚠️ AIが作成したたたき台です。重要案件で使う前に専門家チェックを推奨。
+============================================================ -->
+<div class="taf-nda">
+<style>
+  .taf-nda {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: #fff;
+    color: #1a1a1a;
+    font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: left;
+  }
+  .taf-nda h1 {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: .35em;
+    margin: 0 0 32px;
+    padding: 0;
+    color: #1a1a1a;
+  }
+  .taf-nda h2 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 26px 0 6px;
+    padding: 0;
+    color: #1a1a1a;
+  }
+  .taf-nda p { margin: 0 0 10px; }
+  .taf-nda ol, .taf-nda ul { margin: 0 0 10px; padding-left: 1.6em; }
+  .taf-nda li { margin-bottom: 4px; }
+  .taf-nda .nda-sub { list-style: none; padding-left: 1.2em; }
+  .taf-nda .nda-note {
+    font-size: 11px;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    margin-bottom: 28px;
+  }
+  .taf-nda .nda-sign { margin-top: 48px; }
+  .taf-nda .nda-sign-row { margin-bottom: 36px; }
+  .taf-nda .nda-line {
+    display: inline-block;
+    min-width: 320px;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 0 4px 2px;
+  }
+  .taf-nda .nda-date { margin: 40px 0 32px; }
+  .taf-nda .nda-seal { color: #888; font-size: 12px; }
+
+  /* 印刷時: ページ内のこのブロックだけを出力する */
+  @media print {
+    body * { visibility: hidden; }
+    .taf-nda, .taf-nda * { visibility: visible; }
+    .taf-nda {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      font-size: 10.5pt;
+      line-height: 1.8;
+    }
+    .taf-nda .nda-note { display: none; }
+    .taf-nda h2 { break-after: avoid; }
+    .taf-nda .nda-sign { break-inside: avoid; }
+  }
+  @page { size: A4; margin: 22mm 20mm; }
+</style>
+
+<p class="nda-note">※この注意書きは印刷(PDF)には出ません。〔　〕の部分を先方の情報に書き換えてからPDF化してください。</p>
+
+<h1>秘密保持契約書</h1>
+
+<p>〔委託者名〕(以下「甲」という)と ティーチ&amp;ファネルDesign〔氏名:大村晃子〕(以下「乙」という)とは、甲乙間で行うウェブサイト・ランディングページ等の制作、保守管理およびこれらに付随する業務(以下「本取引」という)に関して開示される秘密情報の取扱いについて、次のとおり契約(以下「本契約」という)を締結する。</p>
+
+<h2>第1条(目的)</h2>
+<p>本契約は、本取引の遂行にあたり、甲または乙が相手方に開示する秘密情報の取扱いを定め、その秘密を保持することを目的とする。</p>
+
+<h2>第2条(秘密情報の定義)</h2>
+<ol>
+  <li>本契約において「秘密情報」とは、本取引に関連して、開示者が被開示者に対して開示した次の情報をいう。
+    <ol class="nda-sub">
+      <li>(1) 技術上、営業上、業務上の情報(顧客情報、売上情報、価格情報、企画・アイデアを含む)</li>
+      <li>(2) サーバー、ドメイン、WordPress等の管理画面のログイン情報(ID・パスワード・認証情報)</li>
+      <li>(3) 公開前のウェブサイト、デザイン、原稿、画像その他の制作物および素材</li>
+      <li>(4) 個人情報(個人情報の保護に関する法律に定めるもの)</li>
+      <li>(5) その他、開示の際に秘密である旨が明示された情報</li>
+    </ol>
+  </li>
+  <li>前項にかかわらず、次の各号のいずれかに該当する情報は、秘密情報に含まれない。
+    <ol class="nda-sub">
+      <li>(1) 開示を受けた時点で、既に公知であった情報</li>
+      <li>(2) 開示を受けた後、被開示者の責によらず公知となった情報</li>
+      <li>(3) 開示を受けた時点で、被開示者が既に正当に保有していた情報</li>
+      <li>(4) 被開示者が、正当な権限を有する第三者から秘密保持義務を負わずに適法に取得した情報</li>
+      <li>(5) 被開示者が、秘密情報によらず独自に開発・取得した情報</li>
+    </ol>
+  </li>
+</ol>
+
+<h2>第3条(秘密保持義務)</h2>
+<ol>
+  <li>被開示者は、秘密情報を善良な管理者の注意をもって管理し、開示者の事前の書面(電磁的方法を含む)による承諾なく、第三者に開示または漏えいしてはならない。</li>
+  <li>被開示者は、秘密情報を本取引の遂行の目的以外に使用してはならない。</li>
+</ol>
+
+<h2>第4条(ログイン情報等の取扱い)</h2>
+<ol>
+  <li>乙は、甲から預かったログイン情報等を、本取引の作業に必要な範囲でのみ使用する。</li>
+  <li>ログイン情報等の受け渡しは、可能な限り安全な方法(パスワード付きの共有等)で行う。</li>
+  <li>甲は、本取引終了後、乙に開示したパスワードを変更することができ、乙はこれに協力する。</li>
+</ol>
+
+<h2>第5条(例外的開示)</h2>
+<p>被開示者は、法令に基づき官公庁等から秘密情報の開示を求められた場合、必要最小限の範囲でこれを開示できる。この場合、被開示者は、可能な限り速やかに開示者にその旨を通知する。</p>
+
+<h2>第6条(再委託)</h2>
+<p>乙が本取引の一部を第三者に再委託する場合、乙は当該第三者に対し本契約と同等の秘密保持義務を課すものとし、当該第三者の行為について責任を負う。</p>
+
+<h2>第7条(制作実績としての公表)</h2>
+<p>乙は、甲の事前の承諾を得た場合に限り、本取引の成果物を乙の制作実績として公表することができる。承諾の有無および公表の範囲は、別途甲乙間で定める(注文時の取決めがある場合はそれに従う)。</p>
+
+<h2>第8条(返還・廃棄)</h2>
+<p>被開示者は、本取引が終了したとき、または開示者から請求があったときは、秘密情報(複製物を含む)を、開示者の指示に従い速やかに返還または廃棄する。ただし、法令上の保存義務がある場合、およびバックアップ目的で通常のシステム上に残存する場合はこの限りでない。</p>
+
+<h2>第9条(損害賠償)</h2>
+<p>甲または乙が本契約に違反し、相手方に損害を与えた場合、相手方に生じた通常かつ直接の損害を賠償する。</p>
+
+<h2>第10条(有効期間)</h2>
+<ol>
+  <li>本契約の有効期間は、締結日から本取引の終了日までとする。</li>
+  <li>前項にかかわらず、第3条ないし第5条および第8条・第9条の規定は、本取引終了後3年間、なお効力を有する。</li>
+</ol>
+
+<h2>第11条(協議)</h2>
+<p>本契約に定めのない事項または本契約の解釈に疑義が生じた事項については、甲乙誠意をもって協議のうえ解決する。</p>
+
+<h2>第12条(準拠法・合意管轄)</h2>
+<p>本契約は日本法に準拠し、本契約に関して紛争が生じた場合、乙の所在地を管轄する地方裁判所を第一審の専属的合意管轄裁判所とする。</p>
+
+<p style="margin-top:28px;">本契約の成立を証するため、本書を電磁的方法により作成し、甲乙それぞれ保管する。</p>
+
+<div class="nda-sign">
+  <p class="nda-date">締結日:20　　年　　月　　日</p>
+
+  <div class="nda-sign-row">
+    <p>甲　住所:<span class="nda-line">&nbsp;</span></p>
+    <p>　　氏名(名称・代表者名):<span class="nda-line">&nbsp;</span>　<span class="nda-seal">㊞</span></p>
+  </div>
+
+  <div class="nda-sign-row">
+    <p>乙　住所:<span class="nda-line">&nbsp;</span></p>
+    <p>　　ティーチ&amp;ファネルDesign</p>
+    <p>　　氏名:<span class="nda-line">大村 晃子</span>　<span class="nda-seal">㊞</span></p>
+  </div>
+</div>
+
+</div>
+<!-- /taf-nda ============================================================ -->
