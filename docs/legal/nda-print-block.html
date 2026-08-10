@@ -8,6 +8,19 @@
 ============================================================ -->
 <div class="taf-nda">
 <style>
+  /* ── 画面でもサイトの上部(管理バー・ヘッダー・パンくず)や下部(フッター)を隠し、契約書だけを表示 ── */
+  #wpadminbar { display: none !important; }
+  html { margin-top: 0 !important; }
+  body { background: #fff !important; }
+  body * { visibility: hidden; }
+  .taf-nda, .taf-nda * { visibility: visible; }
+  .taf-nda {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    z-index: 9999;
+    background: #fff;
+  }
+
   .taf-nda {
     max-width: 720px;
     margin: 0 auto;
@@ -81,7 +94,7 @@
 
 <h1>秘密保持契約書</h1>
 
-<p>〔委託者名〕(以下「甲」という)と ティーチ&amp;ファネルDesign〔氏名:大村晃子〕(以下「乙」という)とは、甲乙間で行うウェブサイト・ランディングページ等の制作、保守管理およびこれらに付随する業務(以下「本取引」という)に関して開示される秘密情報の取扱いについて、次のとおり契約(以下「本契約」という)を締結する。</p>
+<p>〔委託者名〕(以下「甲」という)と ティーチ&amp;ファネルDesign〔氏名:大村亜輝子〕(以下「乙」という)とは、甲乙間で行うウェブサイト・ランディングページ等の制作、保守管理およびこれらに付随する業務(以下「本取引」という)に関して開示される秘密情報の取扱いについて、次のとおり契約(以下「本契約」という)を締結する。</p>
 
 <h2>第1条(目的)</h2>
 <p>本契約は、本取引の遂行にあたり、甲または乙が相手方に開示する秘密情報の取扱いを定め、その秘密を保持することを目的とする。</p>
@@ -161,7 +174,7 @@
   <div class="nda-sign-row">
     <p>乙　住所:<span class="nda-line">&nbsp;</span></p>
     <p>　　ティーチ&amp;ファネルDesign</p>
-    <p>　　氏名:<span class="nda-line">大村 晃子</span>　<span class="nda-seal">㊞</span></p>
+    <p>　　氏名:<span class="nda-line">大村 亜輝子</span>　<span class="nda-seal">㊞</span></p>
   </div>
 </div>
 
