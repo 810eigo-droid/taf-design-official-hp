@@ -72,6 +72,16 @@
   }
   .taf-nda .nda-date { margin: 40px 0 32px; }
   .taf-nda .nda-seal { color: #888; font-size: 12px; }
+  .taf-nda .nda-sign-img {
+    height: 44px; width: auto;
+    vertical-align: middle;
+    margin-left: 12px;
+  }
+  .taf-nda .nda-seal-img {
+    height: 52px; width: auto;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
 
   /* 印刷時: 余白・文字サイズを紙(A4)向けに調整 */
   @media print {
@@ -175,7 +185,9 @@
   <div class="nda-sign-row">
     <p>乙　住所:<span class="nda-line">&nbsp;</span></p>
     <p>　　ティーチ&amp;ファネルDesign</p>
-    <p>　　氏名:<span class="nda-line">大村 亜輝子</span>　<span class="nda-seal">㊞</span></p>
+    <!-- ↓ 直筆サイン画像と印影画像。src="…" の中を、WordPressメディアにアップした画像のURLに書き換える。
+         URLが未設定・間違いのときは自動で非表示になり、代わりに ㊞ マークが出る仕組み。 -->
+    <p>　　氏名:<span class="nda-line">大村 亜輝子</span><img class="nda-sign-img" src="ここに直筆サイン画像のURL" alt="" onerror="this.style.display='none';document.getElementById('nda-seal-fallback').style.display='inline';"><img class="nda-seal-img" src="ここに印影画像のURL" alt="" onerror="this.style.display='none';document.getElementById('nda-seal-fallback').style.display='inline';">　<span class="nda-seal" id="nda-seal-fallback" style="display:none;">㊞</span></p>
   </div>
 </div>
 
