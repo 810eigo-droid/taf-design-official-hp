@@ -8,17 +8,20 @@
 ============================================================ -->
 <div class="taf-nda">
 <style>
-  /* ── 画面でもサイトの上部(管理バー・ヘッダー・パンくず)や下部(フッター)を隠し、契約書だけを表示 ── */
+  /* ── サイトの上部(管理バー・ヘッダー・パンくず)や下部(フッター)を取り除き、契約書だけを表示 ──
+     仕組み: 契約書(.taf-nda)自身・その中身・その入れ物(先祖)以外を display:none で完全に除去。
+     入れ物は残るので本文が切れず、通常どおりスクロール・印刷できる。 */
   #wpadminbar { display: none !important; }
   html { margin-top: 0 !important; }
   body { background: #fff !important; }
-  body * { visibility: hidden; }
-  .taf-nda, .taf-nda * { visibility: visible; }
-  .taf-nda {
-    position: absolute;
-    left: 0; right: 0; top: 0;
-    z-index: 9999;
-    background: #fff;
+  body *:not(.taf-nda):not(.taf-nda *):not(:has(.taf-nda)) { display: none !important; }
+  :has(> .taf-nda), body :has(.taf-nda) {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
   }
 
   .taf-nda {
@@ -70,20 +73,18 @@
   .taf-nda .nda-date { margin: 40px 0 32px; }
   .taf-nda .nda-seal { color: #888; font-size: 12px; }
 
-  /* 印刷時: ページ内のこのブロックだけを出力する */
+  /* 印刷時: 余白・文字サイズを紙(A4)向けに調整 */
   @media print {
-    body * { visibility: hidden; }
-    .taf-nda, .taf-nda * { visibility: visible; }
+    :has(.taf-nda) { margin: 0 !important; padding: 0 !important; }
     .taf-nda {
-      position: absolute;
-      left: 0; top: 0;
       width: 100%;
       max-width: none;
+      margin: 0;
       padding: 0;
       font-size: 10.5pt;
       line-height: 1.8;
     }
-    .taf-nda .nda-note { display: none; }
+    .taf-nda .nda-note { display: none !important; }
     .taf-nda h2 { break-after: avoid; }
     .taf-nda .nda-sign { break-inside: avoid; }
   }
