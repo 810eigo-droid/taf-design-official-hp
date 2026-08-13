@@ -106,4 +106,12 @@ WordPressブログは、単に記事数を増やすためではない。次の�
 - コミット前に文字化け、HTMLの対応タグ、JSON-LD、`git diff --check`を確認する
 - ユーザーからGitHubへの反映まで依頼された場合は、コミットだけで止めず、明示されたブランチへpushし同期状態を報告する
 
+## 04記事の確定料金（2026-08-13）
+
+- 7セクションのプレーンなLP・HPは22,000円（税込）から
+- ページ・機能の拡張は後から別料金で追加可能
+- SPF・DKIM・DMARCなどのメール到達設定は別料金
+- 「2万円」「拡張込み」「メール到達設定込み」と誤認させる表現は禁止
+- 価格変更時は必ず価格原本と `docs/price-sync-checklist.md` を再確認する
+
 詳細なフォルダ構成と流用手順は `docs/blog-workflow/BLOG-WORKFLOW.md` と `docs/blog-workflow/CONTENT-PROJECT.md` を参照する。
