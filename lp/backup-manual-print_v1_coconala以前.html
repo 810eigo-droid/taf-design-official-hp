@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>月次メンテナンスマニュアル ｜ TAF Design</title>
+<!-- ================================================================
+  サイトまるごとバックアップパック(16,500円税込)付属
+  「月次メンテナンスマニュアル」A4印刷用原稿(PDF生成元)
+  ※お客様への納品物。公開サーバーには置かないこと(購入者特典)
+  PDF生成: Playwright/Chromium → A4・printBackground・margin0 → backup-manual.pdf
+================================================================ -->
+<style>
+:root{
+  --blue:#00A2DE; --blue-d:#0084b8; --navy:#2c3038; --orange:#F6AC0E;
+  --bg:#f2f8fc; --line:#dce8f0; --sub:#5a6470; --white:#ffffff;
+  color-scheme: light only;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ background:#e8eef3; }
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color:var(--navy); line-height:1.9; font-size:14px;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.page{
+  position:relative; width:210mm; height:297mm; margin:0 auto; background:var(--white);
+  padding:16mm 16mm 14mm; overflow:hidden; page-break-after:always;
+}
+.page:last-child{ page-break-after:auto; }
+@media print{ html,body{ background:#fff; } .page{ margin:0; } }
+
+.pagefoot{
+  position:absolute; left:16mm; right:16mm; bottom:7mm;
+  display:flex; justify-content:space-between; font-size:10px; color:#9aa4ae;
+}
+.eyebrow{ font-size:11px; font-weight:700; letter-spacing:.22em; color:var(--orange); margin-bottom:6px; }
+h2.sec{ font-size:23px; font-weight:700; line-height:1.5; margin-bottom:14px; }
+h2.sec b{ color:var(--blue); font-weight:inherit; }
+.lead{ font-size:13.5px; color:var(--sub); margin-bottom:20px; }
+
+/* ---- 表紙 ---- */
+.cover{ background:linear-gradient(150deg,#00A2DE,#0084b8); color:#fff; display:flex; flex-direction:column; }
+.cover .badge{
+  align-self:flex-start; background:var(--orange); color:#fff; font-size:12px; font-weight:700;
+  letter-spacing:.12em; padding:6px 16px; border-radius:999px; margin-top:26mm;
+}
+.cover h1{ font-size:38px; font-weight:700; line-height:1.4; margin-top:18px; color:#fff; }
+.cover .sub{ font-size:16px; margin-top:14px; color:rgba(255,255,255,.94); }
+.cover .promise{
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35); border-radius:14px;
+  padding:16px 22px; margin-top:28px; font-size:14.5px; color:#fff;
+}
+.cover .promise b{ color:#ffe9b8; }
+.cover .meta{ margin-top:auto; font-size:11.5px; color:rgba(255,255,255,.85); line-height:1.8; }
+
+/* ---- チェックリスト ---- */
+.checklist{ border:2px solid var(--blue); border-radius:14px; overflow:hidden; margin-bottom:18px; }
+.checklist .hd{ background:var(--blue); color:#fff; font-weight:700; font-size:15px; padding:10px 18px; }
+.checklist ul{ list-style:none; }
+.checklist li{
+  display:flex; align-items:center; gap:12px; padding:13px 18px; border-top:1px solid var(--line); font-size:14.5px;
+}
+.checklist li:first-child{ border-top:none; }
+.checklist .box{
+  flex:0 0 20px; height:20px; border:2px solid var(--blue); border-radius:5px; background:#fff;
+}
+.checklist .t b{ font-size:15px; }
+.checklist .t small{ display:block; color:var(--sub); font-size:12px; line-height:1.6; }
+.checklist .min{ margin-left:auto; background:var(--bg); color:var(--blue-d); font-weight:700; font-size:12px; padding:3px 10px; border-radius:999px; white-space:nowrap; }
+
+.callout{
+  display:flex; gap:12px; align-items:flex-start; background:#fff8ea; border:1px solid #f2dfae;
+  border-radius:12px; padding:13px 16px; font-size:13px; margin-top:14px;
+}
+.callout .lb{ flex:0 0 auto; background:var(--orange); color:#fff; font-size:11px; font-weight:700; padding:2px 10px; border-radius:999px; margin-top:3px; }
+
+/* ---- 手順ステップ ---- */
+.stepnum{
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:12px;
+}
+.stepnum .n{
+  width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff;
+  font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;
+}
+.stepnum .tm{ background:var(--bg); color:var(--blue-d); font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; }
+.steps{ list-style:none; margin-top:6px; }
+.steps li{
+  position:relative; padding:12px 16px 12px 44px; border:1px solid var(--line); border-radius:12px; margin-bottom:10px; font-size:13.5px;
+}
+.steps li b{ color:var(--blue-d); }
+.steps li .sn{
+  position:absolute; left:12px; top:12px; width:22px; height:22px; border-radius:50%;
+  background:var(--bg); color:var(--blue-d); font-weight:700; font-size:12px;
+  display:flex; align-items:center; justify-content:center;
+}
+.steps li small{ display:block; color:var(--sub); font-size:12px; line-height:1.7; margin-top:2px; }
+.trouble{
+  background:var(--bg); border-radius:12px; padding:14px 18px; font-size:13px; margin-top:14px;
+}
+.trouble .h{ font-weight:700; color:var(--blue-d); margin-bottom:4px; }
+
+/* ---- 困ったとき・連絡先 ---- */
+.contact-card{
+  background:linear-gradient(150deg,#00A2DE,#0084b8); color:#fff; border-radius:16px; padding:24px 26px; margin-top:16px;
+}
+.contact-card h3{ font-size:18px; color:#fff; margin-bottom:8px; }
+.contact-card p{ font-size:13px; color:rgba(255,255,255,.92); }
+.contact-rows{ display:flex; gap:12px; margin-top:14px; }
+.contact-rows .cbox{
+  flex:1; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.35); border-radius:12px;
+  padding:12px 14px; text-align:center;
+}
+.contact-rows .cl{ font-size:11px; letter-spacing:.1em; color:#ffe9b8; font-weight:700; }
+.contact-rows .cv{ font-size:14.5px; font-weight:700; margin-top:2px; }
+.contact-rows .cs{ font-size:10.5px; color:rgba(255,255,255,.85); margin-top:2px; }
+
+/* ---- メモ欄 ---- */
+.memo{ border:2px solid var(--line); border-radius:14px; overflow:hidden; margin-top:18px; }
+.memo .hd{ background:var(--bg); font-weight:700; font-size:14px; padding:10px 18px; color:var(--blue-d); }
+.memo table{ width:100%; border-collapse:collapse; }
+.memo th,.memo td{ border-top:1px solid var(--line); padding:12px 16px; font-size:13px; text-align:left; }
+.memo th{ width:34%; background:#fafcfe; color:var(--sub); font-weight:700; }
+.memo td{ color:#b6bec6; }
+</style>
+</head>
+<body>
+
+<!-- ============ P1 表紙 ============ -->
+<section class="page cover">
+  <span class="badge">サイトまるごとバックアップパック 付属</span>
+  <h1>月次メンテナンス<br>マニュアル</h1>
+  <p class="sub">毎月これだけやればOK。月イチ15分の、サイトの健康チェック。</p>
+  <div class="promise">
+    むずかしい作業はありません。このマニュアルの<b>3つの作業</b>を毎月くり返すだけで、
+    あなたのサイトは「もしも」に強い状態を保てます。<b>動画版</b>とあわせてご活用ください。
+  </div>
+  <div class="meta">
+    ティーチ＆ファネル Design ｜ taf-design.com<br>
+    Monthly Maintenance Manual ｜ v01
+  </div>
+</section>
+
+<!-- ============ P2 毎月のチェックリスト ============ -->
+<section class="page">
+  <div class="eyebrow">MONTHLY CHECKLIST</div>
+  <h2 class="sec">毎月の作業は、<b>この3つだけ。</b></h2>
+  <p class="lead">月に1回、日を決めて(例: 毎月1日・月初の月曜など)、上から順に進めてください。ぜんぶで15分ほどです。</p>
+
+  <div class="checklist">
+    <div class="hd">✓ 月イチ15分チェックリスト</div>
+    <ul>
+      <li>
+        <span class="box"></span>
+        <span class="t"><b>作業1 ｜ バックアップの確認</b><small>自動バックアップがきちんと動いているかを確認します</small></span>
+        <span class="min">約5分</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="t"><b>作業2 ｜ 更新(アップデート)</b><small>WordPress・プラグイン・テーマを最新の状態にします</small></span>
+        <span class="min">約5分</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="t"><b>作業3 ｜ サイトの健康チェック</b><small>表示くずれやフォームの故障がないかを確認します</small></span>
+        <span class="min">約5分</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <span class="lb">大事な順番</span>
+    <span>必ず「<b>作業1(バックアップ確認)→作業2(更新)</b>」の順で行ってください。先にバックアップがあることを確かめてから更新すれば、万一更新で不具合が起きても元に戻せます。</span>
+  </div>
+
+  <div class="callout">
+    <span class="lb">迷ったら</span>
+    <span>少しでも「これ、押していいのかな?」と迷ったら、無理に進めず作業を止めて大丈夫です。巻末の連絡先からいつでもご相談ください(相談は無料です)。</span>
+  </div>
+
+  <div class="pagefoot"><div>TAF Design ｜ 月次メンテナンスマニュアル</div><div>01</div></div>
+</section>
+
+<!-- ============ P3 作業1 バックアップの確認 ============ -->
+<section class="page">
+  <div class="eyebrow">STEP 1</div>
+  <div class="stepnum"><span class="n">1</span><h2 class="sec" style="margin:0;">バックアップの<b>確認</b></h2><span class="tm">約5分</span></div>
+  <p class="lead">納品時に設定した「自動バックアップ」が、きちんと動き続けているかを確認します。</p>
+
+  <ol class="steps">
+    <li><span class="sn">1</span><b>WordPressの管理画面にログイン</b>する<small>ログインする場所(URL)は、巻末の「あなたのサイト情報」メモをご覧ください。</small></li>
+    <li><span class="sn">2</span><b>バックアップの一覧画面</b>を開く<small>納品時にご案内した場所です(メニューの位置は巻末メモに記入してあります)。</small></li>
+    <li><span class="sn">3</span>いちばん新しいバックアップの<b>日付</b>を見る<small>「ここ1週間以内」の日付になっていればOK。自動バックアップは正常に動いています。</small></li>
+    <li><span class="sn">4</span>(おすすめ)最新のバックアップを<b>自分のパソコンにもダウンロード</b>しておく<small>サーバーの外にも控えがあると、さらに安心です。納品時にお渡ししたZIPと同じ場所に保存しておきましょう。</small></li>
+  </ol>
+
+  <div class="trouble">
+    <div class="h">⚠ こんなときはご相談ください</div>
+    ・いちばん新しいバックアップの日付が<b>1ヶ月以上前</b>になっている<br>
+    ・バックアップの一覧画面が<b>開けない・表示がおかしい</b><br>
+    → 自動バックアップが止まっている可能性があります。そのままにせず、巻末の連絡先までお知らせください。
+  </div>
+
+  <div class="pagefoot"><div>TAF Design ｜ 月次メンテナンスマニュアル</div><div>02</div></div>
+</section>
+
+<!-- ============ P4 作業2 更新 ============ -->
+<section class="page">
+  <div class="eyebrow">STEP 2</div>
+  <div class="stepnum"><span class="n">2</span><h2 class="sec" style="margin:0;">更新<b>(アップデート)</b></h2><span class="tm">約5分</span></div>
+  <p class="lead">WordPress本体・プラグイン・テーマを最新にします。更新は、サイトを守るいちばんの基本です。</p>
+
+  <ol class="steps">
+    <li><span class="sn">1</span>作業1の<b>バックアップ確認が済んでいること</b>をもう一度確かめる<small>バックアップがあれば、更新で万一不具合が起きても元に戻せます。</small></li>
+    <li><span class="sn">2</span>管理画面の左メニュー「<b>ダッシュボード → 更新</b>」を開く<small>更新できるものがあると、数字つきのマークが出ています。</small></li>
+    <li><span class="sn">3</span><b>プラグインを1つずつ</b>更新する<small>まとめて全部ではなく、1つ更新するたびに次の手順4の表示確認をはさむと、原因の切り分けがかんたんになります。</small></li>
+    <li><span class="sn">4</span>更新のたびに、<b>サイトの表示を確認</b>する<small>別のタブでトップページを開いて、見た目が崩れていないかをサッと確認します。</small></li>
+    <li><span class="sn">5</span>最後に<b>テーマ → WordPress本体</b>の順で更新する<small>ここでも、更新後にトップページの表示を確認してください。</small></li>
+  </ol>
+
+  <div class="trouble">
+    <div class="h">⚠ こんなときはご相談ください</div>
+    ・更新したらサイトの<b>表示が崩れた・真っ白になった</b><br>
+    ・「メジャーアップデート」など<b>大きな更新の案内</b>が出ていて、押すのが不安<br>
+    → 慌てなくて大丈夫です。バックアップから元に戻せます。操作を止めて、そのままご連絡ください。
+  </div>
+
+  <div class="pagefoot"><div>TAF Design ｜ 月次メンテナンスマニュアル</div><div>03</div></div>
+</section>
+
+<!-- ============ P5 作業3 健康チェック ============ -->
+<section class="page">
+  <div class="eyebrow">STEP 3</div>
+  <div class="stepnum"><span class="n">3</span><h2 class="sec" style="margin:0;">サイトの<b>健康チェック</b></h2><span class="tm">約5分</span></div>
+  <p class="lead">お客様と同じ目線で、サイトがきちんと動いているかを確認します。スマホとパソコンの両方で見るのがポイントです。</p>
+
+  <ol class="steps">
+    <li><span class="sn">1</span><b>スマホでトップページ</b>を開く<small>文字や画像の崩れ・表示されない画像がないかを、上から下までスクロールして確認します。</small></li>
+    <li><span class="sn">2</span><b>パソコンでもトップページ</b>を開く<small>スマホと同じように、ざっと全体を確認します。</small></li>
+    <li><span class="sn">3</span><b>お問い合わせフォームからテスト送信</b>する<small>名前に「テスト」と書いて自分で送信し、通知メールが届くかを確認します。フォームの故障は気づきにくく、機会損失に直結します。</small></li>
+    <li><span class="sn">4</span>ページの<b>表示スピード</b>に極端な変化がないか感じてみる<small>いつもよりあきらかに遅い場合は、何か問題が起きているサインのことがあります。</small></li>
+  </ol>
+
+  <div class="trouble">
+    <div class="h">⚠ こんなときはすぐご相談ください</div>
+    ・見覚えのない<b>広告・ページ・英語の文章</b>が表示されている<br>
+    ・<b>「このサイトは安全ではありません」</b>のような警告が出る<br>
+    ・フォームのテスト送信が<b>届かない</b><br>
+    → 放置すると被害が広がることがあります。気づいた時点でご連絡ください。
+  </div>
+
+  <div class="pagefoot"><div>TAF Design ｜ 月次メンテナンスマニュアル</div><div>04</div></div>
+</section>
+
+<!-- ============ P6 困ったときは・メモ ============ -->
+<section class="page">
+  <div class="eyebrow">SUPPORT</div>
+  <h2 class="sec">困ったときは、<b>いつでもご相談を。</b></h2>
+  <p class="lead">「これって大丈夫?」の確認だけでもかまいません。ご相談は無料です。復元や修正などの作業が必要な場合は、内容に応じて事前にお見積りをご案内します(勝手に作業して請求することはありません)。</p>
+
+  <div class="contact-card">
+    <h3>ティーチ＆ファネル Design サポート窓口</h3>
+    <p>ご返信は48時間以内。お急ぎのときはその旨をお書きください。</p>
+    <div class="contact-rows">
+      <div class="cbox"><div class="cl">LINE</div><div class="cv">lin.ee/pqfXTUJ</div><div class="cs">いちばん早くつながります</div></div>
+      <div class="cbox"><div class="cl">MAIL</div><div class="cv">info@taf-design.com</div><div class="cs">スクリーンショット添付が便利</div></div>
+      <div class="cbox"><div class="cl">SMS</div><div class="cv">090-2514-6064</div><div class="cs">ショートメールで承ります</div></div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top:16px;">
+    <span class="lb">おまかせ</span>
+    <span>「毎月の作業も任せたい」と思ったら、<b>月額保守・管理パック(月5,500円〜・契約の縛りなし)</b>にいつでも切り替えできます。お気軽にお声がけください。</span>
+  </div>
+
+  <div class="memo">
+    <div class="hd">📝 あなたのサイト情報(納品時に記入します)</div>
+    <table>
+      <tr><th>サイトURL</th><td>(納品時に記入)</td></tr>
+      <tr><th>WordPressログインURL</th><td>(納品時に記入)</td></tr>
+      <tr><th>バックアップ一覧の場所</th><td>(納品時に記入)</td></tr>
+      <tr><th>サーバー会社</th><td>(納品時に記入)</td></tr>
+      <tr><th>控えZIPの保存場所</th><td>(納品時に記入)</td></tr>
+    </table>
+  </div>
+
+  <div class="pagefoot"><div>TAF Design ｜ 月次メンテナンスマニュアル ｜ v01</div><div>05</div></div>
+</section>
+
+</body>
+</html>
