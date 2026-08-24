@@ -2,11 +2,11 @@
 
 > 新しいClaude Codeチャットの冒頭にこのファイルを見てもらう用。
 > **最初に「810eigo-droid/taf-design-official-hp を追加して」と頼む。**
-> 価格・広告LP・見積もりは TAF-V2meta-LP(別リポジトリ)も参照。CodexさんもこのHPを触るので二重編集注意(編集前に git pull・--force禁止)。
+> 価格・広告LP・見積もりも本リポジトリ(lp/・docs/)に統一済み(2026-08-24)。CodexさんもこのHPを触るので二重編集注意(編集前に git pull・--force禁止)。
 
 ## リポジトリ
 - 公式HP: **810eigo-droid/taf-design-official-hp**(index.html + css/override.css + images)
-- LP/資料/WPブロック/price-master: **810eigo-droid/TAF-V2meta-LP**
+- LP/資料/WPブロック/price-master: **このリポジトリに統一済み(lp/・docs/wp-blocks/・docs/price-master.md)**
 - 公開方法: Gitで編集→プッシュ→オーナーがエックスサーバーへ手動アップロード(GitHub Pagesではない)
 
 ## この2日で完了した主なこと
@@ -39,6 +39,6 @@
 
 ## 運用ルール(重要)
 - リンクルール: 見積もり=/order/ 相談・資料=/offer2/ 予算=/budget/。同一ドメインは target="_blank" 禁止(外部サイトは新タブOK)
-- 価格は TAF-V2meta-LP/docs/price-master.md が原本
+- 価格は docs/price-master.md が原本
 - 表示確認はPlaywright(Chromium)でスクショ検証してから渡す
 - CodexさんとGit二重編集に注意(編集前pull・--force禁止・別ファイル/別領域で分担)

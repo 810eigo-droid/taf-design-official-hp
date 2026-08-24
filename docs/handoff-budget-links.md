@@ -68,5 +68,5 @@
 
 ## 注意
 
-- 価格を文言に入れる場合は price-master.md(TAF-V2meta-LP/docs/)に同期すること
+- 価格を文言に入れる場合は price-master.md(docs/)に同期すること
 - 実装したら、使用ブロックのHTMLを各リポジトリのGitに保存すること(二重編集防止)

@@ -1,7 +1,7 @@
 # 公式HP 価格同期チェックリスト
 
-> **価格の原本(唯一の正)**: `810eigo-droid/TAF-V2meta-LP` の `docs/price-master.md`
-> https://github.com/810eigo-droid/TAF-V2meta-LP/blob/main/docs/price-master.md
+> **価格の原本(唯一の正)**: このリポジトリの `docs/price-master.md`
+> https://github.com/810eigo-droid/taf-design-official-hp/blob/main/docs/price-master.md
 >
 > このファイルは価格の原本では**ない**。公式HP(index.html)内で価格が登場する場所の一覧表。
 > price-master.md の価格が変わったら、下の表の箇所を上から順に確認して同期する。
@@ -10,7 +10,7 @@
 
 新しいセッションでこう頼むだけでよい:
 
-> 「TAF-V2meta-LPを追加して docs/price-master.md を読み、docs/price-sync-checklist.md の一覧に沿って index.html の価格記載を全部同期して」
+> 「docs/price-master.md を読み、docs/price-sync-checklist.md の一覧に沿って index.html の価格記載を全部同期して」
 
 ## 価格が登場する場所一覧(index.html)
 

@@ -10,11 +10,11 @@
 
 | チャット | 担当する内容 | リポジトリ | 冒頭に貼る引き継ぎ資料 |
 |---|---|---|---|
-| **① 公式HPチャット** | taf-design.comトップ(index.html/CSS/画像)・WPカスタムHTMLブロック全般(料金ページ・/budget/・order/offer2フォーム)・導線設計 | `taf-design-official-hp` | TAF-V2meta-LP の `docs/handoff-official-hp.md` |
+| **① 公式HPチャット** | taf-design.comトップ(index.html/CSS/画像)・WPカスタムHTMLブロック全般(料金ページ・/budget/・order/offer2フォーム)・導線設計 | `taf-design-official-hp` | このリポジトリの `docs/handoff-official-hp.md` |
 | **② LP-V2チャット** | **価格の原本 price-master.md**・広告LP・/order/フォームの原本管理・WPブロックの大元 | `TAF-V2meta-LP` | (メインの継続チャット) |
 | **③ 資料ページチャット** | /lp/service-guide.html(資料ページ)の編集 | (LP-V2側) | このフォルダの `handoff-budget-links.md` |
 | **④ メール配信チャット** | MailPoet・ステップメール・メール到達率(SPF/DKIM/DMARC)・LINE配信ネタ | docs/はこのリポジトリを使用 | このフォルダの `handoff-email-marketing.md` |
-| **⑤ 見積もりアシスタント** | claude.aiプロジェクト(完成・運用中) | — | `TAF-V2meta-LP/docs/estimate-assistant-context.md` |
+| **⑤ 見積もりアシスタント** | claude.aiプロジェクト(完成・運用中) | — | `docs/estimate-assistant-context.md` |
 
 ## 使い方(3ステップ)
 
@@ -35,7 +35,7 @@
 
 ## 全チャット共通ルール
 
-- **価格の原本は1つだけ**: `TAF-V2meta-LP/docs/price-master.md`。価格を書く時は必ずこれに同期
+- **価格の原本は1つだけ**: `docs/price-master.md`。価格を書く時は必ずこれに同期
 - **リンクルール**: 見積もり=`/order/`/相談・資料=`/offer2/`/予算=`/budget/`
 - **スマホ優先**: 同一ドメインのリンクに `target="_blank"` を使わない(戻るボタンで帰れるように)。PDF・印刷も同様
 - **二重編集禁止**: WordPress・Git・ローカルのどれかを直したら、必ず他にも反映

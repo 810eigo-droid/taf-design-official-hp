@@ -2,7 +2,7 @@
 
 > 目的: メルマガ・ステップ配信がほぼ開封されないため、**資料をお送りする最初の1通に、伝えたいことを全部載せる**。
 > 前提: 電話相談を 2026-08-04 に導入済み（無料・10分程度・希望者のみ・こちらから発信）。
-> 価格・仕様の原本は TAF-V2meta-LP の `docs/price-master.md` / `docs/estimate-assistant-context.md`。
+> 価格・仕様の原本は このリポジトリの `docs/price-master.md` / `docs/estimate-assistant-context.md`。
 > 作成: 2026-08-05
 
 ---

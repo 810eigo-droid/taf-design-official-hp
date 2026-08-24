@@ -83,6 +83,6 @@
 ## 5. 運用ルール(全チャット共通)
 
 - 作った手順書・文面はGitに保管(公式HPリポジトリ 810eigo-droid/taf-design-official-hp の docs/ を使用可)
-- 価格に触れる場合は price-master.md(TAF-V2meta-LP/docs/)に同期
+- 価格に触れる場合は price-master.md(docs/)に同期
 - リンクルール: 見積もり=/order/ 相談・資料=/offer2/ 予算=/budget/
 - 同一ドメインのリンクに target="_blank" を使わない(スマホの戻るで帰れるように)

@@ -110,7 +110,7 @@ info@taf-design.com / 公式LINE https://lin.ee/pqfXTUJ
 ## 4. CF7自動返信(メール2)の強化版 — 「一番最初に送るメッセージを詳しく」の実装
 
 現状のメール2は「資料URL+LINE案内」のみ。ここを**1通完結型**に差し替える。
-原本: TAF-V2meta-LP `docs/email-service-guide-allin1.md`(設計と全文)。以下はCF7メール2用の短縮版。
+原本: このリポジトリの `docs/email-service-guide-allin1.md`(設計と全文)。以下はCF7メール2用の短縮版。
 
 件名: `【資料】ホームページ 22,000円・月額0円・平均7日|お電話相談も始めました`
 
