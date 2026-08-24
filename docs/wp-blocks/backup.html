@@ -1,0 +1,287 @@
+<!-- ================================================================
+  /backup/ サイトまるごとバックアップパック 専用ページ
+  カスタムHTMLブロック1つに丸ごと貼り付け(2026-07-22新規作成)
+  価格原本: docs/price-master.md A表#13(16,500円税込・買い切り)
+  リンク元: 料金表 /price/ 修正系カード#13「詳しくはこちら」
+================================================================ -->
+
+<style>
+/* ==== scoped: .taf-bkp 配下のみに効く(テーマへの影響なし) ==== */
+.taf-bkp{
+  --bkp-blue:#00A2DE; --bkp-blue-d:#0084b8; --bkp-navy:#2c3038;
+  --bkp-orange:#F6AC0E; --bkp-bg:#f2f8fc; --bkp-line:#dce8f0; --bkp-sub:#5a6470;
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color:var(--bkp-navy); line-height:1.9; font-size:16px;
+  background:#fff;
+}
+.taf-bkp *,.taf-bkp *::before,.taf-bkp *::after{ box-sizing:border-box; }
+.taf-bkp .bkp-in{ max-width:860px; margin:0 auto; padding:0 20px; }
+.taf-bkp h1,.taf-bkp h2,.taf-bkp h3,.taf-bkp h4{ margin:0; line-height:1.5; }
+.taf-bkp p{ margin:0 0 1em; }
+.taf-bkp ul{ margin:0; padding:0; list-style:none; }
+.taf-bkp a{ text-decoration:none; }
+
+/* ---- HERO ---- */
+.taf-bkp .bkp-hero{
+  background:linear-gradient(150deg,#00A2DE,#0084b8);
+  color:#fff; text-align:center; padding:56px 20px 48px;
+}
+.taf-bkp .bkp-hero-badge{
+  display:inline-block; background:var(--bkp-orange); color:#fff;
+  font-size:13px; font-weight:700; letter-spacing:.12em;
+  padding:6px 18px; border-radius:999px; margin-bottom:18px;
+}
+.taf-bkp .bkp-hero h1{ font-size:30px; font-weight:700; color:#fff; }
+.taf-bkp .bkp-hero .bkp-tagline{ font-size:16px; margin:14px auto 0; max-width:640px; color:rgba(255,255,255,.94); }
+.taf-bkp .bkp-hero-price{
+  display:inline-flex; align-items:baseline; gap:8px; flex-wrap:wrap; justify-content:center;
+  background:#fff; color:var(--bkp-navy); border-radius:16px;
+  padding:16px 30px; margin-top:26px; box-shadow:0 10px 30px rgba(0,40,60,.18);
+}
+.taf-bkp .bkp-hero-price .yen{ font-size:22px; font-weight:700; color:var(--bkp-blue-d); }
+.taf-bkp .bkp-hero-price .num{ font-size:40px; font-weight:700; color:var(--bkp-blue-d); letter-spacing:.02em; }
+.taf-bkp .bkp-hero-price .note{ font-size:13px; color:var(--bkp-sub); font-weight:700; }
+
+/* ---- セクション共通 ---- */
+.taf-bkp .bkp-sec{ padding:52px 0 8px; }
+.taf-bkp .bkp-sec--tint{ background:var(--bkp-bg); padding-bottom:52px; margin-top:44px; }
+.taf-bkp .bkp-eyebrow{
+  font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--bkp-orange); margin-bottom:8px;
+}
+.taf-bkp .bkp-sec h2{ font-size:24px; font-weight:700; margin-bottom:18px; }
+.taf-bkp .bkp-sec h2 b{ color:var(--bkp-blue); font-weight:inherit; }
+
+/* ---- こんな方に ---- */
+.taf-bkp .bkp-fit{ display:grid; gap:12px; margin-top:6px; }
+.taf-bkp .bkp-fit li{
+  background:#fff; border:1px solid var(--bkp-line); border-radius:12px;
+  padding:14px 18px 14px 46px; position:relative; font-weight:700; font-size:15px;
+}
+.taf-bkp .bkp-fit li::before{
+  content:"✓"; position:absolute; left:16px; top:13px;
+  color:var(--bkp-blue); font-weight:700; font-size:17px;
+}
+
+/* ---- セット内容 ---- */
+.taf-bkp .bkp-set{ display:grid; gap:16px; margin-top:6px; }
+@media(min-width:760px){ .taf-bkp .bkp-set{ grid-template-columns:1fr 1fr 1fr; } }
+.taf-bkp .bkp-set-card{
+  background:#fff; border:1px solid var(--bkp-line); border-radius:14px;
+  padding:22px 20px; box-shadow:0 4px 14px rgba(0,60,90,.05);
+}
+.taf-bkp .bkp-set-card .ic{ font-size:28px; display:block; margin-bottom:10px; }
+.taf-bkp .bkp-set-card h3{ font-size:16.5px; font-weight:700; margin-bottom:8px; color:var(--bkp-blue-d); }
+.taf-bkp .bkp-set-card p{ font-size:14px; color:var(--bkp-sub); margin:0; }
+
+/* ---- 進め方 ---- */
+.taf-bkp .bkp-flow{ display:grid; gap:12px; margin-top:6px; }
+.taf-bkp .bkp-flow li{
+  background:#fff; border:1px solid var(--bkp-line); border-radius:12px;
+  padding:16px 18px; display:flex; gap:14px; align-items:flex-start;
+}
+.taf-bkp .bkp-flow .n{
+  flex:0 0 34px; height:34px; border-radius:50%; background:var(--bkp-blue); color:#fff;
+  font-weight:700; display:flex; align-items:center; justify-content:center; font-size:15px; margin-top:2px;
+}
+.taf-bkp .bkp-flow h3{ font-size:15.5px; font-weight:700; margin-bottom:4px; }
+.taf-bkp .bkp-flow p{ font-size:14px; color:var(--bkp-sub); margin:0; }
+
+/* ---- 月額保守との比較 ---- */
+.taf-bkp .bkp-cmp{ width:100%; border-collapse:collapse; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(0,60,90,.05); font-size:14px; }
+.taf-bkp .bkp-cmp th,.taf-bkp .bkp-cmp td{ border:1px solid var(--bkp-line); padding:12px 12px; text-align:center; vertical-align:middle; }
+.taf-bkp .bkp-cmp thead th{ background:var(--bkp-bg); font-size:13.5px; }
+.taf-bkp .bkp-cmp thead th.hl{ background:var(--bkp-blue); color:#fff; }
+.taf-bkp .bkp-cmp tbody th{ background:#fafcfe; font-size:13px; color:var(--bkp-sub); width:26%; }
+.taf-bkp .bkp-cmp td.hl{ background:#f0faff; font-weight:700; }
+.taf-bkp .bkp-cmp-note{ font-size:12.5px; color:var(--bkp-sub); margin-top:10px; }
+
+/* ---- FAQ ---- */
+.taf-bkp .bkp-faq{ display:grid; gap:12px; margin-top:6px; }
+.taf-bkp .bkp-faq-item{ background:#fff; border:1px solid var(--bkp-line); border-radius:12px; padding:16px 18px; }
+.taf-bkp .bkp-faq-item .q{ font-weight:700; font-size:15px; margin-bottom:6px; }
+.taf-bkp .bkp-faq-item .q::before{ content:"Q. "; color:var(--bkp-blue); }
+.taf-bkp .bkp-faq-item .a{ font-size:14px; color:var(--bkp-sub); }
+.taf-bkp .bkp-faq-item .a::before{ content:"A. "; color:var(--bkp-orange); font-weight:700; }
+
+/* ---- CTA ---- */
+.taf-bkp .bkp-cta{
+  background:linear-gradient(150deg,#00A2DE,#0084b8); border-radius:18px;
+  text-align:center; color:#fff; padding:38px 24px; margin:52px 0 28px;
+}
+.taf-bkp .bkp-cta h2{ font-size:22px; color:#fff; margin-bottom:8px; }
+.taf-bkp .bkp-cta p{ font-size:14px; color:rgba(255,255,255,.92); margin-bottom:20px; }
+.taf-bkp .bkp-cta-btn{
+  display:block; max-width:420px; margin:0 auto 12px; padding:16px 20px;
+  background:var(--bkp-orange); color:#fff; font-size:17px; font-weight:700;
+  border-radius:999px; box-shadow:0 6px 18px rgba(0,40,60,.25);
+}
+.taf-bkp .bkp-cta-btn:active{ transform:scale(.98); }
+.taf-bkp .bkp-cta-line{
+  display:block; max-width:420px; margin:0 auto; padding:14px 20px;
+  background:#06C755; color:#fff; font-size:15.5px; font-weight:700; border-radius:999px;
+}
+.taf-bkp .bkp-cta-sub{ font-size:12.5px; color:rgba(255,255,255,.85); margin:14px 0 0; }
+
+/* ---- 戻るリンク ---- */
+.taf-bkp .bkp-back{ text-align:center; padding:0 0 56px; }
+.taf-bkp .bkp-back a{ color:var(--bkp-blue-d); font-size:14px; font-weight:700; text-decoration:underline; }
+
+/* ---- スマホ ---- */
+@media(max-width:759px){
+  .taf-bkp{ font-size:15px; }
+  .taf-bkp .bkp-hero h1{ font-size:24px; }
+  .taf-bkp .bkp-hero-price .num{ font-size:34px; }
+  .taf-bkp .bkp-sec h2{ font-size:21px; }
+  .taf-bkp .bkp-cmp{ font-size:12.5px; }
+  .taf-bkp .bkp-cmp th,.taf-bkp .bkp-cmp td{ padding:10px 6px; }
+}
+</style>
+
+<div class="taf-bkp">
+
+  <!-- HERO -->
+  <header class="bkp-hero">
+    <span class="bkp-hero-badge">SAFETY ｜ 買い切り</span>
+    <h1>サイトまるごとバックアップパック</h1>
+    <p class="bkp-tagline">月額の保守契約なしで、<b>ご自身でサイトを守れる状態</b>を作ってお渡しします。</p>
+    <div class="bkp-hero-price">
+      <span class="yen">¥</span><span class="num">16,500</span><span class="note">税込・買い切り</span>
+    </div>
+  </header>
+
+  <!-- こんな方に -->
+  <section class="bkp-sec">
+    <div class="bkp-in">
+      <div class="bkp-eyebrow">FOR YOU</div>
+      <h2>こんな方の<b>ためのパック</b>です</h2>
+      <ul class="bkp-fit">
+        <li>月額の保守費用は払いたくないが、もしもの備えはしておきたい方</li>
+        <li>サイトのデータ一式を、手元に控えとして持っておきたい方</li>
+        <li>毎月なにをすればいいか、手順だけ教えてほしい方</li>
+      </ul>
+      <p style="margin-top:16px; font-size:14px; color:#5a6470;">
+        サイトは公開したら終わりではなく、更新・不具合・データ消失など「もしも」があります。
+        かといって、毎月の保守費用を払い続けるほどでもない——。
+        このパックは、その間を埋める<b>買い切りの安心セット</b>です。
+      </p>
+    </div>
+  </section>
+
+  <!-- セット内容 -->
+  <section class="bkp-sec bkp-sec--tint">
+    <div class="bkp-in">
+      <div class="bkp-eyebrow">PACKAGE</div>
+      <h2>セット内容<b>(3点)</b></h2>
+      <div class="bkp-set">
+        <div class="bkp-set-card">
+          <span class="ic">🛡️</span>
+          <h3>自動バックアップの初期設定</h3>
+          <p>WordPressに定期バックアップの仕組みを構築。以後は自動でバックアップが取られる状態にします。</p>
+        </div>
+        <div class="bkp-set-card">
+          <span class="ic">📦</span>
+          <h3>サイトまるごとZIP納品</h3>
+          <p>サイト一式の完全な控えデータをZIPでお渡し。手元に保管でき、万一のときの復元やお引っ越しにも使えます。</p>
+        </div>
+        <div class="bkp-set-card">
+          <span class="ic">📖</span>
+          <h3>月次メンテナンスマニュアル</h3>
+          <p>「毎月これだけやればOK」をまとめた手順書。PDFに加えて動画も付くので、見ながらそのまま真似できます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 進め方 -->
+  <section class="bkp-sec">
+    <div class="bkp-in">
+      <div class="bkp-eyebrow">FLOW</div>
+      <h2>ご依頼後の<b>進め方</b></h2>
+      <ol class="bkp-flow">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>お申し込み・情報の共有</h3>
+            <p>お見積り(無料)ののち、作業に必要なWordPressのログイン情報などを安全な方法で共有いただきます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>設定・データ作成(こちらの作業)</h3>
+            <p>自動バックアップの仕組みを構築し、サイト一式の控えデータ(ZIP)を作成します。お客様の作業はありません。</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>納品・マニュアルのお渡し</h3>
+            <p>ZIPデータと月次メンテナンスマニュアル(PDF+動画)をお渡しして完了。以後の月額費用はかかりません。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 月額保守との比較 -->
+  <section class="bkp-sec bkp-sec--tint">
+    <div class="bkp-in">
+      <div class="bkp-eyebrow">COMPARE</div>
+      <h2>月額保守との<b>使い分け</b></h2>
+      <table class="bkp-cmp">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="hl">サイトまるごと<br>バックアップパック</th>
+            <th>月額保守・管理<br>お任せパック</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>費用</th><td class="hl">16,500円(税込)<br>買い切り・月額0円</td><td>月5,500円〜11,000円</td></tr>
+          <tr><th>毎月の作業</th><td class="hl">ご自身で<br>(手順書+動画つき)</td><td>すべてお任せ</td></tr>
+          <tr><th>向いている方</th><td class="hl">費用を抑えて<br>自分で守りたい方</td><td>作業も含めて<br>丸ごと任せたい方</td></tr>
+        </tbody>
+      </table>
+      <p class="bkp-cmp-note">※毎月の作業までお任せしたい方には、<a href="https://taf-design.com/maintenance/" style="color:#0084b8;font-weight:700;text-decoration:underline;">サイト安心保守管理プラン(月5,500円〜・縛りなし)</a>をご案内します。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bkp-sec">
+    <div class="bkp-in">
+      <div class="bkp-eyebrow">FAQ</div>
+      <h2>よくある<b>ご質問</b></h2>
+      <div class="bkp-faq">
+        <div class="bkp-faq-item">
+          <div class="q">他社で作ったサイトでもお願いできますか?</div>
+          <div class="a">はい、ご相談ください。当社制作以外のWordPressサイトにも対応します。サイトの状態を確認のうえ、お見積りをご案内します。</div>
+        </div>
+        <div class="bkp-faq-item">
+          <div class="q">WordPress以外のサイトでも大丈夫ですか?</div>
+          <div class="a">サイトの作り(仕組み)によって内容が変わるため、まずは無料見積もりでご相談ください。控えデータのお渡しや手順書の形で、できる方法をご提案します。</div>
+        </div>
+        <div class="bkp-faq-item">
+          <div class="q">毎月の作業は難しくないですか?</div>
+          <div class="a">「毎月これだけやればOK」に絞った手順書(PDF)と動画をお渡しします。画面を見ながらそのまま真似できる内容です。</div>
+        </div>
+        <div class="bkp-faq-item">
+          <div class="q">やっぱり毎月お任せしたくなったら?</div>
+          <div class="a"><a href="https://taf-design.com/maintenance/" style="color:#0084b8;font-weight:700;text-decoration:underline;">サイト安心保守管理プラン(月5,500円〜・契約の縛りなし)</a>をご案内できます。お気軽にご相談ください。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="bkp-in">
+    <div class="bkp-cta">
+      <h2>まずは、無料でお見積り</h2>
+      <p>「うちのサイトでもできる?」の確認だけでも大丈夫です。しつこい営業は一切しません。</p>
+      <a class="bkp-cta-btn" href="https://taf-design.com/order/">かんたん無料見積もりへ</a>
+      <a class="bkp-cta-line" href="https://lin.ee/pqfXTUJ">LINEで相談する</a>
+      <p class="bkp-cta-sub">ご相談・お見積りは無料 ／ ご返信は48時間以内<br>お電話でのご相談(無料・こちらからお掛けします)もご希望いただけます</p>
+    </div>
+    <div class="bkp-back"><a href="https://taf-design.com/price/">← 料金表に戻る</a></div>
+  </div>
+
+</div>

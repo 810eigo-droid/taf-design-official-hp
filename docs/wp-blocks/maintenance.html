@@ -1,0 +1,311 @@
+<!-- ================================================================
+  /maintenance/ サイト安心保守管理プラン 専用ページ
+  カスタムHTMLブロック1つに丸ごと貼り付け(2026-07-23新規作成)
+  価格原本: docs/price-master.md B表(月5,500〜11,000円・縛りなし・
+            解約は次回決済日の10日前まで・日割り返金なし)
+  価格構造: 基本5,500円(標準的なWordPressサイト)。サイトの規模・
+            機能・対応内容に応じて〜11,000円(個別見積もり)
+  リンク元: 公式HP 料金セクション・保守詳細セクション / /backup/ の比較表
+  姉妹ページ: /backup/ (買い切り16,500円) — 相互リンクで使い分けを案内
+================================================================ -->
+
+<style>
+/* ==== scoped: .taf-mnt 配下のみに効く(テーマへの影響なし) ==== */
+.taf-mnt{
+  --mnt-blue:#00A2DE; --mnt-blue-d:#0084b8; --mnt-navy:#2c3038;
+  --mnt-orange:#F6AC0E; --mnt-bg:#f2f8fc; --mnt-line:#dce8f0; --mnt-sub:#5a6470;
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color:var(--mnt-navy); line-height:1.9; font-size:16px;
+  background:#fff;
+}
+.taf-mnt *{ box-sizing:border-box; margin:0; padding:0; }
+.taf-mnt a{ text-decoration:none; color:inherit; }
+.taf-mnt img{ max-width:100%; height:auto; }
+.taf-mnt .mnt-in{ max-width:860px; margin:0 auto; padding:0 20px; }
+
+/* ---- HERO ---- */
+.taf-mnt .mnt-hero{
+  background:linear-gradient(150deg,#eaf6fc 0%,#f7fbfe 60%,#fff 100%);
+  text-align:center; padding:56px 20px 44px; border-bottom:1px solid var(--mnt-line);
+}
+.taf-mnt .mnt-hero-badge{
+  display:inline-block; background:var(--mnt-blue); color:#fff;
+  font-size:12.5px; font-weight:700; letter-spacing:.14em;
+  border-radius:999px; padding:6px 18px; margin-bottom:18px;
+}
+.taf-mnt .mnt-hero h1{
+  font-size:30px; font-weight:800; line-height:1.5; color:var(--mnt-navy);
+}
+.taf-mnt .mnt-tagline{ font-size:15px; color:var(--mnt-sub); margin-top:12px; }
+.taf-mnt .mnt-tagline b{ color:var(--mnt-blue-d); }
+.taf-mnt .mnt-hero-price{ margin-top:22px; }
+.taf-mnt .mnt-hero-price .pre{ font-size:15px; font-weight:700; color:var(--mnt-sub); margin-right:6px; }
+.taf-mnt .mnt-hero-price .yen{ font-size:22px; font-weight:700; color:var(--mnt-blue-d); }
+.taf-mnt .mnt-hero-price .num{ font-size:44px; font-weight:800; color:var(--mnt-blue-d); letter-spacing:.02em; }
+.taf-mnt .mnt-hero-price .note{ display:block; font-size:13px; color:var(--mnt-sub); margin-top:6px; }
+
+/* ---- セクション共通 ---- */
+.taf-mnt .mnt-sec{ padding:48px 0 8px; }
+.taf-mnt .mnt-sec--tint{ background:var(--mnt-bg); padding:48px 0 40px; margin-top:40px; }
+.taf-mnt .mnt-eyebrow{
+  font-size:12px; font-weight:700; letter-spacing:.22em; color:var(--mnt-blue);
+  margin-bottom:8px;
+}
+.taf-mnt .mnt-sec h2{ font-size:24px; font-weight:800; line-height:1.5; margin-bottom:22px; }
+.taf-mnt .mnt-sec h2 b{ color:var(--mnt-blue-d); }
+
+/* ---- こんな方に ---- */
+.taf-mnt .mnt-fit{ list-style:none; display:grid; gap:10px; }
+.taf-mnt .mnt-fit li{
+  position:relative; background:#fff; border:1px solid var(--mnt-line); border-radius:12px;
+  padding:13px 16px 13px 44px; font-size:15px; font-weight:600;
+}
+.taf-mnt .mnt-fit li::before{
+  content:"✓"; position:absolute; left:16px; top:13px;
+  color:var(--mnt-blue); font-weight:700; font-size:17px;
+}
+
+/* ---- 毎月やること ---- */
+.taf-mnt .mnt-set{ display:grid; gap:16px; margin-top:6px; }
+@media(min-width:760px){ .taf-mnt .mnt-set{ grid-template-columns:1fr 1fr; } }
+.taf-mnt .mnt-set-card{
+  background:#fff; border:1px solid var(--mnt-line); border-radius:14px;
+  padding:22px 20px; box-shadow:0 4px 14px rgba(0,60,90,.05);
+}
+.taf-mnt .mnt-set-card .ic{ font-size:28px; display:block; margin-bottom:10px; }
+.taf-mnt .mnt-set-card h3{ font-size:16.5px; font-weight:700; margin-bottom:8px; color:var(--mnt-blue-d); }
+.taf-mnt .mnt-set-card p{ font-size:14px; color:var(--mnt-sub); margin:0; }
+.taf-mnt .mnt-set-note{
+  margin-top:14px; background:#FFF4DC; border:1px solid #f0d9a0; border-radius:12px;
+  padding:14px 16px; font-size:13.5px; color:#6b5327;
+}
+
+/* ---- 料金の決まり方 ---- */
+.taf-mnt .mnt-price-box{ display:grid; gap:14px; }
+@media(min-width:760px){ .taf-mnt .mnt-price-box{ grid-template-columns:1fr 1fr; } }
+.taf-mnt .mnt-price-card{
+  background:#fff; border:2px solid var(--mnt-line); border-radius:14px; padding:22px 20px;
+}
+.taf-mnt .mnt-price-card.hl{ border-color:var(--mnt-blue); }
+.taf-mnt .mnt-price-card .tag{
+  display:inline-block; font-size:12px; font-weight:700; border-radius:999px;
+  padding:3px 12px; margin-bottom:10px; background:var(--mnt-bg); color:var(--mnt-blue-d);
+}
+.taf-mnt .mnt-price-card.hl .tag{ background:var(--mnt-blue); color:#fff; }
+.taf-mnt .mnt-price-card .pr{ font-size:24px; font-weight:800; color:var(--mnt-blue-d); margin-bottom:6px; }
+.taf-mnt .mnt-price-card .pr small{ font-size:13px; font-weight:600; color:var(--mnt-sub); }
+.taf-mnt .mnt-price-card p{ font-size:13.5px; color:var(--mnt-sub); }
+.taf-mnt .mnt-rule{
+  margin-top:18px; background:#fff; border:1px solid var(--mnt-line); border-radius:12px;
+  padding:16px 18px; font-size:13.5px; color:var(--mnt-sub);
+}
+.taf-mnt .mnt-rule b{ color:var(--mnt-navy); }
+
+/* ---- 比較表 ---- */
+.taf-mnt .mnt-cmp{ width:100%; border-collapse:collapse; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(0,60,90,.05); font-size:14px; }
+.taf-mnt .mnt-cmp th,.taf-mnt .mnt-cmp td{ border:1px solid var(--mnt-line); padding:12px 12px; text-align:center; vertical-align:middle; }
+.taf-mnt .mnt-cmp thead th{ background:var(--mnt-bg); font-size:13.5px; }
+.taf-mnt .mnt-cmp thead th.hl{ background:var(--mnt-blue); color:#fff; }
+.taf-mnt .mnt-cmp tbody th{ background:#fafcfe; font-size:13px; color:var(--mnt-sub); width:26%; }
+.taf-mnt .mnt-cmp td.hl{ background:#f0faff; font-weight:700; }
+.taf-mnt .mnt-cmp-note{ font-size:12.5px; color:var(--mnt-sub); margin-top:10px; }
+.taf-mnt .mnt-cmp-note a{ color:var(--mnt-blue-d); font-weight:700; text-decoration:underline; }
+
+/* ---- FAQ ---- */
+.taf-mnt .mnt-faq{ display:grid; gap:12px; margin-top:6px; }
+.taf-mnt .mnt-faq-item{ background:#fff; border:1px solid var(--mnt-line); border-radius:12px; padding:16px 18px; }
+.taf-mnt .mnt-faq-item .q{ font-weight:700; font-size:15px; margin-bottom:6px; }
+.taf-mnt .mnt-faq-item .q::before{ content:"Q. "; color:var(--mnt-blue); }
+.taf-mnt .mnt-faq-item .a{ font-size:14px; color:var(--mnt-sub); }
+.taf-mnt .mnt-faq-item .a::before{ content:"A. "; color:var(--mnt-orange); font-weight:700; }
+.taf-mnt .mnt-faq-item .a a{ color:var(--mnt-blue-d); font-weight:700; text-decoration:underline; }
+
+/* ---- CTA ---- */
+.taf-mnt .mnt-cta{
+  background:linear-gradient(150deg,#00A2DE,#0084b8); border-radius:18px;
+  text-align:center; color:#fff; padding:38px 24px; margin:52px 0 28px;
+}
+.taf-mnt .mnt-cta h2{ font-size:22px; color:#fff; margin-bottom:8px; }
+.taf-mnt .mnt-cta p{ font-size:14px; color:rgba(255,255,255,.92); margin-bottom:20px; }
+.taf-mnt .mnt-cta-btn{
+  display:block; max-width:420px; margin:0 auto 12px; padding:16px 20px;
+  background:var(--mnt-orange); color:#fff; font-size:17px; font-weight:700;
+  border-radius:999px; box-shadow:0 6px 18px rgba(0,40,60,.25);
+}
+.taf-mnt .mnt-cta-btn:active{ transform:scale(.98); }
+.taf-mnt .mnt-cta-line{
+  display:block; max-width:420px; margin:0 auto; padding:14px 20px;
+  background:#06C755; color:#fff; font-size:15.5px; font-weight:700; border-radius:999px;
+}
+.taf-mnt .mnt-cta-sub{ font-size:12.5px; color:rgba(255,255,255,.85); margin:14px 0 0; }
+
+/* ---- 戻るリンク ---- */
+.taf-mnt .mnt-back{ text-align:center; padding:0 0 56px; }
+.taf-mnt .mnt-back a{ color:var(--mnt-blue-d); font-size:14px; font-weight:700; text-decoration:underline; }
+
+/* ---- スマホ ---- */
+@media(max-width:759px){
+  .taf-mnt{ font-size:15px; }
+  .taf-mnt .mnt-hero h1{ font-size:24px; }
+  .taf-mnt .mnt-hero-price .num{ font-size:34px; }
+  .taf-mnt .mnt-sec h2{ font-size:21px; }
+  .taf-mnt .mnt-cmp{ font-size:12.5px; }
+  .taf-mnt .mnt-cmp th,.taf-mnt .mnt-cmp td{ padding:10px 6px; }
+}
+</style>
+
+<div class="taf-mnt">
+
+  <!-- HERO -->
+  <header class="mnt-hero">
+    <span class="mnt-hero-badge">SECURITY ｜ 月額おまかせ</span>
+    <h1>サイト安心保守管理プラン</h1>
+    <p class="mnt-tagline">WordPressのシステムを裏側から静かに守る。<br><b>あなたは本業に100%集中</b>できる状態を、月額でお約束します。</p>
+    <div class="mnt-hero-price">
+      <span class="pre">月額</span><span class="yen">¥</span><span class="num">5,500</span><span class="yen">〜</span>
+      <span class="note">税込・契約の縛りなし ／ サイトの規模・内容により〜11,000円(個別見積もり)</span>
+    </div>
+  </header>
+
+  <!-- こんな方に -->
+  <section class="mnt-sec">
+    <div class="mnt-in">
+      <div class="mnt-eyebrow">FOR YOU</div>
+      <h2>こんな方の<b>ためのプラン</b>です</h2>
+      <ul class="mnt-fit">
+        <li>更新やバックアップなどの管理作業を、丸ごと任せてしまいたい方</li>
+        <li>「サイトが突然真っ白に」のようなトラブルを未然に防ぎたい方</li>
+        <li>セキュリティの心配をせず、本業に集中したい方</li>
+      </ul>
+      <p style="margin-top:16px; font-size:14px; color:#5a6470;">
+        WordPressは世界で最も使われているサイトの仕組みですが、その分、更新を放置したサイトは
+        「プラグインの脆弱性を突いた改ざんや乗っ取り」の標的になりがちです。
+        このプランは、そうした重大トラブルを<b>毎月の地道な予防</b>で防ぐ、サイトの主治医です。
+      </p>
+    </div>
+  </section>
+
+  <!-- 毎月やること -->
+  <section class="mnt-sec mnt-sec--tint">
+    <div class="mnt-in">
+      <div class="mnt-eyebrow">MONTHLY CARE</div>
+      <h2>毎月、裏側で<b>やっていること</b></h2>
+      <div class="mnt-set">
+        <div class="mnt-set-card">
+          <span class="ic">🔄</span>
+          <h3>本体・プラグインの定期アップデート巡回</h3>
+          <p>WordPressコアとプラグインを毎月点検し、安全を確認しながら最新の状態に更新します。脆弱性を放置しません。</p>
+        </div>
+        <div class="mnt-set-card">
+          <span class="ic">☁️</span>
+          <h3>クラウド自動バックアップの管理</h3>
+          <p>週1回の自動バックアップを外部クラウドに保存(過去4週間分)。サイトとは別の場所に控えがある状態を維持します。</p>
+        </div>
+        <div class="mnt-set-card">
+          <span class="ic">🔒</span>
+          <h3>SSL証明書の有効期限チェック</h3>
+          <p>「保護されていない通信」と表示される事故を防ぐため、SSL証明書の期限を自動チェックで見張ります。</p>
+        </div>
+        <div class="mnt-set-card">
+          <span class="ic">🛡️</span>
+          <h3>基本セキュリティ設定の最適化</h3>
+          <p>ログイン保護など、WordPressの基本的なセキュリティ設定を点検・最適化。侵入されにくい状態を保ちます。</p>
+        </div>
+      </div>
+      <p class="mnt-set-note">💡 万が一のトラブル・復旧作業は<b>「特別実費(都度見積)」</b>にて迅速に対応いたします。日頃の予防があるからこそ、復旧も速く・安く済みます。</p>
+    </div>
+  </section>
+
+  <!-- 料金の決まり方 -->
+  <section class="mnt-sec">
+    <div class="mnt-in">
+      <div class="mnt-eyebrow">PRICE</div>
+      <h2>料金の<b>決まり方</b></h2>
+      <div class="mnt-price-box">
+        <div class="mnt-price-card hl">
+          <span class="tag">基本</span>
+          <div class="pr">月額 5,500円 <small>(税込)</small></div>
+          <p>標準的な規模のWordPressサイト(コーポレートサイト・LP・小規模サイトなど)は、基本の月額5,500円でお引き受けします。</p>
+        </div>
+        <div class="mnt-price-card">
+          <span class="tag">規模・内容に応じて</span>
+          <div class="pr">〜 月額 11,000円 <small>(個別見積もり)</small></div>
+          <p>ページ数の多いサイト、EC・会員機能つき、複数フォーム運用など、規模や対応内容に応じて個別にお見積もりします(上限目安11,000円)。</p>
+        </div>
+      </div>
+      <div class="mnt-rule">
+        <b>契約のルール(先に全部お伝えします)</b><br>
+        ・契約期間の縛りはありません(1ヶ月だけでもOK)<br>
+        ・解約は次回決済日の<b>10日前まで</b>にご連絡ください<br>
+        ・月の途中で解約された場合の日割り返金はありません<br>
+        ・高額・大規模サイトは別途お見積りとなります
+      </div>
+    </div>
+  </section>
+
+  <!-- 買い切りとの比較 -->
+  <section class="mnt-sec mnt-sec--tint">
+    <div class="mnt-in">
+      <div class="mnt-eyebrow">COMPARE</div>
+      <h2>買い切りパックとの<b>使い分け</b></h2>
+      <table class="mnt-cmp">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="hl">サイト安心<br>保守管理プラン</th>
+            <th>サイトまるごと<br>バックアップパック</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>費用</th><td class="hl">月5,500円〜11,000円</td><td>16,500円(税込)<br>買い切り・月額0円</td></tr>
+          <tr><th>毎月の作業</th><td class="hl">すべてお任せ</td><td>ご自身で<br>(手順書+動画つき)</td></tr>
+          <tr><th>向いている方</th><td class="hl">作業も含めて<br>丸ごと任せたい方</td><td>費用を抑えて<br>自分で守りたい方</td></tr>
+        </tbody>
+      </table>
+      <p class="mnt-cmp-note">※「月額はかけずに自分で守りたい」という方には、買い切りの<a href="https://taf-design.com/backup/">サイトまるごとバックアップパック(16,500円・税込)</a>をご用意しています。</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mnt-sec">
+    <div class="mnt-in">
+      <div class="mnt-eyebrow">FAQ</div>
+      <h2>よくある<b>ご質問</b></h2>
+      <div class="mnt-faq">
+        <div class="mnt-faq-item">
+          <div class="q">解約したくなったら、すぐやめられますか?</div>
+          <div class="a">はい。契約期間の縛りはありません。次回決済日の10日前までにご連絡いただければ、いつでも解約できます(日割り返金はありません)。</div>
+        </div>
+        <div class="mnt-faq-item">
+          <div class="q">他社で作ったサイトでもお願いできますか?</div>
+          <div class="a">はい、ご相談ください。当社制作以外のWordPressサイトにも対応します。サイトの状態を確認のうえ、お見積りをご案内します。</div>
+        </div>
+        <div class="mnt-faq-item">
+          <div class="q">5,500円と11,000円、うちはどちらになりますか?</div>
+          <div class="a">標準的な規模のサイトなら基本の5,500円です。ページ数・EC/会員機能・フォーム数など、サイトの構成を拝見して無料でお見積りしますので、まずはお気軽にご相談ください。</div>
+        </div>
+        <div class="mnt-faq-item">
+          <div class="q">トラブルが起きたときの費用は?</div>
+          <div class="a">復旧作業などは「特別実費(都度見積)」で対応します。毎月の予防とバックアップがあるため、被害も費用も最小限に抑えられるのがこのプランの価値です。</div>
+        </div>
+        <div class="mnt-faq-item">
+          <div class="q">月額ではなく、買い切りにしたいのですが。</div>
+          <div class="a">ご自身でサイトを守れる状態にしてお渡しする、買い切りの<a href="https://taf-design.com/backup/">サイトまるごとバックアップパック(16,500円・税込)</a>をご用意しています。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="mnt-in">
+    <div class="mnt-cta">
+      <h2>まずは、無料でお見積り</h2>
+      <p>「うちのサイトはいくらになる?」の確認だけでも大丈夫です。しつこい営業は一切しません。</p>
+      <a class="mnt-cta-btn" href="https://taf-design.com/order/">かんたん無料見積もりへ</a>
+      <a class="mnt-cta-line" href="https://lin.ee/pqfXTUJ">LINEで相談する</a>
+      <p class="mnt-cta-sub">ご相談・お見積りは無料 ／ ご返信は48時間以内</p>
+    </div>
+    <div class="mnt-back"><a href="https://taf-design.com/price/">← 料金表に戻る</a></div>
+  </div>
+
+</div>

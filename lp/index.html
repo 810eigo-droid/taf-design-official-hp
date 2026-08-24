@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HP/LP/セールスファネルの無料資料請求｜事業主・副業オーナー向け制作｜ティーチ&ファネルDesign</title>
+
+<meta name="description" content="事業主・副業オーナーのためのHP・LP・セールスファネル制作。買い切り2万円から・月額0円。無料の資料請求・お見積もりはこちら。約30秒で完了、資料はその場でメールでお届けします。しつこい営業はありません。">
+<link rel="canonical" href="https://taf-design.com/lp/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://taf-design.com/lp/">
+<meta property="og:title" content="HP/LP/セールスファネルの無料資料請求｜事業主・副業オーナー向け制作｜ティーチ&ファネルDesign">
+<meta property="og:description" content="買い切り2万円から・月額0円のHP/LP/セールスファネル制作。無料の資料請求・お見積もりを受付中。約30秒で完了、資料はその場でメールでお届け。">
+<meta property="og:image" content="https://taf-design.com/wp-content/uploads/2026/07/lp-fv-main.webp">
+<meta property="og:site_name" content="ティーチ&ファネルDesign">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/webp" href="images/icon.webp">
+<link rel="apple-touch-icon" href="images/icon.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- CVキャラ配置(このファイル単体で完結・style.cssの新旧に依存しない) -->
+<style>
+/* PC: カードの左右の縁に重なって立つ(カードの手前・下寄り) */
+.cv-char {
+  position: absolute; z-index: 2;
+  bottom: calc(var(--section-space) - 12px); top: auto;
+  height: 280px; width: auto; max-width: none;
+  pointer-events: none; user-select: none;
+  filter: drop-shadow(0 10px 18px rgba(30,50,70,.14));
+}
+.cv-char--girl { right: calc(50% + 283px); left: auto; }
+.cv-char--boy  { left: calc(50% + 283px); right: auto; }
+@media (max-width: 860px) and (min-width: 701px) {
+  .cv-char { height: 230px; }
+  .cv-char--girl { right: calc(50% + 225px); }
+  .cv-char--boy  { left: calc(50% + 225px); }
+}
+/* スマホ: FVのチャットUIをスライダーの下に表示 */
+@media (max-width: 960px) {
+  .fv-visual .phone { display: block !important; margin: 30px auto 0; }
+}
+
+/* チャット吹き出しを順番にぷちっと表示 */
+.phone.chat-init .chat-body > * { opacity: 0; }
+.phone.chat-play .chat-body > * {
+  animation: chatPop .5s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.phone.chat-play .chat-body > *:nth-child(1) { animation-delay: .3s; }
+.phone.chat-play .chat-body > *:nth-child(2) { animation-delay: 1.1s; }
+.phone.chat-play .chat-body > *:nth-child(3) { animation-delay: 1.9s; }
+.phone.chat-play .chat-body > *:nth-child(4) { animation-delay: 2.7s; }
+.phone.chat-play .chat-body > *:nth-child(5) { animation-delay: 3.6s; }
+.chat-body .bubble--user { transform-origin: left bottom; }
+.chat-body .bubble--taf  { transform-origin: right bottom; }
+.chat-body .chat-card    { transform-origin: center bottom; }
+@keyframes chatPop {
+  0%   { opacity: 0; transform: scale(.5) translateY(10px); }
+  70%  { opacity: 1; transform: scale(1.07) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone.chat-init .chat-body > * { opacity: 1; animation: none !important; }
+}
+
+@media (max-width: 700px) {
+  /* スマホ: カード左右の縁に重ねて(カードの手前)、頭を上端から出す */
+  .cv { padding-top: calc(var(--section-space) + 70px) !important; }
+  .cv-char { height: 190px; top: calc(var(--section-space) + 10px); bottom: auto; z-index: 2; }
+  .cv-char--girl { left: 8px; right: auto; }
+  .cv-char--boy  { right: 8px; left: auto; }
+}
+</style>
+
+<!-- ▼▼ Meta Pixel Code ▼▼ ※IDが自分のピクセルか必ず確認(Events Manager) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1427280391720324');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1427280391720324&ev=PageView&noscript=1"
+/></noscript>
+<!-- ▲▲ End Meta Pixel Code ▲▲ -->
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <div class="container">
+    <a class="header-logo" href="#top"><img class="header-logo-icon" src="images/icon.webp" alt="">TAF Design</a>
+    <a class="header-cta" href="https://taf-design.com/offer2/">無料相談・資料DL</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- FV -->
+  <section class="fv" id="fv">
+    <img class="fv-bg fv-bg--desktop" src="images/fv-bg.webp" alt="" aria-hidden="true" loading="eager" width="1672" height="941">
+    <img class="fv-bg fv-bg--mobile" src="images/fv-bg-mobile.webp" alt="" aria-hidden="true" loading="eager" width="900" height="1600">
+    <div class="fv-bg-overlay" aria-hidden="true"></div>
+    <div class="deco deco-ring" aria-hidden="true"></div>
+    <div class="deco deco-circle deco-circle--blue" aria-hidden="true"></div>
+    <div class="deco deco-circle deco-circle--pink" aria-hidden="true"></div>
+    <div class="deco deco-dots" aria-hidden="true"></div>
+    <div class="container">
+      <div class="fv-grid">
+        <div class="fv-copy">
+          <span class="fv-badge">無料相談・資料請求</span>
+          <p class="fv-cat">個人事業主・副業オーナーのWeb制作</p>
+          <h1 class="hero-title">AIの時代に、<br>HP/LP制作は高いまま<br><span class="em">おかしくないですか?</span></h1>
+          <p class="fv-sub">私たちは<strong>買い切り2万円から</strong>。月額はかかりません。</p>
+          <ul class="fv-tags">
+            <li>YouTube・Google広告</li>
+            <li>セールスファネル</li>
+            <li>メタ広告全般</li>
+            <li>公式LINE・インスタ更新</li>
+            <li>AI導入・ボット</li>
+            <li>プラグイン・機能追加</li>
+            <li>UTAGE・コネクティッドワン・マイスピー対応</li>
+          </ul>
+          <div class="fv-actions">
+            <div class="cta-wrap">
+              <span class="cta-badge">詳しい料金や相談はこちら</span>
+              <a class="cta-button" href="https://taf-design.com/offer2/">相談・資料ダウンロード</a>
+            </div>
+            <p class="cta-note">相談は無料/しつこい営業はしません</p>
+          </div>
+        </div>
+
+        <div class="fv-visual">
+          <div class="fv-slider" aria-hidden="true">
+            <ul class="fv-slider-track">
+              <li><img src="images/fv1.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv2.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv3.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv4.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv5.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv1.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv2.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv3.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv4.webp" alt="" loading="lazy" width="500" height="400"></li>
+              <li><img src="images/fv5.webp" alt="" loading="lazy" width="500" height="400"></li>
+            </ul>
+          </div>
+          <div class="deco deco-ring deco-ring--small" aria-hidden="true"></div>
+          <div class="phone" aria-hidden="true">
+            <div class="phone-screen">
+              <div class="chat-header">ティーチ＆ファネルDesign<small>CHAT SUPPORT</small></div>
+              <div class="chat-body">
+                <div class="bubble bubble--user">HPを作りたいけど、予算が心配で…</div>
+                <div class="bubble bubble--taf">買い切り2万円から。月額は0円です</div>
+                <div class="bubble bubble--user">維持費はかからないんですか?</div>
+                <div class="bubble bubble--taf">かかりません。サイトはずっとあなたのものです</div>
+                <div class="chat-card">
+                  <p>面倒なWebまわりは、ぜんぶお任せ。</p>
+                  <span>あなたはビジネスに集中してください</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 課題提起(悩み) -->
+  <section class="section section--light">
+    <div class="container fade-in">
+      <span class="sec-label">PROBLEM</span>
+      <h2 class="sec-title">ひとつでも当てはまれば、<br><span class="text-blue">この資料がきっと役に立ちます。</span></h2>
+      <div class="problem-grid">
+        <div class="problem-card"><span class="check">✓</span><p>何から手を付ければいいか分からない</p></div>
+        <div class="problem-card"><span class="check">✓</span><p>月額HPで毎月支払いが発生。広告費を圧迫している</p></div>
+        <div class="problem-card"><span class="check">✓</span><p>制作会社は高そう…でも自作は不安</p></div>
+        <div class="problem-card"><span class="check">✓</span><p>広告や集客、興味はあるけど怖い</p></div>
+      </div>
+      <p class="problem-close">どれも、私たちが毎日ご相談を受けているお悩みです。</p>
+    </div>
+  </section>
+
+  <!-- ストーリー(AIで自作 vs 買い切り) -->
+  <section class="section has-secbg story-sec">
+    <img class="sec-bg sec-bg--story" src="images/story-bg.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="sec-ov sec-ov--leftwhite" aria-hidden="true"></div>
+    <div class="container fade-in">
+      <span class="sec-label">STORY</span>
+      <h2 class="sec-title">「AIで、自分で作れる」。<br>でも、その<span class="text-pink">時間</span>は“タダ”じゃない</h2>
+      <p class="story-text">たしかに今は、AIがあれば誰でもホームページを作れる時代です。でも実際にやってみると——プロンプトの試行錯誤、崩れるレイアウトの手直し、高機能なAIは<strong>月額料金やトークン残量</strong>を気にしながらの作業。「作れる」と「使いこなせる」は、まったく別ものです。</p>
+      <p class="story-text">その学習に何十時間もかけるより、プロが仕上げた<strong>買い切りのホームページ</strong>を持つ方が、結局は安くて早い。そして空いた時間は、<strong>あなたの事業そのものを伸ばすため</strong>に使えます。</p>
+      <div class="story-callout">
+        <span class="story-callout-label">POINT</span>
+        <p>AIでWEB制作。これに費やす“時間”こそ、<br>いちばん高いコストかもしれません。</p>
+      </div>
+      <img class="story-illust-inline" src="images/story-bg-sp.webp" alt="AIで自作するより、プロの買い切りホームページを" loading="lazy">
+    </div>
+  </section>
+
+  <!-- 価格比較 -->
+  <section class="section">
+    <div class="container fade-in">
+      <span class="sec-label sec-label--orange">PRICE</span>
+      <h2 class="sec-title">作ったあとに、<span class="text-orange">払い続けない。</span></h2>
+      <p class="sec-lead">最近よく見る「月額制のHPサービス」。私たちは、その仕組みを採用していません。</p>
+
+      <div class="hikaku-table-wrap">
+        <table class="hikaku-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="col-sub">よくある月額制</th>
+              <th class="col-taf">TAF Design</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>初期費用</th>
+              <td class="col-sub">0円〜</td>
+              <td class="col-taf">2万円〜</td>
+            </tr>
+            <tr>
+              <th>月額</th>
+              <td class="col-sub">6,000〜10,000円前後</td>
+              <td class="col-taf"><span class="big">0円</span></td>
+            </tr>
+            <tr>
+              <th>3年間の総額</th>
+              <td class="col-sub">約22〜36万円</td>
+              <td class="col-taf"><span class="big">2万円〜</span><br>のまま</td>
+            </tr>
+            <tr>
+              <th>やめたら?</th>
+              <td class="col-sub">サイトが消えることも</td>
+              <td class="col-taf">買い切り。<br>ずっとあなたのもの</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="hikaku-note">※月額制は一般的なサービスの一例です(各社の条件により異なります)。当社比較。</p>
+
+      <div class="honest-card">
+        正直に言うと、<strong>月額制が悪いわけではありません</strong>。ただ、AIで制作コストが下がった今、作る費用は一度きりでいい——それが私たちの考えです。保守やサポートが必要な方にだけ、任意のプラン(月5,500円)を別途ご用意しています。月額は不要という方には、ご自身でサイトを守れる状態にしてお渡しする買い切りの<strong>「サイトまるごとバックアップパック」(16,500円・税込)</strong>もございます。
+      </div>
+    </div>
+  </section>
+
+  <!-- 流れ(2ステップ) -->
+  <section class="section section--light has-secbg step-sec">
+    <img class="sec-bg sec-bg--step" src="images/step-bg.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="sec-ov sec-ov--white" aria-hidden="true"></div>
+    <div class="container fade-in">
+      <span class="sec-label">STEP</span>
+      <h2 class="sec-title">相談・資料請求は、<span class="text-blue">カンタン2ステップ。</span></h2>
+      <ol class="steps steps--2">
+        <li>
+          <h3>フォームから申し込み</h3>
+          <p>下のボタンからフォームへ。お名前とメールアドレスの入力だけ、約30秒で完了します。</p>
+        </li>
+        <li>
+          <h3>資料が届く・相談に回答</h3>
+          <p>資料はその場でお届け。ご相談もフォームで受け付け、内容にしっかりお答えします。</p>
+        </li>
+      </ol>
+      <p class="steps-close">費用は<span class="em">一切かかりません</span>。まずはお気軽にどうぞ。</p>
+      <img class="step-illust-inline" src="images/step-bg.webp" alt="フォームから申し込むと資料が届く流れ" loading="lazy">
+    </div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section class="section">
+    <div class="container fade-in">
+      <div class="reason-grid">
+        <div class="reason-body">
+          <span class="sec-label">REASON</span>
+          <h2 class="sec-title">商売の現場を、<br><span class="text-blue">ぜんぶ歩いてきました。</span></h2>
+          <p class="reason-career">美容師 → 飲食店経営 → 貿易会社 →<br>英会話スクール運営 → Web制作&マーケティング</p>
+          <p>代表は、作る側・売る側・教える側——商売のあらゆる現場を経験してきました。4,000人以上に英語を教えて学んだ「伝わる説明」と、自分の店で集客に悩んだ経験。だから、専門用語を並べるのではなく、<strong>あなたのお客様に届く言葉</strong>でWebを作ります。</p>
+          <p>制作はAIを活用しつつ、エンジニアとアメリカ人デザイナーを含む<strong>3人のチーム</strong>で品質を担保。「安いのに、ちゃんとしている」を実現しています。</p>
+        </div>
+        <div class="reason-profile">
+          <img class="reason-photo" src="https://taf-design.com/wp-content/uploads/2026/07/lp-daihyo.webp" alt="代表 大村" loading="lazy" width="400" height="400">
+          <p class="reason-quote">「小さなビジネスの味方でいたい。<br>それが私たちの原点です」</p>
+          <p class="reason-company">ティーチ&ファネルDesign(株式会社シュアリーワーク)</p>
+          <div class="reason-badges">
+            <div><span>制作期間</span><strong>従来3ヶ月 → 平均7日</strong></div>
+            <div><span>料金体系</span><strong>サブスクなしの買い切り型</strong></div>
+            <div><span>実績</span><strong>ココナラ開始3ヶ月でプラチナランク達成</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 制作実績 -->
+  <section class="section section--light">
+    <div class="container fade-in">
+      <span class="sec-label">WORKS</span>
+      <h2 class="sec-title">これまでの<span class="text-blue">制作実績。</span></h2>
+      <p class="sec-lead">LP・ホームページ・バナーなど、実際にお作りした一部です。</p>
+      <div class="works-marquee">
+        <ul class="works-track">
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-01.jpg" alt="制作実績 01" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-02.jpg" alt="制作実績 02" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-03.jpg" alt="制作実績 03" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-04.jpg" alt="制作実績 04" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-05.jpg" alt="制作実績 05" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-06.jpg" alt="制作実績 06" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-07.jpg" alt="制作実績 07" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-08.jpg" alt="制作実績 08" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-09.jpg" alt="制作実績 09" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-10.jpg" alt="制作実績 10" loading="lazy"></a></li>
+          <li><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener"><img src="images/work-11.jpg" alt="制作実績 11" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-01.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-02.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-03.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-04.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-05.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-06.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-07.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-08.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-09.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-10.jpg" alt="" loading="lazy"></a></li>
+          <li aria-hidden="true"><a href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener" tabindex="-1"><img src="images/work-11.jpg" alt="" loading="lazy"></a></li>
+        </ul>
+      </div>
+      <div class="works-more">
+        <a class="works-btn" href="https://www.foriio.com/surelywork-810" target="_blank" rel="noopener">実績をもっと見る<span>foriio(別ウィンドウで開きます)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <section class="section">
+    <div class="container fade-in">
+      <span class="sec-label sec-label--pink">VOICE</span>
+      <h2 class="sec-title">ココナラで、<span class="text-pink">全レビュー星5。</span></h2>
+      <p class="sec-lead">「安いのに、大丈夫?」——その答えは、お客様の声にありました。サービス開始からわずか3ヶ月でココナラ最高ランクのプラチナを獲得。実際にいただいた声を、そのままご紹介します。</p>
+
+      <div class="voice-grid">
+        <article class="voice-card">
+          <div class="voice-head">
+            <img src="https://taf-design.com/wp-content/uploads/2026/07/lp-voice-01.webp" alt="お客様の声" loading="lazy" width="120" height="120">
+            <div class="voice-stars">★★★★★</div>
+          </div>
+          <h3>すべて金額以上でした</h3>
+          <p>細かな対応、スピード、デザイン、気遣いなど全て金額以上でした。また是非お世話になろうと思えます。</p>
+        </article>
+        <article class="voice-card">
+          <div class="voice-head">
+            <img src="https://taf-design.com/wp-content/uploads/2026/07/lp-voice-02.webp" alt="お客様の声" loading="lazy" width="120" height="120">
+            <div class="voice-stars">★★★★★</div>
+          </div>
+          <h3>初めてでも安心・美しい仕上がり</h3>
+          <p>終始丁寧にご対応いただき、大変感謝しております。仕上がりもとても美しく、大変満足しております。</p>
+        </article>
+        <article class="voice-card">
+          <div class="voice-head">
+            <img src="https://taf-design.com/wp-content/uploads/2026/07/lp-voice-03.webp" alt="お客様の声" loading="lazy" width="120" height="120">
+            <div class="voice-stars">★★★★★</div>
+          </div>
+          <h3>Webマーケティングの土台づくりに満足</h3>
+          <p>スピード感、クオリティ、アドバイス、行間を読み取る力、全て申し分ないです。</p>
+        </article>
+      </div>
+      <p class="voice-source">※ココナラでのお取引レビューより(原文抜粋)</p>
+    </div>
+  </section>
+
+  <!-- CV(メイン誘導) -->
+  <section class="section section--light cv">
+    <div class="deco deco-ring" aria-hidden="true"></div>
+    <div class="deco deco-dots" aria-hidden="true"></div>
+    <img class="cv-char cv-char--girl" src="images/girl.webp" alt="" aria-hidden="true" loading="lazy" width="715" height="1290" onerror="this.style.display='none'">
+    <img class="cv-char cv-char--boy" src="images/boy.webp" alt="" aria-hidden="true" loading="lazy" width="715" height="1290" onerror="this.style.display='none'">
+    <div class="container fade-in">
+      <div class="cv-box">
+        <span class="sec-label sec-label--orange">CONTACT</span>
+        <h2 class="sec-title">まずは、<br><span class="text-orange">無料相談・資料請求</span>から。</h2>
+        <p class="cv-lead">今すぐ依頼を決めなくて大丈夫。<br>話を聞いてみるだけでも、資料を眺めるだけでもOKです。</p>
+        <div class="cta-wrap">
+          <span class="cta-badge">詳しい料金や相談はこちら</span>
+          <a class="cta-button" href="https://taf-design.com/offer2/">相談・資料ダウンロード</a>
+        </div>
+        <p class="cta-note">相談は無料/約30秒で申込完了/しつこい営業はしません</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container fade-in">
+      <span class="sec-label">FAQ</span>
+      <h2 class="sec-title">よくある<span class="text-blue">ご質問</span></h2>
+      <div class="faq">
+        <details>
+          <summary>月額費用はかかりますか?</summary>
+          <p class="ans">制作費は買い切りです。月額の縛りはありません。ご希望の方にだけ、運用サポートプランを別途ご用意しています。</p>
+        </details>
+        <details>
+          <summary>しつこい営業はありますか?</summary>
+          <p class="ans">一切しません。資料を受け取って、そのままでも大丈夫です。</p>
+        </details>
+        <details>
+          <summary>相談したら、依頼しないとダメですか?</summary>
+          <p class="ans">いいえ。お話を伺って、検討だけで終わっても大丈夫です。まずは疑問や不安の解消にお使いください。</p>
+        </details>
+        <details>
+          <summary>電話で相談できますか?</summary>
+          <p class="ans">はい。ご希望の方は、お電話番号とご都合の良い時間帯をお知らせください。こちらからお掛けして直接ご要望をお聞きします(無料・10分程度)。内容に応じてZoom相談もご案内できます。お電話なしで、チャットだけで完結いただくことも可能です。</p>
+        </details>
+        <details>
+          <summary>Web初心者でも大丈夫ですか?</summary>
+          <p class="ans">むしろ歓迎です。専門知識は不要。こちらの質問に答えていただくだけで、構成も文章もプロが組み立てます。</p>
+        </details>
+        <details>
+          <summary>資料には何が書いてありますか?</summary>
+          <p class="ans">料金プラン、制作の流れ、制作実績、よくいただくご質問への回答をまとめています。社内での検討にもそのままお使いいただけます。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終CTA -->
+  <section class="section final final-photobg has-secbg" id="final-cta">
+    <img class="sec-bg sec-bg--photo" src="images/cta-bg.webp" alt="" aria-hidden="true" loading="lazy">
+    <div class="sec-ov sec-ov--dark" aria-hidden="true"></div>
+    <div class="container fade-in">
+      <img class="final-logo-icon" src="images/icon.webp" alt="">
+      <p class="final-logo">TAF Design<span>TEACH &amp; FUNNEL DESIGN</span></p>
+      <h2 class="sec-title">AIの時代の、<span class="text-pink">ちょうどいいWeb制作を。</span></h2>
+      <p class="final-lead">買い切り2万円から。月額0円。<br>まずは無料相談・資料請求から、お気軽にどうぞ。</p>
+      <div class="cta-wrap">
+        <span class="cta-badge">詳しい料金や相談はこちら</span>
+        <a class="cta-button cta-button--pink" href="https://taf-design.com/offer2/">相談・資料ダウンロード</a>
+      </div>
+      <p class="cta-note">相談は無料/しつこい営業はしません</p>
+      <p class="final-sub">料金は、相談・資料の中で詳しくご案内します。<br>ご希望の方には、お電話(無料・こちらからお掛けします)でのご相談もご案内しています。</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-name">ティーチ&ファネルDesign<br>(株式会社シュアリーワーク)</p>
+    <ul class="footer-links">
+      <li><a href="https://taf-design.com/kiyaku/" target="_blank" rel="noopener">利用規約</a></li>
+      <li><a href="https://taf-design.com/tokushoho/" target="_blank" rel="noopener">特定商取引法に基づく表記</a></li>
+      <li><a href="https://taf-design.com/privacy-policy/" target="_blank" rel="noopener">プライバシーポリシー</a></li>
+    </ul>
+    <p class="footer-copy">&copy; TAF Design / Surelywork Inc.</p>
+  </div>
+</footer>
+
+<!-- 追従CTAバー -->
+<div class="stickybar" id="stickybar">
+  <a href="https://taf-design.com/offer2/">相談・資料ダウンロード(無料)</a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+/* チャット吹き出しの順次アニメーション(画面に入るたびに再生) */
+(function(){
+  var phone = document.querySelector('.phone');
+  if(!phone || !('IntersectionObserver' in window)) return;
+  phone.classList.add('chat-init');
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ phone.classList.add('chat-play'); }
+      else { phone.classList.remove('chat-play'); }
+    });
+  }, { threshold: 0.35 }).observe(phone);
+})();
+</script>
+</body>
+</html>

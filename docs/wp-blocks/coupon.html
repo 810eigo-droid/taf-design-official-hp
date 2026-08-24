@@ -1,0 +1,94 @@
+<!-- ================================================================
+  /coupon/ 全画面オーバーレイ版(テーマのCSSの影響を受けない構造)
+  ブロック順: 【BLOCK 1】→ ショートコード → 【BLOCK 3】
+  ※BLOCK 1で開いた<div>をBLOCK 3で閉じる構造のため、
+    エディタに「無効なHTML」の警告が出ることがありますが正常です。
+================================================================ -->
+
+
+<!-- ============ 【BLOCK 1】カスタムHTML(ショートコードの上) ============ -->
+
+<style>
+/* 全画面オーバーレイ: ページ側がどうなっていても独立してスクロールできる */
+.tafx{
+  position: fixed; inset: 0; z-index: 999999;
+  background: #faf7f0;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+  font-family: "Yu Mincho","YuMincho","Hiragino Mincho ProN",serif;
+  line-height: 1.9;
+}
+.tafx-in{ max-width: 480px; margin: 0 auto; padding: 0 0 60px; }
+
+/* コンパクトなヘッダー(すぐ下がフォーム) */
+.tafx-head{
+  background: linear-gradient(165deg,#1b2a4a,#101c34);
+  color:#fff; text-align:center; padding: 24px 20px 22px;
+}
+.tafx-badge{
+  display:inline-block; background:#b03a3a; color:#fff;
+  font-size:13px; font-weight:700; padding:5px 16px; border-radius:6px;
+}
+.tafx-head h1{ font-size:19px; color:#fff; margin:12px 0 0; font-weight:700; line-height:1.6; }
+.tafx-head h1 b{ color:#e5cf8f; }
+
+/* CF7フォーム */
+.tafx .wpcf7{ padding: 20px 26px 0; }
+.tafx .wpcf7 form > p, .tafx .wpcf7 label{
+  display:block; font-size:14px; color:#1b2a4a; font-weight:700; margin-bottom:14px;
+}
+.tafx .wpcf7 input[type="text"],
+.tafx .wpcf7 input[type="email"]{
+  width:100%; font-size:16px; padding:15px; margin-top:6px;
+  border:1.5px solid #c9bfa4; border-radius:10px; background:#fff; box-sizing:border-box;
+}
+.tafx .wpcf7 input:focus{ outline:none; border-color:#c9a54a; box-shadow:0 0 0 3px rgba(201,165,74,.18); }
+.tafx .wpcf7 input[type="submit"]{
+  width:100%; border:none; cursor:pointer; margin-top:8px; padding:18px;
+  background:linear-gradient(180deg,#d8b45a,#c9a54a); color:#101c34;
+  font-size:18px; font-weight:700; border-radius:999px;
+  box-shadow:0 6px 18px rgba(201,165,74,.45); font-family:inherit;
+}
+.tafx .wpcf7 input[type="submit"]:active{ transform:scale(.98); }
+.tafx .wpcf7 .wpcf7-spinner{ display:block; margin:8px auto; }
+</style>
+
+<div class="tafx">
+  <div class="tafx-in">
+    <div class="tafx-head">
+      <span class="tafx-badge">🎁 5,000円OFFクーポン</span>
+      <h1>メールに<b>その場でコード</b>が届きます</h1>
+    </div>
+<!-- ↑閉じタグはBLOCK 3にあります。このままでOK -->
+
+<!-- ============ 【BLOCK 1】ここまで ============
+  この下: [contact-form-7 id="ab758b8" title="クーポン登録フォーム"]
+================================================== -->
+
+
+<!-- ============ 【BLOCK 3】カスタムHTML(ショートコードの下) ============ -->
+
+<style>
+.tafx-cond{
+  margin: 18px 26px 14px; padding: 12px 16px;
+  background:#fff; border:1px solid #e2dcc8; border-radius:10px;
+  font-size:12px; color:#555; text-align:center; line-height:1.9;
+}
+.tafx-cond b{ color:#1b2a4a; }
+.tafx-links{ text-align:center; font-size:11px; margin:0 20px; }
+.tafx-links a{ color:#999; text-decoration:underline; margin:0 8px; }
+</style>
+
+    <p class="tafx-cond">
+      対象: <b>5万円(税抜)以上</b>のご注文/<b>初回1回限り</b>/取得から<b>1年間有効</b><br>
+      ご注文・お見積りの際にコードをお伝えください<br>
+      <a href="https://taf-design.com/budget/" style="color:#1b2a4a;font-weight:700;text-decoration:underline;text-underline-offset:3px;">💰 ご予算5〜10万円のプランを見る(クーポン対象の予算帯)</a>
+    </p>
+    <p class="tafx-links">
+      <a href="https://taf-design.com/kiyaku/">利用規約</a>
+      <a href="https://taf-design.com/tokushoho/">特定商取引法に基づく表記</a>
+      <a href="https://taf-design.com/privacy-policy/">プライバシーポリシー</a>
+    </p>
+  </div>
+</div>
+
+<!-- ============ 【BLOCK 3】ここまで ============ -->

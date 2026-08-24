@@ -1,0 +1,337 @@
+<!-- ============================================================ -->
+<!-- 【ブロック2/3】無料相談・共通補足セクション                    -->
+<!-- /price/ の2つ目のカスタムHTMLブロックに丸ごと貼り付ける       -->
+<!-- ============================================================ -->
+<!-- TAF Free Consultation & Notes Section / 無料相談・共通補足セクション -->
+<!-- WordPress HTMLブロック貼り付け用 完全自己完結型                   -->
+<!-- ============================================================ -->
+
+<div class="taf-consultation-section">
+
+  <style>
+    /* 料金プラン側のオリジナルカラーとフォントを踏襲 */
+    .taf-consultation-section {
+      --taf-navy: #1A2A3A;
+      --taf-navy-light: #2D3E50;
+      --taf-gold: #C5A059;
+      --taf-gold-light: #D4B772;
+      --taf-gold-dark: #A88846;
+      --taf-text: #2D3E50;
+      --taf-bg-soft: #F5F2EC;
+      --taf-border: rgba(197, 160, 89, 0.25);
+      --taf-serif: 'Noto Serif JP', 'Yu Mincho', serif;
+      --taf-sans: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      --taf-num: 'Cormorant Garamond', 'Noto Serif JP', serif;
+
+      font-family: var(--taf-sans);
+      color: var(--taf-text);
+      line-height: 1.75;
+      padding: 60px 24px 80px;
+      max-width: 100%;
+      box-sizing: border-box;
+      background-color: #FAFAFA; /* 背景色を料金プランと統一 */
+    }
+
+    .taf-consultation-section *,
+    .taf-consultation-section *::before,
+    .taf-consultation-section *::after {
+      box-sizing: border-box;
+    }
+
+    .taf-consultation-section p,
+    .taf-consultation-section ul,
+    .taf-consultation-section h3,
+    .taf-consultation-section h4 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .taf-consultation-section ul {
+      list-style: none;
+    }
+
+    .taf-consultation-container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       共通事項・補足（Notes）スタイリング
+       ============================================================ */
+    .taf-notes-block {
+      margin-bottom: 56px;
+      padding: 40px 36px;
+      background: var(--taf-bg-soft);
+      border-radius: 8px;
+      border: 1px solid var(--taf-border);
+    }
+
+    .taf-notes-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--taf-serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--taf-navy);
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+    }
+
+    .taf-notes-title::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--taf-gold);
+    }
+
+    .taf-notes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .taf-notes-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 14px;
+      color: var(--taf-text);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    .taf-notes-list li::before {
+      content: "※";
+      position: absolute;
+      left: 0;
+      color: var(--taf-gold);
+      font-weight: 500;
+    }
+
+    .taf-notes-list li strong {
+      color: var(--taf-navy);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       無料相談（Final CTA）スタイリング
+       ============================================================ */
+    .taf-cta-block {
+      padding: 56px 32px;
+      background: linear-gradient(135deg, var(--taf-navy) 0%, var(--taf-navy-light) 100%);
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(26, 42, 58, 0.08);
+    }
+
+    /* 背景グラデーション装飾 */
+    .taf-cta-block::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .taf-cta-block::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(212, 183, 114, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .taf-cta-eyebrow {
+      font-family: var(--taf-num);
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--taf-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .taf-cta-title {
+      font-family: var(--taf-serif);
+      font-size: clamp(24px, 4vw, 32px);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .taf-cta-text {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .taf-cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 48px;
+      background: var(--taf-gold);
+      color: #FFFFFF;
+      font-family: var(--taf-serif);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+    }
+
+    .taf-cta-button:hover {
+      background: var(--taf-gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(197, 160, 89, 0.5);
+    }
+
+    .taf-cta-button svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s ease;
+    }
+
+    .taf-cta-button:hover svg {
+      transform: translateX(6px);
+    }
+
+    /* 見積もりボタンはサイト共通ルール(アウトライン=見積もり)に合わせる */
+    .taf-cta-button--outline {
+      background: transparent;
+      border: 2px solid var(--taf-gold);
+      color: var(--taf-gold-light);
+      box-shadow: none;
+    }
+
+    .taf-cta-button--outline:hover {
+      background: var(--taf-gold);
+      color: #FFFFFF;
+      box-shadow: 0 12px 28px rgba(197, 160, 89, 0.4);
+    }
+
+    /* ボタン下の安心注記 */
+    .taf-cta-note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 資料DLへのサブリンク */
+    .taf-cta-sub {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .taf-cta-sub a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .taf-cta-sub a:hover {
+      color: var(--taf-gold-light);
+    }
+
+    /* ============================================================
+       レスポンシブ対応（モバイル最適化）
+       ============================================================ */
+    @media (max-width: 900px) {
+      .taf-consultation-section {
+        padding: 40px 16px 60px;
+      }
+      .taf-notes-block {
+        padding: 32px 20px;
+        margin-bottom: 40px;
+      }
+      .taf-cta-block {
+        padding: 40px 20px;
+      }
+      .taf-notes-list li {
+        font-size: 13px; /* スマホで文字サイズをわずかに縮小 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .taf-cta-button {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <div class="taf-consultation-container">
+
+    <!-- 共通事項・補足 -->
+    <section class="taf-notes-block">
+      <h3 class="taf-notes-title">共通事項・補足</h3>
+      <ul class="taf-notes-list">
+        <li>表示の料金はすべて<strong>税込・目安</strong>です。構成・分量・機能により変動いたします。</li>
+        <li>正式金額は事前のお見積りで<strong>必ず確定</strong>させていただきますので、ご安心ください。</li>
+        <li><strong>サーバー・ドメイン</strong>はお客様にてご契約をお願いしております（月額660円〜目安）。</li>
+        <li><strong>実績掲載不可オプション</strong>（対象6商品）は、ご注文金額の<strong>10%</strong>にて承ります。</li>
+        <li>納品形式・修正対応・納期等の詳細は、ご相談時に丁寧にご説明いたします。</li>
+        <li>お見積り・ご相談は<strong>無料</strong>です。お気軽にお問い合わせください。</li>
+      </ul>
+    </section>
+
+    <!-- かんたん見積もりエリア(2026-07-16 無料相談→見積もり導線に変更) -->
+    <section class="taf-cta-block">
+      <div class="taf-cta-eyebrow">FREE QUOTE</div>
+      <h3 class="taf-cta-title">かんたん無料見積もり</h3>
+      <p class="taf-cta-text">
+        選択式のフォームに答えるだけで、48時間以内に<br>
+        あなたに合わせた概算お見積りをお届けします。
+      </p>
+      <a href="https://taf-design.com/order/" class="taf-cta-button taf-cta-button--outline">
+        無料見積もりをはじめる
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <p class="taf-cta-note">送信＝ご契約ではありません。お見積りを見てから、ゆっくりご検討ください。</p>
+      <p class="taf-cta-sub">
+        じっくり検討したい方へ ─ <a href="https://taf-design.com/offer2/">サービス資料の無料ダウンロードはこちら</a>
+      </p>
+    </section>
+
+  </div>
+
+</div>
+<!-- ============ END: TAF Free Consultation & Notes Section ============ -->
