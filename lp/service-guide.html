@@ -438,7 +438,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 
     <div class="cover-foot">
       <div class="co">ティーチ&amp;ファネル Design<span>TEACH &amp; FUNNEL DESIGN</span></div>
-      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v30</div>
+      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v31</div>
     </div>
   </div>
 </section>
@@ -973,20 +973,9 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 <a class="dl-print no-print" href="https://taf-design.com/lp/service-guide.pdf">📄 PDF版はこちら</a>
 <a class="toc-fab no-print" href="#p-toc" id="toc-fab">☰ 目次</a>
 
-<script>
-/* 画面幅に合わせてA4ページを縮小表示(印刷時は原寸) */
-(function(){
-  function fit(){
-    var vw = document.documentElement.clientWidth;
-    var pageW = 794; /* 210mm ≒ 794px */
-    var z = Math.min(1, (vw - 4) / pageW);
-    document.querySelectorAll('.page').forEach(function(p){ p.style.zoom = z; });
-  }
-  window.addEventListener('resize', fit);
-  if(document.readyState !== 'loading') fit();
-  else document.addEventListener('DOMContentLoaded', fit);
-})();
-</script>
+<!-- v31: A4縮小スクリプト(印刷原稿用のzoom処理)を削除。
+     スマホで全セクションが約48%に縮小され文字が読めない原因だった。
+     Web版はレスポンシブCSSで対応済みのため縮小処理は不要。 -->
 
 <script>
 (function(){
