@@ -50,6 +50,7 @@ git push origin main
 | `docs/wp-blocks/price-compare-coconala.html` | /price/の直販/ココナラ比較セクション(現行・price-block1の直下に設置) |
 | `docs/wp-blocks/coconala-intro-block.html` | ココナラ案内の汎用ブロック(/budget/等どのページにも貼れる) |
 | `docs/mail_v1_coconala以前/` | メール原稿の金庫(改稿前の全9ファイル・**編集禁止**) |
+| `docs/wp-blocks/budget-welcome-block.html` | /budget/最上部の「ようこそ」ブロック(名刺QRからの初見対応) |
 | `docs/wp-blocks/v1_現行/` | WPブロックの金庫(**編集禁止**) |
 | `docs/price-master.md` | **価格の原本(唯一の正)**。価格を書くときは必ずここに同期 |
 | `docs/` その他 | 引き継ぎ資料・ブログ原稿・メルマガ・法務など |
@@ -65,7 +66,7 @@ git push origin main
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
 | /offer2/(WP) | `docs/wp-blocks/offer2.html` 相当 | ✅ 準備完了・未実行(`v2_新/wp-offer2-form_v2.html`) |
-| /budget/ ほかWP下層 | 現行のまま | 対象外(必要になったら計画) |
+| /budget/ ほかWP下層 | 現行のまま | ⏳ ようこそブロック準備済み(名刺QR対応・`budget-welcome-block.html`)。ページ本体v2はチャット側Claude担当 |
 | 広告LP /lp/index.html | 現行のまま | v2対象外(Meta広告改善は別途) |
 
 **v2の中身**: ①ココナラをしっかり宣伝(全レビュー星5・最高ランク/決済はココナラが納品まで預かる/購入者手数料注記) ②直販優先(「HP・LP・仕組みを育てたい方は直接ご依頼・優先対応」) ③新料金体系(LP2.2万=基本7セクション・メニュー/簡易フォーム/WP納品標準込み、HP3.3万=検索・AI検索対策の基本込み、24hラフ案+5,000円(税込)、Google解析セット+5,000円(税込)) ④クーポン記述の全削除
@@ -80,6 +81,7 @@ git push origin main
 - [ ] **PDF v2生成**(大村さん: `lp/service-guide-print_v2.html` から。手順は下記5)
 - [ ] **切り替え実行中(2026-08-25開始)**: 静的の中身入れ替え済み(AI)。残り→ ①大村さん: index.html と lp/service-guide.html をXserverへアップ ②PDF生成してアップ ③WPの3ブロック貼り替え(order/price比較/offer2) ④v26確認・スマホテスト
 - [ ] **メールの貼り替え(大村さん・MailPoet/CF7)**: 2026-08-25にメール原稿を全改稿済み(クーポン記述の全削除+ココナラ案内追加)。以下を新原稿で貼り替え→ ①CF7自動返信(原稿: docs/email-service-guide-allin1.md セクション4) ②MailPoetステップメール1〜3(docs/step-mail-01-03.md) ③メルマガ03は「注文方法」テーマに刷新(docs/newsletter/03-newsletter-order-methods-mailpoet-copy.md)。旧版は docs/mail_v1_coconala以前/ に保存済み
+- [ ] **/budget/ 最上部に「ようこそブロック」を貼る(大村さん)**: `docs/wp-blocks/budget-welcome-block.html` をカスタムHTMLブロックとして1つ目に追加(グループに入れない)。名刺QRからの初見の方向け
 - [ ] 切り替え後: `docs/price-master.md` にv2料金体系を反映(AI)
 - [ ] /price/ /budget/ ページ本体のv2(チャット側Claude担当。二重作業防止のためこのセッションでは作らない)
 - [ ] **TAF-V2meta-LPのArchive化**(下記7。統合に問題がないと確認できてから)
