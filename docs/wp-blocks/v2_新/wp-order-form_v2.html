@@ -8,6 +8,7 @@
         WordPress納品まで標準込みの文言を明記(ココナラ商品と整合)。
   使い方: 固定ページ /order/ の編集画面のカスタムHTMLブロックに丸ごと貼り替え。
   受信メール: JS内 MAIL_TO に設定済み(info@taf-design.com)
+  2026-08-25追記: フォーム下に「はじめての方へ」(ココナラ案内)ボックスを新設。
   価格の原本: docs/price-master.md(このリポジトリ)に同期すること
 ============================================================== -->
 <div class="taf-order" id="taf-order">
@@ -133,6 +134,15 @@
   /* 前のページへ戻る(パンくず非表示の代わりの小さな導線) */
   .taf-order .to-back{display:inline-block;font-size:12.5px;color:var(--to-sub);text-decoration:none;margin:0 0 14px;}
   .taf-order .to-back:hover{color:var(--to-blue);text-decoration:underline;}
+
+  /* はじめての方へ(ココナラ案内・2026-08-25新設) */
+  .taf-order .to-firstbox{margin-top:26px;background:#FFF9EE;border:1.5px solid var(--to-orange);border-radius:16px;padding:22px 20px;}
+  .taf-order .to-fb-tag{font-size:10.5px;font-weight:800;letter-spacing:.14em;color:#b97f06;margin:0 0 8px;}
+  .taf-order .to-fb-h{font-size:16.5px;font-weight:900;margin:0 0 10px;line-height:1.5;color:var(--to-ink);}
+  .taf-order .to-fb-p{font-size:13px;color:var(--to-sub);line-height:1.9;margin:0 0 12px;}
+  .taf-order .to-fb-p b{color:var(--to-ink);}
+  .taf-order .to-fb-btn{display:block;text-align:center;border-radius:999px;padding:13px 16px;font-size:14px;font-weight:900;text-decoration:none;color:#fff;background:linear-gradient(135deg,#f5a30a,#f6b52e);box-shadow:0 10px 24px rgba(246,172,14,.35);}
+  .taf-order .to-fb-btn:hover{filter:brightness(1.06);}
 </style>
 
   <a class="to-back" id="to-back" href="https://taf-design.com/">‹ 前のページへ戻る</a>
@@ -431,6 +441,14 @@
     <span>スマホ最適化は全案件標準</span>
     <span>追加費用は事前に文書でご相談</span>
     <span>全国対応(オンライン完結)</span>
+  </div>
+
+  <div class="to-firstbox">
+    <p class="to-fb-tag">FOR FIRST-TIME CLIENTS ｜ はじめての方へ</p>
+    <p class="to-fb-h">はじめてのご依頼で、お支払いが不安な方へ</p>
+    <p class="to-fb-p">当サイトからの直接ご依頼のほかに、<b>ココナラ経由でのご注文</b>もご用意しています。お支払いは<b>ココナラが納品まで預かる仕組み</b>で、ココナラでは<b>全レビュー星5・最高ランク</b>の実績があります(金額に大きな差はありません。別途ココナラ所定の購入者手数料がかかります)。</p>
+    <p class="to-fb-p"><b>HP・LP・集客の仕組みをこれから育てていきたい方には、直接ご依頼がおすすめ</b>です。納品後も2,750円〜でいつでも継続対応し、直接ご依頼の方を優先してお受けしています。</p>
+    <a class="to-fb-btn" href="https://coconala.com/users/5777255">★★★★★ ココナラでレビューを見る</a>
   </div>
 
 <script>

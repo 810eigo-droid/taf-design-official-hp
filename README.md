@@ -48,6 +48,7 @@ git push origin main
 | `docs/wp-blocks/` | WordPress貼り付け用の控え(order・price-block1〜3 ほか) |
 | `docs/wp-blocks/v2_新/` | **切り替え当日に貼るv2ファイル**(orderフォーム・offer2フォーム) |
 | `docs/wp-blocks/price-compare-coconala.html` | /price/の直販/ココナラ比較セクション(現行・price-block1の直下に設置) |
+| `docs/wp-blocks/coconala-intro-block.html` | ココナラ案内の汎用ブロック(/budget/等どのページにも貼れる) |
 | `docs/wp-blocks/v1_現行/` | WPブロックの金庫(**編集禁止**) |
 | `docs/price-master.md` | **価格の原本(唯一の正)**。価格を書くときは必ずここに同期 |
 | `docs/` その他 | 引き継ぎ資料・ブログ原稿・メルマガ・法務など |
@@ -60,7 +61,7 @@ git push origin main
 | 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
 | 資料 /lp/service-guide.html | **リポジトリ=v27済み**(ココナラ誘導バナー・戻るボタン入り)。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
-| /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`) |
+| /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
 | /offer2/(WP) | `docs/wp-blocks/offer2.html` 相当 | ✅ 準備完了・未実行(`v2_新/wp-offer2-form_v2.html`) |
 | /budget/ ほかWP下層 | 現行のまま | 対象外(必要になったら計画) |
