@@ -133,6 +133,8 @@ git push origin main
 > **鉄則: 公開URL・ファイル名は絶対に変えない。「中身を入れ替える」方式のみ。**(ファイル名での切り替えはURL・SEOが壊れるので禁止)
 
 ### 静的ページ(Xserver)
+> ⚠️ **アップ前に必ず**: PowerShellで `cd $env:USERPROFILE\Desktop\taf-official-push` → `git pull origin main` を実行して、フォルダを最新にすること(AIの直接push分はこれをしないとPCに降りてこない)
+
 1. AIに「v2切り替えを実行して」と言う → AIが `index_v2.html` の中身を `index.html` へ、`service-guide_v2.html` の中身を `service-guide.html` へコピーしてコミット(v1金庫はそのまま残る)
 2. 大村さん: `index.html` を `/public_html/` へ、`lp/service-guide.html` を `/public_html/lp/` へ上書きアップロード
 3. 大村さん: 生成済みの新 `service-guide.pdf` を `/public_html/lp/` へ上書きアップロード
