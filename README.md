@@ -61,7 +61,7 @@ git push origin main
 | 資料 /lp/service-guide.html | **リポジトリ=v27済み**(ココナラ誘導バナー・戻るボタン入り)。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`) |
-| /price/(WP) | `price-block1〜3` | ⏳ 比較セクションのみ準備済み。ページ本体v2はチャット側Claude担当 |
+| /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
 | /offer2/(WP) | `docs/wp-blocks/offer2.html` 相当 | ✅ 準備完了・未実行(`v2_新/wp-offer2-form_v2.html`) |
 | /budget/ ほかWP下層 | 現行のまま | 対象外(必要になったら計画) |
 | 広告LP /lp/index.html | 現行のまま | v2対象外(Meta広告改善は別途) |
@@ -81,6 +81,11 @@ git push origin main
 - [ ] /price/ /budget/ ページ本体のv2(チャット側Claude担当。二重作業防止のためこのセッションでは作らない)
 - [ ] **TAF-V2meta-LPのArchive化**(下記7。統合に問題がないと確認できてから)
 - [ ] (任意)`images/hero-01〜05`・`hero-bg-texture`(未使用素材)を使うか判断
+
+### 2026-08-25の教訓メモ(/price/ 左寄り問題の顛末)
+- 料金プランブロックが広い画面で左に寄る症状は、ブロック内のCSSではなく、**WPエディタ上で料金ブロックだけ「グループ(全幅/幅広)」に3重に入れ子**になっていたのが原因。リスト表示→グループ解除で解決済み
+- 料金プランのデザインCSS(SWELL干渉リセット版)は、WPCodeや追加CSSではなく**/price/ページのブロック内**にある
+- 今後ブロックを貼るときは、**グループに入れず、他ブロックと同じ階層に置く**こと
 
 ## 4. v2切り替え実行手順(当日、上から実行するだけ)
 
