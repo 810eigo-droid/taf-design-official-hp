@@ -438,7 +438,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 
     <div class="cover-foot">
       <div class="co">ティーチ&amp;ファネル Design<span>TEACH &amp; FUNNEL DESIGN</span></div>
-      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v31</div>
+      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v32</div>
     </div>
   </div>
 </section>
@@ -713,6 +713,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
     </p>
   </div>
 
+  <div class="tc-scroll-hint" aria-hidden="true"><span class="tc-sh-ic">⇆</span> 表は横にスクロールできます</div>
   <div class="tc-table-wrap">
     <table class="tc-table">
       <thead>
@@ -813,6 +814,18 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 .taf-compare .tc-lead b{color:#111;}
 
 .taf-compare .tc-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+/* v32: 横スクロールできることのアピール(スマホのみ表示) */
+.taf-compare .tc-scroll-hint{display:none;}
+@media (max-width:759px), (hover:none) and (pointer:coarse){
+  .taf-compare .tc-scroll-hint{display:flex;align-items:center;justify-content:center;gap:7px;width:max-content;margin:0 auto 10px;padding:8px 16px;font-size:13px;font-weight:800;color:#0a5c7d;background:#ECF4F9;border:1.5px solid #BFDCEB;border-radius:999px;}
+  .taf-compare .tc-sh-ic{display:inline-block;font-weight:900;animation:tcNudge 1.3s ease-in-out infinite;}
+  /* 表を潰さず、スクロールで読める最小幅を確保 */
+  .taf-compare .tc-table{min-width:600px;}
+  /* 右端を少し見切れさせて「続きがある」ことを視覚的に伝える */
+  .taf-compare .tc-table-wrap{padding-bottom:6px;}
+}
+@keyframes tcNudge{0%,100%{transform:translateX(0);}50%{transform:translateX(6px);}}
+@media (prefers-reduced-motion:reduce){.taf-compare .tc-sh-ic{animation:none;}}
 .taf-compare .tc-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 35px rgba(30,50,70,.08);}
 .taf-compare .tc-table th,.taf-compare .tc-table td{padding:12px 10px;border-bottom:1px solid #EDF1F5;text-align:center;vertical-align:middle;}
 .taf-compare .tc-table td:first-child{text-align:left;color:#3a4048;font-weight:700;font-size:12.5px;}
