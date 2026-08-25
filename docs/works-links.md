@@ -38,7 +38,7 @@
 | # | 名称 | リンク先 | 画像(lp/images/) | 状態 |
 |---|---|---|---|---|
 | 01 | AVANTI(諸藤様) | https://810eigo-droid.github.io/avanti_morofujl/ | work-01.jpg | ⏳ 新画像待ち(オーナーがJPEGを同名で上書き) |
-| 02 | 株式会社マトバ | https://matoba-ltd.jp/ | work-02.jpg | ⏳ 新画像待ち(同上) |
+| 02 | りの(デイサービス) | https://810eigo-droid.github.io/day-service/ | work-02.jpg | ⏳ 新画像待ち(同上) |
 | 03 | 呉服福岡(旧1番の画像を移動) | foriio | work-03.jpg | ✅ 反映済み |
 | 04 | (変更なし) | foriio | work-04.jpg | ✅ |
 | 05 | WEL Mobility | https://welmobilityrv.com/ | work-05.jpg | ⏳ 新画像待ち(同上) |
@@ -48,7 +48,7 @@
 ※ 推奨サイズ: 横1200×縦1000前後(表示枠は約6:5・object-fit:coverでトリミング)。
 
 ## 変更履歴
-- 2026-08-25 広告LPスライダーを並び替え(1=AVANTI・2=マトバ・3=旧1番の呉服福岡・5=WEL Mobility)。1・2・5にリンク設定。画像はオーナーが同名JPEGで上書き予定。
+- 2026-08-25 広告LPスライダーを並び替え(1=AVANTI・2=りの(当初マトバ予定→資料未作成のため変更)・3=旧1番の呉服福岡・5=WEL Mobility)。1・2・5にリンク設定。画像はオーナーが同名JPEGで上書き予定。
 - 2026-08-04 01〜08にリンク設定(新タブ)。09〜14を台帳に登録(画像待ち)。
 - 2026-08-04 05のリンクを swell.810eigo.com → demo1129.my.canva.site/dag9rvyobwg(パーソナルジム)に変更。
 - 2026-08-04 各作品の名称(備忘録)を記録。
