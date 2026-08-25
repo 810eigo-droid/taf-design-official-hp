@@ -29,8 +29,8 @@
 
 | ページ | 公開中 | v2の状態 |
 |---|---|---|
-| 公式トップ taf-design.com | v1(`index.html`) | ✅ 準備完了・未実行(`index_v2.html`) |
-| 資料 /lp/service-guide.html | v25 | ✅ 準備完了・未実行(v26=`service-guide_v2.html`) |
+| 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
+| 資料 /lp/service-guide.html | **リポジトリ=v2(v26)済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`) |
 | /price/(WP) | `price-block1〜3` | ⏳ 比較セクションのみ準備済み。ページ本体v2はチャット側Claude担当 |
@@ -48,7 +48,7 @@
 - [x] ~~wp-offer2-form_v2.html~~(2026-08-25 AIが新規作成。現行offer2+はじめての方へブロック+クーポン文言削除)
 - [ ] **v2の内容最終確認**(大村さん: index_v2 / service-guide_v2 をブラウザで確認)
 - [ ] **PDF v2生成**(大村さん: `lp/service-guide-print_v2.html` から。手順は下記5)
-- [ ] **切り替え実行**(下記4を上から実行)
+- [ ] **切り替え実行中(2026-08-25開始)**: 静的の中身入れ替え済み(AI)。残り→ ①大村さん: index.html と lp/service-guide.html をXserverへアップ ②PDF生成してアップ ③WPの3ブロック貼り替え(order/price比較/offer2) ④v26確認・スマホテスト
 - [ ] 切り替え後: `docs/price-master.md` にv2料金体系を反映(AI)
 - [ ] /price/ /budget/ ページ本体のv2(チャット側Claude担当。二重作業防止のためこのセッションでは作らない)
 - [ ] **TAF-V2meta-LPのArchive化**(下記7。統合に問題がないと確認できてから)
