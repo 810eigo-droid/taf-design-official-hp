@@ -1,15 +1,19 @@
-<!-- =============================================================
-  TAF Design お見積りページ /order/ v2【新料金体系版・公開前】
-  作成: 2026-08-25(現行order.html(電話相談対応入り)をベースに、
-        8/4版wp-order-form_v2の新料金体系文言をマージ)
-  ★これは新バージョン(v2)。戻す時は docs/wp-blocks/order.html(現行の正)を貼り直す。
-  v2の変更点: 分量選択を「基本(7セクションまで)/長め(8〜12)/かなり長い(13以上)」に。
-        2万円プラン=売れる基本7セクション基準+メニューバー・簡易フォーム・
-        WordPress納品まで標準込みの文言を明記(ココナラ商品と整合)。
-  使い方: 固定ページ /order/ の編集画面のカスタムHTMLブロックに丸ごと貼り替え。
-  受信メール: JS内 MAIL_TO に設定済み(info@taf-design.com)
-  価格の原本: docs/price-master.md(このリポジトリ)に同期すること
-============================================================== -->
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: 簡単見積もり-order フォーム完成版(taf-order)
+  設置先: 固定ページ https://taf-design.com/order/
+  保管日: 2026-08-04 v2【新料金体系版・公開前】
+  ★これは新バージョン(v2)。公開中のv1はv1_現行フォルダに保管。戻す時はv1を貼り直すだけ。
+  この版の内容: ユーザー提供のフォーム一式に「料金の目安」アコーディオン
+  (wp-order-price-accordion.html)を組み込んだ完成版。
+  - 料金表リンクはページ移動なしの開閉表に置き換え済み
+  - 料金ページへのリンクは同一タブ(戻るでフォームに帰れる)
+  - 受信メール: JS内 MAIL_TO(info@taf-design.com) / LINE: lin.ee/pqfXTUJ
+  修正履歴: 2026-07-31 送信ボタンを「LINEで送る」「メールで送る」の同格2ボタンに変更。
+            2026-08-04 v2: 2万円プランの基準を5→7セクションに変更。メニューバー・簡易フォーム・
+            WordPress納品を標準込みに。料金表・ヒント文言を新体系に更新(ココナラ商品との整合)。
+  注意: /order/ の原本管理はTAF-V2meta-LP。このファイルは公式HP側の控え。
+  価格は TAF-V2meta-LP/docs/price-master.md に同期すること
+============================================================ -->
 <div class="taf-order" id="taf-order">
 <style>
 /* ===== このページだけ: パンくずとヘッダーの見積りボタンを非表示 ===== */
@@ -74,6 +78,8 @@
 
   /* 送信ボタン */
   .taf-order .to-actions{margin-top:26px;text-align:center;}
+  .taf-order .to-choose{font-size:13px;font-weight:800;color:var(--to-sub);margin:0 0 12px;text-align:center;}
+  .taf-order .to-btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   .taf-order .to-btn{
     display:block;width:100%;border:none;cursor:pointer;border-radius:999px;
     font-family:inherit;font-weight:800;text-decoration:none;text-align:center;transition:.15s;
@@ -83,11 +89,11 @@
     box-shadow:0 10px 26px rgba(6,199,85,.35);
   }
   .taf-order .to-btn-line:hover{filter:brightness(1.06);}
-  .taf-order .to-btn-mail{
-    background:#fff;color:var(--to-sub);border:1.5px solid var(--to-line);
-    font-size:13.5px;padding:12px 20px;margin-top:12px;
+  .taf-order .to-btn-mail2{
+    background:var(--to-blue);color:#fff;font-size:16.5px;padding:17px 20px;
+    box-shadow:0 10px 26px rgba(0,162,222,.35);
   }
-  .taf-order .to-btn-mail:hover{border-color:var(--to-sub);}
+  .taf-order .to-btn-mail2:hover{filter:brightness(1.06);}
   .taf-order .to-note{font-size:11.5px;color:var(--to-sub);margin-top:14px;}
   .taf-order .to-dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.18);}
   .taf-order .to-date-row{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12.5px;color:var(--to-sub);flex-wrap:wrap;}
@@ -112,15 +118,6 @@
   .taf-order .to-copied.show{display:block;}
   .taf-order .to-copied b{color:var(--to-blue);}
 
-  /* 電話相談バナー(3ステップ直下) */
-  .taf-order .to-telbanner{
-    display:flex;gap:12px;align-items:flex-start;
-    background:#fffaf0;border:1.5px dashed var(--to-orange);border-radius:14px;
-    padding:14px 18px;margin:18px 0 0;font-size:13.5px;line-height:1.9;color:var(--to-ink);
-  }
-  .taf-order .to-telbanner .ic{font-size:20px;margin-top:2px;}
-  .taf-order .to-telbanner .tb-h{display:block;font-weight:800;font-size:14.5px;margin-bottom:2px;}
-
   /* 安心材料 */
   .taf-order .to-trust{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:12px;color:var(--to-sub);}
   .taf-order .to-trust span::before{content:"✓ ";color:var(--to-blue);font-weight:800;}
@@ -130,25 +127,10 @@
     .taf-order .to-steps{flex-direction:column;}
     .taf-order .to-card{padding:20px 16px;}
   }
-  /* 前のページへ戻る(パンくず非表示の代わりの小さな導線) */
-  .taf-order .to-back{display:inline-block;font-size:12.5px;color:var(--to-sub);text-decoration:none;margin:0 0 14px;}
-  .taf-order .to-back:hover{color:var(--to-blue);text-decoration:underline;}
+  @media (max-width:480px){
+    .taf-order .to-btn-row{grid-template-columns:1fr;}
+  }
 </style>
-
-  <a class="to-back" id="to-back" href="https://taf-design.com/">‹ 前のページへ戻る</a>
-  <script>
-  (function(){
-    var b = document.getElementById('to-back');
-    if(!b) return;
-    b.addEventListener('click', function(e){
-      /* 直前のページがあればそこへ戻る。直接アクセス時はリンク先(公式トップ)へ */
-      if(document.referrer && window.history.length > 1){
-        e.preventDefault();
-        window.history.back();
-      }
-    });
-  })();
-  </script>
 
   <p class="to-eyebrow">ESTIMATE / FREE</p>
   <h2 class="to-title">お見積り依頼<span class="or">(無料)</span></h2>
@@ -160,17 +142,9 @@
 
   <ol class="to-steps">
     <li><b>内容を選ぶ</b>複数選択OK。ぴったり合う項目がなくても、ざっくりでOKです。</li>
-    <li><b>LINEで送る</b>ボタンを押すと依頼文ができあがります。貼り付けて送信。</li>
-    <li><b>見積りが届く</b>48時間以内にご返信(追加費用は事前に必ずご相談)。お電話ご希望の方には、こちらからお掛けします。</li>
+    <li><b>LINEかメールで送る</b>ボタンを押すと依頼文ができあがります。お好きな方で送信。</li>
+    <li><b>見積りが届く</b>48時間以内にご返信。追加費用は事前に必ずご相談します。</li>
   </ol>
-
-  <div class="to-telbanner">
-    <span class="ic">📞</span>
-    <div>
-      <span class="tb-h">文字で伝えるのが苦手な方は、お電話でどうぞ(無料・10分程度)</span>
-      下のフォームで「電話相談を希望する」を選んで、お電話番号とご都合の良い時間帯を教えてください。<b>こちらからお掛けして</b>、直接ご要望をお聞きします。もちろん、お電話なしでそのまま進めてもOKです。
-    </div>
-  </div>
 
   <div class="to-card">
 
@@ -225,7 +199,7 @@
           <input type="radio" name="to-volume" id="to-v4" value="まだわからない・相談したい"><label for="to-v4">まだわからない</label>
         </div>
         <p class="to-hint">※「セクション」とは、ページをスクロールすると出てくる<b>話題のひとかたまり</b>のことです。<br>
-        例)「第一印象(FV)」→「お悩み」→「解決策」→「選ばれる理由」→「お客様の声」→「料金」→「ご注文」= <b>7セクション</b><br>
+        例)「会社紹介」→「料金」→「お客様の声」→「よくある質問」→「ご注文」= <b>5セクション</b><br>
         💡 <b>2万円プランは「売れるLPの基本7セクション」が基準</b>です(メニューバー・簡易お問い合わせフォーム・WordPress納品まで標準込み)。それより長い場合も低価格のまま、分量に応じて<b>事前に明朗なお見積り</b>をお出しします。</p>
       </div>
 
@@ -365,7 +339,21 @@
         <input type="radio" name="to-budget" id="to-b4" value="10万円以上"><label for="to-b4">10万円以上</label>
         <input type="radio" name="to-budget" id="to-b5" value="相談して決めたい"><label for="to-b5">相談して決めたい</label>
       </div>
-      <a class="to-price-link" href="https://taf-design.com/price/">📋 料金表を見る<span>(ブラウザの「戻る」でこのページへ帰れます。入力内容は保持されます)</span></a>
+      <details style="margin-top:14px;border:1.5px solid var(--to-orange);border-radius:10px;background:#fffaf0;overflow:hidden;">
+        <summary style="cursor:pointer;padding:12px 18px;font-weight:800;font-size:13.5px;color:#b97f06;text-align:center;">📋 料金の目安をこの場で見る(タップで開閉)</summary>
+        <div style="padding:2px 18px 14px;">
+          <table style="width:100%;border-collapse:collapse;font-size:12.5px;color:#555A62;">
+            <tbody><tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">LP制作(基本7セクション・メニュー/簡易フォーム/WordPress納品込み)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">2万円〜</td></tr>
+            <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">ホームページ制作(WordPress+SEO込み)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">3万円〜</td></tr>
+            <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">専用AIアプリ制作</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">3万円〜</td></tr>
+            <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">プロ制作プラン(リスト取り特化・対策込み)</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">7万円〜</td></tr>
+            <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">HP/LP+セールスファネル一元化</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">10〜15万円〜</td></tr>
+            <tr><td style="padding:7px 4px;border-bottom:1px solid #eee;">サイト保守管理</td><td style="padding:7px 4px;border-bottom:1px solid #eee;text-align:right;font-weight:800;white-space:nowrap;">月5,500円〜</td></tr>
+            <tr><td style="padding:7px 4px;">納品後の修正・追加(直接ご依頼の方)</td><td style="padding:7px 4px;text-align:right;font-weight:800;white-space:nowrap;">2,750円〜</td></tr>
+          </tbody></table>
+          <p style="margin:10px 0 0;font-size:11.5px;color:#555A62;">さらに詳しい料金は、見積もり送信後のご返信でご案内します。この場で確認したい方は <a href="https://taf-design.com/price/" style="color:#b97f06;font-weight:700;">料金ページ</a> もどうぞ。</p>
+        </div>
+      </details>
       <p class="to-hint">💡 あらかじめ<b>料金の費用感</b>だけご確認いただくと、お見積りのやり取りがスムーズです。</p>
     </div>
 
@@ -390,39 +378,26 @@
       <input type="text" class="to-input" id="to-name" placeholder="例)山田 / やまだサロン">
     </div>
 
-    <div class="to-q">
+    <div class="to-q" style="margin-bottom:0">
       <div class="to-q-label">メールアドレス <span class="to-opt">任意</span></div>
       <input type="text" class="to-input" id="to-mail" placeholder="例)info@example.com" inputmode="email" autocomplete="email">
       <p class="to-hint" style="margin-top:8px">メールでの返信をご希望の方はご記入ください。LINEで送る方は空欄でOKです。</p>
     </div>
 
-    <div class="to-q" style="margin-bottom:0">
-      <div class="to-q-label">📞 お電話でのご相談(無料・10分程度) <span class="to-opt">任意</span></div>
-      <div class="to-pills" id="to-tel-want">
-        <input type="radio" name="to-tel-want" id="to-telw1" value="希望する(こちらからの発信を希望)"><label for="to-telw1">希望する</label>
-        <input type="radio" name="to-tel-want" id="to-telw2" value="希望しない(チャットで進める)"><label for="to-telw2">希望しない(チャットでOK)</label>
-      </div>
-      <div id="to-tel-wrap" style="display:none">
-        <input type="text" class="to-input" id="to-tel" placeholder="例)090-1234-5678" inputmode="tel" autocomplete="tel" style="margin-top:10px">
-        <div class="to-q-label" style="margin-top:12px">ご都合の良い時間帯(複数OK)</div>
-        <div class="to-pills" id="to-tel-time">
-          <input type="checkbox" name="to-tel-time" id="to-telt1" value="平日 午前"><label for="to-telt1">平日 午前</label>
-          <input type="checkbox" name="to-tel-time" id="to-telt2" value="平日 午後"><label for="to-telt2">平日 午後</label>
-          <input type="checkbox" name="to-tel-time" id="to-telt3" value="平日 夕方以降"><label for="to-telt3">平日 夕方以降</label>
-          <input type="checkbox" name="to-tel-time" id="to-telt4" value="土日"><label for="to-telt4">土日</label>
-        </div>
-      </div>
-      <p class="to-hint" style="margin-top:8px">ご希望の方には、<b>こちらからお電話</b>して直接ご要望をお聞きします。内容に応じてZoomでの画面共有相談(無料)もご案内できます。<b>お電話なしで、チャットだけで完結してそのまま制作に進むこともできます。</b></p>
-    </div>
-
     <div class="to-actions">
       <p class="to-error" id="to-error">「ご相談内容」を1つ以上選んでください。</p>
-      <button type="button" class="to-btn to-btn-line" id="to-send-line">LINEで送って見積りをもらう(無料)</button>
+      <p class="to-choose">お好きな方法で送信してください(どちらも無料)</p>
+      <div class="to-btn-row">
+        <button type="button" class="to-btn to-btn-line" id="to-send-line">💬 LINEで送る</button>
+        <button type="button" class="to-btn to-btn-mail2" id="to-send-mail">✉️ メールで送る</button>
+      </div>
       <div class="to-copied" id="to-copied">
         <b>依頼文をコピーしました。</b>このあと開くLINEの友だち追加→トーク画面で、<b>長押し→貼り付け</b>して送信してください。
       </div>
-      <button type="button" class="to-btn to-btn-mail" id="to-send-mail">メールで送る方はこちら</button>
-      <p class="to-note">どちらも無料です。しつこい営業は一切しません。</p>
+      <div class="to-copied" id="to-copied-mail">
+        <b>依頼文をコピーしました。</b>メールアプリが開きます。もし開かない場合は、<b>info@taf-design.com</b> 宛に貼り付けて送信してください。
+      </div>
+      <p class="to-note">しつこい営業は一切しません。LINE・メールどちらも48時間以内にご返信します。</p>
     </div>
   </div>
 
@@ -527,16 +502,7 @@
       '■現在のサイト: ' + val('to-url'),
       '■参考サイト: ' + refsText(),
       '■お名前: ' + val('to-name'),
-      '■メール: ' + val('to-mail')
-    );
-    if (document.getElementById('to-telw1').checked){
-      lines.push('■電話相談: 希望する(こちらからの発信を希望)');
-      lines.push('■電話番号: ' + val('to-tel'));
-      lines.push('■都合の良い時間帯: ' + pickedAll('to-tel-time'));
-    } else if (document.getElementById('to-telw2').checked){
-      lines.push('■電話相談: 希望しない(チャットで進める)');
-    }
-    lines.push(
+      '■メール: ' + val('to-mail'),
       '■ご要望:',
       val('to-detail')
     );
@@ -626,14 +592,6 @@
     rb.addEventListener('change', updateWraps);
   });
 
-  /* 電話相談(任意): 「希望する」を選んだときだけ番号・時間帯を表示 */
-  var telWrap = document.getElementById('to-tel-wrap');
-  document.querySelectorAll('.taf-order input[name="to-tel-want"]').forEach(function(rb){
-    rb.addEventListener('change', function(){
-      telWrap.style.display = document.getElementById('to-telw1').checked ? '' : 'none';
-    });
-  });
-
   /* 好きな色は4つまで */
   var colorLimitMsg = document.getElementById('to-color-limit');
   document.querySelectorAll('.taf-order input[name="to-color"]').forEach(function(cb){
@@ -662,6 +620,7 @@
   document.getElementById('to-send-line').addEventListener('click', function(){
     if (!validate()) return;
     var msg = buildMessage();
+    document.getElementById('to-copied-mail').classList.remove('show');
     copyText(msg, function(){
       document.getElementById('to-copied').classList.add('show');
       setTimeout(function(){ window.open(LINE_URL, '_blank', 'noopener'); }, 900);
@@ -671,75 +630,16 @@
   document.getElementById('to-send-mail').addEventListener('click', function(){
     if (!validate()) return;
     var msg = buildMessage();
-    location.href = 'mailto:' + MAIL_TO
-      + '?subject=' + encodeURIComponent('お見積り依頼(資料ページより)')
-      + '&body=' + encodeURIComponent(msg);
-  });
-})();
-</script>
-
-<script>
-/* =============================================================
-   入力内容の自動保存・復元(2026-07-16追加)
-   料金表リンクを同一タブ遷移に変更したため、ページを離れても
-   選択・入力内容が消えないよう sessionStorage に保存して復元する。
-   (タブを閉じると消える一時保存。個人情報を永続保存しない)
-============================================================= */
-(function(){
-  'use strict';
-  var KEY = 'tafOrderDraft';
-  var root = document.getElementById('taf-order');
-  if(!root || !window.sessionStorage) return;
-
-  function fields(){
-    return root.querySelectorAll('input, textarea, select');
-  }
-
-  function keyOf(el){
-    return el.id || (el.name ? el.name + ':' + el.value : '');
-  }
-
-  function save(){
-    try{
-      var data = {};
-      fields().forEach(function(el){
-        var k = keyOf(el);
-        if(!k) return;
-        if(el.type === 'checkbox' || el.type === 'radio'){ data[k] = el.checked; }
-        else { data[k] = el.value; }
-      });
-      sessionStorage.setItem(KEY, JSON.stringify(data));
-    }catch(e){}
-  }
-
-  function restore(){
-    var raw;
-    try{ raw = sessionStorage.getItem(KEY); }catch(e){ return; }
-    if(!raw) return;
-    var data;
-    try{ data = JSON.parse(raw); }catch(e){ return; }
-    /* まずチェック状態を戻し、changeを発火して条件表示を再現する */
-    fields().forEach(function(el){
-      var k = keyOf(el);
-      if(!k || !(k in data)) return;
-      if(el.type === 'checkbox' || el.type === 'radio'){
-        if(el.checked !== data[k]){
-          el.checked = data[k];
-          el.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-      } else if(data[k] !== '' && el.value !== data[k]){
-        el.value = data[k];
-      }
+    document.getElementById('to-copied').classList.remove('show');
+    copyText(msg, function(){
+      document.getElementById('to-copied-mail').classList.add('show');
+      setTimeout(function(){
+        location.href = 'mailto:' + MAIL_TO
+          + '?subject=' + encodeURIComponent('お見積り依頼(資料ページより)')
+          + '&body=' + encodeURIComponent(msg);
+      }, 600);
     });
-  }
-
-  /* ページを離れる直前に保存(戻る・料金表への移動・タブ切替すべて対応) */
-  window.addEventListener('pagehide', save);
-  document.addEventListener('visibilitychange', function(){
-    if(document.visibilityState === 'hidden') save();
   });
-
-  restore();
 })();
 </script>
 </div>
