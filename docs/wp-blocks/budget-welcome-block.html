@@ -1,67 +1,51 @@
 <!-- ============================================================
-  WordPressカスタムHTMLブロック: /budget/ ようこそブロック(taf-bwelcome)
-  作成: 2026-08-25
-  目的: 名刺のQRコード(行き先=/budget/)から来た初見の方に、
-        「誰のページで、ここで何ができるか」を最初に伝える。
-        名刺の文言「この予算なら何ができる?」をそのまま受け止める設計。
-  設置先: /budget/ の最上部(1つ目のブロックとして追加)
-  ルール: グループブロックに入れず、他ブロックと同じ階層に置くこと
+  WordPressカスタムHTMLブロック: /budget/ 「ティーチ&ファネルデザインとは。」開閉ボタン
+  2026-08-25 v3(オーナー指示で全面作り替え)
+  仕様: 紺のボタン自体がアコーディオンの開閉スイッチ。
+        普段はボタンだけ表示 → 矢印タップでその場に紹介文が開く →
+        開いた中にLP(ご紹介ページ)へのリンクを置く。
+  設置先: /budget/ の最上部(1つ目のブロック)。グループに入れない
   トンマナ: 名刺と同じネイビー×ゴールド
-  2026-08-25改: 「とは。」ボタン以外(あいさつ・説明・リンク)をアコーディオン化(オーナー指示)
 ============================================================ -->
-<div class="taf-bwelcome">
-  <p class="bw-eyebrow">TEACH &amp; FUNNEL DESIGN</p>
-  <a class="bw-about" href="https://taf-design.com/lp/">
-    <span class="bw-about-en">ABOUT US</span>
-    <span class="bw-about-tx">ティーチ&amp;ファネルデザインとは。</span>
-    <span class="bw-about-arw">→</span>
-  </a>
-  <p class="bw-about-note">タップでご紹介ページへ。スマホの「戻る」でこのページに帰ってこられます。</p>
-  <details class="bw-acc">
-    <summary class="bw-acc-sum">
-      <span class="bw-acc-t">はじめての方へ ─ ティーチ&amp;ファネルDesignと、このページのご案内</span>
-      <span class="bw-acc-icon" aria-hidden="true"></span>
-    </summary>
-    <div class="bw-acc-body">
-      <p class="bw-p"><b>はじめまして、ティーチ&amp;ファネルDesignです。</b>名刺のQRコードからお越しの方も、ようこそ。</p>
-      <p class="bw-p">事業主・副業オーナーのための<b>買い切りWeb制作</b>をしています。LP・ホームページは<b>22,000円(税込)〜</b>、月額費用は0円。文章も画像も、丸ごとおまかせいただけます。</p>
-      <p class="bw-p">このページは、<b>「この予算なら何ができる?」がすぐわかる予算別シミュレーション</b>です。下でご予算をひとつ選ぶだけで、「今やること・後回しでいいこと」をプロが設計してご提案します。</p>
-      <div class="bw-links">
-        <a href="https://taf-design.com/lp/service-guide.html">📄 先にサービス資料を見る(無料)</a>
-        <a href="https://taf-design.com/price/">料金の一覧を見る</a>
-      </div>
+<details class="taf-about-acc">
+  <summary class="ta-btn">
+    <span class="ta-en">ABOUT US</span>
+    <span class="ta-tx">ティーチ&amp;ファネルデザインとは。</span>
+    <span class="ta-arw" aria-hidden="true">→</span>
+  </summary>
+  <div class="ta-body">
+    <p class="ta-p"><b>はじめまして、ティーチ&amp;ファネルDesignです。</b><br>名刺のQRコードからお越しの方も、ようこそ。</p>
+    <p class="ta-p">事業主・副業オーナーのための<b>買い切りWeb制作</b>をしています。LP・ホームページは<b>22,000円(税込)〜</b>、月額費用は0円。文章も画像も、丸ごとおまかせいただけます。</p>
+    <p class="ta-p">このページは、<b>「この予算なら何ができる?」がすぐわかる予算別シミュレーション</b>です。下でご予算をひとつ選ぶだけで、「今やること・後回しでいいこと」をプロが設計してご提案します。</p>
+    <a class="ta-lp" href="https://taf-design.com/lp/">ティーチ&amp;ファネルデザインの詳しいご紹介を見る →</a>
+    <p class="ta-note">スマホの「戻る」でこのページに帰ってこられます。</p>
+    <div class="ta-links">
+      <a href="https://taf-design.com/lp/service-guide.html">📄 サービス資料(無料)</a>
+      <a href="https://taf-design.com/price/">料金の一覧</a>
     </div>
-  </details>
-</div>
+  </div>
+</details>
 <style>
-.taf-bwelcome{display:block;width:100%;max-width:860px;box-sizing:border-box;margin:32px auto 8px!important;background:#fff;border:1px solid rgba(197,160,89,.45);border-top:4px solid #C5A059;border-radius:12px;padding:26px 24px;color:#2D3E50;line-height:1.85;font-feature-settings:"palt";box-shadow:0 10px 30px rgba(26,42,58,.08);}
-.taf-bwelcome .bw-eyebrow{font-size:11px;font-weight:700;letter-spacing:.28em;color:#C5A059;margin:0 0 10px;}
-.taf-bwelcome .bw-acc{margin-top:14px;border:1.5px solid rgba(197,160,89,.5);border-radius:12px;background:#FDFBF6;overflow:hidden;}
-.taf-bwelcome .bw-acc-sum{display:flex;align-items:center;gap:12px;padding:11px 16px;cursor:pointer;list-style:none;user-select:none;}
-.taf-bwelcome .bw-acc-sum::-webkit-details-marker{display:none;}
-.taf-bwelcome .bw-acc-t{flex:1;font-size:12.5px;font-weight:700;color:#6C7889;letter-spacing:.03em;line-height:1.6;}
-.taf-bwelcome .bw-acc-icon{flex:none;position:relative;width:22px;height:22px;border:1.5px solid #C5A059;border-radius:50%;}
-.taf-bwelcome .bw-acc-icon::before,.taf-bwelcome .bw-acc-icon::after{content:"";position:absolute;top:50%;left:50%;background:#C5A059;transition:transform .25s ease;}
-.taf-bwelcome .bw-acc-icon::before{width:10px;height:1.5px;transform:translate(-50%,-50%);}
-.taf-bwelcome .bw-acc-icon::after{width:1.5px;height:10px;transform:translate(-50%,-50%);}
-.taf-bwelcome .bw-acc[open] .bw-acc-icon::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0;}
-.taf-bwelcome .bw-acc[open] .bw-acc-sum{border-bottom:1px dashed rgba(197,160,89,.4);}
-.taf-bwelcome .bw-acc-body{padding:16px 18px 18px;animation:bwFade .25s ease;}
-@keyframes bwFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
-.taf-bwelcome .bw-h{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:21px;font-weight:600;color:#1A2A3A;letter-spacing:.05em;margin:0 0 4px;line-height:1.5;}
-.taf-bwelcome .bw-meishi{font-size:12.5px;color:#A88846;font-weight:700;margin:0 0 14px;}
-.taf-bwelcome .bw-about{display:flex;align-items:center;gap:14px;margin:4px 0 6px;padding:16px 20px;border-radius:12px;text-decoration:none;background:linear-gradient(135deg,#1A2A3A 0%,#2D3E50 60%,#3a4f66 100%);border:1px solid rgba(212,183,114,.55);box-shadow:0 10px 26px rgba(26,42,58,.28);transition:.2s;position:relative;overflow:hidden;}
-.taf-bwelcome .bw-about::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(212,183,114,.18),transparent);transform:skewX(-20deg);transition:left .5s ease;}
-.taf-bwelcome .bw-about:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(26,42,58,.36);}
-.taf-bwelcome .bw-about:hover::after{left:120%;}
-.taf-bwelcome .bw-about-en{font-size:9.5px;font-weight:700;letter-spacing:.26em;color:#D4B772;writing-mode:vertical-rl;text-orientation:mixed;flex:none;}
-.taf-bwelcome .bw-about-tx{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:16.5px;font-weight:600;color:#fff;letter-spacing:.06em;flex:1;line-height:1.5;}
-.taf-bwelcome .bw-about-arw{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid #D4B772;color:#D4B772;display:flex;align-items:center;justify-content:center;font-size:14px;}
-.taf-bwelcome .bw-about-note{font-size:10.5px;color:#94A0AE;margin:0 0 16px;}
-.taf-bwelcome .bw-p{font-size:14px;color:#2D3E50;margin:0 0 12px;}
-.taf-bwelcome .bw-p b{color:#1A2A3A;}
-.taf-bwelcome .bw-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
-.taf-bwelcome .bw-links a{display:inline-block;border:1.5px solid #C5A059;border-radius:999px;padding:9px 18px;font-size:12.5px;font-weight:700;color:#A88846;text-decoration:none;background:#fff;transition:.15s;}
-.taf-bwelcome .bw-links a:hover{background:#C5A059;color:#fff;}
-@media (max-width:520px){.taf-bwelcome{padding:20px 16px;}.taf-bwelcome .bw-h{font-size:18px;}.taf-bwelcome .bw-links{flex-direction:column;}.taf-bwelcome .bw-links a{text-align:center;}}
+.taf-about-acc{display:block;width:100%;max-width:860px;box-sizing:border-box;margin:28px auto!important;font-feature-settings:"palt";}
+.taf-about-acc .ta-btn{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:12px;cursor:pointer;list-style:none;user-select:none;background:linear-gradient(135deg,#1A2A3A 0%,#2D3E50 60%,#3a4f66 100%);border:1px solid rgba(212,183,114,.55);box-shadow:0 10px 26px rgba(26,42,58,.28);transition:.2s;position:relative;overflow:hidden;}
+.taf-about-acc .ta-btn::-webkit-details-marker{display:none;}
+.taf-about-acc .ta-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(212,183,114,.18),transparent);transform:skewX(-20deg);transition:left .5s ease;}
+.taf-about-acc .ta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(26,42,58,.36);}
+.taf-about-acc .ta-btn:hover::after{left:120%;}
+.taf-about-acc .ta-en{font-size:9.5px;font-weight:700;letter-spacing:.26em;color:#D4B772;writing-mode:vertical-rl;text-orientation:mixed;flex:none;}
+.taf-about-acc .ta-tx{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:17px;font-weight:600;color:#fff;letter-spacing:.06em;flex:1;line-height:1.5;}
+.taf-about-acc .ta-arw{flex:none;width:32px;height:32px;border-radius:50%;border:1px solid #D4B772;color:#D4B772;display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .3s ease;}
+.taf-about-acc[open] .ta-arw{transform:rotate(90deg);}
+.taf-about-acc[open] .ta-btn{border-radius:12px 12px 0 0;}
+.taf-about-acc .ta-body{background:#fff;border:1px solid rgba(197,160,89,.5);border-top:none;border-radius:0 0 12px 12px;padding:22px 20px;box-shadow:0 10px 26px rgba(26,42,58,.12);animation:taFade .25s ease;}
+@keyframes taFade{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+.taf-about-acc .ta-p{font-size:14px;color:#2D3E50;line-height:1.9;margin:0 0 12px;}
+.taf-about-acc .ta-p b{color:#1A2A3A;}
+.taf-about-acc .ta-lp{display:block;text-align:center;margin:16px 0 6px;padding:15px 18px;border-radius:999px;font-family:'Noto Serif JP','Yu Mincho',serif;font-size:15px;font-weight:600;letter-spacing:.05em;text-decoration:none;color:#1A2A3A;background:linear-gradient(135deg,#D4B772,#C5A059);box-shadow:0 10px 24px rgba(197,160,89,.4);transition:.2s;}
+.taf-about-acc .ta-lp:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(197,160,89,.5);}
+.taf-about-acc .ta-note{font-size:10.5px;color:#94A0AE;text-align:center;margin:0 0 14px;}
+.taf-about-acc .ta-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.taf-about-acc .ta-links a{display:inline-block;border:1.5px solid #C5A059;border-radius:999px;padding:8px 16px;font-size:12px;font-weight:700;color:#A88846;text-decoration:none;background:#fff;transition:.15s;}
+.taf-about-acc .ta-links a:hover{background:#C5A059;color:#fff;}
+@media (max-width:520px){.taf-about-acc .ta-tx{font-size:15px;}.taf-about-acc .ta-body{padding:18px 15px;}.taf-about-acc .ta-links{flex-direction:column;}.taf-about-acc .ta-links a{text-align:center;}}
 </style>
