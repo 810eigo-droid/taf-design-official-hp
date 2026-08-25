@@ -723,10 +723,12 @@
 
 <style>
 /* ==== 2026-08-25 追加: 広い画面で枠が左に張り付くのを防ぐ ====
-   テーマ側CSSがmax-widthのみ指定でmargin autoが無いため、
+   テーマ側CSSがmax-width指定のみでmargin autoが無いため、
    他ブロック(比較・共通事項・FAQ)と同じ中央揃えに統一する。
-   幅・デザインは一切変えない(margin autoのみ) */
-.taf-p-section{margin-left:auto!important;margin-right:auto!important;}
+   幅・デザインは一切変えない(margin autoのみ。外枠・内枠の両方に適用) */
+.taf-p-section.taf-p-section{margin-left:auto!important;margin-right:auto!important;float:none!important;}
+.taf-p-section .taf-p-section__inner,
+.taf-p-section > *{margin-left:auto!important;margin-right:auto!important;}
 
 /* ==== 2026-07-16 変更: タブ切替をやめて3カテゴリ常時表示に ==== */
 /* 外部CSSがどんな方法で非アクティブグループを隠していても表示を強制する */
