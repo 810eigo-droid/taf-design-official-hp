@@ -46,7 +46,8 @@ git push origin main
 | `lp/service-guide-print_v2.html` | A4印刷原稿のv2。**PDFはここから大村さんが生成** |
 | `lp/◯◯_v1_coconala以前.html` | v1の金庫(**編集禁止**) |
 | `docs/wp-blocks/` | WordPress貼り付け用の控え(order・price-block1〜3 ほか) |
-| `docs/wp-blocks/v2_新/` | **切り替え当日に貼るv2ファイル**(orderフォーム・ココナラ比較) |
+| `docs/wp-blocks/v2_新/` | **切り替え当日に貼るv2ファイル**(orderフォーム・offer2フォーム) |
+| `docs/wp-blocks/price-compare-coconala.html` | /price/の直販/ココナラ比較セクション(現行・price-block1の直下に設置) |
 | `docs/wp-blocks/v1_現行/` | WPブロックの金庫(**編集禁止**) |
 | `docs/price-master.md` | **価格の原本(唯一の正)**。価格を書くときは必ずここに同期 |
 | `docs/` その他 | 引き継ぎ資料・ブログ原稿・メルマガ・法務など |
@@ -93,7 +94,7 @@ git push origin main
 
 ### WordPress(大村さんが貼る)
 5. `/order/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-order-form_v2.html` の全文を貼り替え
-6. `/price/` の料金表の下に、カスタムHTMLブロックを追加して `docs/wp-blocks/v2_新/wp-compare-coconala-section.html` の全文を貼る
+6. `/price/` の料金表の下に、カスタムHTMLブロックを追加して `docs/wp-blocks/price-compare-coconala.html` の全文を貼る(※2026-08-25貼り付け済み)
 7. `/offer2/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-offer2-form_v2.html` の全文を貼り替え
 8. スマホ実機で確認: 表示崩れ/orderフォームの送信テスト(LINE・メール両方)/電話相談欄が出ること
 

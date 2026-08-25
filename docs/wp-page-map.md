@@ -14,7 +14,7 @@
 | `offer2` | お問い合わせ2-renew | **official-hp** `docs/wp-blocks/offer2.html`(+CF7側の電話項目手順 `offer2-cf7-phone-fields.md`) |
 | `backup` | サイトまるごとバックアップパック | `docs/wp-blocks/backup.html` |
 | `maintenance` | サイト安心保守管理プラン | `docs/wp-blocks/maintenance.html` |
-| `price` | 料金表 | `docs/wp-blocks/price-block1-plans.html` + `price-block2-consultation.html` + `price-block3-faq.html`(3ブロックを上から順に) |
+| `price` | 料金表 | `docs/wp-blocks/price-block1-plans.html` + `price-compare-coconala.html`(直販/ココナラ比較・2026-08-25追加) + `price-block2-consultation.html` + `price-block3-faq.html`(4ブロックを上から順に) |
 | `order` | 簡単見積もり-order | `docs/wp-blocks/order.html` ★正はこちら(電話相談の条件分岐入り)。official-hp側の `order-old.html` は電話相談なしの旧版 — 使わない |
 | `budget` | 先に、ご予算を教えてください(予算から選ぶ) | **official-hp** `docs/wp-blocks/budget.html` |
 | `lp-hp2` | LP・HPデザイン制作プラン(2万円〜) | **official-hp** `docs/wp-blocks/lp-hp2.html` |
