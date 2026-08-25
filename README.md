@@ -6,11 +6,14 @@
 
 ---
 
-## 0. 【いちばん使う】AIの作業をGitHubに反映する4コマンド(大村さん用)
+## 0. GitHubへの反映について(2026-08-25更新: 大村さんの操作は不要になりました)
 
-> AIが作業を終えるたびに、これをPowerShellで実行するとGitHub本体(このリポジトリのmain)に反映される。
-> **必ず1行ずつ**貼り付けてEnter(まとめて貼るとコマンドがくっついて失敗しやすい)。
-> 貼り付け時に警告ダイアログが出たら「強制的に貼り付け」でOK。
+> **AIが直接pushできるようになりました。** AIに作業を頼めば、そのままGitHub本体(main)に反映されます。
+> 以前必要だった「PowerShellの4コマンド」は不要です。
+
+### 万一、AIが「pushできない」と言ったときだけ(予備手順)
+
+AI側の権限が一時的に切れた場合は、AIがバックアップブランチ(TAF-V2meta-LPの backup/unified-official-hp-20260825)に退避pushするので、以下をPowerShellで1行ずつ実行すれば反映できる:
 
 ```powershell
 cd $env:USERPROFILE\Desktop\taf-official-push
@@ -25,13 +28,7 @@ git merge --ff-only FETCH_HEAD
 git push origin main
 ```
 
-**成功のサイン**: 3行目で `Fast-forward`、4行目で `main -> main` と表示される。
-(4行目が `Everything up-to-date` の場合は、3行目のFast-forwardが実行されていない。3行目からやり直す)
-
-- デスクトップに `taf-official-push` フォルダが無いときは、先にこれ1行でGitHubから自動作成される:
-  `git clone https://github.com/810eigo-droid/taf-design-official-hp.git $env:USERPROFILE\Desktop\taf-official-push`
-- エラーが出たら、**何もせず画面をそのままAIに見せる**(強制push等は絶対にしない)
-- ※これはAIの直接push権限が復旧するまでの中継手順。復旧後はAIが直接pushするので不要になる
+(成功のサイン: `Fast-forward` → `main -> main`。フォルダが無ければ `git clone https://github.com/810eigo-droid/taf-design-official-hp.git $env:USERPROFILE\Desktop\taf-official-push` で自動作成。エラー時は何もせずAIに画面を見せる)
 
 ## 1. リポジトリの構成(どこに何があるか)
 
