@@ -438,7 +438,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 
     <div class="cover-foot">
       <div class="co">ティーチ&amp;ファネル Design<span>TEACH &amp; FUNNEL DESIGN</span></div>
-      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v29</div>
+      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v30</div>
     </div>
   </div>
 </section>
@@ -1085,6 +1085,15 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 .cc-jump .cj-go{font-size:12px !important;}
 .dl-print{font-size:13px !important;padding:11px 16px !important;}
 .toc-fab{font-size:13px !important;padding:11px 15px !important;}
+/* v30: スマホではバナーを縦積みに(ボタンが本文を圧迫しないように) */
+@media (max-width:560px){
+  .cc-jump{display:flex !important;flex-direction:column !important;align-items:stretch !important;gap:10px !important;padding:16px !important;}
+  .cc-jump .cj-ic{display:none !important;}
+  .cc-jump .cj-tx{font-size:13px !important;line-height:1.8 !important;}
+  .cc-jump .cj-tx b{font-size:15px !important;}
+  .cc-jump .cj-tx b::before{content:"🛡 ";}
+  .cc-jump .cj-go{display:block !important;text-align:center !important;padding:12px 14px !important;font-size:13px !important;}
+}
 </style>
 </body>
 </html>
