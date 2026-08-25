@@ -438,7 +438,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 
     <div class="cover-foot">
       <div class="co">ティーチ&amp;ファネル Design<span>TEACH &amp; FUNNEL DESIGN</span></div>
-      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v28</div>
+      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v29</div>
     </div>
   </div>
 </section>
@@ -1071,5 +1071,20 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 }
 </style>
 
+
+<style id="ios-guard-v29">
+/* 2026-08-25 v29: iPhoneでバナー・追従ボタンの文字だけ巨大化する現象への対策
+   (Safariの自動文字拡大を要素単位で無効化+サイズを固定) */
+.cc-jump,.cc-jump *,.dl-print,.toc-fab,.tc-backnav,.tc-backnav *{
+  -webkit-text-size-adjust:100% !important;text-size-adjust:100% !important;
+}
+.cc-jump{max-width:calc(100vw - 32px) !important;}
+.cc-jump .cj-ic{font-size:22px !important;}
+.cc-jump .cj-tx{font-size:12.5px !important;line-height:1.7 !important;}
+.cc-jump .cj-tx b{font-size:14px !important;}
+.cc-jump .cj-go{font-size:12px !important;}
+.dl-print{font-size:13px !important;padding:11px 16px !important;}
+.toc-fab{font-size:13px !important;padding:11px 15px !important;}
+</style>
 </body>
 </html>

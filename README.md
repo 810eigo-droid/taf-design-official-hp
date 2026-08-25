@@ -35,13 +35,10 @@ git push origin main
 | 場所 | 中身 |
 |---|---|
 | `index.html` + `css/` + `js/` + `images/` | **公式HPトップ(公開中=v1)**。Xserver `/public_html/` に手動アップ |
-| `index_v2.html` | トップのココナラ対応版(**準備完了・未実行**) |
-| `index_v1_coconala以前.html` | v1の金庫(**編集禁止**) |
-| `lp/` | **広告LP+サービス資料一式**。Xserver `/public_html/lp/` と1:1対応 |
-| `lp/service-guide.html` | 公開中の資料(v25) |
-| `lp/service-guide_v2.html` | 資料のココナラ対応版・v26(**準備完了・未実行**) |
-| `lp/service-guide-print_v2.html` | A4印刷原稿のv2。**PDFはここから大村さんが生成** |
-| `lp/◯◯_v1_coconala以前.html` | v1の金庫(**編集禁止**) |
+| `lp/` | **サーバーの `/public_html/lp/` と完全に同じ中身だけ**(index.html・css・js・images・service-guide.html・PDF2つ)。**丸ごとアップしてOK** |
+| `lp/service-guide.html` | 資料の原本(現行v29) |
+| `docs/originals/` | **金庫と原稿置き場**(v1金庫・v2素材・印刷原稿・旧版)。lp/から移動(2026-08-25整理)。v1系は**編集禁止** |
+| `docs/originals/service-guide-print.html` | A4印刷原稿。**PDFはここから大村さんが生成** |
 | `docs/wp-blocks/` | WordPress貼り付け用の控え(order・price-block1〜3 ほか) |
 | `docs/wp-blocks/v2_新/` | **切り替え当日に貼るv2ファイル**(orderフォーム・offer2フォーム) |
 | `docs/wp-blocks/price-compare-coconala.html` | /price/の直販/ココナラ比較セクション(現行・price-block1の直下に設置) |
@@ -97,7 +94,7 @@ git push origin main
 | ページ | 公開中 | v2の状態 |
 |---|---|---|
 | 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
-| 資料 /lp/service-guide.html | **リポジトリ=v27済み**(ココナラ誘導バナー・戻るボタン入り)。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
+| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v29**(スマホ文字改修+iOS対策)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
@@ -115,7 +112,7 @@ git push origin main
 - [x] ~~wp-offer2-form_v2.html~~(2026-08-25 AIが新規作成。現行offer2+はじめての方へブロック+クーポン文言削除)
 - [ ] **v2の内容最終確認**(大村さん: index_v2 / service-guide_v2 をブラウザで確認)
 - [ ] **PDF v2生成**(大村さん: `lp/service-guide-print_v2.html` から。手順は下記5)
-- [ ] **切り替え実行中(2026-08-25開始)**: 静的の中身入れ替え済み(AI)。残り→ ①大村さん: index.html と lp/service-guide.html をXserverへアップ ②PDF生成してアップ ③WPの3ブロック貼り替え(order/price比較/offer2) ④v26確認・スマホテスト
+- [ ] **切り替え実行中(2026-08-25開始)**: 静的の中身入れ替え済み(AI)。残り→ ①大村さん: index.html と lp/service-guide.html をXserverへアップ ②PDF生成してアップ ③WPの3ブロック貼り替え(order/price比較/offer2) ④v29確認・スマホテスト
 - [ ] **メールの貼り替え(大村さん・MailPoet/CF7)**: 2026-08-25にメール原稿を全改稿済み(クーポン記述の全削除+ココナラ案内追加)。以下を新原稿で貼り替え→ ①CF7自動返信(原稿: docs/email-service-guide-allin1.md セクション4) ②MailPoetステップメール1〜3(docs/step-mail-01-03.md) ③メルマガ03は「注文方法」テーマに刷新(docs/newsletter/03-newsletter-order-methods-mailpoet-copy.md)。旧版は docs/mail_v1_coconala以前/ に保存済み
 - [ ] **/budget/ 最上部に「ようこそブロック」を貼る(大村さん)**: `docs/wp-blocks/budget-welcome-block.html` をカスタムHTMLブロックとして1つ目に追加(グループに入れない)。名刺QRからの初見の方向け
 - [ ] 切り替え後: `docs/price-master.md` にv2料金体系を反映(AI)
@@ -138,7 +135,7 @@ git push origin main
 1. AIに「v2切り替えを実行して」と言う → AIが `index_v2.html` の中身を `index.html` へ、`service-guide_v2.html` の中身を `service-guide.html` へコピーしてコミット(v1金庫はそのまま残る)
 2. 大村さん: `index.html` を `/public_html/` へ、`lp/service-guide.html` を `/public_html/lp/` へ上書きアップロード
 3. 大村さん: 生成済みの新 `service-guide.pdf` を `/public_html/lp/` へ上書きアップロード
-4. 確認: 資料ページの表紙下部に **「v27」** が見えたら反映成功
+4. 確認: 資料ページの表紙下部に **「v29」** が見えたら反映成功
 
 ### WordPress(大村さんが貼る)
 5. `/order/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-order-form_v2.html` の全文を貼り替え
@@ -150,13 +147,13 @@ git push origin main
 
 > **理由: サーバーやAI環境で生成するとフォントが変わってしまうため、必ず大村さんのPCで生成する。**
 
-1. `lp/service-guide-print_v2.html` をChromeで開く
+1. `docs/originals/service-guide-print.html` をChromeで開く
 2. 印刷(Ctrl+P)→ 送信先「PDFに保存」→ 用紙A4・余白なし・**背景のグラフィック ON**
 3. `service-guide.pdf` という名前で保存(ファイル名は変えない)
 
 ## 6. ロールバック手順(v2→v1に戻す。所要5分・データ消失なし)
 
-1. AIに「v1に戻して」と言う → AIが `index_v1_coconala以前.html` の中身を `index.html` へ、`lp/service-guide_v1_coconala以前.html` の中身を `service-guide.html` へ戻してコミット
+1. AIに「v1に戻して」と言う → AIが `docs/originals/index_v1_coconala以前.html` の中身を `index.html` へ、`docs/originals/service-guide_v1_coconala以前.html` の中身を `service-guide.html` へ戻してコミット
 2. 大村さん: 上記2ファイルをXserverへ上書きアップロード(+旧PDFを戻す)
 3. WordPress: `/order/` に `docs/wp-blocks/order.html`(現行の正・電話相談入り)を全文貼り直し
    ※注意: `v1_現行/wp-order-form_v1.html` は7/31版(電話相談なし)なので**使わない**
@@ -173,7 +170,7 @@ git push origin main
 - **編集の起点はGitHub**。AIが編集→push→大村さんがXserver/WPへ反映。二重編集禁止(ローカルで編集した時は必ずAIに伝えてGitへ同期)
 - コミットは日本語のわかりやすいメッセージ+**同じコミットでこのREADMEの「今の状態」「チェックリスト」を更新**
 - **v1系(_v1_coconala以前・wp-blocks/v1_現行)は編集禁止の金庫**。v2切り替え後も削除しない
-- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。公開原稿=v27)
+- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。原稿=v29)
 - リンクは**同一タブが原則**(`target="_blank"`禁止。例外: tel/mailto/sms/LINEのみ)
 - **価格の原本は `docs/price-master.md` だけ**。価格を書く時は必ず同期
 - **書いてはいけないこと**: クーポン(終了済み)/「返金保証」(正しくは「お支払いはココナラが納品まで預かる仕組み」)/SEO順位や広告成果の保証・誇張/「審査対応」という言葉
