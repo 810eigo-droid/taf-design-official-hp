@@ -12,6 +12,12 @@
   <p class="bw-eyebrow">TEACH &amp; FUNNEL DESIGN</p>
   <p class="bw-h">はじめまして、ティーチ&amp;ファネルDesignです。</p>
   <p class="bw-meishi">名刺のQRコードからお越しの方も、ようこそ。</p>
+  <a class="bw-about" href="https://taf-design.com/lp/">
+    <span class="bw-about-en">ABOUT US</span>
+    <span class="bw-about-tx">ティーチ&amp;ファネルデザインとは。</span>
+    <span class="bw-about-arw">→</span>
+  </a>
+  <p class="bw-about-note">タップでご紹介ページへ。スマホの「戻る」でこのページに帰ってこられます。</p>
   <p class="bw-p">事業主・副業オーナーのための<b>買い切りWeb制作</b>をしています。LP・ホームページは<b>22,000円(税込)〜</b>、月額費用は0円。文章も画像も、丸ごとおまかせいただけます。</p>
   <p class="bw-p">このページは、<b>「この予算なら何ができる?」がすぐわかる予算別シミュレーション</b>です。下でご予算をひとつ選ぶだけで、「今やること・後回しでいいこと」をプロが設計してご提案します。</p>
   <div class="bw-links">
@@ -24,6 +30,14 @@
 .taf-bwelcome .bw-eyebrow{font-size:11px;font-weight:700;letter-spacing:.28em;color:#C5A059;margin:0 0 10px;}
 .taf-bwelcome .bw-h{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:21px;font-weight:600;color:#1A2A3A;letter-spacing:.05em;margin:0 0 4px;line-height:1.5;}
 .taf-bwelcome .bw-meishi{font-size:12.5px;color:#A88846;font-weight:700;margin:0 0 14px;}
+.taf-bwelcome .bw-about{display:flex;align-items:center;gap:14px;margin:4px 0 6px;padding:16px 20px;border-radius:12px;text-decoration:none;background:linear-gradient(135deg,#1A2A3A 0%,#2D3E50 60%,#3a4f66 100%);border:1px solid rgba(212,183,114,.55);box-shadow:0 10px 26px rgba(26,42,58,.28);transition:.2s;position:relative;overflow:hidden;}
+.taf-bwelcome .bw-about::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(212,183,114,.18),transparent);transform:skewX(-20deg);transition:left .5s ease;}
+.taf-bwelcome .bw-about:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(26,42,58,.36);}
+.taf-bwelcome .bw-about:hover::after{left:120%;}
+.taf-bwelcome .bw-about-en{font-size:9.5px;font-weight:700;letter-spacing:.26em;color:#D4B772;writing-mode:vertical-rl;text-orientation:mixed;flex:none;}
+.taf-bwelcome .bw-about-tx{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:16.5px;font-weight:600;color:#fff;letter-spacing:.06em;flex:1;line-height:1.5;}
+.taf-bwelcome .bw-about-arw{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid #D4B772;color:#D4B772;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.taf-bwelcome .bw-about-note{font-size:10.5px;color:#94A0AE;margin:0 0 16px;}
 .taf-bwelcome .bw-p{font-size:14px;color:#2D3E50;margin:0 0 12px;}
 .taf-bwelcome .bw-p b{color:#1A2A3A;}
 .taf-bwelcome .bw-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
