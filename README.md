@@ -53,6 +53,45 @@ git push origin main
 | `docs/` その他 | 引き継ぎ資料・ブログ原稿・メルマガ・法務など |
 | `AGENTS.md` | AI向けの最上位作業ルール(ブログ品質基準など) |
 
+## 1.5 公開ページのURL一覧(リンク控え・忘れたらここを見る)
+
+### よく使うページ
+| URL | 何のページか | 原本ファイル |
+|---|---|---|
+| https://taf-design.com/ | 公式トップ | `index.html`(静的・Xserver直置き) |
+| https://taf-design.com/lp/ | 広告LP(Meta広告の飛び先) | `lp/index.html`(静的) |
+| https://taf-design.com/lp/service-guide.html | サービス資料(Web版・現行v28) | `lp/service-guide.html`(静的) |
+| https://taf-design.com/lp/service-guide.pdf | サービス資料(PDF版) | `lp/service-guide-print.html`から生成 |
+| https://taf-design.com/price/ | 料金表 | `docs/wp-blocks/price-block1-plans.html`+比較+block2+block3 |
+| https://taf-design.com/order/ | 簡単見積もり | `docs/wp-blocks/v2_新/wp-order-form_v2.html`(v2)/現行は`order.html` |
+| https://taf-design.com/budget/ | 予算から選ぶ(※名刺QRの飛び先) | `docs/wp-blocks/budget.html`+先頭に`budget-welcome-block.html` |
+| https://taf-design.com/offer2/ | 無料相談・資料請求フォーム | `docs/wp-blocks/v2_新/wp-offer2-form_v2.html`(v2)/現行は`offer2.html` |
+| https://coconala.com/users/5777255 | ココナラ(プロフィール・全リンクの飛び先) | — |
+
+### プラン詳細ページ(料金表の「詳しくはこちら」の先)
+| URL | 何のページか | 原本ファイル |
+|---|---|---|
+| https://taf-design.com/lp-hp2/ | LP・HP制作プラン(2.2万円〜) | `docs/wp-blocks/lp-hp2.html` |
+| https://taf-design.com/hp3/ | WordPress HP制作プラン(3.3万円〜) | `docs/wp-blocks/hp3.html` |
+| https://taf-design.com/app2_9/ | 専用AIアプリ制作(2.9万円〜) ⚠️アンダースコア。app2-9はリンク切れ | `docs/wp-blocks/app2_9.html` |
+| https://taf-design.com/lp7/ | 成約特化LP・プロ制作(7万円〜) | `docs/wp-blocks/lp7.html` |
+| https://taf-design.com/lp15/ | ファネル一元化(15万円〜) | `docs/wp-blocks/lp15.html` |
+| https://taf-design.com/ad/ | 広告運用・集客サポート | `docs/wp-blocks/ad.html` ※価格表記の修正が宿題 |
+
+### その他のページ
+| URL | 何のページか | 原本ファイル |
+|---|---|---|
+| https://taf-design.com/backup/ | サイトまるごとバックアップパック | `docs/wp-blocks/backup.html` |
+| https://taf-design.com/maintenance/ | 保守・管理プラン | `docs/wp-blocks/maintenance.html` |
+| https://taf-design.com/pdf-backup/ | 購入者向けマニュアル(パスワード保護) | `docs/wp-blocks/pdf-backup.html` |
+| https://taf-design.com/coupon/ | クーポンページ ⚠️クーポンは終了済み。ページの非公開化を検討 | `docs/wp-blocks/coupon.html` |
+| https://taf-design.com/kiyaku/ | 利用規約 | WP直接編集(Git管理外) |
+| https://taf-design.com/tokushoho/ | 特定商取引法に基づく表記 | WP直接編集(Git管理外) |
+| https://taf-design.com/privacy-policy/ | プライバシーポリシー | WP直接編集(Git管理外) |
+| https://lin.ee/pqfXTUJ | 公式LINE | — |
+
+> 詳しい対応表(部品ファイル・リネーム履歴含む)は `docs/wp-page-map.md`
+
 ## 2. 今の状態(2026-08-25時点)
 
 | ページ | 公開中 | v2の状態 |
