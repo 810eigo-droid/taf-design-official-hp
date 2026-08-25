@@ -1,0 +1,103 @@
+# TAF Design 司令塔README(統合リポジトリ)
+
+> **このファイルだけ見れば「今の状態・次にやること・実行手順」が全部わかる。**
+> 最終更新: 2026-08-25 ｜ 更新ルール: 変更コミットと同じコミットでこのREADMEの「今の状態」「チェックリスト」を必ず更新する
+> 旧 TAF-V2meta-LP リポジトリの内容は 2026-08-25 に本リポジトリへ統合済み
+
+---
+
+## 1. リポジトリの構成(どこに何があるか)
+
+| 場所 | 中身 |
+|---|---|
+| `index.html` + `css/` + `js/` + `images/` | **公式HPトップ(公開中=v1)**。Xserver `/public_html/` に手動アップ |
+| `index_v2.html` | トップのココナラ対応版(**準備完了・未実行**) |
+| `index_v1_coconala以前.html` | v1の金庫(**編集禁止**) |
+| `lp/` | **広告LP+サービス資料一式**。Xserver `/public_html/lp/` と1:1対応 |
+| `lp/service-guide.html` | 公開中の資料(v25) |
+| `lp/service-guide_v2.html` | 資料のココナラ対応版・v26(**準備完了・未実行**) |
+| `lp/service-guide-print_v2.html` | A4印刷原稿のv2。**PDFはここから大村さんが生成** |
+| `lp/◯◯_v1_coconala以前.html` | v1の金庫(**編集禁止**) |
+| `docs/wp-blocks/` | WordPress貼り付け用の控え(order・price-block1〜3 ほか) |
+| `docs/wp-blocks/v2_新/` | **切り替え当日に貼るv2ファイル**(orderフォーム・ココナラ比較) |
+| `docs/wp-blocks/v1_現行/` | WPブロックの金庫(**編集禁止**) |
+| `docs/price-master.md` | **価格の原本(唯一の正)**。価格を書くときは必ずここに同期 |
+| `docs/` その他 | 引き継ぎ資料・ブログ原稿・メルマガ・法務など |
+| `AGENTS.md` | AI向けの最上位作業ルール(ブログ品質基準など) |
+
+## 2. 今の状態(2026-08-25時点)
+
+| ページ | 公開中 | v2の状態 |
+|---|---|---|
+| 公式トップ taf-design.com | v1(`index.html`) | ✅ 準備完了・未実行(`index_v2.html`) |
+| 資料 /lp/service-guide.html | v25 | ✅ 準備完了・未実行(v26=`service-guide_v2.html`) |
+| 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
+| /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`) |
+| /price/(WP) | `price-block1〜3` | ⏳ 比較セクションのみ準備済み。ページ本体v2はチャット側Claude担当 |
+| /budget/ ほかWP下層 | 現行のまま | 対象外(必要になったら計画) |
+| 広告LP /lp/index.html | 現行のまま | v2対象外(Meta広告改善は別途) |
+
+**v2の中身**: ①ココナラをしっかり宣伝(全レビュー星5・最高ランク/決済はココナラが納品まで預かる/購入者手数料注記) ②直販優先(「HP・LP・仕組みを育てたい方は直接ご依頼・優先対応」) ③新料金体系(LP2.2万=基本7セクション・メニュー/簡易フォーム/WP納品標準込み、HP3.3万=検索・AI検索対策の基本込み、24hラフ案+5,000、Google解析セット+5,000) ④クーポン記述の全削除
+
+## 3. 次にやることチェックリスト(上から順に)
+
+- [ ] **GitHubへpush**(AI実行。セッション認可の復旧待ち。コミットはローカルに安全に蓄積中)
+- [ ] **ココナラURLの確定**(プロフィールか商品ページか)→ 決まったらAIに伝える。`★COCONALA_URL`コメント箇所(index_v2/service-guide_v2/print_v2/wp-compare)を一括差し替え
+- [ ] **オプション「+5,000円」の税込表記の確定**(大村さん判断: 5,000円のままか5,500円税込か)→ AIが該当箇所を統一
+- [ ] `wp-offer2-form_v2.html`(/offer2/用「はじめての方へ」ブロック)の所在確認 → 見つかったらアップロード
+- [ ] **v2の内容最終確認**(大村さん: index_v2 / service-guide_v2 をブラウザで確認)
+- [ ] **PDF v2生成**(大村さん: `lp/service-guide-print_v2.html` から。手順は下記5)
+- [ ] **切り替え実行**(下記4を上から実行)
+- [ ] 切り替え後: `docs/price-master.md` にv2料金体系を反映(AI)
+- [ ] /price/ /budget/ ページ本体のv2(チャット側Claude担当。二重作業防止のためこのセッションでは作らない)
+- [ ] **TAF-V2meta-LPのArchive化**(下記7。統合に問題がないと確認できてから)
+- [ ] (任意)`images/hero-01〜05`・`hero-bg-texture`(未使用素材)を使うか判断
+
+## 4. v2切り替え実行手順(当日、上から実行するだけ)
+
+> **鉄則: 公開URL・ファイル名は絶対に変えない。「中身を入れ替える」方式のみ。**(ファイル名での切り替えはURL・SEOが壊れるので禁止)
+
+### 静的ページ(Xserver)
+1. AIに「v2切り替えを実行して」と言う → AIが `index_v2.html` の中身を `index.html` へ、`service-guide_v2.html` の中身を `service-guide.html` へコピーしてコミット(v1金庫はそのまま残る)
+2. 大村さん: `index.html` を `/public_html/` へ、`lp/service-guide.html` を `/public_html/lp/` へ上書きアップロード
+3. 大村さん: 生成済みの新 `service-guide.pdf` を `/public_html/lp/` へ上書きアップロード
+4. 確認: 資料ページのフッターに **「v26」** が見えたら反映成功
+
+### WordPress(大村さんが貼る)
+5. `/order/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-order-form_v2.html` の全文を貼り替え
+6. `/price/` の料金表の下に、カスタムHTMLブロックを追加して `docs/wp-blocks/v2_新/wp-compare-coconala-section.html` の全文を貼る
+7. スマホ実機で確認: 表示崩れ/orderフォームの送信テスト(LINE・メール両方)/電話相談欄が出ること
+
+## 5. PDF生成の手順(大村さん担当・サーバー生成禁止)
+
+> **理由: サーバーやAI環境で生成するとフォントが変わってしまうため、必ず大村さんのPCで生成する。**
+
+1. `lp/service-guide-print_v2.html` をChromeで開く
+2. 印刷(Ctrl+P)→ 送信先「PDFに保存」→ 用紙A4・余白なし・**背景のグラフィック ON**
+3. `service-guide.pdf` という名前で保存(ファイル名は変えない)
+
+## 6. ロールバック手順(v2→v1に戻す。所要5分・データ消失なし)
+
+1. AIに「v1に戻して」と言う → AIが `index_v1_coconala以前.html` の中身を `index.html` へ、`lp/service-guide_v1_coconala以前.html` の中身を `service-guide.html` へ戻してコミット
+2. 大村さん: 上記2ファイルをXserverへ上書きアップロード(+旧PDFを戻す)
+3. WordPress: `/order/` に `docs/wp-blocks/order.html`(現行の正・電話相談入り)を全文貼り直し
+   ※注意: `v1_現行/wp-order-form_v1.html` は7/31版(電話相談なし)なので**使わない**
+4. `/price/` から比較セクションのブロックを削除
+
+## 7. TAF-V2meta-LPのArchive化手順(統合確認後・大村さん操作)
+
+1. https://github.com/810eigo-droid/TAF-V2meta-LP → Settings
+2. 一番下の「Danger Zone」→ **Archive this repository** → リポジトリ名を入力して確定
+3. これで読み取り専用になる(削除ではない。いつでも解除可能。過去の履歴・backup/v1-originalブランチも残る)
+
+## 8. 運用ルール(全員・AI含む)
+
+- **編集の起点はGitHub**。AIが編集→push→大村さんがXserver/WPへ反映。二重編集禁止(ローカルで編集した時は必ずAIに伝えてGitへ同期)
+- コミットは日本語のわかりやすいメッセージ+**同じコミットでこのREADMEの「今の状態」「チェックリスト」を更新**
+- **v1系(_v1_coconala以前・wp-blocks/v1_現行)は編集禁止の金庫**。v2切り替え後も削除しない
+- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。現行v25/v2=v26)
+- リンクは**同一タブが原則**(`target="_blank"`禁止。例外: tel/mailto/sms/LINEのみ)
+- **価格の原本は `docs/price-master.md` だけ**。価格を書く時は必ず同期
+- **書いてはいけないこと**: クーポン(終了済み)/「返金保証」(正しくは「お支払いはココナラが納品まで預かる仕組み」)/SEO順位や広告成果の保証・誇張/「審査対応」という言葉
+- ココナラの手数料は具体的な%を書かない(改定に耐えるよう「所定の購入者手数料」と書く)
+- teach-funnel-site リポジトリは対象外(触らない)
