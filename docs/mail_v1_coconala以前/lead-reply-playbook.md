@@ -161,8 +161,8 @@ C. 見積もりだけ → https://taf-design.com/order/ (選ぶだけ・3分)
 info@taf-design.com / 090-2514-6064(SMS可)
 公式LINE https://lin.ee/pqfXTUJ
 
-P.S. はじめてで、お支払いがご不安でしたら、ココナラ経由でのご注文もご用意しています(お支払いはココナラが納品まで預かる仕組み・全レビュー星5。別途ココナラ所定の購入者手数料)。
-https://coconala.com/users/5777255
+P.S. 5,000円OFFクーポン(税抜5万円以上・初回)もご用意しています。
+https://taf-design.com/coupon/
 ```
 
 反映: WP管理画面 → お問い合わせ → お問い合わせV2 → メール(2)の本文を差し替え。
