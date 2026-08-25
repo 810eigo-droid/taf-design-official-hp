@@ -6,6 +6,33 @@
 
 ---
 
+## 0. 【いちばん使う】AIの作業をGitHubに反映する4コマンド(大村さん用)
+
+> AIが作業を終えるたびに、これをPowerShellで実行するとGitHub本体(このリポジトリのmain)に反映される。
+> **必ず1行ずつ**貼り付けてEnter(まとめて貼るとコマンドがくっついて失敗しやすい)。
+> 貼り付け時に警告ダイアログが出たら「強制的に貼り付け」でOK。
+
+```powershell
+cd $env:USERPROFILE\Desktop\taf-official-push
+```
+```powershell
+git fetch https://github.com/810eigo-droid/TAF-V2meta-LP.git backup/unified-official-hp-20260825
+```
+```powershell
+git merge --ff-only FETCH_HEAD
+```
+```powershell
+git push origin main
+```
+
+**成功のサイン**: 3行目で `Fast-forward`、4行目で `main -> main` と表示される。
+(4行目が `Everything up-to-date` の場合は、3行目のFast-forwardが実行されていない。3行目からやり直す)
+
+- デスクトップに `taf-official-push` フォルダが無いときは、先にこれ1行でGitHubから自動作成される:
+  `git clone https://github.com/810eigo-droid/taf-design-official-hp.git $env:USERPROFILE\Desktop\taf-official-push`
+- エラーが出たら、**何もせず画面をそのままAIに見せる**(強制push等は絶対にしない)
+- ※これはAIの直接push権限が復旧するまでの中継手順。復旧後はAIが直接pushするので不要になる
+
 ## 1. リポジトリの構成(どこに何があるか)
 
 | 場所 | 中身 |
