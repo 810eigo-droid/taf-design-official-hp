@@ -68,7 +68,7 @@ git push origin main
 ### プラン詳細ページ(料金表の「詳しくはこちら」の先)
 | URL | 何のページか | 原本ファイル |
 |---|---|---|
-| https://taf-design.com/lp-hp2/ | LP・HP制作プラン(2.2万円〜) | `docs/wp-blocks/lp-hp2.html` |
+| https://taf-design.com/lp-hp2/ | LP・HP制作プラン(2万円〜) | `docs/wp-blocks/lp-hp2.html` |
 | https://taf-design.com/hp3/ | WordPress HP制作プラン(3.3万円〜) | `docs/wp-blocks/hp3.html` |
 | https://taf-design.com/app2_9/ | 専用AIアプリ制作(2.9万円〜) ⚠️アンダースコア。app2-9はリンク切れ | `docs/wp-blocks/app2_9.html` |
 | https://taf-design.com/lp7/ | 成約特化LP・プロ制作(7万円〜) | `docs/wp-blocks/lp7.html` |
@@ -94,7 +94,7 @@ git push origin main
 | ページ | 公開中 | v2の状態 |
 |---|---|---|
 | 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
-| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v32**(スマホ縮小バグ修正+比較表の横スクロール案内)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
+| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v33**(LP価格改定 22,000→20,000円税込+スマホ改修)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
@@ -102,7 +102,7 @@ git push origin main
 | /budget/ ほかWP下層 | 現行のまま | ⏳ ようこそブロック準備済み(名刺QR対応・`budget-welcome-block.html`)。ページ本体v2はチャット側Claude担当 |
 | 広告LP /lp/index.html | 現行のまま | v2対象外(Meta広告改善は別途) |
 
-**v2の中身**: ①ココナラをしっかり宣伝(全レビュー星5・最高ランク/決済はココナラが納品まで預かる/購入者手数料注記) ②直販優先(「HP・LP・仕組みを育てたい方は直接ご依頼・優先対応」) ③新料金体系(LP2.2万=基本7セクション・メニュー/簡易フォーム/WP納品標準込み、HP3.3万=検索・AI検索対策の基本込み、24hラフ案+5,000円(税込)、Google解析セット+5,000円(税込)) ④クーポン記述の全削除
+**v2の中身**: ①ココナラをしっかり宣伝(全レビュー星5・最高ランク/決済はココナラが納品まで預かる/購入者手数料注記) ②直販優先(「HP・LP・仕組みを育てたい方は直接ご依頼・優先対応」) ③新料金体系(LP2万(税込)=基本7セクション・メニュー/簡易フォーム/WP納品標準込み、HP3.3万=検索・AI検索対策の基本込み、24hラフ案+5,000円(税込)、Google解析セット+5,000円(税込)) ④クーポン記述の全削除
 
 ## 3. 次にやることチェックリスト(上から順に)
 
@@ -135,7 +135,7 @@ git push origin main
 1. AIに「v2切り替えを実行して」と言う → AIが `index_v2.html` の中身を `index.html` へ、`service-guide_v2.html` の中身を `service-guide.html` へコピーしてコミット(v1金庫はそのまま残る)
 2. 大村さん: `index.html` を `/public_html/` へ、`lp/service-guide.html` を `/public_html/lp/` へ上書きアップロード
 3. 大村さん: 生成済みの新 `service-guide.pdf` を `/public_html/lp/` へ上書きアップロード
-4. 確認: 資料ページの表紙下部に **「v32」** が見えたら反映成功
+4. 確認: 資料ページの表紙下部に **「v33」** が見えたら反映成功
 
 ### WordPress(大村さんが貼る)
 5. `/order/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-order-form_v2.html` の全文を貼り替え
@@ -170,7 +170,7 @@ git push origin main
 - **編集の起点はGitHub**。AIが編集→push→大村さんがXserver/WPへ反映。二重編集禁止(ローカルで編集した時は必ずAIに伝えてGitへ同期)
 - コミットは日本語のわかりやすいメッセージ+**同じコミットでこのREADMEの「今の状態」「チェックリスト」を更新**
 - **v1系(_v1_coconala以前・wp-blocks/v1_現行)は編集禁止の金庫**。v2切り替え後も削除しない
-- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。原稿=v32)
+- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。原稿=v33)
 - リンクは**同一タブが原則**(`target="_blank"`禁止。例外: tel/mailto/sms/LINEのみ)
 - **価格の原本は `docs/price-master.md` だけ**。価格を書く時は必ず同期
 - **書いてはいけないこと**: クーポン(終了済み)/「返金保証」(正しくは「お支払いはココナラが納品まで預かる仕組み」)/SEO順位や広告成果の保証・誇張/「審査対応」という言葉
