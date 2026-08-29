@@ -1,0 +1,81 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: /contact/ お問い合わせ
+  2026-08-29 新規作成(ヘッダーメニュー「お問い合わせ」の飛び先)
+  設置先: 固定ページ「お問い合わせ」(スラッグ: contact)にカスタムHTML
+          ブロック1つで貼る。グループに入れない
+  方針: 新規フォームは作らず、既存の窓口(LINE/資料請求/見積もり/SMS)へ
+        振り分けるハブページ。リンクは同一タブ(例外: sms:/lin.ee)
+  トンマナ: 白×ブルー#00A2DE×オレンジ#F6AC0E(公式HP・LPと同系)
+============================================================ -->
+<div class="taf-contact">
+
+  <p class="tc2-lead">
+    ご相談・お見積もりは<b>すべて無料</b>です。<br>
+    「まだ頼むか決めていない」段階でも大歓迎。<b>しつこい営業は一切しません。</b>
+  </p>
+
+  <div class="tc2-grid">
+
+    <a class="tc2-card tc2-card--line" href="https://lin.ee/pqfXTUJ">
+      <span class="tc2-tag">いちばん早い</span>
+      <span class="tc2-t">💬 LINEで相談する</span>
+      <span class="tc2-d">友だち追加して、そのままトークで相談からお申し込みまで完結できます。</span>
+      <span class="tc2-go">LINE友だち追加 →</span>
+    </a>
+
+    <a class="tc2-card" href="https://taf-design.com/offer2/">
+      <span class="tc2-tag">じっくり検討したい方</span>
+      <span class="tc2-t">📄 無料相談・資料請求</span>
+      <span class="tc2-d">サービス資料をその場でメールでお届け。ご希望の方には無料の電話相談(10分程度・こちらから発信)もご案内します。</span>
+      <span class="tc2-go">フォームへ →</span>
+    </a>
+
+    <a class="tc2-card" href="https://taf-design.com/order/">
+      <span class="tc2-tag">料金が知りたい方</span>
+      <span class="tc2-t">🧮 かんたん無料見積もり</span>
+      <span class="tc2-d">約30秒の選択式。48時間以内にお見積もりを返信します。</span>
+      <span class="tc2-go">見積もりフォームへ →</span>
+    </a>
+
+    <a class="tc2-card" href="sms:09025146064">
+      <span class="tc2-tag">メッセージで直接</span>
+      <span class="tc2-t">✉️ SMS(ショートメール)</span>
+      <span class="tc2-d">090-2514-6064 宛に、お名前とご用件をお送りください。折り返しご連絡します。</span>
+      <span class="tc2-go">SMSを送る →</span>
+    </a>
+
+  </div>
+
+  <div class="tc2-note">
+    <p>・返信の目安: <b>48時間以内</b>(LINEが最速です)</p>
+    <p>・お電話での相談は無料(10分程度・ご希望の方のみ・<b>こちらから発信</b>するので通話料もかかりません)</p>
+    <p>・「予算だけ決まっている」という方は <a href="https://taf-design.com/budget/">予算から選ぶ</a> も便利です</p>
+  </div>
+
+</div>
+<style>
+.taf-contact{display:block;width:100%;max-width:860px;box-sizing:border-box;margin:10px auto 40px!important;font-feature-settings:"palt";}
+.taf-contact *{box-sizing:border-box;}
+.taf-contact .tc2-lead{font-size:15px;color:#3a4048;line-height:2.0;text-align:center;margin:0 0 26px;}
+.taf-contact .tc2-lead b{color:#1B2733;}
+.taf-contact .tc2-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.taf-contact .tc2-card{display:flex;flex-direction:column;gap:8px;background:#fff;border:1.5px solid #E5EAF0;border-radius:16px;padding:20px 18px;text-decoration:none;color:#1B2733;box-shadow:0 8px 24px rgba(30,50,70,.07);transition:.18s;}
+.taf-contact .tc2-card:hover{transform:translateY(-2px);border-color:#00A2DE;box-shadow:0 14px 32px rgba(0,90,140,.16);}
+.taf-contact .tc2-card--line{border-color:#F6AC0E;background:#FFFBF2;}
+.taf-contact .tc2-card--line:hover{border-color:#E79B00;box-shadow:0 14px 32px rgba(246,172,14,.25);}
+.taf-contact .tc2-tag{display:inline-block;width:max-content;font-size:11px;font-weight:800;letter-spacing:.04em;color:#0a5c7d;background:#ECF4F9;border-radius:999px;padding:4px 10px;}
+.taf-contact .tc2-card--line .tc2-tag{color:#8a5b00;background:#FFF4DC;}
+.taf-contact .tc2-t{font-size:17px;font-weight:900;line-height:1.5;}
+.taf-contact .tc2-d{font-size:13px;color:#555A62;line-height:1.8;flex:1;}
+.taf-contact .tc2-go{font-size:13.5px;font-weight:800;color:#0093C9;}
+.taf-contact .tc2-card--line .tc2-go{color:#E79B00;}
+.taf-contact .tc2-note{margin-top:22px;background:#F7FAFC;border:1px solid #E5EAF0;border-radius:12px;padding:14px 18px;}
+.taf-contact .tc2-note p{font-size:12.5px;color:#555A62;line-height:1.9;margin:0;}
+.taf-contact .tc2-note a{color:#0093C9;font-weight:700;}
+@media (max-width:640px){
+  .taf-contact .tc2-grid{grid-template-columns:1fr;}
+  .taf-contact .tc2-lead{font-size:14px;text-align:left;}
+  .taf-contact .tc2-t{font-size:16px;}
+  .taf-contact .tc2-d{font-size:13.5px;}
+}
+</style>

@@ -75,3 +75,5 @@
 | official-hp `wp-order-price-accordion.html` | `order-parts-price-accordion.html` |
 | official-hp `wp-quick-estimate-button.html` | `parts-quick-estimate-button.html` |
 | official-hp `wp-selfkeep-pack.html` | `parts-selfkeep-pack.html` |
+
+- 2026-08-29 追加: `contact` お問い合わせ(ヘッダーメニューの飛び先) → `docs/wp-blocks/contact.html`(LINE/資料請求/見積もり/SMSへの振り分けハブ・新規フォームなし)

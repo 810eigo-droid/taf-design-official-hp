@@ -81,6 +81,7 @@ git push origin main
 | https://taf-design.com/backup/ | サイトまるごとバックアップパック | `docs/wp-blocks/backup.html` |
 | https://taf-design.com/maintenance/ | 保守・管理プラン | `docs/wp-blocks/maintenance.html` |
 | https://taf-design.com/pdf-backup/ | 購入者向けマニュアル(パスワード保護) | `docs/wp-blocks/pdf-backup.html` |
+| https://taf-design.com/contact/ | お問い合わせ(窓口の振り分けハブ) | `docs/wp-blocks/contact.html` |
 | https://taf-design.com/coupon/ | クーポンページ ⚠️クーポンは終了済み。ページの非公開化を検討 | `docs/wp-blocks/coupon.html` |
 | https://taf-design.com/kiyaku/ | 利用規約 | WP直接編集(Git管理外) |
 | https://taf-design.com/tokushoho/ | 特定商取引法に基づく表記 | WP直接編集(Git管理外) |
