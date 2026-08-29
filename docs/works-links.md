@@ -33,21 +33,22 @@
 - 06の画像を仮想通貨アプリの画像に差し替え(同名 work-06.jpg なら上書きのみ・コード変更不要)
 
 
-## 広告LP(lp/index.html)のスライダー(11枚・2026-08-25並び替え)
+## 広告LP(lp/index.html)のスライダー(11枚・2026-08-29確定)
 
 | # | 名称 | リンク先 | 画像(lp/images/) | 状態 |
 |---|---|---|---|---|
-| 01 | AVANTI(諸藤様) | https://810eigo-droid.github.io/avanti_morofujl/ | work-01.jpg | ⏳ 新画像待ち(オーナーがJPEGを同名で上書き) |
-| 02 | りの(デイサービス) | https://810eigo-droid.github.io/day-service/ | work-02.jpg | ⏳ 新画像待ち(同上) |
-| 03 | 呉服福岡(旧1番の画像を移動) | foriio | work-03.jpg | ✅ 反映済み |
-| 04 | (変更なし) | foriio | work-04.jpg | ✅ |
-| 05 | WEL Mobility | https://welmobilityrv.com/ | work-05.jpg | ⏳ 新画像待ち(同上) |
-| 06〜11 | (変更なし) | foriio | work-06〜11.jpg | ✅ |
+| 01 | 仮想通貨分析アプリ(クリプトノヴァ) | https://810eigo-droid.github.io/crypto_nova/ | work-01.jpg(旧6番の画像) | ✅ |
+| 02 | AVANTI(諸藤様) | https://810eigo-droid.github.io/avanti_morofujl/ | work-02.jpg | ⏳ 新画像待ち(オーナーがJPEG同名上書き) |
+| 03 | WEL Mobility(キャンピングカー) | https://welmobilityrv.com/ | work-03.jpg | ⏳ 新画像待ち(同上) |
+| 04 | 呉服店(福岡) | https://gofukuno-yokoo.com/kimono-care-event-fukuoka/ | work-04.jpg(旧3番の画像) | ✅ |
+| 05 | デイサービス(りの) | https://810eigo-droid.github.io/day-service/ | work-05.jpg | ⏳ 新画像待ち(同上) |
+| 06 | 英会話スクール | https://illustrious-zuccutto-cdc1f2.netlify.app/ | work-06.jpg(8番の画像をコピー) | ✅ |
+| 07〜11 | (変更なし) | foriio | work-07〜11.jpg | ✅ |
 
-※ 新画像が入るまでの間、01・02・05は旧画像のまま表示される(リンク先だけ新サイト)。
 ※ 推奨サイズ: 横1200×縦1000前後(表示枠は約6:5・object-fit:coverでトリミング)。
 
 ## 変更履歴
+- 2026-08-29 広告LPスライダー1〜6番を確定(仮想通貨/AVANTI/WEL/呉服/デイサービス/英会話)。全6件に個別リンク設定。
 - 2026-08-25 広告LPスライダーを並び替え(1=AVANTI・2=りの(当初マトバ予定→資料未作成のため変更)・3=旧1番の呉服福岡・5=WEL Mobility)。1・2・5にリンク設定。画像はオーナーが同名JPEGで上書き予定。
 - 2026-08-04 01〜08にリンク設定(新タブ)。09〜14を台帳に登録(画像待ち)。
 - 2026-08-04 05のリンクを swell.810eigo.com → demo1129.my.canva.site/dag9rvyobwg(パーソナルジム)に変更。
