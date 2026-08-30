@@ -95,7 +95,7 @@ git push origin main
 | ページ | 公開中 | v2の状態 |
 |---|---|---|
 | 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
-| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v44**(お客様の声にココナラ検索案内を追加)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
+| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v44**(検索案内は広告LPのみ・資料は据え置き)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
