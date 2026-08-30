@@ -95,7 +95,7 @@ git push origin main
 | ページ | 公開中 | v2の状態 |
 |---|---|---|
 | 公式トップ taf-design.com | **リポジトリ=v2済み**。Xserverアップ待ち | 🔄 切り替え実行中(2026-08-25) |
-| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v41**(制作実績を6件に刷新・画像ファイル参照化)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
+| 資料 /lp/service-guide.html | 公開中=v27。**リポジトリ=v42**(実績6件刷新+上に戻るボタン)。Xserverアップ待ち | 🔄 lp/service-guide.html をアップすれば完了 |
 | 資料PDF /lp/service-guide.pdf | 現行版 | ⏳ 未生成(大村さんがprint_v2から生成) |
 | /order/(WP) | `docs/wp-blocks/order.html` 相当(電話相談入り) | ✅ 準備完了・未実行(`v2_新/wp-order-form_v2.html`・フォーム下にココナラ案内入り) |
 | /price/(WP) | 4ブロック構成で公開中(料金プラン+比較+共通事項+FAQ) | ✅ 比較セクション設置済み(2026-08-25)。ページ本体v2はチャット側Claude担当 |
@@ -136,7 +136,7 @@ git push origin main
 1. AIに「v2切り替えを実行して」と言う → AIが `index_v2.html` の中身を `index.html` へ、`service-guide_v2.html` の中身を `service-guide.html` へコピーしてコミット(v1金庫はそのまま残る)
 2. 大村さん: `index.html` を `/public_html/` へ、`lp/service-guide.html` を `/public_html/lp/` へ上書きアップロード
 3. 大村さん: 生成済みの新 `service-guide.pdf` を `/public_html/lp/` へ上書きアップロード
-4. 確認: 資料ページの表紙下部に **「v41」** が見えたら反映成功
+4. 確認: 資料ページの表紙下部に **「v42」** が見えたら反映成功
 
 ### WordPress(大村さんが貼る)
 5. `/order/` のカスタムHTMLブロックに `docs/wp-blocks/v2_新/wp-order-form_v2.html` の全文を貼り替え
@@ -171,7 +171,7 @@ git push origin main
 - **編集の起点はGitHub**。AIが編集→push→大村さんがXserver/WPへ反映。二重編集禁止(ローカルで編集した時は必ずAIに伝えてGitへ同期)
 - コミットは日本語のわかりやすいメッセージ+**同じコミットでこのREADMEの「今の状態」「チェックリスト」を更新**
 - **v1系(_v1_coconala以前・wp-blocks/v1_現行)は編集禁止の金庫**。v2切り替え後も削除しない
-- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。原稿=v41)
+- `service-guide.html` は変更のたびにフッターのバージョン印を上げる(反映確認用。原稿=v42)
 - リンクは**同一タブが原則**(`target="_blank"`禁止。例外: tel/mailto/sms/LINEのみ)
 - **価格の原本は `docs/price-master.md` だけ**。価格を書く時は必ず同期
 - **書いてはいけないこと**: クーポン(終了済み)/「返金保証」(正しくは「お支払いはココナラが納品まで預かる仕組み」)/SEO順位や広告成果の保証・誇張/「審査対応」という言葉

@@ -503,5 +503,22 @@ src="https://www.facebook.com/tr?id=1427280391720324&ev=PageView&noscript=1"
   }, { threshold: 0.35 }).observe(phone);
 })();
 </script>
+
+<!-- 上に戻るボタン(2026-08-29追加) -->
+<a href="#top" class="back-to-top" id="backToTop" aria-label="ページ上部に戻る">↑</a>
+<style>
+.back-to-top{position:fixed;right:14px;bottom:14px;z-index:99;width:46px;height:46px;border-radius:50%;background:#fff;border:1.5px solid #00A2DE;color:#0093C9;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;text-decoration:none;box-shadow:0 10px 26px rgba(0,90,140,.2);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s;}
+.back-to-top.show{opacity:1;visibility:visible;transform:none;}
+.back-to-top:hover{background:#00A2DE;color:#fff;}
+</style>
+<script>
+(function(){
+  var b=document.getElementById('backToTop');
+  if(!b)return;
+  var onScroll=function(){b.classList.toggle('show', window.pageYOffset>window.innerHeight*0.9);};
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>

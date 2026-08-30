@@ -454,7 +454,7 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
 
     <div class="cover-foot">
       <div class="co">ティーチ&amp;ファネル Design<span>TEACH &amp; FUNNEL DESIGN</span></div>
-      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v41</div>
+      <div class="meta">taf-design.com<br>Service Guide 2026 ｜ v42</div>
     </div>
   </div>
 </section>
@@ -1114,5 +1114,23 @@ h2.sec .bl{color:var(--blue);} h2.sec .pk{color:var(--pink);} h2.sec .or{color:v
   .cc-jump .cj-go{display:block !important;width:100% !important;margin:0 !important;box-sizing:border-box !important;text-align:center !important;padding:12px 14px !important;font-size:13px !important;}
 }
 </style>
+
+<!-- 上に戻るボタン(2026-08-29追加・PDFボタンの上) -->
+<a href="#top" class="totop-fab no-print" id="totopFab" aria-label="ページ上部に戻る">↑</a>
+<style>
+.totop-fab{position:fixed;right:14px;bottom:72px;z-index:100;width:44px;height:44px;border-radius:50%;background:#fff;border:1.5px solid var(--blue);color:var(--blue-d);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:900;text-decoration:none;box-shadow:0 10px 26px rgba(0,90,140,.2);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s;}
+.totop-fab.show{opacity:1;visibility:visible;transform:none;}
+.totop-fab:hover{background:var(--blue);color:#fff;}
+@media print{.totop-fab{display:none;}}
+</style>
+<script>
+(function(){
+  var b=document.getElementById('totopFab');
+  if(!b)return;
+  var onScroll=function(){b.classList.toggle('show', window.pageYOffset>window.innerHeight*0.9);};
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>
