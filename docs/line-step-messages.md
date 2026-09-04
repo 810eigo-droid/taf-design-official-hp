@@ -3,6 +3,7 @@
 > 作成: 2026-09-04 / 対象: LINE公式アカウントの新規友だち(主に offer2 完了画面・自動返信メール経由)
 > ツール: エルメ(L Message)フリープラン
 > 元ネタ: `docs/step-mail-01-03.md`(メール版ステップ3通)をLINE向けに再構成
+> 文言ルール: クーポンは終了済みのため約束しない。将来配信の予告は「お得な情報やWeb集客のヒント」で統一(メール3通目 2026-08-29版と同じ)
 > リンクルール: 見積もり=/order/ 相談・資料=/offer2/ 予算=/budget/(価格は price-master 準拠)
 
 ---
@@ -48,7 +49,7 @@ https://taf-design.com/lp/service-guide.html
 ▼料金の全体像はこちら
 https://taf-design.com/budget/
 
-セールやお得な情報も、
+お得な情報やWeb集客のヒントも、
 このLINEで不定期にお届けします🔔
 ```
 
@@ -152,7 +153,7 @@ https://taf-design.com/offer2/
 https://taf-design.com/budget/
 
 今後は月1回ほど、
-セールやお得な情報だけを
+お得な情報やWeb集客のヒントを
 このLINEでお届けします🔔
 
 ご相談はいつでも、
