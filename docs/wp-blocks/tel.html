@@ -12,6 +12,7 @@
         着信は留守番電話運用のため、番号を見せる箇所には共通の一文を添える
         (offer2-cf7-phone-fields.md §5)。
   計測: 送信完了で GA4 generate_lead(form_id:'tel')を送信(gtagが無ければ何もしない)
+  更新: 2026-09-05 発信番号 090-2514-6064 を安心3点・完了画面・留守電注記に明記(知らない番号からの着信に出てもらうため)
   トンマナ: 白×ブルー#00A2DE×オレンジ#F6AC0E(/offer2/ /contact/ と同系)
 ============================================================ -->
 <div class="taf-tel">
@@ -23,7 +24,7 @@
 </div>
 
 <ul class="tt-points">
-  <li><span class="tt-ic">📞</span><span class="tt-tx"><b>こちらからお掛けします</b><br>通話料はかかりません。番号と時間帯を送るだけ。</span></li>
+  <li><span class="tt-ic">📞</span><span class="tt-tx"><b>こちらからお掛けします</b><br>発信番号は <b>090-2514-6064</b>。通話料はかかりません。</span></li>
   <li><span class="tt-ic">⏱</span><span class="tt-tx"><b>10分程度で終わります</b><br>長引かせません。延長はご希望があるときだけ。</span></li>
   <li><span class="tt-ic">🙅</span><span class="tt-tx"><b>売り込みはしません</b><br>「今回はやめておく」で終わって大丈夫です。</span></li>
 </ul>
@@ -34,7 +35,7 @@
 <div class="tt-now">
   <p class="tt-now-t">今すぐ話したい方は、直接お電話も可能です</p>
   <a class="tt-now-btn" href="tel:09025146064">📞 090-2514-6064</a>
-  <p class="tt-now-note">※お電話は留守番電話につながります。メッセージを残していただければ折り返します。</p>
+  <p class="tt-now-note">※お電話は留守番電話につながります。メッセージを残していただければ、同じ番号(090-2514-6064)から折り返します。</p>
 </div>
 
 <p class="tt-alt">資料をメールで受け取りたい方は <a href="https://taf-design.com/offer2/">無料相談・資料請求</a>、金額を先に知りたい方は <a href="https://taf-design.com/order/">1分自動見積もり</a> もどうぞ。</p>
@@ -114,6 +115,9 @@
 .taf-tel .tf-box{border-radius:16px;padding:18px 16px;margin-top:14px;text-align:center;background:#F4FAFD;border:1.5px solid #cfe8f4;}
 .taf-tel .tf-box-ic{display:block;font-size:28px;margin-bottom:6px;}
 .taf-tel .tf-big{font-size:16px!important;font-weight:900;color:#0a5c7d!important;}
+.taf-tel .tf-num{margin-top:10px!important;padding:10px 12px;background:#fff;border:1.5px dashed #9fd6ec;border-radius:12px;font-size:15px!important;}
+.taf-tel .tf-num b{font-size:18px;letter-spacing:.04em;}
+.taf-tel .tf-num span{display:block;font-size:12px;color:#555A62;margin-top:4px;line-height:1.6;}
 .taf-tel .tf-line-btn{display:inline-block;background:#06C755;color:#fff;text-decoration:none;border-radius:999px;padding:14px 24px;font-size:15px;font-weight:900;box-shadow:0 10px 24px rgba(6,199,85,.3);margin-top:8px;}
 .taf-tel .tf-line-btn:hover{filter:brightness(1.05);}
 
@@ -191,6 +195,7 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
       + '<span class="tf-box-ic">📞</span>'
       + '<p class="tf-big">「' + when + '」に、こちらからお掛けします</p>'
       + '<p>無料・10分程度です。売り込みはしません。<br>お掛けする前に、日時をSMSでお知らせします。</p>'
+      + '<p class="tf-num">発信番号: <b>090-2514-6064</b><br><span>着信時にわかるよう、この番号を連絡先に登録しておいてください。</span></p>'
       + '</div>'
       + '<div class="tf-box">'
       + '<span class="tf-box-ic">💬</span>'
