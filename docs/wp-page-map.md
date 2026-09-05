@@ -77,3 +77,4 @@
 | official-hp `wp-selfkeep-pack.html` | `parts-selfkeep-pack.html` |
 
 - 2026-08-29 追加: `contact` お問い合わせ(ヘッダーメニューの飛び先) → `docs/wp-blocks/contact.html`(LINE/資料請求/見積もり/SMSへの振り分けハブ・新規フォームなし)
+- 2026-09-05 追加: `tel` 無料電話相談(電話専用・LINEリッチメニュー「電話相談」の飛び先) → `docs/wp-blocks/tel.html`(ガワ)+ `docs/wp-blocks/tel-cf7.md`(CF7新規フォームの内容・設定手順)。offer2 は変更なし

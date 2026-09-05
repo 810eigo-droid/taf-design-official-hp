@@ -1,0 +1,204 @@
+<!-- ============================================================
+  WordPressカスタムHTMLブロック: /tel/ 無料電話相談(電話専用・taf-tel)
+  2026-09-05 新規作成(オーナー指示: 電話のみの専用ページ。LINEリッチメニュー
+             「電話相談」ボタンの飛び先。/offer2/ は資料請求専用のまま変更しない)
+  設置先: 固定ページ「無料電話相談」(スラッグ: tel)にカスタムHTMLブロック1つで貼る。
+          グループに入れない
+  構成: Contact Form 7 の新規フォーム [contact-form-7 id="XXXXXXX"] を1画面フォームとして
+        装飾するCSS+JS。CF7側の内容は docs/wp-blocks/tel-cf7.md
+        → 貼り付け時に下の id="XXXXXXX" を実際のフォームIDに差し替えること
+  方針: 項目は お名前・電話番号・時間帯(必須)+ご相談内容(任意)の4つだけ。
+        メールアドレスは取らない(電話専用)。こちらから発信・10分程度・売り込みなし。
+        着信は留守番電話運用のため、番号を見せる箇所には共通の一文を添える
+        (offer2-cf7-phone-fields.md §5)。
+  計測: 送信完了で GA4 generate_lead(form_id:'tel')を送信(gtagが無ければ何もしない)
+  トンマナ: 白×ブルー#00A2DE×オレンジ#F6AC0E(/offer2/ /contact/ と同系)
+============================================================ -->
+<div class="taf-tel">
+
+<div class="lead-box">
+<span class="lb">TEL CONSULTATION</span>
+<h2>無料<span class="bl">電話相談</span></h2>
+<p>金額のこと、頼み方のこと。<b>10分程度</b>で、電話でお答えします。</p>
+</div>
+
+<ul class="tt-points">
+  <li><span class="tt-ic">📞</span><span class="tt-tx"><b>こちらからお掛けします</b><br>通話料はかかりません。番号と時間帯を送るだけ。</span></li>
+  <li><span class="tt-ic">⏱</span><span class="tt-tx"><b>10分程度で終わります</b><br>長引かせません。延長はご希望があるときだけ。</span></li>
+  <li><span class="tt-ic">🙅</span><span class="tt-tx"><b>売り込みはしません</b><br>「今回はやめておく」で終わって大丈夫です。</span></li>
+</ul>
+
+<div class="form-card">
+[contact-form-7 id="XXXXXXX" title="無料電話相談"]</div>
+
+<div class="tt-now">
+  <p class="tt-now-t">今すぐ話したい方は、直接お電話も可能です</p>
+  <a class="tt-now-btn" href="tel:09025146064">📞 090-2514-6064</a>
+  <p class="tt-now-note">※お電話は留守番電話につながります。メッセージを残していただければ折り返します。</p>
+</div>
+
+<p class="tt-alt">資料をメールで受け取りたい方は <a href="https://taf-design.com/offer2/">無料相談・資料請求</a>、金額を先に知りたい方は <a href="https://taf-design.com/order/">1分自動見積もり</a> もどうぞ。</p>
+
+</div>
+
+<style>
+.taf-tel{max-width:620px;margin:26px auto 70px;padding:0 16px;color:#111;font-feature-settings:"palt";line-height:1.7;}
+.taf-tel *{box-sizing:border-box;}
+
+/* 見出し */
+.taf-tel .lead-box{text-align:center;margin-bottom:20px;}
+.taf-tel .lb{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.2em;color:#00A2DE;margin-bottom:8px;}
+.taf-tel h2{font-size:26px;font-weight:900;line-height:1.4;margin:0;border:none;padding:0;background:none;}
+.taf-tel h2 .bl{color:#00A2DE;}
+.taf-tel .lead-box>p{font-size:14px;color:#555A62;margin-top:10px;}
+.taf-tel .lead-box>p b{color:#1B2733;}
+
+/* 3つの安心 */
+.taf-tel .tt-points{list-style:none;margin:0 0 22px;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.taf-tel .tt-points li{background:#F7FAFC;border:1px solid #E5EAF0;border-radius:14px;padding:14px 12px;font-size:12.5px;color:#555A62;line-height:1.7;}
+.taf-tel .tt-points li b{color:#1B2733;font-size:13.5px;}
+.taf-tel .tt-tx{display:block;}
+.taf-tel .tt-ic{display:block;font-size:22px;margin-bottom:6px;}
+
+/* カード */
+.taf-tel .form-card{background:#fff;border-radius:20px;box-shadow:0 18px 50px rgba(30,50,70,.12);padding:30px 30px 28px;}
+
+/* ラベル・項目 */
+.taf-tel .field{margin:0 0 20px;}
+.taf-tel .field label,.taf-tel .field .lbl{display:block;font-size:16px;font-weight:800;margin:0 0 10px;}
+.taf-tel .req{display:inline-block;background:#e82e6c;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:2px;}
+.taf-tel .opt{display:inline-block;background:#eef1f4;color:#8a919b;font-size:10px;font-weight:700;border-radius:5px;padding:2px 7px;margin-left:8px;vertical-align:2px;}
+
+/* 入力欄 */
+.taf-tel .wpcf7-form input[type=text],
+.taf-tel .wpcf7-form input[type=tel],
+.taf-tel .wpcf7-form textarea{
+  width:100%;border:1.5px solid #D5DCE3;border-radius:12px;padding:14px 16px;font-size:16px;font-family:inherit;background:#fff;color:#111;transition:.15s;}
+.taf-tel .wpcf7-form input:focus,
+.taf-tel .wpcf7-form textarea:focus{outline:none;border-color:#00A2DE;box-shadow:0 0 0 3px rgba(0,162,222,.15);}
+.taf-tel .wpcf7-form textarea{min-height:90px;}
+
+/* 時間帯ラジオ(カード風・2列) */
+.taf-tel .wpcf7-radio{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px;}
+.taf-tel .wpcf7-radio .wpcf7-list-item{margin:0;display:block;}
+.taf-tel .wpcf7-radio .wpcf7-list-item label{
+  display:flex;align-items:center;border:1.5px solid #D5DCE3;border-radius:12px;padding:12px 12px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s;margin:0;}
+.taf-tel .wpcf7-radio .wpcf7-list-item label:hover{border-color:#9fd6ec;}
+.taf-tel .wpcf7-radio input{margin:0 10px 0 0;accent-color:#00A2DE;width:17px;height:17px;flex:none;}
+.taf-tel .wpcf7-radio .wpcf7-list-item label:has(input:checked){border-color:#00A2DE;background:#ECF4F9;color:#0a5c7d;}
+.taf-tel .wpcf7-radio .wpcf7-list-item:last-child{grid-column:1 / -1;}
+.taf-tel .tt-note{font-size:12px;color:#8a919b;margin:10px 0 0;line-height:1.7;}
+
+/* 送信ボタン */
+.taf-tel .wpcf7-submit{
+  display:block;width:100%;border:none;border-radius:999px;padding:18px;
+  font-size:17px;font-weight:900;color:#fff;cursor:pointer;
+  background:linear-gradient(135deg,#f5a30a,#f6b52e);
+  box-shadow:0 12px 28px rgba(246,172,14,.4);margin-top:6px;transition:.15s;font-family:inherit;}
+.taf-tel .wpcf7-submit:hover{filter:brightness(1.05);}
+.taf-tel .submit-note{text-align:center;font-size:12px;color:#555A62;margin-top:12px;}
+
+/* CF7の応答・エラー */
+.taf-tel .wpcf7-not-valid-tip{color:#e82e6c;font-size:12.5px;font-weight:700;margin-top:6px;}
+.taf-tel .wpcf7-response-output{border:none!important;background:#ECF4F9;border-radius:12px;padding:14px 18px!important;margin:18px 0 0!important;font-size:13.5px;font-weight:700;color:#0a5c7d;}
+.taf-tel .wpcf7-spinner{display:block;margin:10px auto 0;}
+
+/* 送信完了パネル */
+.taf-tel .tf-done{text-align:center;padding:22px 12px 8px;animation:ttIn .35s ease;}
+@keyframes ttIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+.taf-tel .tf-done-ic{width:66px;height:66px;border-radius:50%;background:#06C755;color:#fff;font-size:36px;line-height:66px;margin:0 auto 16px;box-shadow:0 12px 28px rgba(6,199,85,.38);}
+.taf-tel .tf-done h3{font-size:22px;font-weight:900;margin:0 0 12px;color:#111;}
+.taf-tel .tf-done p{font-size:14px;color:#3a4048;line-height:1.85;margin:0 0 8px;}
+.taf-tel .tf-done p b{color:#0a5c7d;}
+.taf-tel .tf-done p a{color:#0093C9;text-decoration:underline;}
+.taf-tel .tf-box{border-radius:16px;padding:18px 16px;margin-top:14px;text-align:center;background:#F4FAFD;border:1.5px solid #cfe8f4;}
+.taf-tel .tf-box-ic{display:block;font-size:28px;margin-bottom:6px;}
+.taf-tel .tf-big{font-size:16px!important;font-weight:900;color:#0a5c7d!important;}
+.taf-tel .tf-line-btn{display:inline-block;background:#06C755;color:#fff;text-decoration:none;border-radius:999px;padding:14px 24px;font-size:15px;font-weight:900;box-shadow:0 10px 24px rgba(6,199,85,.3);margin-top:8px;}
+.taf-tel .tf-line-btn:hover{filter:brightness(1.05);}
+
+/* 今すぐ電話 */
+.taf-tel .tt-now{margin-top:26px;background:#FFFBF2;border:1.5px solid #F6AC0E;border-radius:16px;padding:18px 16px;text-align:center;}
+.taf-tel .tt-now-t{font-size:13.5px;font-weight:800;color:#8a5b00;margin:0 0 10px;}
+.taf-tel .tt-now-btn{display:inline-block;background:#fff;border:2px solid #F6AC0E;color:#1B2733;text-decoration:none;border-radius:999px;padding:12px 26px;font-size:20px;font-weight:900;letter-spacing:.04em;}
+.taf-tel .tt-now-btn:hover{background:#FFF4DC;}
+.taf-tel .tt-now-note{font-size:12px;color:#8a5b00;margin:10px 0 0;line-height:1.7;}
+
+.taf-tel .tt-alt{font-size:12.5px;color:#555A62;text-align:center;margin-top:22px;line-height:1.9;}
+.taf-tel .tt-alt a{color:#0093C9;font-weight:700;}
+
+@media (max-width:640px){
+  .taf-tel h2{font-size:23px;}
+  .taf-tel .tt-points{grid-template-columns:1fr;gap:8px;}
+  .taf-tel .tt-points li{display:flex;gap:10px;align-items:flex-start;padding:12px 12px;}
+  .taf-tel .tt-ic{margin:0;font-size:20px;}
+  .taf-tel .form-card{padding:22px 16px 20px;}
+  .taf-tel .wpcf7-radio{grid-template-columns:1fr 1fr;}
+  .taf-tel .wpcf7-radio .wpcf7-list-item label{font-size:13.5px;padding:11px 10px;}
+  .taf-tel .tt-now-btn{font-size:19px;padding:12px 20px;}
+}
+
+/* このページだけパンくずを非表示 */
+.breadSection, .breadcrumb, .vk_breadcrumb,
+nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
+</style>
+
+<script>
+(function(){
+  /* 電話番号の形式チェック(CF7の送信前に軽く確認。全角数字も許容) */
+  function initTelForm(){
+    var root = document.querySelector('.taf-tel');
+    if(!root) return;
+    var form = root.querySelector('form.wpcf7-form');
+    if(!form || form.dataset.ttInit) return;
+    form.dataset.ttInit = '1';
+    var tel = form.querySelector('input[type=tel]');
+    if(!tel) return;
+    var tip = document.createElement('p');
+    tip.className = 'tt-note';
+    tip.textContent = '※ハイフンなしでもOKです。SMSが届く番号だと日時のご連絡がスムーズです。';
+    tel.closest('.field').appendChild(tip);
+    form.addEventListener('submit', function(){
+      /* 全角→半角に寄せてから送る(CF7の tel 検証で弾かれないように) */
+      var v = tel.value.replace(/[０-９]/g, function(c){ return String.fromCharCode(c.charCodeAt(0)-0xFEE0); })
+                       .replace(/[ー−―－]/g,'-').replace(/[（）()\s]/g,'');
+      tel.value = v;
+    });
+  }
+
+  function hideCoupon(){
+    document.querySelectorAll('a, button').forEach(function(el){
+      if(el.textContent.indexOf('初回限定クーポン') !== -1){ el.style.display='none'; }
+    });
+  }
+
+  function boot(){ initTelForm(); hideCoupon(); }
+  if(document.readyState !== 'loading'){ boot(); } else { document.addEventListener('DOMContentLoaded', boot); }
+  new MutationObserver(function(){ initTelForm(); hideCoupon(); }).observe(document.documentElement,{childList:true,subtree:true});
+
+  /* 送信成功時: 計測+完了画面 */
+  document.addEventListener('wpcf7mailsent', function(){
+    if(window.fbq){ fbq('track','Lead'); }
+    if(window.gtag){ gtag('event','generate_lead',{form_id:'tel'}); }
+    var card = document.querySelector('.taf-tel .form-card');
+    if(!card) return;
+    var t = document.querySelector('.taf-tel input[name="tel-time"]:checked');
+    var when = t ? t.value : 'ご希望の時間帯';
+    card.innerHTML = '<div class="tf-done">'
+      + '<div class="tf-done-ic">✓</div>'
+      + '<h3>電話相談のお申し込み、承りました！</h3>'
+      + '<div class="tf-box">'
+      + '<span class="tf-box-ic">📞</span>'
+      + '<p class="tf-big">「' + when + '」に、こちらからお掛けします</p>'
+      + '<p>無料・10分程度です。売り込みはしません。<br>お掛けする前に、日時をSMSでお知らせします。</p>'
+      + '</div>'
+      + '<div class="tf-box">'
+      + '<span class="tf-box-ic">💬</span>'
+      + '<p>お電話の前に聞きたいことがあれば、LINEでどうぞ。<br>金額の目安は <a href="https://taf-design.com/price/"><b>料金表</b></a> からもご覧いただけます。</p>'
+      + '<a class="tf-line-btn" href="https://lin.ee/pqfXTUJ">LINEで友だち追加する</a>'
+      + '</div>'
+      + '</div>';
+    card.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
