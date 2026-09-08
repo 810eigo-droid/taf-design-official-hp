@@ -375,9 +375,9 @@ https://taf-design.com/order/
 | 左上 | 料金表 | URL `https://taf-design.com/price/` |
 | 中上 | 1分見積もり | URL `https://taf-design.com/order/` |
 | 右上 | 資料を見る | URL `https://taf-design.com/lp/service-guide.html` |
-| 左下 | ココナラで注文 | URL `https://coconala.com/users/5777255` |
-| 中下 | 電話相談(無料) | URL `https://taf-design.com/tel/`(電話専用ページ・2026-09-05公開済み) |
-| 右下 | 公式HP | URL `https://taf-design.com/` |
+| 左下 | はじめてでも安心 ココナラで注文 | URL `https://coconala.com/users/5777255` |
+| 中下 | 公式HPから注文 | URL `https://taf-design.com/` |
+| 右下 | 電話相談(無料) | URL `https://taf-design.com/tel/`(電話専用ページ・2026-09-05公開済み) |
 
 - URLボタンはエルメに「誰が押したか」が残らない。エルメへの取り込みは、月1配信(押させる導線)とあいさつ文の「返信してください」で拾う
 - ボタン編集画面に「URLを開く」と同時にタグを付ける項目があれば、電話相談に `興味_電話相談` を付ける(無ければ不要)
