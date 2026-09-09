@@ -1,0 +1,13 @@
+name: GitHub Pages SEO safety
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-noindex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure every standalone HTML page is noindex
+        run: bash scripts/check-github-pages-noindex.sh
