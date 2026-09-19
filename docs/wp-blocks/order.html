@@ -173,6 +173,7 @@
       <div class="to-pills" id="to-type">
         <input type="checkbox" name="to-type" id="to-type1" value="ホームページ制作(新規)"><label for="to-type1">ホームページ制作</label>
         <input type="checkbox" name="to-type" id="to-type2" value="LP制作(新規・1ページ)"><label for="to-type2">LP制作(1ページ)</label>
+        <input type="checkbox" name="to-type" id="to-type16" value="会員サイト・オンラインサロン構築"><label for="to-type16">会員サイト・オンラインサロン</label>
         <input type="checkbox" name="to-type" id="to-type3" value="既存サイトの修正・機能追加(プラグイン等)"><label for="to-type3">既存サイトの修正・機能追加</label>
         <input type="checkbox" name="to-type" id="to-type4" value="ロゴ・バナーなどデザイン"><label for="to-type4">ロゴ・バナー</label>
         <input type="checkbox" name="to-type" id="to-type5" value="メタ広告運用(Instagram・Facebook広告)"><label for="to-type5">メタ広告運用</label>
@@ -458,7 +459,7 @@
       return noDesign.indexOf(el.id) === -1;
     });
   }
-  function isSiteSelected(){ return isBuildSelected() || typeChecked('to-type3'); }
+  function isSiteSelected(){ return isBuildSelected() || typeChecked('to-type3') || typeChecked('to-type16'); }
   function isWpSelected(){
     var mt = document.getElementById('to-mt1');
     return isBuildSelected() && !!(mt && mt.checked);
