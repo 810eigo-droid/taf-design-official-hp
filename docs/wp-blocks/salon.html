@@ -5,7 +5,7 @@
   設計書: docs/salon-launch-plan.md(テキスト確定 2026-09-23)/価格原本: docs/price-master.md #14
   デザイン: 既存ページと違い「明るく・カラフル・グラデーション」(オーナー指示 2026-09-23)
   計測: GA4はWP全ページ設置済み。CTAは /tel/ と /order/ (どちらも送信で generate_lead)
-  作成: 2026-09-23 v1
+  作成: 2026-09-23 v1 / v2: 「小さく始めて、あとから足せる」軸に文言調整+育て方STEP追加、入口LP 7セクションまで
 ============================================================== -->
 <div class="taf-salon" id="taf-salon">
 <style>
@@ -140,6 +140,16 @@
 .taf-salon .s-opts ul{margin:0;padding:0 0 0 1.1em;color:var(--s-sub);}
 .taf-salon .s-fine{font-size:12.5px;color:var(--s-sub);margin:12px 0 0;line-height:1.7;}
 
+/* ===== 育て方 ===== */
+.taf-salon .s-path{margin:18px 0 0;border-radius:18px;padding:18px 16px 16px;background:linear-gradient(135deg,#FFF6FA,#F3F0FF 50%,#EAF8FF);border:1px solid var(--s-line);}
+.taf-salon .s-path-t{font:800 12px/1 "Roboto Mono",monospace;letter-spacing:.18em;color:var(--s-violet);margin:0 0 12px;}
+.taf-salon .s-path-row{display:grid;grid-template-columns:1fr;gap:8px;}
+.taf-salon .s-path-step{background:#fff;border-radius:14px;padding:12px 14px;border:1px solid var(--s-line);}
+.taf-salon .s-path-step .k{display:block;font:900 10.5px/1 "Roboto Mono",monospace;letter-spacing:.12em;color:var(--s-pink);margin:0 0 4px;}
+.taf-salon .s-path-step b{display:block;font-size:15px;font-weight:900;}
+.taf-salon .s-path-step small{display:block;font-size:12.5px;color:var(--s-sub);line-height:1.6;}
+.taf-salon .s-path-arw{text-align:center;color:var(--s-violet);font-weight:900;font-size:18px;transform:rotate(90deg);line-height:1;}
+
 /* ===== 流れ ===== */
 .taf-salon .s-steps{display:grid;grid-template-columns:1fr;gap:10px;counter-reset:s;}
 .taf-salon .s-step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--s-line);border-radius:16px;padding:14px 16px;}
@@ -182,6 +192,8 @@
   .taf-salon .s-step{flex-direction:column;gap:10px;}
   .taf-salon .s-step .n{flex:none;width:36px;}
   .taf-salon .s-two{grid-template-columns:1fr 1fr;}
+  .taf-salon .s-path-row{grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;}
+  .taf-salon .s-path-arw{transform:none;}
   .taf-salon .s-cta-box{padding:44px 40px;}
   .taf-salon .s-cta-box h3{font-size:28px;}
 }
@@ -216,11 +228,11 @@
 <div class="s-wrap">
   <section class="s-sec">
     <span class="s-eyebrow pink">こんなお悩みに</span>
-    <h2 class="s-title">欲しいのは「動画・お知らせ・会費」。<br><span class="g">それだけのはずなのに。</span></h2>
+    <h2 class="s-title">まずは「動画・お知らせ・会費」から。<br><span class="g">あとから、いくらでも育てられます。</span></h2>
     <div class="s-pains">
       <div class="s-pain"><span class="em">📩</span>受講生や会員に限定動画を見せたいが、YouTubeのURLをLINEで送るだけになっている</div>
       <div class="s-pain"><span class="em">💸</span>サロン運営サービスの月額と売上手数料が、会員が増えるほど重くなってきた</div>
-      <div class="s-pain"><span class="em">🧩</span>機能が多すぎて使いきれない。欲しいのは「動画・お知らせ・会費」の3つだけ</div>
+      <div class="s-pain"><span class="em">🧩</span>最初から高機能なものは要らない。まず小さく始めて、必要になった機能だけ足していきたい</div>
       <div class="s-pain"><span class="em">🔒</span>自分のデータなのに、サービスをやめたら消えてしまうのが不安</div>
     </div>
   </section>
@@ -322,7 +334,7 @@
     <div class="s-reasons">
       <div class="s-reason r1"><div class="ic">💳</div><h3>買い切り。月額0円・手数料0円</h3><p>当方への月額料金や、売上に対する手数料はかかりません。会員が増えても費用は変わりません。</p></div>
       <div class="s-reason r2"><div class="ic">📦</div><h3>データはすべてお渡し</h3><p>完成したサイトのデータ一式を納品します。サーバーもドメインもあなたの名義。やめても消えません。</p></div>
-      <div class="s-reason r3"><div class="ic">🎯</div><h3>必要なものだけ。だから安い</h3><p>「動画・お知らせ・会費」に絞った5画面。使わない機能にお金を払いません。掲示板や自動通知が必要になったら、あとから追加できます。</p></div>
+      <div class="s-reason r3"><div class="ic">🌱</div><h3>小さく始めて、あとから足せる</h3><p>まずは「動画・お知らせ・会費」の5画面から。掲示板・自動通知・決済連動・入口LP・集客まで、必要になった段階で追加できる設計です。作り直しはいりません。</p></div>
     </div>
   </section>
 </div>
@@ -332,6 +344,7 @@
   <section class="s-sec" id="price">
     <span class="s-eyebrow orange">料金</span>
     <h2 class="s-title">まず小さく、<span class="g">33,000円から。</span></h2>
+    <p class="s-lead">最初はライトで十分です。会員が増えたら、<b>同じサイトのまま</b>スタンダード・プロへ、さらに入口LPや集客まで広げられます。</p>
     <div class="s-price-hero">
       <div class="lbl">基本料金(ライト)</div>
       <div class="amt">33,000<small>円</small></div>
@@ -352,10 +365,21 @@
       <div class="s-plan"><div class="nm">PRO</div><div class="pr">77,000円<small>税込</small></div><ul><li>スタンダードの内容すべて</li><li>入会・退会とカード決済の自動連動</li><li>月次の実践記録・集計機能</li><li>講師別の相談予約ページ</li></ul></div>
     </div>
 
+    <div class="s-path">
+      <div class="s-path-t">育て方の例</div>
+      <div class="s-path-row">
+        <div class="s-path-step"><span class="k">STEP 1</span><b>ライト</b><small>まず会員に動画とお知らせを届ける</small></div>
+        <div class="s-path-arw">→</div>
+        <div class="s-path-step"><span class="k">STEP 2</span><b>スタンダード</b><small>掲示板と自動通知で、運営の手間を減らす</small></div>
+        <div class="s-path-arw">→</div>
+        <div class="s-path-step"><span class="k">STEP 3</span><b>プロ + 入口LP</b><small>入退会と決済を自動化し、新規会員を集める</small></div>
+      </div>
+    </div>
+
     <div class="s-opts">
       <b>組み合わせ・追加</b>
       <ul>
-        <li>入口LP制作 +15,000円〜(6セクションまで。7セクション以上はお見積り)</li>
+        <li>入口LP制作 +15,000円〜(7セクションまで。8セクション以上はお見積り)</li>
         <li>ホームページ制作 +20,000円〜</li>
         <li>動画の追加 10本ごと +3,300円(基本料金には10本まで含みます)</li>
       </ul>
