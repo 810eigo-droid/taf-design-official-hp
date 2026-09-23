@@ -20,7 +20,7 @@
 | `lp-hp2` | LP・HPデザイン制作プラン(2万円〜) | **official-hp** `docs/wp-blocks/lp-hp2.html` |
 | `hp3` | WordPress HP/LP制作プラン(3万円〜) | **official-hp** `docs/wp-blocks/hp3.html` |
 | `app2_9` | 専用AIアプリ制作プラン(2.9万円〜) | **official-hp** `docs/wp-blocks/app2_9.html` |
-| `salon` | 会員サイト・オンラインサロン制作プラン(3.3万円〜) ※2026-09-23新設・WP未作成 | `docs/wp-blocks/salon.html`(設計: docs/salon-launch-plan.md) |
+| `salon` | 会員サイト・オンラインサロン制作プラン(3.3万円〜) ※2026-09-23新設・**公開済み** | `docs/wp-blocks/salon.html`(設計: docs/salon-launch-plan.md) |
 | `lp7` | プロ制作プラン(7万円〜)リスト取り特化 | **official-hp** `docs/wp-blocks/lp7.html` |
 | `lp15` | HP/LP+セールスファネル一元化(15万円〜) | **official-hp** `docs/wp-blocks/lp15.html` |
 | `ad` | 広告運用・集客サポート(月1.8万円〜) | **official-hp** `docs/wp-blocks/ad.html` ※タイトル・中身とも「広告費の20%/月・最低月11,000円」への修正が宿題 |
