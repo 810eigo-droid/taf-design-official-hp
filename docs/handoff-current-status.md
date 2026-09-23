@@ -53,6 +53,11 @@
 - たたき台 **docs/salon-launch-plan.md**(/salon/ページのテキスト案・キャンペーンC入稿案・デザイン方針・決めてほしいこと6点)。**テキスト確定→デザイン(明るくカラフル)→WP貼り付け→price-master反映→キャンペーンC入稿**の順
 - 顧客管理(CRM)も今後の主力とのことだが、資料はどこにもない(要ヒアリング)
 
+## 2026-09-23 価格改定: 納品後修正「1箇所のみ」3,850円→3,300円(全商品・ココナラと統一)
+- official-hp内の記載10ファイルを更新(index.html/lp/service-guide.html/price-block3-faq.html/budget.html/price-master/estimate-assistant-context/email-service-guide-allin1/handoff-official-hp/price-sync-checklist/session-handoff)。docs/originals と mail_v1 の控えは触っていない
+- **オーナー作業**: WPに貼り替え(/price/ FAQブロック・/budget/)、Xserverへ index.html と lp/service-guide.html を反映。本番が既に3,300円ならGitが追いついただけなので貼り替え不要
+- service-guide.html のフッターのバージョン印は現ファイルに存在しない(9/9の欠落に含まれる可能性)。今回は上げていない
+
 ## 2026-09-23 広告準備で見つけて直したこと
 - **/order/(キャンペーンAの飛び先)がGA4に何も送っていなかった**(LINEコピー/mailtoへの引き継ぎのみでフォーム送信がないため)。このままだとAのCVが常に0件 → docs/wp-blocks/order.html に、入力チェック通過後の「LINEで送る」「メールで送る」押下で `generate_lead`(form_id:'order', method:'line'|'mail')を送る2行を追加(削除なし)。**WPの /order/ に貼り替えが必要**
 - キャンペーン設定シートに前提6・7(order貼り替え・本番表示確認)とサイトリンク「無料電話相談 /tel/」を追加
