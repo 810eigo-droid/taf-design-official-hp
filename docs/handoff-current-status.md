@@ -52,6 +52,7 @@
 - 新商品「会員サイト・オンラインサロン制作 基本33,000円」(出典: Google Drive「⑦オンラインサロン/会員サイト開発【出品文】」2026-09-22。Gitには元資料なし)
 - たたき台 **docs/salon-launch-plan.md**(/salon/ページのテキスト案・キャンペーンC入稿案・デザイン方針・決めてほしいこと6点)。**テキスト確定→デザイン(明るくカラフル)→WP貼り付け→price-master反映→キャンペーンC入稿**の順
 - 顧客管理(CRM)も今後の主力とのことだが、資料はどこにもない(要ヒアリング)
+- **新オプション「お客様サーバーへの設置 3,300〜5,500円」をprice-master B表に新設**(2026-09-23 オーナー発案)。会員サイトの基本料金には設置を含めない。料金ページへの掲載方法は未決
 
 ## 2026-09-23 価格改定: 納品後修正「1箇所のみ」3,850円→3,300円(全商品・ココナラと統一)
 - official-hp内の記載10ファイルを更新(index.html/lp/service-guide.html/price-block3-faq.html/budget.html/price-master/estimate-assistant-context/email-service-guide-allin1/handoff-official-hp/price-sync-checklist/session-handoff)。docs/originals と mail_v1 の控えは触っていない
