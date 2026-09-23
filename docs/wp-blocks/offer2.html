@@ -3,6 +3,7 @@
   設置先: https://taf-design.com/offer2/
   保管日: 2026-07-19(ユーザー提供版の送信完了メッセージのJS構文エラーを修正して保管)
   構成: Contact Form 7 [contact-form-7 id="dd3556d"] をステップ形式に変換するCSS+JS
+  修正履歴: 2026-09-23 ステップ切替時に質問の先頭へ自動スクロール(スマホで名前欄が見えない問題)
   修正履歴: 2026-07-19 wpcf7mailsent内のcard.innerHTMLで文字列外に生HTMLが
             混入し全JS停止 → 文字列連結に修正(資料案内→返信案内の順)
             2026-07-22 メルマガ登録の明示文言(オプトイン表記)をJSで自動挿入
@@ -243,6 +244,13 @@ nav[aria-label="breadcrumb"], .ltg-breadcrumb{display:none!important;}
       err.classList.remove('tf-show');
       var f = steps[i].querySelector('input[type=text],input[type=email],textarea');
       if(f && window.innerWidth > 700) setTimeout(function(){ f.focus(); }, 250);
+      /* 2026-09-23: ステップ切替後は質問の先頭(進捗バー)が見える位置までスクロールする。
+         「次へ」を押した位置のままだと、スマホで名前欄が画面外になり離脱につながるため */
+      if(i > 0 || form.dataset.tfMoved){
+        form.dataset.tfMoved = '1';
+        var top = prog.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      }
     }
 
     btnNext.addEventListener('click', function(){
