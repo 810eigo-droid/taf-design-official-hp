@@ -5,7 +5,7 @@
   設計書: docs/salon-launch-plan.md(テキスト確定 2026-09-23)/価格原本: docs/price-master.md #14
   デザイン: 既存ページと違い「明るく・カラフル・グラデーション」(オーナー指示 2026-09-23)
   計測: GA4はWP全ページ設置済み。CTAは /tel/ と /order/ (どちらも送信で generate_lead)
-  作成: 2026-09-23 v1 / v2: 「小さく始めて、あとから足せる」軸に文言調整+育て方STEP追加、入口LP 7セクションまで / v2.1: 画面④のモックからカレンダーを外す(予約機能と誤解されるため)
+  作成: 2026-09-23 v1 / v2: 「小さく始めて、あとから足せる」軸に文言調整+育て方STEP追加、入口LP 7セクションまで / v2.1: 画面④のモックをカレンダー→オーナー投稿のチャット風に(予約機能と誤解されるため)
 ============================================================== -->
 <div class="taf-salon" id="taf-salon">
 <style>
@@ -104,6 +104,14 @@
 .taf-salon .s-screen-cap h4{margin:0 0 4px;font-size:15px;font-weight:900;}
 .taf-salon .s-screen-cap p{margin:0;font-size:12.5px;color:var(--s-sub);line-height:1.65;}
 .taf-salon .s-swipe{font-size:12px;color:var(--s-sub);text-align:center;margin:-6px 0 0;}
+
+.taf-salon .scr .chat{background:#F3F5F9;height:calc(100% - 64px);}
+.taf-salon .scr .msg{display:flex;gap:6px;align-items:flex-start;margin:0 0 9px;}
+.taf-salon .scr .msg .av{flex:0 0 20px;height:20px;border-radius:50%;background:var(--s-grad);}
+.taf-salon .scr .bub{background:#fff;border-radius:4px 12px 12px 12px;padding:7px 9px;flex:1;box-shadow:0 2px 6px rgba(20,24,36,.06);}
+.taf-salon .scr .bub .who{display:block;font-size:8px;color:var(--s-sub);font-weight:700;margin:0 0 3px;}
+.taf-salon .scr .bub .tx{font-size:9.5px;font-weight:800;line-height:1.5;}
+.taf-salon .scr .tm{text-align:center;font-size:8px;color:var(--s-sub);}
 
 /* ===== 理由 ===== */
 .taf-salon .s-reasons{display:grid;grid-template-columns:1fr;gap:14px;}
@@ -291,14 +299,14 @@
   <div class="s-screen">
     <div class="s-phone"><div class="notch"></div><div class="scr">
       <div class="bar b4">📢 お知らせ・開催予定</div>
-      <div class="pad">
-        <div class="card"><span class="chip og">お知らせ</span><div class="ln w80"></div><div class="ln w60" style="margin:0"></div></div>
-        <div class="card"><span class="chip vi">次回の開催</span><div class="row" style="margin:6px 0 0"><span>9/30(火) 20:00〜</span><span class="ok">Zoomリンク →</span></div></div>
-        <div class="card"><span class="chip vi">開催予定</span><div class="row" style="margin:6px 0 0"><span>10/14(火) 20:00〜</span><span style="color:#5B6270">近日ご案内</span></div></div>
-        <div class="card"><span class="chip pk">限定投稿</span><div class="ln w80"></div><div class="ln w40" style="margin:0"></div></div>
+      <div class="pad chat">
+        <div class="msg"><span class="av"></span><div class="bub"><span class="who">オーナー</span><span class="chip og" style="margin:0 0 4px">お知らせ</span><div class="ln w80"></div><div class="ln w60" style="margin:0"></div></div></div>
+        <div class="msg"><span class="av"></span><div class="bub"><span class="who">オーナー</span><span class="chip vi" style="margin:0 0 4px">次回の開催</span><div class="tx">9/30(火) 20:00〜<br>Zoomはこちら <span class="ok">→</span></div></div></div>
+        <div class="msg"><span class="av"></span><div class="bub"><span class="who">オーナー</span><span class="chip pk" style="margin:0 0 4px">限定投稿</span><div class="ln w80"></div><div class="ln w40" style="margin:0"></div></div></div>
+        <div class="tm">今日 18:30</div>
       </div>
     </div></div>
-    <div class="s-screen-cap"><span class="n">4</span><h4>お知らせ・開催予定</h4><p>お知らせや、Zoom会議などの開催予定と参加リンクを掲載できます(予約機能ではありません)。</p></div>
+    <div class="s-screen-cap"><span class="n">4</span><h4>お知らせ・開催予定</h4><p>オーナーがチャット感覚で投稿。お知らせや、Zoom会議などの開催予定と参加リンクを会員に届けます。</p></div>
   </div>
   <!-- ⑤ 管理画面 -->
   <div class="s-screen">
