@@ -3,6 +3,9 @@
   使い方: 固定ページ /order/ の編集画面で「カスタムHTML」ブロックを
   追加し、このファイルの中身を丸ごと貼り付けて公開するだけ。
   受信メール: JS内 MAIL_TO に設定済み(info@taf-design.com)
+  計測(2026-09-23追加): 送信ボタン押下(入力チェック通過後)で GA4 generate_lead
+    (form_id:'order', method:'line'|'mail')を送信。Google広告キャンペーンAのCV用。
+    実際の送信はLINE/メール側で行われるため「送信意思」の計測(gtagが無ければ何もしない)
 ============================================================== -->
 <div class="taf-order" id="taf-order">
 <style>
@@ -654,6 +657,7 @@
 
   document.getElementById('to-send-line').addEventListener('click', function(){
     if (!validate()) return;
+    if (window.gtag){ gtag('event','generate_lead',{form_id:'order',method:'line'}); }
     var msg = buildMessage();
     copyText(msg, function(){
       document.getElementById('to-copied').classList.add('show');
@@ -663,6 +667,7 @@
 
   document.getElementById('to-send-mail').addEventListener('click', function(){
     if (!validate()) return;
+    if (window.gtag){ gtag('event','generate_lead',{form_id:'order',method:'mail'}); }
     var msg = buildMessage();
     location.href = 'mailto:' + MAIL_TO
       + '?subject=' + encodeURIComponent('お見積り依頼(資料ページより)')

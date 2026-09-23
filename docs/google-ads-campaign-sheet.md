@@ -10,6 +10,10 @@
 > 3. Google広告とGA4（G-7MPQKJVDD8）をリンク済み
 > 4. GA4のキーイベントをGoogle広告に**コンバージョンとしてインポート**済み
 > 5. テスト送信で /offer2/ から `generate_lead` が発火することを確認済み
+> 6. **/order/ に 2026-09-23版 order.html を貼り替え済み**(キャンペーンAの飛び先。この版から /order/ も `generate_lead`(form_id:'order')を送る。旧版のままだとAのCVが0件になる)
+> 7. **本番の /lp/ とトップが全セクション表示されている**(handoff 2026-09-16〜23の未解決事項)
+>
+> 1〜7の手順: **`docs/google-ads-account-setup.md`**(2026-09-23作成)
 
 ---
 
@@ -192,7 +196,7 @@ amebaownd
 
 ## 5. アセット（旧: 広告表示オプション）— アカウント単位で全部入れる
 
-### サイトリンク（4本）
+### サイトリンク（5本）
 
 | リンクテキスト | 最終URL |
 |---|---|
@@ -200,8 +204,10 @@ amebaownd
 | 予算から選ぶ | `https://taf-design.com/budget/` |
 | かんたん見積もり | `https://taf-design.com/order/` |
 | お問い合わせ | `https://taf-design.com/contact/` |
+| 無料電話相談 | `https://taf-design.com/tel/` |
 
 ※設計書には「制作実績」もあるが、実績はトップページ内アンカー（`/#works-sm`）でトップと同一URL扱いになり、サイトリンクのURL重複で不承認になりやすいため /contact/ に差し替え。実績用の独立ページができたら追加する。
+※「無料電話相談」/tel/ は2026-09-05公開の電話専用ページ(2026-09-23追加)。送信で `generate_lead`(form_id:'tel')が計上される。
 
 ### コールアウト（5本）
 
