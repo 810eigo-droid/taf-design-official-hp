@@ -268,7 +268,7 @@ dmm  campfire  fantia  note  メンバーシップ  facebookグループ
 - [x] /order/ の「ご相談内容」に「会員サイト・オンラインサロン制作」を追加(order.html 2026-09-23版)
 - [ ] トップページのサービス一覧・ナビに /salon/ への導線
 - [ ] 資料(service-guide)に1ページ追加するか判断(追加すれば /offer2/ もCTAに使える)
-- [ ] `google-ads-campaign-sheet.md` にキャンペーンCを正式転記(A/Bの広告文には会員サイトの見出し・説明文を入れ込み済み 2026-09-23)
+- [x] `google-ads-campaign-sheet.md` にキャンペーンCを正式転記(§2C・2026-09-23)。A/B予算も400/200に改定済み
 
 ## 6. 決定事項(2026-09-23 すべて確定)
 
