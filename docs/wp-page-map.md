@@ -23,7 +23,7 @@
 | `salon` | 会員サイト・オンラインサロン制作プラン(3.3万円〜) ※2026-09-23新設・**公開済み** | `docs/wp-blocks/salon.html`(設計: docs/salon-launch-plan.md) |
 | `lp7` | プロ制作プラン(7万円〜)リスト取り特化 | **official-hp** `docs/wp-blocks/lp7.html` |
 | `lp15` | HP/LP+セールスファネル一元化(15万円〜) | **official-hp** `docs/wp-blocks/lp15.html` |
-| `ad` | 広告運用・集客サポート(月1.8万円〜) | **official-hp** `docs/wp-blocks/ad.html` ※タイトル・中身とも「広告費の20%/月・最低月11,000円」への修正が宿題 |
+| `ad` | 広告運用・集客サポート(広告費の20%/月) | **official-hp** `docs/wp-blocks/ad.html` ※2026-09-23 成果物ベースに全面書き直し(広告費の20%/月・最低11,000円・バナー月2本・LINE月4回込み)。**WPのページタイトルも「(月1.8万円〜)」→「(広告費の20%/月)」に変更すること** |
 | `coupon` | 5,000円OFFクーポン(5万円以上ご利用) | `docs/wp-blocks/coupon.html`(BLOCK1→CF7→BLOCK3の3構成) |
 | `coupon-thanks` | クーポン受け取りTHANKYOUV2 | Git管理外(WP直接編集) |
 | `pdf-backup` | PDF-backup — パスワード保護中 | `docs/wp-blocks/pdf-backup.html`(購入者向け・パスワード保護済み。print版 `backup-manual-print.html` はA4 PDF専用でWPに貼ると崩れる) |
