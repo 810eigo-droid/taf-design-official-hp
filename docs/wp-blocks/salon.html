@@ -1,0 +1,424 @@
+<!-- =============================================================
+  TAF Design 会員サイト・オンラインサロン制作プラン(WordPress カスタムHTMLブロック用)
+  使い方: 固定ページ /salon/ (タイトル案: 会員サイト・オンラインサロン制作プラン(3.3万円〜))
+        を新規作成し、「カスタムHTML」ブロックにこのファイルの中身を丸ごと貼り付けて公開。
+  設計書: docs/salon-launch-plan.md(テキスト確定 2026-09-23)/価格原本: docs/price-master.md #14
+  デザイン: 既存ページと違い「明るく・カラフル・グラデーション」(オーナー指示 2026-09-23)
+  計測: GA4はWP全ページ設置済み。CTAは /tel/ と /order/ (どちらも送信で generate_lead)
+  作成: 2026-09-23 v1
+============================================================== -->
+<div class="taf-salon" id="taf-salon">
+<style>
+/* このページだけ: パンくず非表示(他プランページと同じ) */
+.breadcrumb, .breadSection, nav.breadcrumb { display:none !important; }
+
+.taf-salon{
+  --s-blue:#00A2DE; --s-cyan:#22D3EE; --s-pink:#F0508A; --s-orange:#FFA726; --s-violet:#7C5CFF; --s-lime:#B5E853;
+  --s-ink:#141824; --s-sub:#5B6270; --s-line:#E8ECF2; --s-bg:#F7F9FC; --s-white:#fff;
+  --s-grad:linear-gradient(120deg,#7C5CFF 0%,#00A2DE 38%,#22D3EE 62%,#F0508A 100%);
+  --s-grad2:linear-gradient(120deg,#F0508A,#FFA726);
+  --s-radius:22px;
+  font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--s-ink); line-height:1.8; max-width:1080px; margin:0 auto; padding:0 0 56px;
+  overflow-x:hidden;
+}
+.taf-salon *{box-sizing:border-box;}
+.taf-salon img{max-width:100%;display:block;}
+.taf-salon .s-wrap{padding:0 18px;}
+.taf-salon .s-sec{padding:56px 0 8px;}
+.taf-salon .s-eyebrow{display:inline-block;font:800 12px/1 "Roboto Mono",monospace;letter-spacing:.22em;color:var(--s-blue);margin-bottom:12px;}
+.taf-salon .s-eyebrow.pink{color:var(--s-pink);} .taf-salon .s-eyebrow.violet{color:var(--s-violet);} .taf-salon .s-eyebrow.orange{color:#E68900;}
+.taf-salon h2.s-title{font-size:30px;font-weight:900;line-height:1.35;margin:0 0 14px;letter-spacing:.01em;}
+.taf-salon h2.s-title .g{background:var(--s-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.taf-salon .s-lead{color:var(--s-sub);font-size:15px;margin:0 0 26px;}
+.taf-salon .s-lead b{color:var(--s-ink);}
+
+/* ===== FV ===== */
+.taf-salon .s-fv{
+  position:relative; margin:12px 0 0; padding:54px 22px 44px; border-radius:28px; color:#fff; overflow:hidden;
+  background:var(--s-grad); background-size:180% 180%; animation:s-flow 14s ease-in-out infinite;
+  text-align:center;
+}
+@keyframes s-flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.taf-salon .s-fv::before,.taf-salon .s-fv::after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.35;pointer-events:none;}
+.taf-salon .s-fv::before{width:260px;height:260px;background:#fff;top:-120px;right:-80px;}
+.taf-salon .s-fv::after{width:200px;height:200px;background:var(--s-lime);bottom:-110px;left:-70px;}
+.taf-salon .s-fv > *{position:relative;z-index:1;}
+.taf-salon .s-fv-tag{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;letter-spacing:.06em;backdrop-filter:blur(6px);}
+.taf-salon .s-fv h1{font-size:27px;font-weight:900;line-height:1.35;margin:18px 0 10px;letter-spacing:.01em;text-shadow:0 2px 14px rgba(0,0,0,.12);}
+.taf-salon .s-fv .s-price{display:inline-flex;align-items:baseline;gap:6px;margin:6px 0 14px;background:#fff;color:var(--s-ink);border-radius:999px;padding:10px 22px;box-shadow:0 10px 30px rgba(20,24,36,.18);}
+.taf-salon .s-fv .s-price .num{font-size:34px;font-weight:900;letter-spacing:-.01em;background:var(--s-grad2);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.taf-salon .s-fv .s-price .unit{font-size:14px;font-weight:700;color:var(--s-sub);}
+.taf-salon .s-fv .s-sub{font-size:15px;line-height:1.85;margin:0 auto 22px;max-width:640px;opacity:.96;}
+.taf-salon .s-fv .s-sub b{font-weight:800;}
+.taf-salon .pc-br{display:none;} .taf-salon .sp-br{display:inline;}
+.taf-salon .s-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 24px;}
+.taf-salon .s-badges span{background:rgba(255,255,255,.92);color:var(--s-ink);border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:800;}
+.taf-salon .s-badges span::before{content:"✓";color:var(--s-pink);margin-right:5px;font-weight:900;}
+
+/* ===== CTA ===== */
+.taf-salon .s-cta-row{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.taf-salon .s-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:420px;min-height:58px;border-radius:999px;font-weight:900;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,filter .15s;padding:12px 20px;line-height:1.3;text-align:center;}
+.taf-salon .s-btn:hover{transform:translateY(-2px);filter:brightness(1.04);}
+.taf-salon .s-btn-main{background:#fff;color:var(--s-ink);box-shadow:0 12px 30px rgba(20,24,36,.22);}
+.taf-salon .s-btn-main .ic{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--s-grad2);color:#fff;align-items:center;justify-content:center;font-size:15px;}
+.taf-salon .s-btn-sub{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.75);}
+.taf-salon .s-cta-note{font-size:12.5px;opacity:.92;margin:6px 0 0;}
+/* 白背景エリア用のCTA */
+.taf-salon .s-cta-box{margin:40px 0 0;padding:34px 22px;border-radius:var(--s-radius);background:var(--s-grad);color:#fff;text-align:center;position:relative;overflow:hidden;}
+.taf-salon .s-cta-box h3{font-size:22px;font-weight:900;margin:0 0 6px;line-height:1.4;}
+.taf-salon .s-cta-box p{margin:0 0 18px;font-size:14px;opacity:.95;}
+.taf-salon .s-cta-box .s-btn-sub{border-color:rgba(255,255,255,.85);}
+
+/* ===== 共感 ===== */
+.taf-salon .s-pains{display:grid;grid-template-columns:1fr;gap:12px;}
+.taf-salon .s-pain{display:flex;gap:12px;align-items:flex-start;background:var(--s-bg);border:1px solid var(--s-line);border-radius:18px;padding:16px 16px;font-size:14.5px;font-weight:600;}
+.taf-salon .s-pain .em{flex:0 0 34px;height:34px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;background:#fff;box-shadow:0 4px 14px rgba(20,24,36,.08);}
+
+/* ===== 5画面 モック ===== */
+.taf-salon .s-screens{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 22px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+.taf-salon .s-screen{flex:0 0 232px;scroll-snap-align:start;}
+.taf-salon .s-phone{position:relative;border-radius:30px;padding:10px;background:linear-gradient(160deg,#1c2130,#2a3145);box-shadow:0 18px 40px rgba(20,24,36,.22);}
+.taf-salon .s-phone .scr{border-radius:22px;background:#fff;height:392px;overflow:hidden;position:relative;font-size:10px;color:var(--s-ink);}
+.taf-salon .s-phone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:70px;height:16px;border-radius:999px;background:#1c2130;z-index:2;}
+.taf-salon .scr .bar{height:64px;padding:30px 12px 0;color:#fff;font-weight:800;font-size:11px;}
+.taf-salon .scr .bar.b1{background:var(--s-grad);} .taf-salon .scr .bar.b2{background:linear-gradient(120deg,#00A2DE,#22D3EE);} .taf-salon .scr .bar.b3{background:var(--s-grad2);} .taf-salon .scr .bar.b4{background:linear-gradient(120deg,#7C5CFF,#F0508A);} .taf-salon .scr .bar.b5{background:linear-gradient(120deg,#141824,#3b4260);}
+.taf-salon .scr .pad{padding:12px;}
+.taf-salon .scr .ln{height:8px;border-radius:6px;background:#E8ECF2;margin:0 0 7px;}
+.taf-salon .scr .ln.w60{width:60%;} .taf-salon .scr .ln.w80{width:80%;} .taf-salon .scr .ln.w40{width:40%;}
+.taf-salon .scr .card{border:1px solid var(--s-line);border-radius:12px;padding:10px;margin:0 0 10px;background:#fff;}
+.taf-salon .scr .chip{display:inline-block;border-radius:999px;padding:3px 8px;font-weight:800;font-size:9px;color:#fff;background:var(--s-blue);margin:0 0 6px;}
+.taf-salon .scr .chip.pk{background:var(--s-pink);} .taf-salon .scr .chip.og{background:var(--s-orange);} .taf-salon .scr .chip.vi{background:var(--s-violet);} .taf-salon .scr .chip.gr{background:#22C55E;}
+.taf-salon .scr .btn{display:block;text-align:center;border-radius:999px;padding:9px;font-weight:900;color:#fff;background:var(--s-grad);margin:12px 0 0;font-size:10.5px;}
+.taf-salon .scr .video{border-radius:12px;background:linear-gradient(135deg,#141824,#3b4260);height:92px;position:relative;margin:0 0 10px;}
+.taf-salon .scr .video::after{content:"▶";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;}
+.taf-salon .scr .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 8px;font-size:9.5px;font-weight:700;}
+.taf-salon .scr .dot{width:22px;height:22px;border-radius:50%;background:var(--s-grad);flex:0 0 22px;}
+.taf-salon .scr .ok{color:#16A34A;font-weight:900;}
+.taf-salon .scr .tbl .row{border-bottom:1px solid var(--s-line);padding:0 0 6px;}
+.taf-salon .scr .stat{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0 0 10px;}
+.taf-salon .scr .stat div{background:var(--s-bg);border-radius:10px;padding:8px;font-weight:900;font-size:13px;}
+.taf-salon .scr .stat small{display:block;font-weight:700;color:var(--s-sub);font-size:8.5px;}
+.taf-salon .scr .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:0 0 10px;}
+.taf-salon .scr .cal span{height:18px;border-radius:5px;background:#F0F3F8;font-size:8px;display:flex;align-items:center;justify-content:center;color:var(--s-sub);}
+.taf-salon .scr .cal span.on{background:var(--s-pink);color:#fff;font-weight:900;}
+.taf-salon .s-screen-cap{margin:14px 0 0;text-align:center;}
+.taf-salon .s-screen-cap .n{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--s-grad);color:#fff;font:900 13px/28px "Roboto Mono",monospace;justify-content:center;margin:0 0 6px;}
+.taf-salon .s-screen-cap h4{margin:0 0 4px;font-size:15px;font-weight:900;}
+.taf-salon .s-screen-cap p{margin:0;font-size:12.5px;color:var(--s-sub);line-height:1.65;}
+.taf-salon .s-swipe{font-size:12px;color:var(--s-sub);text-align:center;margin:-6px 0 0;}
+
+/* ===== 理由 ===== */
+.taf-salon .s-reasons{display:grid;grid-template-columns:1fr;gap:14px;}
+.taf-salon .s-reason{position:relative;border-radius:var(--s-radius);padding:24px 20px 22px;background:#fff;border:1px solid var(--s-line);box-shadow:0 10px 30px rgba(20,24,36,.06);overflow:hidden;}
+.taf-salon .s-reason::before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:var(--s-grad);}
+.taf-salon .s-reason.r2::before{background:var(--s-grad2);} .taf-salon .s-reason.r3::before{background:linear-gradient(120deg,#B5E853,#22D3EE);}
+.taf-salon .s-reason .ic{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--s-bg);margin:0 0 12px;}
+.taf-salon .s-reason h3{font-size:18px;font-weight:900;margin:0 0 8px;line-height:1.4;}
+.taf-salon .s-reason p{margin:0;font-size:14px;color:var(--s-sub);}
+
+/* ===== 料金 ===== */
+.taf-salon .s-price-hero{border-radius:var(--s-radius);padding:28px 22px;background:linear-gradient(135deg,#F7F9FC,#EEF6FF);border:1px solid var(--s-line);text-align:center;}
+.taf-salon .s-price-hero .lbl{font:800 12px/1 "Roboto Mono",monospace;letter-spacing:.2em;color:var(--s-sub);}
+.taf-salon .s-price-hero .amt{font-size:46px;font-weight:900;letter-spacing:-.01em;line-height:1.15;margin:6px 0 2px;background:var(--s-grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.taf-salon .s-price-hero .amt small{font-size:18px;}
+.taf-salon .s-price-hero .tax{font-size:13px;color:var(--s-sub);font-weight:700;}
+.taf-salon .s-incl{list-style:none;padding:0;margin:18px 0 0;display:grid;grid-template-columns:1fr;gap:8px;text-align:left;}
+.taf-salon .s-incl li{background:#fff;border:1px solid var(--s-line);border-radius:14px;padding:11px 14px;font-size:14px;font-weight:700;display:flex;gap:10px;align-items:flex-start;}
+.taf-salon .s-incl li::before{content:"✓";flex:0 0 22px;height:22px;border-radius:50%;background:var(--s-grad);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.taf-salon .s-plans{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 0;}
+.taf-salon .s-plan{border-radius:18px;border:1.5px solid var(--s-line);padding:18px 18px 16px;background:#fff;}
+.taf-salon .s-plan.hl{border-color:transparent;background:linear-gradient(#fff,#fff) padding-box,var(--s-grad) border-box;}
+.taf-salon .s-plan .nm{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--s-sub);}
+.taf-salon .s-plan .pr{font-size:26px;font-weight:900;margin:2px 0 6px;}
+.taf-salon .s-plan .pr small{font-size:13px;color:var(--s-sub);font-weight:700;margin-left:4px;}
+.taf-salon .s-plan ul{margin:0;padding:0 0 0 1.1em;font-size:13.5px;color:var(--s-sub);}
+.taf-salon .s-plan ul li{margin:0 0 2px;}
+.taf-salon .s-plan .tag{display:inline-block;background:var(--s-grad2);color:#fff;border-radius:999px;padding:3px 10px;font-size:11px;font-weight:900;margin:0 0 6px;}
+.taf-salon .s-opts{margin:16px 0 0;border-radius:16px;background:var(--s-bg);padding:14px 16px;font-size:13.5px;}
+.taf-salon .s-opts b{display:block;margin:0 0 4px;}
+.taf-salon .s-opts ul{margin:0;padding:0 0 0 1.1em;color:var(--s-sub);}
+.taf-salon .s-fine{font-size:12.5px;color:var(--s-sub);margin:12px 0 0;line-height:1.7;}
+
+/* ===== 流れ ===== */
+.taf-salon .s-steps{display:grid;grid-template-columns:1fr;gap:10px;counter-reset:s;}
+.taf-salon .s-step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--s-line);border-radius:16px;padding:14px 16px;}
+.taf-salon .s-step .n{flex:0 0 36px;height:36px;border-radius:12px;background:var(--s-grad);color:#fff;font:900 15px/36px "Roboto Mono",monospace;text-align:center;}
+.taf-salon .s-step h4{margin:0 0 2px;font-size:15px;font-weight:900;}
+.taf-salon .s-step p{margin:0;font-size:13.5px;color:var(--s-sub);}
+.taf-salon .s-two{display:grid;grid-template-columns:1fr;gap:14px;margin:22px 0 0;}
+.taf-salon .s-box{border-radius:18px;border:1px solid var(--s-line);padding:18px;background:#fff;}
+.taf-salon .s-box h4{margin:0 0 8px;font-size:15px;font-weight:900;display:flex;gap:8px;align-items:center;}
+.taf-salon .s-box ul{margin:0;padding:0 0 0 1.1em;font-size:13.5px;color:var(--s-sub);}
+
+/* ===== 注意・FAQ ===== */
+.taf-salon .s-notes{border-radius:18px;background:var(--s-bg);padding:18px;font-size:13.5px;color:var(--s-sub);}
+.taf-salon .s-notes ul{margin:0;padding:0 0 0 1.1em;}
+.taf-salon .s-faq details{border:1px solid var(--s-line);border-radius:16px;background:#fff;margin:0 0 10px;padding:0 16px;}
+.taf-salon .s-faq summary{cursor:pointer;list-style:none;padding:15px 0;font-weight:900;font-size:15px;display:flex;gap:10px;align-items:flex-start;}
+.taf-salon .s-faq summary::-webkit-details-marker{display:none;}
+.taf-salon .s-faq summary::before{content:"Q";flex:0 0 26px;height:26px;border-radius:8px;background:var(--s-grad);color:#fff;font:900 13px/26px "Roboto Mono",monospace;text-align:center;}
+.taf-salon .s-faq details p{margin:0 0 16px 36px;font-size:14px;color:var(--s-sub);}
+
+/* ===== PC ===== */
+@media (min-width:760px){
+  .taf-salon .s-wrap{padding:0 28px;}
+  .taf-salon .s-fv{padding:76px 40px 60px;border-radius:34px;}
+  .taf-salon .s-fv h1{font-size:44px;}
+  .taf-salon .pc-br{display:inline;} .taf-salon .sp-br{display:none;}
+  .taf-salon .s-fv .s-price .num{font-size:42px;}
+  .taf-salon .s-fv .s-sub{font-size:16.5px;}
+  .taf-salon .s-cta-row{flex-direction:row;justify-content:center;}
+  .taf-salon .s-btn{width:auto;min-width:300px;}
+  .taf-salon h2.s-title{font-size:38px;}
+  .taf-salon .s-pains{grid-template-columns:1fr 1fr;}
+  .taf-salon .s-screens{gap:22px;justify-content:center;flex-wrap:nowrap;overflow-x:auto;}
+  .taf-salon .s-screen{flex:0 0 188px;}
+  .taf-salon .s-phone .scr{height:340px;}
+  .taf-salon .s-reasons{grid-template-columns:repeat(3,1fr);}
+  .taf-salon .s-incl{grid-template-columns:1fr 1fr;}
+  .taf-salon .s-plans{grid-template-columns:repeat(3,1fr);}
+  .taf-salon .s-steps{grid-template-columns:repeat(5,1fr);}
+  .taf-salon .s-step{flex-direction:column;gap:10px;}
+  .taf-salon .s-step .n{flex:none;width:36px;}
+  .taf-salon .s-two{grid-template-columns:1fr 1fr;}
+  .taf-salon .s-cta-box{padding:44px 40px;}
+  .taf-salon .s-cta-box h3{font-size:28px;}
+}
+@media (min-width:1000px){
+  .taf-salon .s-screen{flex:0 0 196px;}
+}
+</style>
+
+<!-- ================= ① FV ================= -->
+<div class="s-wrap">
+  <section class="s-fv">
+    <span class="s-fv-tag">会員サイト・オンラインサロン制作</span>
+    <h1>会員サイト/<br class="sp-br">オンラインサロンを、<br>月額0円・手数料0円の<br class="sp-br">買い切りで。</h1>
+    <div class="s-price"><span class="num">33,000円</span><span class="unit">(税込)〜</span></div>
+    <p class="s-sub">
+      <b>有料システムに頼らないから、続けられる。</b><br class="pc-br">
+      限定動画・お知らせ・会費のカード決済まで、5画面で揃います。<br class="pc-br">
+      完成データはすべてお渡し。あなたの資産になります。
+    </p>
+    <div class="s-badges">
+      <span>月額0円</span><span>売上手数料0円</span><span>データは全部お渡し</span><span>素材が揃えば10日程度</span>
+    </div>
+    <div class="s-cta-row">
+      <a class="s-btn s-btn-main" href="https://taf-design.com/tel/"><span class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>10分の無料電話相談(こちらからお掛けします)</a>
+      <a class="s-btn s-btn-sub" href="https://taf-design.com/order/">かんたん見積もり</a>
+    </div>
+    <p class="s-cta-note">電話なしで、チャットだけで進めることもできます。</p>
+  </section>
+</div>
+
+<!-- ================= ② 共感 ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow pink">こんなお悩みに</span>
+    <h2 class="s-title">欲しいのは「動画・お知らせ・会費」。<br><span class="g">それだけのはずなのに。</span></h2>
+    <div class="s-pains">
+      <div class="s-pain"><span class="em">📩</span>受講生や会員に限定動画を見せたいが、YouTubeのURLをLINEで送るだけになっている</div>
+      <div class="s-pain"><span class="em">💸</span>サロン運営サービスの月額と売上手数料が、会員が増えるほど重くなってきた</div>
+      <div class="s-pain"><span class="em">🧩</span>機能が多すぎて使いきれない。欲しいのは「動画・お知らせ・会費」の3つだけ</div>
+      <div class="s-pain"><span class="em">🔒</span>自分のデータなのに、サービスをやめたら消えてしまうのが不安</div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ③ 5画面 ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow">お届けする5画面</span>
+    <h2 class="s-title">必要な画面だけを、<span class="g">まるごと。</span></h2>
+    <p class="s-lead">基本となる構成は共通です。<b>色・ロゴ・文言は、あなたの商品やサービスに合わせて調整</b>します。</p>
+  </section>
+</div>
+<div class="s-screens">
+  <!-- ① 登録・ログイン -->
+  <div class="s-screen">
+    <div class="s-phone"><div class="notch"></div><div class="scr">
+      <div class="bar b1">🔑 ログイン</div>
+      <div class="pad">
+        <div class="card" style="text-align:center;padding:16px 10px">
+          <span class="chip">本人専用リンク</span>
+          <div class="ln w80" style="margin:8px auto"></div>
+          <div class="ln w60" style="margin:0 auto 10px"></div>
+          <span class="btn" style="margin:0">タップしてログイン</span>
+        </div>
+        <div class="ln w60"></div><div class="ln w40"></div>
+        <div class="card" style="margin-top:10px"><span class="chip gr">✓ 入力なしで完了</span><div class="ln w80"></div><div class="ln w60" style="margin:0"></div></div>
+      </div>
+    </div></div>
+    <div class="s-screen-cap"><span class="n">1</span><h4>登録・ログイン</h4><p>本人専用リンクから、文字入力なしでログイン。パスワード忘れの問い合わせが来ません。</p></div>
+  </div>
+  <!-- ② サロントップ -->
+  <div class="s-screen">
+    <div class="s-phone"><div class="notch"></div><div class="scr">
+      <div class="bar b2">🏠 サロントップ</div>
+      <div class="pad">
+        <div class="card"><span class="chip pk">NEW 限定投稿</span><div class="ln w80"></div><div class="ln w60" style="margin:0"></div></div>
+        <div class="card"><span class="chip og">お知らせ</span><div class="ln w80"></div><div class="ln w40" style="margin:0"></div></div>
+        <div class="card"><span class="chip vi">次回の開催</span><div class="row" style="margin:6px 0 0"><span>9/30(火) 20:00</span><span class="ok">Zoom</span></div></div>
+      </div>
+    </div></div>
+    <div class="s-screen-cap"><span class="n">2</span><h4>サロントップ</h4><p>最新の限定投稿・お知らせ・次回の開催予定を、ひと目で。</p></div>
+  </div>
+  <!-- ③ 限定投稿・動画 -->
+  <div class="s-screen">
+    <div class="s-phone"><div class="notch"></div><div class="scr">
+      <div class="bar b3">▶ 限定投稿・動画</div>
+      <div class="pad">
+        <div class="video"></div>
+        <div class="ln w80"></div><div class="ln w60"></div>
+        <div class="row" style="margin-top:10px"><span>第1回 はじめに</span><span class="ok">✓ 視聴済み</span></div>
+        <div class="row"><span>第2回 基本のやり方</span><span class="ok">✓ 視聴済み</span></div>
+        <div class="row"><span>第3回 実践編</span><span style="color:#5B6270">未視聴</span></div>
+      </div>
+    </div></div>
+    <div class="s-screen-cap"><span class="n">3</span><h4>限定投稿・動画</h4><p>YouTube限定公開などの動画を埋め込み。視聴済みチェックにも対応します。</p></div>
+  </div>
+  <!-- ④ お知らせ・開催予定 -->
+  <div class="s-screen">
+    <div class="s-phone"><div class="notch"></div><div class="scr">
+      <div class="bar b4">📅 お知らせ・開催予定</div>
+      <div class="pad">
+        <div class="cal">
+          <span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span>
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+          <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+          <span>15</span><span class="on">16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+        </div>
+        <div class="card"><span class="chip vi">オンライン会議</span><div class="row" style="margin:6px 0 0"><span>16(火) 20:00〜</span><span class="ok">参加リンク →</span></div></div>
+        <div class="card"><span class="chip og">お知らせ</span><div class="ln w80"></div><div class="ln w60" style="margin:0"></div></div>
+      </div>
+    </div></div>
+    <div class="s-screen-cap"><span class="n">4</span><h4>お知らせ・開催予定</h4><p>イベントやZoom会議の予定、参加リンクを掲載できます。</p></div>
+  </div>
+  <!-- ⑤ 管理画面 -->
+  <div class="s-screen">
+    <div class="s-phone"><div class="notch"></div><div class="scr">
+      <div class="bar b5">⚙ 管理画面</div>
+      <div class="pad">
+        <div class="stat"><div>24<small>会員数</small></div><div>82%<small>視聴率</small></div></div>
+        <div class="tbl">
+          <div class="row"><span><span class="dot" style="display:inline-block;vertical-align:middle;margin-right:6px"></span>山田さん</span><span class="ok">承認</span></div>
+          <div class="row"><span><span class="dot" style="display:inline-block;vertical-align:middle;margin-right:6px;background:var(--s-grad2)"></span>佐藤さん</span><span class="ok">承認</span></div>
+          <div class="row"><span><span class="dot" style="display:inline-block;vertical-align:middle;margin-right:6px;background:#7C5CFF"></span>鈴木さん</span><span style="color:#5B6270">停止</span></div>
+        </div>
+        <span class="btn">案内文をコピー</span>
+      </div>
+    </div></div>
+    <div class="s-screen-cap"><span class="n">5</span><h4>管理画面</h4><p>会員の追加・承認・停止、視聴状況の管理。「案内文をコピー」でLINEにそのまま貼れます。</p></div>
+  </div>
+</div>
+<p class="s-swipe">← 横にスワイプして5画面を見る →</p>
+
+<!-- ================= ④ 理由 ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow violet">選ばれる理由</span>
+    <h2 class="s-title">会員が増えても、<span class="g">費用は変わりません。</span></h2>
+    <div class="s-reasons">
+      <div class="s-reason r1"><div class="ic">💳</div><h3>買い切り。月額0円・手数料0円</h3><p>当方への月額料金や、売上に対する手数料はかかりません。会員が増えても費用は変わりません。</p></div>
+      <div class="s-reason r2"><div class="ic">📦</div><h3>データはすべてお渡し</h3><p>完成したサイトのデータ一式を納品します。サーバーもドメインもあなたの名義。やめても消えません。</p></div>
+      <div class="s-reason r3"><div class="ic">🎯</div><h3>必要なものだけ。だから安い</h3><p>「動画・お知らせ・会費」に絞った5画面。使わない機能にお金を払いません。掲示板や自動通知が必要になったら、あとから追加できます。</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ⑤ 料金 ================= -->
+<div class="s-wrap">
+  <section class="s-sec" id="price">
+    <span class="s-eyebrow orange">料金</span>
+    <h2 class="s-title">まず小さく、<span class="g">33,000円から。</span></h2>
+    <div class="s-price-hero">
+      <div class="lbl">基本料金(ライト)</div>
+      <div class="amt">33,000<small>円</small></div>
+      <div class="tax">税込・買い切り</div>
+      <ul class="s-incl">
+        <li>5画面の制作(登録ログイン/トップ/限定投稿・動画/お知らせ/管理画面)</li>
+        <li>会費のクレジットカード決済(Stripe)対応</li>
+        <li>会員限定プレゼント(PDF・動画・音声)の配布機能</li>
+        <li>スマートフォン対応</li>
+        <li>運用マニュアル</li>
+        <li>完成データ一式のお渡し</li>
+      </ul>
+    </div>
+
+    <div class="s-plans">
+      <div class="s-plan"><div class="nm">LIGHT</div><div class="pr">33,000円<small>税込</small></div><ul><li>上記の基本内容</li><li>会員へのご連絡は、管理画面の「案内文をコピー」→LINEなどで送信</li></ul></div>
+      <div class="s-plan hl"><span class="tag">連絡を自動化</span><div class="nm">STANDARD</div><div class="pr">55,000円<small>税込</small></div><ul><li>ライトの内容すべて</li><li>会員掲示板</li><li>一斉メッセージ・通知メッセージの自動送信</li><li>画像付き投稿</li></ul></div>
+      <div class="s-plan"><div class="nm">PRO</div><div class="pr">77,000円<small>税込</small></div><ul><li>スタンダードの内容すべて</li><li>入会・退会とカード決済の自動連動</li><li>月次の実践記録・集計機能</li><li>講師別の相談予約ページ</li></ul></div>
+    </div>
+
+    <div class="s-opts">
+      <b>組み合わせ・追加</b>
+      <ul>
+        <li>入口LP制作 +15,000円〜(6セクションまで。7セクション以上はお見積り)</li>
+        <li>ホームページ制作 +20,000円〜</li>
+        <li>動画の追加 10本ごと +3,300円(基本料金には10本まで含みます)</li>
+      </ul>
+    </div>
+    <p class="s-fine">※表示料金は目安です。正式な金額は事前のお見積りで確定します。<br>※追加費用が発生する場合は、必ず事前に文書でご相談します。しつこい営業はしません。</p>
+  </section>
+</div>
+
+<!-- ================= ⑥ 流れ・ご用意 ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow">制作の流れ</span>
+    <h2 class="s-title">素材が揃ってから、<span class="g">10日程度でお届け。</span></h2>
+    <div class="s-steps">
+      <div class="s-step"><span class="n">1</span><div><h4>無料相談</h4><p>電話10分 or チャット</p></div></div>
+      <div class="s-step"><span class="n">2</span><div><h4>お見積り</h4><p>48時間以内にご返信</p></div></div>
+      <div class="s-step"><span class="n">3</span><div><h4>素材のご用意</h4><p>サロン名・色・動画URLなど</p></div></div>
+      <div class="s-step"><span class="n">4</span><div><h4>制作・ご確認</h4><p>当方のテスト環境で動作確認</p></div></div>
+      <div class="s-step"><span class="n">5</span><div><h4>完成データ納品</h4><p>素材が揃ってから10日程度</p></div></div>
+    </div>
+    <div class="s-two">
+      <div class="s-box"><h4>📝 ご用意いただくもの</h4><ul><li>サロン名、ロゴ(あれば)、お好みの色3〜4色</li><li>会員に見せたい動画のURL(YouTube限定公開など)</li><li>最初のお知らせ・限定投稿の文章(箇条書きでOK)</li><li>会費の受け取り方法(Stripeアカウントがなければ作成手順をご案内)</li></ul></div>
+      <div class="s-box"><h4>🖥 ご利用環境</h4><ul><li>PHPが使えるレンタルサーバー(エックスサーバーなど)と独自ドメイン</li><li>お持ちでなければご相談ください。ご契約方法や必要な環境をご案内します</li><li>お客様サーバーへの設置もご相談いただけます</li></ul></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ⑦ 修正・注意 ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow pink">修正・注意事項</span>
+    <h2 class="s-title">修正は<span class="g">3回まで無料。</span></h2>
+    <div class="s-notes"><ul>
+      <li>色・文言・画像の修正は3回まで無料です。複数箇所をまとめてお知らせいただけば、何箇所あっても「1回」として数えます</li>
+      <li>修正受付は納品36時間前までです。画面の追加・機能の追加は、オプションまたは個別お見積りとなります</li>
+      <li>納品後の修正は、2箇所以上まとめてのご依頼で1箇所2,750円、1箇所のみの場合は3,300円(税込)です</li>
+      <li>制作したサイトは、当方の制作実績としてサロン名や画面の一部を掲載する場合があります。ご希望されない場合は作業開始前にお知らせください</li>
+      <li>制作途中でご確認をお願いする場合があります。3日以上ご連絡がない場合は、確認済みとして進める、またはその時点の内容で納品とさせていただくことがあります</li>
+    </ul></div>
+  </section>
+</div>
+
+<!-- ================= ⑧ FAQ + CTA ================= -->
+<div class="s-wrap">
+  <section class="s-sec">
+    <span class="s-eyebrow violet">よくあるご質問</span>
+    <h2 class="s-title">気になることは、<span class="g">先にお答えします。</span></h2>
+    <div class="s-faq">
+      <details><summary>会員は何人まで登録できますか?</summary><p>人数の制限はありません(ご利用のサーバーの性能によります)。会員が増えても、当方への費用は変わりません。</p></details>
+      <details><summary>LINEと併用できますか?</summary><p>できます。管理画面の「案内文をコピー」から、専用リンクやお知らせをLINEにそのまま貼って送る運用を前提にしています。</p></details>
+      <details><summary>会費を取らない無料のサロンも作れますか?</summary><p>作れます。決済機能を使わずに、動画とお知らせの配信だけで運用できます。</p></details>
+      <details><summary>いま使っている月額サービスから移れますか?</summary><p>はい。動画はYouTube限定公開などのURLをそのまま使えます。会員には新しい専用リンクをお送りいただくだけです。</p></details>
+    </div>
+
+    <div class="s-cta-box">
+      <h3>まずは、10分だけお話ししませんか。</h3>
+      <p>こちらからお掛けします。電話なしで、チャットだけで進めることもできます。</p>
+      <div class="s-cta-row">
+        <a class="s-btn s-btn-main" href="https://taf-design.com/tel/"><span class="ic"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>10分の無料電話相談</a>
+        <a class="s-btn s-btn-sub" href="https://taf-design.com/order/">かんたん見積もり</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</div>
