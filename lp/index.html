@@ -87,8 +87,45 @@ if (location.hostname.endsWith('github.io')) {
 </style>
 
 <style>
-/* 価格比較セクションのイメージ画像(2026-09-23追加) */
-.hikaku-illust{display:block;width:100%;max-width:860px;height:auto;margin:22px auto 0;border-radius:16px;box-shadow:0 10px 28px rgba(30,50,70,.12);}
+/* 価格比較セクション: 私たちの考え+0円公開(2026-09-23 リデザイン) */
+.belief{display:grid;grid-template-columns:1fr;gap:18px;max-width:960px;margin:26px auto 0;align-items:center;}
+.belief-visual{position:relative;}
+.belief-visual img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 12px 30px rgba(30,50,70,.14);}
+.belief-tag{position:absolute;left:14px;top:14px;background:#fff;color:#0093C9;font-weight:900;font-size:12.5px;letter-spacing:.08em;border-radius:999px;padding:6px 12px;box-shadow:0 6px 16px rgba(30,50,70,.15);}
+.belief-card{position:relative;background:#fff;border:1.5px solid #E5EAF0;border-radius:20px;padding:26px 22px 22px;box-shadow:0 10px 28px rgba(30,50,70,.08);}
+.belief-quote{position:absolute;right:16px;top:-6px;font-size:72px;line-height:1;font-weight:900;color:#E3F3FA;font-family:Georgia,serif;pointer-events:none;}
+.belief-title{font-size:21px;font-weight:900;line-height:1.45;margin:0 0 10px;color:#1B2733;position:relative;}
+.belief-card p{font-size:14.5px;line-height:1.95;color:#3a4048;margin:0 0 12px;position:relative;}
+.belief-card p strong{color:#0093C9;}
+.belief-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;position:relative;}
+.belief-list li{background:#F3F8FB;border-radius:12px;padding:10px 12px 10px 38px;font-size:13.5px;line-height:1.75;color:#3a4048;position:relative;}
+.belief-list li::before{content:"✓";position:absolute;left:12px;top:10px;width:20px;height:20px;border-radius:50%;background:#00A2DE;color:#fff;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;}
+.belief-list li span{display:block;font-weight:800;color:#1B2733;}
+.belief-list li strong{color:#1B2733;}
+.freehost{max-width:960px;margin:18px auto 0;border-radius:20px;padding:24px 22px;background:linear-gradient(135deg,#EAF7FD 0%,#F5FBFF 60%,#FFF6E8 100%);border:1.5px solid #CFE6F2;position:relative;overflow:hidden;}
+.freehost::after{content:"";position:absolute;right:-60px;bottom:-80px;width:220px;height:220px;border-radius:50%;background:rgba(0,162,222,.08);pointer-events:none;}
+.freehost-head{display:flex;gap:14px;align-items:center;margin:0 0 16px;position:relative;}
+.freehost-icon{flex:0 0 52px;height:52px;border-radius:16px;background:#fff;box-shadow:0 8px 20px rgba(0,120,180,.15);display:flex;align-items:center;justify-content:center;font-size:26px;color:#00A2DE;}
+.freehost-kicker{margin:0 0 2px;font-size:12px;font-weight:800;letter-spacing:.1em;color:#F6AC0E;}
+.freehost-title{margin:0;font-size:18.5px;font-weight:900;line-height:1.45;color:#1B2733;}
+.freehost-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 14px;position:relative;}
+.freehost-stat{background:#fff;border-radius:14px;padding:12px 8px;text-align:center;box-shadow:0 6px 16px rgba(30,50,70,.07);}
+.freehost-stat .n{display:block;font-size:24px;font-weight:900;color:#1B2733;line-height:1.1;letter-spacing:-.01em;}
+.freehost-stat .n small{font-size:13px;margin-left:1px;}
+.freehost-stat .l{display:block;font-size:11.5px;color:#555A62;line-height:1.5;margin-top:6px;font-weight:700;}
+.freehost-stat.is-hero{background:#00A2DE;box-shadow:0 10px 24px rgba(0,162,222,.3);}
+.freehost-stat.is-hero .n,.freehost-stat.is-hero .l{color:#fff;}
+.freehost-text{margin:0;font-size:14px;line-height:1.9;color:#3a4048;position:relative;}
+.freehost-text strong{color:#0093C9;}
+@media (min-width:760px){
+  .belief{grid-template-columns:1.05fr 1fr;gap:26px;}
+  .belief-card{padding:30px 28px 26px;}
+  .belief-title{font-size:24px;}
+  .freehost{padding:28px 30px;}
+  .freehost-title{font-size:21px;}
+  .freehost-stats{max-width:560px;}
+  .freehost-stat .n{font-size:28px;}
+}
 </style>
 <!-- Google tag (gtag.js) GA4計測 2026-08-29設置 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MPQKJVDD8"></script>
@@ -327,14 +364,38 @@ src="https://www.facebook.com/tr?id=1427280391720324&ev=PageView&noscript=1"
       </div>
       <p class="hikaku-note">※月額制は一般的なサービスの一例です(各社の条件により異なります)。当社比較。</p>
 
-      <img class="hikaku-illust" src="images/lp-hikaku2.webp" alt="「作る費用は一度きりでいい」というTAF Designの考えを話し合うチーム" loading="lazy" width="1672" height="941" onerror="this.style.display='none'">
-
-      <div class="honest-card">
-        正直に言うと、<strong>月額制が悪いわけではありません</strong>。ただ、AIで制作コストが下がった今、作る費用は一度きりでいい——それが私たちの考えです。保守やサポートが必要な方にだけ、任意のプラン(月5,500円)を別途ご用意しています。月額は不要という方には、ご自身でサイトを守れる状態にしてお渡しする買い切りの<strong>「サイトまるごとバックアップパック」(16,500円・税込)</strong>もございます。
+      <!-- 私たちの考え(画像+吹き出し) 2026-09-23 リデザイン -->
+      <div class="belief">
+        <div class="belief-visual">
+          <img src="images/lp-hikaku2.webp" alt="「作る費用は一度きりでいい」というTAF Designの考えを話し合うチーム" loading="lazy" width="1672" height="941">
+          <span class="belief-tag">私たちの考え</span>
+        </div>
+        <div class="belief-card">
+          <span class="belief-quote" aria-hidden="true">“</span>
+          <h3 class="belief-title">作る費用は、<span class="text-blue">一度きりでいい。</span></h3>
+          <p>正直に言うと、<strong>月額制が悪いわけではありません</strong>。ただ、AIで制作コストが下がった今、作る費用は一度きりでいい——それが私たちの考えです。</p>
+          <ul class="belief-list">
+            <li><span>保守やサポートが必要な方だけ</span>任意のプラン(月5,500円)を別途ご用意</li>
+            <li><span>月額は不要という方には</span>ご自身でサイトを守れる状態でお渡しする買い切りの<strong>「サイトまるごとバックアップパック」(16,500円・税込)</strong></li>
+          </ul>
+        </div>
       </div>
 
-      <div class="honest-card" style="margin-top:14px;background:#EEF7FB;border-color:#BFDDEB;">
-        <strong>サーバー契約がなくても、公開・運営できます。</strong>「サーバーやドメインの契約が面倒・よく分からない」という方は、無料の公開スペースにこちらで設置します(設置作業 <strong>3,300円・税込</strong>)。<strong>月額0円で、ずっと無料。</strong>広告表示もありません。お客様にお願いするのは無料アカウントの作成(5分)だけで、設定はすべてこちらで行います。
+      <!-- サーバー契約なしで公開(0円公開) -->
+      <div class="freehost">
+        <div class="freehost-head">
+          <span class="freehost-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#00A2DE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .4-9 7 7 0 0 0-13.4 1.6A4 4 0 0 0 6 19z"/><path d="M12 12v6M9.5 14.5 12 12l2.5 2.5"/></svg></span>
+          <div>
+            <p class="freehost-kicker">サーバーを持っていなくても大丈夫</p>
+            <h3 class="freehost-title">サーバー契約がなくても、公開・運営できます。</h3>
+          </div>
+        </div>
+        <div class="freehost-stats">
+          <div class="freehost-stat"><span class="n">3,300<small>円</small></span><span class="l">設置作業(税込)<br>一度きり</span></div>
+          <div class="freehost-stat is-hero"><span class="n">0<small>円</small></span><span class="l">月額<br>ずっと無料</span></div>
+          <div class="freehost-stat"><span class="n">なし</span><span class="l">広告表示<br>ありません</span></div>
+        </div>
+        <p class="freehost-text">「サーバーやドメインの契約が面倒・よく分からない」という方は、無料の公開スペースにこちらで設置します。お客様にお願いするのは<strong>無料アカウントの作成(メールアドレスがあれば5分)</strong>だけ。設定作業はすべてこちらで行います。独自ドメインをお持ちなら、それも設定できます。</p>
       </div>
     </div>
   </section>
