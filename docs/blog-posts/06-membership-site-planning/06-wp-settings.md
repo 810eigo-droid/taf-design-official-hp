@@ -66,3 +66,9 @@ WordPressテーマまたはSEOプラグインが出力する `BlogPosting` ま�
 - [ ] 関連する既存記事に、新記事への自然なリンクを追加
 
 ※公開作業・公開後検証は未実施。上記チェックを完了扱いにしない。
+
+## 画像アップロード記録（2026-09-26）
+ユーザーからWordPressメディアURLを受領。本文HTMLへ反映済み。
+- 本文図解：https://taf-design.com/wp-content/uploads/2026/09/06-members-flow.webp
+- アイキャッチ・OG用：https://taf-design.com/wp-content/uploads/2026/09/06-members-eyecatch.webp
+- WordPress投稿でのアイキャッチ選択・公開操作は未確認。
