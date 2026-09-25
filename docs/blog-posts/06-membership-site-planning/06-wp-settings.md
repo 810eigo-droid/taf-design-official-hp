@@ -13,7 +13,7 @@
 - robots：公開時は通常 `index, follow`。下書きのまま公開済み扱いにしない。
 - canonical：実際の公開パーマリンクと一致させる。候補は `https://taf-design.com/membership-site-planning/`。自動出力される場合は重複追加しない。
 - meta keywords：空欄。
-- アイキャッチ・OG画像：`06-members-eyecatch.png` をメディアへアップロードして設定。実際の画像URLを使用する。
+- アイキャッチ・OG画像：`06-members-eyecatch.webp` をメディアへアップロードして設定。実際の画像URLを使用する。
 - 著者：実際の投稿著者をWordPressで選択し、表示名を確認する。現時点では未確定。
 - 公開日・更新日：実際の投稿日時と最終更新日時。未来の公開予定を検証済み公開日と混同しない。
 

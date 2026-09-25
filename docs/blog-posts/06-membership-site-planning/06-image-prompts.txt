@@ -1,4 +1,4 @@
-画像制作方式：内蔵image_gen（CLI/API未使用）。生成画像の編集・変換なし。
+画像制作方式：内蔵image_gen（CLI/API未使用）。原本はPNG。2026-09-26、ユーザーの依頼で同解像度のWebP（quality=88）を作成。WordPressではWebPを使用。PNGは原本として保管。
 アイキャッチ用プロンプト：
 Use case: ads-marketing. Create a premium Japanese blog eyecatch, landscape 1536x1024. Topic: planning a members-only website for online courses and video lessons. Warm ivory background, deep navy typography, restrained teal and gold accents. Editorial illustration of a laptop showing clean video lesson cards and a small lock, alongside a notebook with five numbered planning tabs. Generous whitespace, highly legible professionally typeset Japanese text. Exact headline:「会員サイトを作る前に」 and large second line「決めたい5つのこと」. Small subtitle:「講座・動画販売を始める方へ」. Small footer「TAF Design」. No other text, no fabricated logos, no watermark. Refined flat illustration with subtle paper texture. All text safely within generous margins.
 
