@@ -198,3 +198,5 @@ git push origin main
 記事04：指定された理由図解を税込20,000円に修正。新画像と記録は docs/blog-posts/04-homepage-20000-yen/04-price-image-update.md。WP差し替え未実施。
 
 記事04：ユーザー提供HTMLを税込20,000円へ改訂し目次追加。本文内の旧価格画像はHTML図解へ置換。WPのアイキャッチ・OG差し替えと公開確認は未完了。
+
+記事04の理由図解：ユーザー提供のアップロード済みURL https://taf-design.com/wp-content/uploads/2026/09/04-homepage-20000-reason.webp を本文へ反映。代替HTML図解を画像に置換。アイキャッチ・OGは別画像のため未更新。WP公開未確認。
