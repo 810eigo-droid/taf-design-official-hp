@@ -1,4 +1,4 @@
-# 記事06 WordPress設定・公開記録
+# 記事05 WordPress設定・公開記録
 
 - 状態：原稿・画像作成済み／ユーザーがWordPressで投稿作業中。公開確認前。
 - 作成日：2026-09-26
@@ -13,7 +13,7 @@
 - robots：公開時は通常 `index, follow`。下書きのまま公開済み扱いにしない。
 - canonical：実際の公開パーマリンクと一致させる。候補は `https://taf-design.com/membership-site-planning/`。自動出力される場合は重複追加しない。
 - meta keywords：空欄。
-- アイキャッチ・OG画像：`06-members-eyecatch.webp` をメディアへアップロードして設定。実際の画像URLを使用する。
+- アイキャッチ・OG画像：`05-members-eyecatch.webp` をメディアへアップロードして設定。実際の画像URLを使用する。
 - 著者：実際の投稿著者をWordPressで選択し、表示名を確認する。現時点では未確定。
 - 公開日・更新日：実際の投稿日時と最終更新日時。未来の公開予定を検証済み公開日と混同しない。
 
@@ -72,3 +72,6 @@ WordPressテーマまたはSEOプラグインが出力する `BlogPosting` ま�
 - 本文図解：https://taf-design.com/wp-content/uploads/2026/09/06-members-flow.webp
 - アイキャッチ・OG用：https://taf-design.com/wp-content/uploads/2026/09/06-members-eyecatch.webp
 - WordPress投稿でのアイキャッチ選択・公開操作は未確認。
+
+## 記事番号の訂正（2026-09-26）
+ユーザー確認により、会員サイト記事を05、未投稿の予算記事を06へ変更。WordPressへアップロード済み画像のURLには06が残るが、リンク切れを避けるため変更しない。Git内の原稿・画像ファイルは05へ統一。画像の再アップロードは不要。

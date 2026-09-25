@@ -9,16 +9,16 @@
 | 02 | MailPoetとBrevoによるメルマガ設定 | [02-mailpoet-brevo](02-mailpoet-brevo/) | 今回は本番未確認 |
 | 03 | Postmaster Toolsによる送信状況の確認 | [03-postmaster-tools](03-postmaster-tools/) | 今回は本番未確認 |
 | 04 | 低価格ホームページの条件 | [04-homepage-20000-yen](04-homepage-20000-yen/) | 今回は本番未確認・価格の版に注意 |
-| 05 | ホームページ制作予算の決め方 | [05-hp-budget-kimekata](05-hp-budget-kimekata/) | 原稿あり・今回公開未確認 |
-| 06 | 会員サイト制作前の5項目（目的・利用者・教材・運営・販売条件） | [06-membership-site-planning](06-membership-site-planning/) | HTML・画像2枚作成済み。ユーザーがWP投稿作業中。公開URL未確定 |
+| 05 | 会員サイト制作前の5項目（目的・利用者・教材・運営・販売条件） | [05-membership-site-planning](05-membership-site-planning/) | HTML・画像2枚作成済み。ユーザーがWP投稿作業中。公開URL未確定 |
+| 06 | ホームページ制作予算の決め方 | [06-hp-budget-kimekata](06-hp-budget-kimekata/) | 原稿あり・未投稿（ユーザー確認） |
 
-## 記事06の現在地
+## 記事05の現在地
 
 - 投稿タイトル：会員サイトを作る前に決めたい5つのこと｜講座・動画販売を始める方へ
 - 推奨スラッグ：`membership-site-planning`
 - 案内先：`https://taf-design.com/salon/`
-- [WP設定・公開チェック](06-membership-site-planning/06-wp-settings.md)
-- [投稿手順](06-membership-site-planning/06-upload-guide.txt)
+- [WP設定・公開チェック](05-membership-site-planning/05-wp-settings.md)
+- [投稿手順](05-membership-site-planning/05-upload-guide.txt)
 - 公開前に本文画像のsrcをWordPressメディアの実URLへ置換する。
 - 公開後：実URL・公開日時・画像URL・WPで行った本文修正を、この台帳と原稿へ反映する。
 - 公開予定は9月27日だったが、9月26日にユーザーがWPで作業開始。実際の公開日時は未確認。
@@ -26,11 +26,11 @@
 ## 重複・版の扱い
 
 - `docs/blog-drafts/` は初期原稿、`docs/blog-posts/` は投稿用HTML・素材の置き場。同じ番号は別記事として数えない。
-- 03と05は、blog-draftsのMarkdownとblog-postsのsource.mdが同一内容（今回ハッシュで確認）。更新時は投稿用の正本を確認する。
+- 03と06は、blog-draftsのMarkdownとblog-postsのsource.mdが同一内容（今回ハッシュで確認）。更新時は投稿用の正本を確認する。
 - 04には旧2万円表記と2万2千円表記の異なる版がある。単純な重複として統合・削除しない。価格を再利用する際は `docs/price-master.md` と現行サービス内容を確認する。
 - `note/` の01・02は同じテーマの再編集記事。新しいテーマとして数えない。
 - 今回、過去の原稿・画像は削除していない。
-- 06はこのフォルダを正本とし、blog-draftsへ同じ原稿を複製しない。
+- 05はこのフォルダを正本とし、blog-draftsへ同じ原稿を複製しない。
 
 ## 次の候補（未着手・番号未割当）
 
@@ -40,7 +40,10 @@
 
 候補は執筆済み扱いにしない。記事化するときに、既存記事と読者の目的・結論が重ならないか確認する。
 
-<!-- 記事06画像更新 2026-09-26 -->
-記事06のWP用画像はWebPへ変更。アイキャッチ180,196 bytes、本文図解120,560 bytes（合計約92%削減）。PNGは原本として保管し、投稿にはWebPを使用。本文の画像参照・投稿手順も更新済み。
+<!-- 記事05画像更新 2026-09-26 -->
+記事05のWP用画像はWebPへ変更。アイキャッチ180,196 bytes、本文図解120,560 bytes（合計約92%削減）。PNGは原本として保管し、投稿にはWebPを使用。本文の画像参照・投稿手順も更新済み。
 
-記事06：ユーザーから本文図解・アイキャッチのWordPressメディアURLを受領し、本文HTMLの画像srcへ反映（2026-09-26）。投稿の公開は未確認。
+記事05：ユーザーから本文図解・アイキャッチのWordPressメディアURLを受領し、本文HTMLの画像srcへ反映（2026-09-26）。投稿の公開は未確認。
+
+## 記事番号の訂正（2026-09-26）
+ユーザー確認により、会員サイト記事を05、未投稿の予算記事を06へ変更。WordPressへアップロード済み画像のURLには06が残るが、リンク切れを避けるため変更しない。Git内の原稿・画像ファイルは05へ統一。画像の再アップロードは不要。
