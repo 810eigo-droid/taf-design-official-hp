@@ -1,6 +1,6 @@
 # 旧下書き（使用禁止）
 
-> 価格条件が古いため、このファイルから記事を作らないこと。最新版は `docs/blog-posts/04-homepage-20000-yen/04-homepage-20000-yen-source.md` と `04-homepage-22000-wordpress.html`。確定条件は、7セクションのプレーンなLP・HPが22,000円（税込）から、拡張とメール到達設定は別料金。
+> 価格条件が古いため、このファイルから記事を作らないこと。最新版は `docs/blog-posts/04-homepage-20000-yen/04-homepage-20000-yen-source.md` と `04-homepage-22000-wordpress.html`。確定条件は、7セクションのプレーンなLP・HPが20,000円（税込）から、拡張とメール到達設定は別料金。
 
 # 記事4本目:ホームページは2万円で作れるのか(旧WordPress投稿用原稿)
 
