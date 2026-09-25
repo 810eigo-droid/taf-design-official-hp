@@ -200,3 +200,10 @@ git push origin main
 記事04：ユーザー提供HTMLを税込20,000円へ改訂し目次追加。本文内の旧価格画像はHTML図解へ置換。WPのアイキャッチ・OG差し替えと公開確認は未完了。
 
 記事04の理由図解：ユーザー提供のアップロード済みURL https://taf-design.com/wp-content/uploads/2026/09/04-homepage-20000-reason.webp を本文へ反映。代替HTML図解を画像に置換。アイキャッチ・OGは別画像のため未更新。WP公開未確認。
+
+## 2026-09-26 HPブログ自動表示
+
+- [x] HP下部に最新3件と全記事一覧を作成。プラグイン追加不要。
+- [x] 公開済み5記事をREST APIで確認・台帳JSONへ記録。
+- [ ] 本番へ配布版4ファイルを反映し、PC・スマホを確認。
+- 詳細: [反映手順](docs/blog-workflow/homepage-blog-feed.md)。本番HPとGitトップに差分があるため配布版は本番取得HTMLを使用。
