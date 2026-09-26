@@ -73,37 +73,57 @@
   const topicLabels = {"1291": "会員サイトを始めたい", "1183": "2万円でHPを作れる理由", "1131": "メールの迷惑メール率を確認したい", "1041": "無料でメルマガを始めたい", "1019": "フォームのメールが届かない"};
   document.querySelectorAll('[data-blog-topics]').forEach(async list => {
     const notice = list.parentElement.querySelector('[data-topics-status]');
-    const collected = new Map();
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 30000);
-    try {
-      let page = 1;
-      while (true) {
-        const url = new URL('/wp-json/wp/v2/posts', origin);
-        url.search = new URLSearchParams({per_page:'100',page:String(page),status:'publish',orderby:'date',order:'desc',_fields:'id,link,title'}).toString();
+    async function allPages(endpoint, fields) {
+      const items = new Map();
+      for (let page = 1; ; page++) {
+        const url = new URL('/wp-json/wp/v2/' + endpoint, origin);
+        const params = {per_page:'100',page:String(page),_fields:fields};
+        if (endpoint === 'posts') Object.assign(params,{status:'publish',orderby:'date',order:'desc'});
+        else params.hide_empty = 'true';
+        url.search = new URLSearchParams(params).toString();
         const response = await fetch(url,{signal:controller.signal,credentials:'omit'});
         if (!response.ok) throw new Error('Topics unavailable');
-        const posts = await response.json();
-        if (!Array.isArray(posts)) throw new Error('Invalid topics');
-        posts.forEach(post => { if (safeUrl(post.link)) collected.set(post.id,post); });
+        const rows = await response.json();
+        if (!Array.isArray(rows)) throw new Error('Invalid topics');
+        rows.forEach(row => items.set(row.id,row));
         const pages = Number(response.headers.get('X-WP-TotalPages'));
-        if (pages > 0 ? page >= pages : posts.length < 100) break;
-        page += 1;
+        if (pages > 0 ? page >= pages : rows.length < 100) break;
       }
+      return [...items.values()];
+    }
+    try {
+      const [posts,categories] = await Promise.all([
+        allPages('posts','id,link,title,categories'),allPages('categories','id,name')
+      ]);
+      const names = new Map(categories.map(c => [c.id,plainText(c.name)]));
+      const groups = new Map();
+      posts.forEach(post => {
+        if (!safeUrl(post.link)) return;
+        const ids = Array.isArray(post.categories) && post.categories.length ? [...new Set(post.categories)] : [0];
+        ids.forEach(id => {
+          if (!groups.has(id)) groups.set(id,[]);
+          groups.get(id).push(post);
+        });
+      });
       const fragment = document.createDocumentFragment();
-      collected.forEach(post => {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = safeUrl(post.link);
-        a.textContent = topicLabels[post.id] || plainText(post.title?.rendered) || '記事を読む';
-        const arrow = document.createElement('span'); arrow.textContent = ' →'; arrow.setAttribute('aria-hidden','true');
-        a.append(arrow); li.append(a); fragment.append(li);
+      groups.forEach((posts,id) => {
+        const section = document.createElement('section'); section.className = 'taf-topic-group';
+        const heading = document.createElement('h4'); heading.textContent = names.get(id) || 'その他の記事';
+        const ul = document.createElement('ul');
+        posts.forEach(post => {
+          const li = document.createElement('li'); const a = document.createElement('a');
+          a.href = safeUrl(post.link); a.textContent = topicLabels[post.id] || plainText(post.title?.rendered) || '記事を読む';
+          const arrow = document.createElement('span'); arrow.textContent = ' →'; arrow.setAttribute('aria-hidden','true');
+          a.append(arrow); li.append(a); ul.append(li);
+        });
+        section.append(heading,ul); fragment.append(section);
       });
       list.replaceChildren(fragment);
-      notice.textContent = collected.size ? '' : '公開記事はまだありません。';
+      notice.textContent = groups.size ? '' : '公開記事はまだありません。';
     } catch (_) {
       notice.textContent = '最新の一覧を取得できませんでした。表示中の項目から記事を読めます。';
     } finally { clearTimeout(timeout); }
   });
-
 })();
