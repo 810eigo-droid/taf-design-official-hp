@@ -68,3 +68,10 @@
 ## 本番確認 2026-09-26（以前の未確認表記より本節を優先）
 
 01〜05の5記事が公開済み。06は未投稿。実URL・公開日時は [公開台帳](../blog-workflow/published-posts.json) を参照。05は日本語URLで公開されているため推奨スラッグへの変更はしない。04のタイトルは2万円、アイキャッチも新画像になっていることをAPIで確認。本文全体の再監査は未実施。
+
+## 2026-09-26 記事04・無料URL公開の追記
+正本: docs/blog-posts/04-homepage-20000-yen/04-homepage-22000-wordpress.html。
+HTML版限定で初回設置3,300円（税込）、制作20,000円からと合わせて23,300円（税込）から。無料URLと公開スペースは無料プラン条件内で月額0円。お客様名義のアカウントを利用。WordPress版は対象外。独自ドメイン費・追加修正等は別途。
+冒頭・料金表・新章・目次・FAQ・まとめを同期。公開日は2026-08-13のまま、APIで確認済みの時刻にJSON-LDを合わせた。既存URLは変更しない。WPへの反映は未実施。
+永続無料の保証と誤解されないよう「無料プランの条件内で月額0円」と表記。技術名は本文には出さない。
+確認資料: https://developers.cloudflare.com/pages/platform/limits/ および https://developers.cloudflare.com/pages/framework-guides/deploy-anything/ （2026-09-26確認）。無料公開条件と付属URLを確認。
