@@ -14,7 +14,7 @@
     const grid = root.querySelector('.taf-blog-grid');
     const status = root.querySelector('.taf-blog-status');
     const more = root.querySelector('[data-blog-more]');
-    const limit = root.dataset.tafBlog === 'archive' ? 6 : 3;
+    const limit = 6;
     let page = 1;
     let busy = false;
     const seen = new Set();

@@ -4,7 +4,10 @@
 <title>ブログ・お役立ち情報 | TAF Design</title>
 <meta name="description" content="TAF Designのブログ一覧。ホームページ制作、会員サイト、メール設定など、事業のWeb活用に役立つ記事をご紹介します。">
 <link rel="canonical" href="https://taf-design.com/articles/">
-<link rel="stylesheet" href="/css/blog-feed.css"><script src="/js/blog-feed.js" defer></script>
+<style id="taf-blog-styles">
+.taf-blog{max-width:1040px;margin:0 auto;padding:64px 24px;color:#173746;font-family:inherit;line-height:1.75;background:#fff}.taf-blog *{box-sizing:border-box}.taf-blog h2{font-size:clamp(24px,4vw,34px);margin:0 0 12px;color:#173746}.taf-blog-intro{margin:0 0 28px;color:#53636b}.taf-blog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.taf-blog-card{display:block;border:1px solid #dce5e5;border-radius:14px;overflow:hidden;background:#fff;color:#173746!important;text-decoration:none!important;transition:box-shadow .2s}.taf-blog-card:hover{box-shadow:0 8px 24px #17374618}.taf-blog-card:focus-visible,.taf-blog a:focus-visible,.taf-blog button:focus-visible{outline:3px solid #177c7a;outline-offset:4px}.taf-blog-card img{width:100%;aspect-ratio:16/9;height:auto;max-width:100%;object-fit:contain;background:#f3f6f5;display:block}.taf-blog-card-body{padding:16px}.taf-blog-card time{font-size:13px;color:#56666d}.taf-blog-card h3{font-size:18px;line-height:1.65;margin:8px 0 0;color:#173746}.taf-blog-actions{text-align:center;margin-top:30px}.taf-blog-button{display:inline-block;padding:13px 25px;border:1px solid #176b6d;border-radius:8px;background:#176b6d;color:white!important;text-decoration:none!important;font:inherit;cursor:pointer}.taf-blog-button:disabled{opacity:.6;cursor:wait}.taf-blog-status{color:#53636b;font-size:14px}.taf-blog [hidden]{display:none!important}@media(max-width:760px){.taf-blog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.taf-blog{padding:36px 12px}.taf-blog-card-body{padding:12px}.taf-blog-card h3{font-size:14px;overflow-wrap:anywhere}.taf-blog-card time{font-size:11px}}
+
+</style>
 <style>body{margin:0;font-family:system-ui,sans-serif;background:#f7faf9}header,footer{max-width:1092px;margin:auto;padding:24px;color:#173746}header a,footer a{color:#176b6d}h1{font-size:clamp(26px,5vw,38px)}</style>
 </head><body><header><a href="/">TAF Design トップへ</a></header><main><section class="taf-blog" id="blog" data-taf-blog="archive" aria-labelledby="blog-title">
 <h1 id="blog-title">ブログ・お役立ち情報</h1>
@@ -15,4 +18,78 @@
 <a class="taf-blog-card" href="https://taf-design.com/mailpoet-brevo-setup/"><img src="https://taf-design.com/wp-content/uploads/2026/07/02-mailpoet-brevo-eyecatch.png" alt="" loading="lazy" decoding="async"><div class="taf-blog-card-body"><time datetime="2026-07-23">2026.07.23</time><h3>WordPressで無料メルマガを始める|MailPoet×Brevoの設定手順(1日300通まで0円)</h3></div></a>
 <a class="taf-blog-card" href="https://taf-design.com/form-mail-todokanai/"><img src="https://taf-design.com/wp-content/uploads/2026/07/form-mail-eyecatch.png" alt="" loading="lazy" decoding="async"><div class="taf-blog-card-body"><time datetime="2026-07-23">2026.07.23</time><h3>お問い合わせフォームのメールが届かない?エックスサーバーで無料でできる3つの設定</h3></div></a></div>
 <p class="taf-blog-status" role="status"></p><div class="taf-blog-actions"><button type="button" class="taf-blog-button" data-blog-more hidden>さらに記事を見る</button></div></section>
-</main><footer><a href="/offer2/">制作のご相談はこちら</a><p>TAF Design</p></footer></body></html>
+</main><footer><a href="/offer2/">制作のご相談はこちら</a><p>TAF Design</p></footer><script>
+(() => {
+  'use strict';
+  const origin = 'https://taf-design.com';
+  const plainText = value => {
+    const doc = new DOMParser().parseFromString(String(value || ''), 'text/html');
+    return doc.body.textContent || '';
+  };
+  const safeUrl = value => {
+    if (!value) return null;
+    try { const url = new URL(value, origin); return url.origin === origin && url.protocol === 'https:' ? url.href : null; }
+    catch (_) { return null; }
+  };
+  document.querySelectorAll('[data-taf-blog]').forEach(root => {
+    const grid = root.querySelector('.taf-blog-grid');
+    const status = root.querySelector('.taf-blog-status');
+    const more = root.querySelector('[data-blog-more]');
+    const limit = 6;
+    let page = 1;
+    let busy = false;
+    const seen = new Set();
+    async function load() {
+      if (busy) return;
+      busy = true;
+      if (more) more.disabled = true;
+      root.setAttribute('aria-busy', 'true');
+      status.textContent = '記事を読み込んでいます…';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 12000);
+      try {
+        const url = new URL('/wp-json/wp/v2/posts', origin);
+        url.search = new URLSearchParams({per_page: String(limit), page: String(page), status: 'publish', orderby: 'date', order: 'desc', _embed: 'wp:featuredmedia', _fields: 'id,date,link,title,_links,_embedded'}).toString();
+        const response = await fetch(url, {signal: controller.signal, credentials: 'omit'});
+        if (!response.ok) throw new Error('Unable to load posts');
+        const posts = await response.json();
+        if (!Array.isArray(posts)) throw new Error('Invalid response');
+        const fragment = document.createDocumentFragment();
+        posts.forEach(post => {
+          const href = safeUrl(post.link);
+          if (!href || seen.has(post.id)) return;
+          seen.add(post.id);
+          const card = document.createElement('a');
+          card.className = 'taf-blog-card'; card.href = href;
+          const media = post._embedded?.['wp:featuredmedia']?.[0];
+          const src = safeUrl(media?.media_details?.sizes?.medium_large?.source_url || media?.source_url || '');
+          if (src && media) {
+            const img = document.createElement('img'); img.src = src; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+            img.addEventListener('error', () => img.remove(), {once:true}); card.append(img);
+          }
+          const body = document.createElement('div'); body.className = 'taf-blog-card-body';
+          if (/^\d{4}-\d{2}-\d{2}/.test(post.date || '')) {
+            const time = document.createElement('time'); time.dateTime = post.date.slice(0,10); time.textContent = post.date.slice(0,10).replaceAll('-', '.'); body.append(time);
+          }
+          const heading = document.createElement('h3'); heading.textContent = plainText(post.title?.rendered) || '記事を読む'; body.append(heading); card.append(body); fragment.append(card);
+        });
+        if (page === 1) grid.replaceChildren();
+        grid.append(fragment);
+        status.textContent = seen.size ? '' : '公開記事はまだありません。';
+        const totalPages = Number(response.headers.get('X-WP-TotalPages'));
+        if (more) { more.hidden = totalPages > 0 ? page >= totalPages : posts.length < limit; more.textContent = 'さらに記事を見る'; }
+        page += 1;
+      } catch (_) {
+        status.textContent = grid.children.length ? '最新情報を取得できませんでした。表示中の記事はそのまま読めます。' : '記事を取得できませんでした。時間をおいて再度お試しください。';
+        if (more) { more.hidden = false; more.textContent = '再読み込み'; }
+      } finally {
+        clearTimeout(timeout); busy = false; root.removeAttribute('aria-busy'); if (more) more.disabled = false;
+      }
+    }
+    if (more) more.addEventListener('click', load);
+    load();
+  });
+})();
+
+</script>
+</body></html>
