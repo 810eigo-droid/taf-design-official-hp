@@ -482,6 +482,7 @@ html { scroll-padding-top: 64px; }
 <style id="taf-blog-styles">
 .taf-blog{max-width:1040px;margin:0 auto;padding:64px 24px;color:#173746;font-family:inherit;line-height:1.75;background:#fff}.taf-blog *{box-sizing:border-box}.taf-blog h2{font-size:clamp(24px,4vw,34px);margin:0 0 12px;color:#173746}.taf-blog-intro{margin:0 0 28px;color:#53636b}.taf-blog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.taf-blog-card{display:block;border:1px solid #dce5e5;border-radius:14px;overflow:hidden;background:#fff;color:#173746!important;text-decoration:none!important;transition:box-shadow .2s}.taf-blog-card:hover{box-shadow:0 8px 24px #17374618}.taf-blog-card:focus-visible,.taf-blog a:focus-visible,.taf-blog button:focus-visible{outline:3px solid #177c7a;outline-offset:4px}.taf-blog-card img{width:100%;aspect-ratio:16/9;height:auto;max-width:100%;object-fit:contain;background:#f3f6f5;display:block}.taf-blog-card-body{padding:16px}.taf-blog-card time{font-size:13px;color:#56666d}.taf-blog-card h3{font-size:18px;line-height:1.65;margin:8px 0 0;color:#173746}.taf-blog-actions{text-align:center;margin-top:30px}.taf-blog-button{display:inline-block;padding:13px 25px;border:1px solid #176b6d;border-radius:8px;background:#176b6d;color:white!important;text-decoration:none!important;font:inherit;cursor:pointer}.taf-blog-button:disabled{opacity:.6;cursor:wait}.taf-blog-status{color:#53636b;font-size:14px}.taf-blog [hidden]{display:none!important}@media(max-width:760px){.taf-blog-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.taf-blog{padding:36px 12px}.taf-blog-card-body{padding:12px}.taf-blog-card h3{font-size:14px;overflow-wrap:anywhere}.taf-blog-card time{font-size:11px}}
 
+.taf-blog-topics{margin-top:36px;padding-top:28px;border-top:1px solid #dce5e5}.taf-blog-topics h3{font-size:22px;margin:0 0 18px;color:#173746}.taf-blog-topics ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.taf-blog-topics li{margin:0;min-width:0}.taf-blog-topics a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:14px 18px;background:#f3f7f6;border:1px solid #dce5e5;border-radius:8px;color:#173746!important;text-decoration:none!important;line-height:1.6}.taf-blog-topics a:hover{background:#e4efed}.taf-blog-topics a span{color:#176b6d;flex-shrink:0}@media(max-width:760px){.taf-blog-topics ul{grid-template-columns:1fr}.taf-blog-topics h3{font-size:20px}.taf-blog-topics a{font-size:15px}}
 </style>
 
 </head>
@@ -1047,6 +1048,44 @@ html { scroll-padding-top: 64px; }
     if (more) more.addEventListener('click', load);
     load();
   });
+
+  // Short labels are editorial; new posts use their title until a label is added.
+  const topicLabels = {"1291": "会員サイトを始めたい", "1183": "2万円でHPを作れる理由", "1131": "メールの迷惑メール率を確認したい", "1041": "無料でメルマガを始めたい", "1019": "フォームのメールが届かない"};
+  document.querySelectorAll('[data-blog-topics]').forEach(async list => {
+    const notice = list.parentElement.querySelector('[data-topics-status]');
+    const collected = new Map();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    try {
+      let page = 1;
+      while (true) {
+        const url = new URL('/wp-json/wp/v2/posts', origin);
+        url.search = new URLSearchParams({per_page:'100',page:String(page),status:'publish',orderby:'date',order:'desc',_fields:'id,link,title'}).toString();
+        const response = await fetch(url,{signal:controller.signal,credentials:'omit'});
+        if (!response.ok) throw new Error('Topics unavailable');
+        const posts = await response.json();
+        if (!Array.isArray(posts)) throw new Error('Invalid topics');
+        posts.forEach(post => { if (safeUrl(post.link)) collected.set(post.id,post); });
+        const pages = Number(response.headers.get('X-WP-TotalPages'));
+        if (pages > 0 ? page >= pages : posts.length < 100) break;
+        page += 1;
+      }
+      const fragment = document.createDocumentFragment();
+      collected.forEach(post => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = safeUrl(post.link);
+        a.textContent = topicLabels[post.id] || plainText(post.title?.rendered) || '記事を読む';
+        const arrow = document.createElement('span'); arrow.textContent = ' →'; arrow.setAttribute('aria-hidden','true');
+        a.append(arrow); li.append(a); fragment.append(li);
+      });
+      list.replaceChildren(fragment);
+      notice.textContent = collected.size ? '' : '公開記事はまだありません。';
+    } catch (_) {
+      notice.textContent = '最新の一覧を取得できませんでした。表示中の項目から記事を読めます。';
+    } finally { clearTimeout(timeout); }
+  });
+
 })();
 
 </script>
@@ -3439,7 +3478,7 @@ html { scroll-padding-top: 64px; }
 <a class="taf-blog-card" href="https://taf-design.com/postmaster-tools-guide/"><img src="https://taf-design.com/wp-content/uploads/2026/08/postmaster-tools-1.webp" alt="" loading="lazy" decoding="async"><div class="taf-blog-card-body"><time datetime="2026-08-03">2026.08.03</time><h3>Google Postmaster Toolsの登録方法と見方｜独自ドメインの迷惑メール率を無料で確認</h3></div></a>
 <a class="taf-blog-card" href="https://taf-design.com/mailpoet-brevo-setup/"><img src="https://taf-design.com/wp-content/uploads/2026/07/02-mailpoet-brevo-eyecatch.png" alt="" loading="lazy" decoding="async"><div class="taf-blog-card-body"><time datetime="2026-07-23">2026.07.23</time><h3>WordPressで無料メルマガを始める|MailPoet×Brevoの設定手順(1日300通まで0円)</h3></div></a>
 <a class="taf-blog-card" href="https://taf-design.com/form-mail-todokanai/"><img src="https://taf-design.com/wp-content/uploads/2026/07/form-mail-eyecatch.png" alt="" loading="lazy" decoding="async"><div class="taf-blog-card-body"><time datetime="2026-07-23">2026.07.23</time><h3>お問い合わせフォームのメールが届かない?エックスサーバーで無料でできる3つの設定</h3></div></a></div>
-<p class="taf-blog-status" role="status"></p><div class="taf-blog-actions"><a class="taf-blog-button" href="/articles/">すべての記事を見る</a></div></section>
+<p class="taf-blog-status" role="status"></p><nav class="taf-blog-topics" aria-labelledby="blog-topics-title"><h3 id="blog-topics-title">知りたいことから探す</h3><ul data-blog-topics><li><a href="https://taf-design.com/%e4%bc%9a%e5%93%a1%e3%82%b5%e3%82%a4%e3%83%88%e3%82%92%e4%bd%9c%e3%82%8b%e5%89%8d%e3%81%ab%e6%b1%ba%e3%82%81%e3%81%9f%e3%81%845%e3%81%a4%e3%81%ae%e3%81%93%e3%81%a8%ef%bd%9c%e8%ac%9b%e5%ba%a7%e3%83%bb/">会員サイトを始めたい<span aria-hidden="true"> →</span></a></li><li><a href="https://taf-design.com/homepage-22000-yen/">2万円でHPを作れる理由<span aria-hidden="true"> →</span></a></li><li><a href="https://taf-design.com/postmaster-tools-guide/">メールの迷惑メール率を確認したい<span aria-hidden="true"> →</span></a></li><li><a href="https://taf-design.com/mailpoet-brevo-setup/">無料でメルマガを始めたい<span aria-hidden="true"> →</span></a></li><li><a href="https://taf-design.com/form-mail-todokanai/">フォームのメールが届かない<span aria-hidden="true"> →</span></a></li></ul><p class="taf-blog-status" data-topics-status role="status"></p></nav><div class="taf-blog-actions"><a class="taf-blog-button" href="articles/">すべての記事を見る</a></div></section>
 <!-- ====== フッター(サイトマップ版) ====== -->
 <footer class="footer-mobile" id="footer-sm">
 
@@ -3655,6 +3694,44 @@ html { scroll-padding-top: 64px; }
     if (more) more.addEventListener('click', load);
     load();
   });
+
+  // Short labels are editorial; new posts use their title until a label is added.
+  const topicLabels = {"1291": "会員サイトを始めたい", "1183": "2万円でHPを作れる理由", "1131": "メールの迷惑メール率を確認したい", "1041": "無料でメルマガを始めたい", "1019": "フォームのメールが届かない"};
+  document.querySelectorAll('[data-blog-topics]').forEach(async list => {
+    const notice = list.parentElement.querySelector('[data-topics-status]');
+    const collected = new Map();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    try {
+      let page = 1;
+      while (true) {
+        const url = new URL('/wp-json/wp/v2/posts', origin);
+        url.search = new URLSearchParams({per_page:'100',page:String(page),status:'publish',orderby:'date',order:'desc',_fields:'id,link,title'}).toString();
+        const response = await fetch(url,{signal:controller.signal,credentials:'omit'});
+        if (!response.ok) throw new Error('Topics unavailable');
+        const posts = await response.json();
+        if (!Array.isArray(posts)) throw new Error('Invalid topics');
+        posts.forEach(post => { if (safeUrl(post.link)) collected.set(post.id,post); });
+        const pages = Number(response.headers.get('X-WP-TotalPages'));
+        if (pages > 0 ? page >= pages : posts.length < 100) break;
+        page += 1;
+      }
+      const fragment = document.createDocumentFragment();
+      collected.forEach(post => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = safeUrl(post.link);
+        a.textContent = topicLabels[post.id] || plainText(post.title?.rendered) || '記事を読む';
+        const arrow = document.createElement('span'); arrow.textContent = ' →'; arrow.setAttribute('aria-hidden','true');
+        a.append(arrow); li.append(a); fragment.append(li);
+      });
+      list.replaceChildren(fragment);
+      notice.textContent = collected.size ? '' : '公開記事はまだありません。';
+    } catch (_) {
+      notice.textContent = '最新の一覧を取得できませんでした。表示中の項目から記事を読めます。';
+    } finally { clearTimeout(timeout); }
+  });
+
 })();
 
 </script>
