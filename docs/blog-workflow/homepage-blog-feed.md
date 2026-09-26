@@ -24,3 +24,6 @@ Gitのroot index.htmlにはGitHub Pagesのnoindex設定があるため、本番�
 ## 知りたいことから探す（2026-09-26追加）
 画像は最新6件、その下に全公開記事へのタイトルリンクを表示。既存5記事は内容に合う短いラベルを指定（Postmaster記事は迷惑メール率の確認）。新記事は公開時に投稿タイトルで自動追加される。短い専用ラベルを付ける場合は js/blog-feed.js のtopicLabelsとHTML内蔵版を同期。APIは100件ずつ全ページ取得し、成功時のみ一覧を更新。通信失敗時は既存リンクを維持。PCはタイトル一覧2列・スマホ1列（画像カードは3列・2列のまま）。本番反映は未実施。
 アップロードするHPは配布フォルダ直下のindex.html。一覧ページ用はarticles/index.html。両者を取り違えないこと。
+
+## 正本の統一（2026-09-26・以前の案内より優先）
+ユーザー指定でリポジトリ直下index.htmlを最新本番HTMLへ統一。直下index.htmlをそのままpublic_html/index.htmlへアップロード可能。GitHubホストだけ既存スクリプトでnoindex。旧docs/wp-blocks版は作業控え。

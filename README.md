@@ -1,3 +1,12 @@
+## HP本体の最新版（2026-09-26・この案内を優先）
+
+**リポジトリ直下の [index.html](index.html) が本番アップロード用の正本です。**
+ダウンロードして `public_html/index.html` へ反映してください。
+最新6件の画像カードと「知りたいことから探す」を含みます。
+GitHub確認用ホストだけ検索除外。本番に静的noindexはありません。
+`docs/wp-blocks/homepage-live-blog-update.html` は旧作業控えです。今後HPを編集する際は直下index.htmlを更新してください。
+以下の過去記録にある「Git直下を本番に転送しない」は撤回します。
+
 # TAF Design 司令塔README(統合リポジトリ)
 
 追加です
